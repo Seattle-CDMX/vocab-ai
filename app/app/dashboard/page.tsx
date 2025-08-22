@@ -165,9 +165,9 @@ export default function Dashboard() {
               className="flex items-center gap-2"
             >
               <Brain className="w-5 h-5" />
-              PhrasalMaster
+              VocabAi.CC
             </Button>
-            <h1 className="text-3xl font-bold text-foreground">Dashboard</h1>
+            <h1 className="text-3xl font-bold text-foreground">Phrasal Verb Dashboard</h1>
           </div>
           
           <div className="flex gap-3">
@@ -184,7 +184,7 @@ export default function Dashboard() {
         <div className="grid grid-cols-3 gap-4 mb-8">
           <Card className="p-6 text-center">
             <div className="text-3xl font-bold text-primary mb-2">{stats.total}</div>
-            <div className="text-sm text-muted-foreground">Total Verbs</div>
+            <div className="text-sm text-muted-foreground">Total Phrasal Verbs</div>
           </Card>
           <Card className="p-6 text-center">
             <div className="text-3xl font-bold text-green-600 mb-2">{stats.unlocked}</div>
