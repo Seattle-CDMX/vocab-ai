@@ -32,30 +32,23 @@ const VoiceCard = ({ voiceCard, onAnswer, onReset }: VoiceCardProps) => {
       console.log('🎯 [VoiceCard] Connecting to LiveKit for voice card practice:', voiceCard.title);
       console.log('🎯 [VoiceCard] Voice card data to be sent:', voiceCard);
       
-      const resp = await fetch(`/api/token?room=${roomName}&username=${userName}`);
+      // Encode voice card data for URL transmission
+      const encodedVoiceCardData = encodeURIComponent(JSON.stringify(voiceCard));
+      const resp = await fetch(`/api/token?room=${roomName}&username=${userName}&voiceCardData=${encodedVoiceCardData}`);
       const data = await resp.json();
       
       if (data.token) {
-        console.log('🎯 [VoiceCard] Token received, connecting to room:', roomName);
+        console.log('🎯 [VoiceCard] Token received with voice card data embedded, connecting to room:', roomName);
         await roomInstance.connect(process.env.NEXT_PUBLIC_LIVEKIT_URL!, data.token);
         console.log('🎯 [VoiceCard] Connected to LiveKit room successfully');
-        
-        // Set participant attributes with voice card data for the agent
-        const voiceCardJson = JSON.stringify(voiceCard);
-        console.log('🎯 [VoiceCard] Setting participant attributes with voice card data...');
-        console.log('🎯 [VoiceCard] Voice card JSON being sent:', voiceCardJson);
-        
-        await roomInstance.localParticipant.setAttributes({
-          voice_card_data: voiceCardJson
-        });
-        console.log('🎯 [VoiceCard] Participant attributes set successfully');
+        console.log('🎯 [VoiceCard] Voice card data was passed via token metadata - no need to set attributes');
         
         // Enable microphone for user responses
         await roomInstance.localParticipant.enableCameraAndMicrophone();
         console.log('🎯 [VoiceCard] Microphone enabled');
         
         setIsConnected(true);
-        console.log('🎯 [VoiceCard] ✅ COMPLETE: Connected to LiveKit with voice card data sent for:', voiceCard.targetPhrasalVerb.verb);
+        console.log('🎯 [VoiceCard] ✅ COMPLETE: Connected to LiveKit with voice card data embedded in token for:', voiceCard.targetPhrasalVerb.verb);
       } else {
         console.error('Failed to get token:', data.error);
       }

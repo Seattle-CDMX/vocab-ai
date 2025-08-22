@@ -13,9 +13,15 @@ def process_participant_voice_card_data(participant, session: AgentSession):
     logger.info(f"🎯 [Agent] Processing participant: {participant.identity}")
     logger.info(f"🎯 [Agent] All participant attributes: {participant.attributes}")
 
-    # Get voice card data from participant attributes
-    voice_card_json = participant.attributes.get("voice_card_data")
-    logger.info(f"🎯 [Agent] Voice card JSON received: {voice_card_json}")
+    # First try to get voice card data from token metadata (new approach)
+    voice_card_json = None
+    if hasattr(participant, 'metadata') and participant.metadata:
+        voice_card_json = participant.metadata
+        logger.info(f"🎯 [Agent] Voice card JSON from token metadata: {voice_card_json}")
+    else:
+        # Fallback to participant attributes (old approach)
+        voice_card_json = participant.attributes.get("voice_card_data")
+        logger.info(f"🎯 [Agent] Voice card JSON from attributes (fallback): {voice_card_json}")
 
     session_info = session.userdata
 
@@ -48,11 +54,11 @@ def process_participant_voice_card_data(participant, session: AgentSession):
                 session.userdata = session_info
 
             logger.info(
-                f"🎯 [Agent] ✅ COMPLETE: Updated session with voice card data for: {verb}"
+                f"🎯 [Agent] ✅ COMPLETE: Updated session with voice card data for: {verb} (source: {'token metadata' if hasattr(participant, 'metadata') and participant.metadata else 'participant attributes'})"
             )
 
             # Now start the conversation with the voice card data
-            instructions = f"""The TARGET LEXICAL ITEM IS '{target_item.phrase}'. This phrasal verb has {target_item.total_senses} different meanings. 
+            instructions = f"""The TARGET LEXICAL ITEM IS '{target_item.phrase}'. This phrasal verb has {target_item.total_senses} different meanings.
 
 Ask the user to explain what this phrasal verb means. When they explain a meaning, determine which of the {target_item.total_senses} senses they are explaining and whether it's correct.
 
@@ -92,10 +98,13 @@ The {target_item.total_senses} senses are:
             )
     else:
         logger.warning(
-            "🎯 [Agent] ❌ No voice card data found in participant attributes"
+            "🎯 [Agent] ❌ No voice card data found in token metadata or participant attributes"
         )
         logger.warning(
             f"🎯 [Agent] Available attribute keys: {list(participant.attributes.keys())}"
+        )
+        logger.warning(
+            f"🎯 [Agent] Participant metadata: {getattr(participant, 'metadata', 'None')}"
         )
         # Fallback: create a simple target item
         fallback_data = [

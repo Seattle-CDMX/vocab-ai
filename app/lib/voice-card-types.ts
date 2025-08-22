@@ -42,6 +42,9 @@ export async function loadVoiceCardTypes(): Promise<VoiceCardTypesData> {
       throw new Error(`Failed to load voice card types: ${response.statusText}`);
     }
     voiceCardData = await response.json();
+    if (!voiceCardData) {
+      throw new Error('Failed to parse voice card data');
+    }
     return voiceCardData;
   } catch (error) {
     console.error('Error loading voice card types:', error);
