@@ -1,0 +1,121 @@
+{
+  "voiceCardTypes": [
+    {
+      "id": "native-explain-get-along-with",
+      "type": "native_explain",
+      "title": "Explain: GET ALONG WITH",
+      "difficulty": "intermediate",
+      "targetPhrasalVerb": {
+        "verb": "GET ALONG WITH",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "To have a good relationship with someone",
+            "examples": [
+              "She gets along with her coworkers very well.",
+              "I don't get along with my neighbor."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "native-explain-break-down",
+      "type": "native_explain",
+      "title": "Explain: BREAK DOWN",
+      "difficulty": "beginner",
+      "targetPhrasalVerb": {
+        "verb": "BREAK DOWN",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "To stop working (machines, vehicles)",
+            "examples": [
+              "My car broke down on the highway.",
+              "The printer broke down again."
+            ]
+          },
+          {
+            "senseNumber": 2,
+            "definition": "To lose control emotionally",
+            "examples": [
+              "She broke down crying during the movie.",
+              "He broke down under pressure."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "native-explain-put-off",
+      "type": "native_explain", 
+      "title": "Explain: PUT OFF",
+      "difficulty": "beginner",
+      "targetPhrasalVerb": {
+        "verb": "PUT OFF",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "To postpone or delay something",
+            "examples": [
+              "I decided to put off the meeting until next week.",
+              "Don't put off your homework any longer."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "native-explain-run-into", 
+      "type": "native_explain",
+      "title": "Explain: RUN INTO",
+      "difficulty": "intermediate",
+      "targetPhrasalVerb": {
+        "verb": "RUN INTO",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "To meet someone unexpectedly",
+            "examples": [
+              "I ran into my old teacher at the grocery store.",
+              "We ran into some friends at the concert."
+            ]
+          },
+          {
+            "senseNumber": 2,
+            "definition": "To encounter a problem",
+            "examples": [
+              "We ran into some technical difficulties.",
+              "The project ran into budget issues."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "native-explain-come-up-with",
+      "type": "native_explain",
+      "title": "Explain: COME UP WITH", 
+      "difficulty": "advanced",
+      "targetPhrasalVerb": {
+        "verb": "COME UP WITH",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "To think of an idea or solution",
+            "examples": [
+              "We need to come up with a better plan for the project.",
+              "She came up with a brilliant solution to the problem."
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "version": "1.0",
+    "totalCards": 5,
+    "supportedTypes": ["native_explain"],
+    "defaultType": "native_explain"
+  }
+}

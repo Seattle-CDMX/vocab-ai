@@ -7,22 +7,15 @@ import { Mic, MicOff } from "lucide-react";
 import { Room } from 'livekit-client';
 import { RoomAudioRenderer, StartAudio, RoomContext } from '@livekit/components-react';
 import '@livekit/components-styles';
-
-interface PhrasalVerb {
-  id: string;
-  phrasal: string;
-  definition: string;
-  example: string;
-  difficulty: "beginner" | "intermediate" | "advanced";
-}
+import { VoiceCard as VoiceCardType } from '@/lib/voice-card-types';
 
 interface VoiceCardProps {
-  phrasal: PhrasalVerb;
+  voiceCard: VoiceCardType;
   onAnswer: (correct: boolean) => void;
   onReset?: () => void;
 }
 
-const VoiceCard = ({ phrasal, onAnswer, onReset }: VoiceCardProps) => {
+const VoiceCard = ({ voiceCard, onAnswer, onReset }: VoiceCardProps) => {
   const [isConnected, setIsConnected] = useState(false);
   const [isConnecting, setIsConnecting] = useState(false);
   const [roomInstance] = useState(() => new Room());
@@ -32,23 +25,30 @@ const VoiceCard = ({ phrasal, onAnswer, onReset }: VoiceCardProps) => {
     
     setIsConnecting(true);
     try {
-      // Generate a unique room name for this phrasal verb practice session
-      const roomName = `vocab-practice-${phrasal.id}-${Date.now()}`;
+      // Generate a unique room name for this voice card practice session
+      const roomName = `vocab-practice-${voiceCard.id}-${Date.now()}`;
       const userName = `student-${Date.now()}`;
       
-      console.log('Connecting to LiveKit for phrasal verb practice:', phrasal.phrasal);
+      console.log('🎯 [VoiceCard] Connecting to LiveKit for voice card practice:', voiceCard.title);
+      console.log('🎯 [VoiceCard] Voice card data to be sent:', voiceCard);
       
-      const resp = await fetch(`/api/token?room=${roomName}&username=${userName}`);
+      // Encode voice card data for URL transmission
+      const encodedVoiceCardData = encodeURIComponent(JSON.stringify(voiceCard));
+      const resp = await fetch(`/api/token?room=${roomName}&username=${userName}&voiceCardData=${encodedVoiceCardData}`);
       const data = await resp.json();
       
       if (data.token) {
+        console.log('🎯 [VoiceCard] Token received with voice card data embedded, connecting to room:', roomName);
         await roomInstance.connect(process.env.NEXT_PUBLIC_LIVEKIT_URL!, data.token);
+        console.log('🎯 [VoiceCard] Connected to LiveKit room successfully');
+        console.log('🎯 [VoiceCard] Voice card data was passed via token metadata - no need to set attributes');
         
         // Enable microphone for user responses
         await roomInstance.localParticipant.enableCameraAndMicrophone();
+        console.log('🎯 [VoiceCard] Microphone enabled');
         
         setIsConnected(true);
-        console.log('Connected to LiveKit for vocab practice with microphone enabled');
+        console.log('🎯 [VoiceCard] ✅ COMPLETE: Connected to LiveKit with voice card data embedded in token for:', voiceCard.targetPhrasalVerb.verb);
       } else {
         console.error('Failed to get token:', data.error);
       }
@@ -80,7 +80,7 @@ const VoiceCard = ({ phrasal, onAnswer, onReset }: VoiceCardProps) => {
   return (
     <Card className="max-w-2xl mx-auto">
       <CardHeader>
-        <CardTitle>Meaning (Español) — {phrasal.phrasal}</CardTitle>
+        <CardTitle>Meaning (Español) — {voiceCard.targetPhrasalVerb.verb}</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="text-sm text-muted-foreground space-y-2 mb-6">

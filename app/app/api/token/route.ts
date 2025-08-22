@@ -32,6 +32,7 @@ const getRoomServiceClient = () => {
 export async function GET(req: NextRequest) {
   const room = req.nextUrl.searchParams.get('room');
   const username = req.nextUrl.searchParams.get('username');
+  const voiceCardData = req.nextUrl.searchParams.get('voiceCardData');
   
   if (!room) {
     return NextResponse.json({ error: 'Missing "room" query parameter' }, { status: 400 });
@@ -48,12 +49,34 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const at = new AccessToken(apiKey, apiSecret, { identity: username });
-    at.addGrant({ room, roomJoin: true, canPublish: true, canSubscribe: true });
+    // Parse voice card data if provided
+    let parsedVoiceCardData = null;
+    if (voiceCardData) {
+      try {
+        parsedVoiceCardData = JSON.parse(decodeURIComponent(voiceCardData));
+        console.log(`Voice card data received for token: ${parsedVoiceCardData.title}`);
+      } catch (e) {
+        console.error('Failed to parse voice card data:', e);
+        return NextResponse.json({ error: 'Invalid voice card data format' }, { status: 400 });
+      }
+    }
+
+    const at = new AccessToken(apiKey, apiSecret, { 
+      identity: username,
+      // Add voice card data as metadata in the token
+      metadata: parsedVoiceCardData ? JSON.stringify(parsedVoiceCardData) : undefined
+    });
+    
+    at.addGrant({ 
+      room, 
+      roomJoin: true, 
+      canPublish: true, 
+      canSubscribe: true
+    });
 
     const token = await at.toJwt();
     
-    console.log(`Token generated for room: ${room}, user: ${username}`);
+    console.log(`Token generated for room: ${room}, user: ${username}${parsedVoiceCardData ? `, voice card: ${parsedVoiceCardData.title}` : ''}`);
     
     return NextResponse.json(
       { token },
