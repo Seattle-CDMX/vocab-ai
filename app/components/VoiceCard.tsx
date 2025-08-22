@@ -5,6 +5,8 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Button } from "@/components/ui/button";
 import { Mic, MicOff } from "lucide-react";
 import { Room } from 'livekit-client';
+import { RoomAudioRenderer, StartAudio, RoomContext } from '@livekit/components-react';
+import '@livekit/components-styles';
 
 interface PhrasalVerb {
   id: string;
@@ -41,8 +43,12 @@ const VoiceCard = ({ phrasal, onAnswer, onReset }: VoiceCardProps) => {
       
       if (data.token) {
         await roomInstance.connect(process.env.NEXT_PUBLIC_LIVEKIT_URL!, data.token);
+        
+        // Enable microphone for user responses
+        await roomInstance.localParticipant.enableCameraAndMicrophone();
+        
         setIsConnected(true);
-        console.log('Connected to LiveKit for vocab practice');
+        console.log('Connected to LiveKit for vocab practice with microphone enabled');
       } else {
         console.error('Failed to get token:', data.error);
       }
@@ -116,6 +122,14 @@ const VoiceCard = ({ phrasal, onAnswer, onReset }: VoiceCardProps) => {
               : "Idle. Click mic to connect to AI teacher."}
           </div>
         </div>
+        
+        {/* LiveKit Audio Components - Essential for hearing the agent */}
+        {isConnected && (
+          <RoomContext.Provider value={roomInstance}>
+            <RoomAudioRenderer />
+            <StartAudio label="Enable audio for AI teacher" />
+          </RoomContext.Provider>
+        )}
       </CardContent>
       <CardFooter className="flex items-center justify-between">
         <div className="text-xs text-muted-foreground">

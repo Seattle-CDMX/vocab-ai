@@ -1,14 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import VoiceCard from '@/components/VoiceCard';
 import { Button } from '@/components/ui/button';
-import { getRandomLexicalItem } from '@/lib/lexical-items';
+import { getRandomLexicalItem, TARGET_LEXICAL_ITEMS } from '@/lib/lexical-items';
 import { Settings } from 'lucide-react';
 import Link from 'next/link';
 
 export default function VocabularyPracticePage() {
-  const [currentItem, setCurrentItem] = useState(() => getRandomLexicalItem());
+  // Fix hydration mismatch by using first item consistently, then randomize on client
+  const [currentItem, setCurrentItem] = useState(TARGET_LEXICAL_ITEMS[0]);
+  
+  useEffect(() => {
+    // Set a random item after component mounts to avoid hydration mismatch
+    setCurrentItem(getRandomLexicalItem());
+  }, []);
   const [level] = useState(1);
   const [score, setScore] = useState(0);
   const [currentCard] = useState(6); // Starting at card 6 as shown in the image
