@@ -49,7 +49,14 @@ export async function GET(req: NextRequest) {
 
   try {
     const at = new AccessToken(apiKey, apiSecret, { identity: username });
-    at.addGrant({ room, roomJoin: true, canPublish: true, canSubscribe: true });
+    at.addGrant({ 
+      room, 
+      roomJoin: true, 
+      canPublish: true, 
+      canSubscribe: true,
+      // Needed when front end tells back end what the activity is
+      canUpdateOwnMetadata: true
+    });
 
     const token = await at.toJwt();
     

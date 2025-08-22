@@ -3,38 +3,61 @@
 import { useState, useEffect } from 'react';
 import VoiceCard from '@/components/VoiceCard';
 import { Button } from '@/components/ui/button';
-import { getRandomLexicalItem, TARGET_LEXICAL_ITEMS } from '@/lib/lexical-items';
+import { getRandomVoiceCard, VoiceCard as VoiceCardType } from '@/lib/voice-card-types';
 import { Settings } from 'lucide-react';
 import Link from 'next/link';
 
 export default function VocabularyPracticePage() {
-  // Fix hydration mismatch by using first item consistently, then randomize on client
-  const [currentItem, setCurrentItem] = useState(TARGET_LEXICAL_ITEMS[0]);
+  // Start with null and load voice card after mount to avoid hydration issues
+  const [currentVoiceCard, setCurrentVoiceCard] = useState<VoiceCardType | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
-    // Set a random item after component mounts to avoid hydration mismatch
-    setCurrentItem(getRandomLexicalItem());
+    // Load a random voice card after component mounts
+    const loadVoiceCard = async () => {
+      try {
+        const voiceCard = await getRandomVoiceCard();
+        setCurrentVoiceCard(voiceCard);
+      } catch (error) {
+        console.error('Failed to load voice card:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    loadVoiceCard();
   }, []);
+  
   const [level] = useState(1);
   const [score, setScore] = useState(0);
   const [currentCard] = useState(6); // Starting at card 6 as shown in the image
   const [totalCards] = useState(20);
   const [verbsStudying] = useState(5);
 
-  const handleAnswer = (correct: boolean) => {
+  const handleAnswer = async (correct: boolean) => {
     if (correct) {
       setScore(prev => prev + 1);
     }
     
-    // Get a new random lexical item for the next practice
-    setCurrentItem(getRandomLexicalItem());
+    // Get a new random voice card for the next practice
+    try {
+      const voiceCard = await getRandomVoiceCard();
+      setCurrentVoiceCard(voiceCard);
+    } catch (error) {
+      console.error('Failed to load new voice card:', error);
+    }
     
     // In a real app, you would advance to the next card or end the session
     console.log('Answer recorded:', correct ? 'Correct' : 'Incorrect');
   };
 
-  const handleReset = () => {
-    setCurrentItem(getRandomLexicalItem());
+  const handleReset = async () => {
+    try {
+      const voiceCard = await getRandomVoiceCard();
+      setCurrentVoiceCard(voiceCard);
+    } catch (error) {
+      console.error('Failed to load new voice card:', error);
+    }
   };
 
   return (
@@ -85,11 +108,21 @@ export default function VocabularyPracticePage() {
         </div>
 
         {/* Vocabulary Practice Card */}
-        <VoiceCard
-          phrasal={currentItem}
-          onAnswer={handleAnswer}
-          onReset={handleReset}
-        />
+        {isLoading ? (
+          <div className="max-w-2xl mx-auto text-center py-12">
+            <div className="text-lg text-gray-600">Loading voice card...</div>
+          </div>
+        ) : currentVoiceCard ? (
+          <VoiceCard
+            voiceCard={currentVoiceCard}
+            onAnswer={handleAnswer}
+            onReset={handleReset}
+          />
+        ) : (
+          <div className="max-w-2xl mx-auto text-center py-12">
+            <div className="text-lg text-red-600">Failed to load voice card. Please refresh the page.</div>
+          </div>
+        )}
 
         {/* Card Counter */}
         <div className="text-center mt-6">
