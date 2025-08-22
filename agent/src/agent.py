@@ -1,3 +1,4 @@
+import json
 import logging
 
 from dotenv import load_dotenv
@@ -55,16 +56,51 @@ class NativeExplainAgent(Agent):
             session_info.target_lexical_item.mark_sense_explained(sense_number)
             remaining = session_info.target_lexical_item.remaining_senses
 
+            # Send RPC to frontend for toast notification
+            try:
+                # Find the first remote participant (should be the student)
+                for participant in context.room.remote_participants.values():
+                    await context.room.local_participant.perform_rpc(
+                        destination_identity=participant.identity,
+                        method="show_toast",
+                        payload=json.dumps({
+                            "type": "success",
+                            "message": f"Great job! You explained sense {sense_number} correctly! ✓"
+                        }),
+                        response_timeout=1.0,
+                    )
+                    logger.info(f"Sent success toast RPC to {participant.identity}")
+                    break
+            except Exception as e:
+                logger.error(f"Failed to send RPC: {e}")
+
             if remaining > 0:
                 return f"Great job! You got sense {sense_number} correct. You have {remaining} more sense{'s' if remaining != 1 else ''} to explain."
             else:
+                # Send special completion toast
+                try:
+                    for participant in context.room.remote_participants.values():
+                        await context.room.local_participant.perform_rpc(
+                            destination_identity=participant.identity,
+                            method="show_toast",
+                            payload=json.dumps({
+                                "type": "success",
+                                "message": "Excellent! You've mastered all meanings of this phrasal verb! 🎉"
+                            }),
+                            response_timeout=1.0,
+                        )
+                        logger.info(f"Sent completion toast RPC to {participant.identity}")
+                        break
+                except Exception as e:
+                    logger.error(f"Failed to send completion RPC: {e}")
+                    
                 return "Excellent! You've successfully explained all senses of this phrasal verb."
 
         return "Good work on explaining that sense!"
 
     @function_tool
     async def wrong_answer(
-        self, _: RunContext, correct_definition: str, helpful_hint: str = ""
+        self, context: RunContext, correct_definition: str, helpful_hint: str = ""
     ):
         """Call this when the user provides an incorrect explanation for a sense.
 
@@ -73,6 +109,23 @@ class NativeExplainAgent(Agent):
             helpful_hint: Optional additional hint or explanation to help the user understand
         """
         logger.info("User provided incorrect explanation")
+
+        # Send RPC to frontend for error toast notification
+        try:
+            for participant in context.room.remote_participants.values():
+                await context.room.local_participant.perform_rpc(
+                    destination_identity=participant.identity,
+                    method="show_toast",
+                    payload=json.dumps({
+                        "type": "error",
+                        "message": f"Not quite right. Here's the correct meaning: {correct_definition[:50]}..."
+                    }),
+                    response_timeout=1.0,
+                )
+                logger.info(f"Sent error toast RPC to {participant.identity}")
+                break
+        except Exception as e:
+            logger.error(f"Failed to send error RPC: {e}")
 
         response = f"Not quite right. The correct definition is: {correct_definition}"
         if helpful_hint:

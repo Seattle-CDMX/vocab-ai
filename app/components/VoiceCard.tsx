@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mic, MicOff } from "lucide-react";
@@ -8,6 +8,7 @@ import { Room } from 'livekit-client';
 import { RoomAudioRenderer, StartAudio, RoomContext } from '@livekit/components-react';
 import '@livekit/components-styles';
 import { VoiceCard as VoiceCardType } from '@/lib/voice-card-types';
+import { toast } from 'sonner';
 
 interface VoiceCardProps {
   voiceCard: VoiceCardType;
@@ -19,6 +20,56 @@ const VoiceCard = ({ voiceCard, onAnswer, onReset }: VoiceCardProps) => {
   const [isConnected, setIsConnected] = useState(false);
   const [isConnecting, setIsConnecting] = useState(false);
   const [roomInstance] = useState(() => new Room());
+
+  // Set up RPC handler for toast notifications
+  useEffect(() => {
+    if (!isConnected || !roomInstance) return;
+
+    const handleRPC = async (data: any) => {
+      console.log('🎯 [VoiceCard] Received RPC:', data);
+      
+      if (data.method === 'show_toast') {
+        try {
+          const payload = JSON.parse(data.payload);
+          
+          if (payload.type === 'success') {
+            toast.success(payload.message, {
+              duration: 4000,
+              style: {
+                background: '#10b981',
+                color: 'white',
+              },
+            });
+          } else if (payload.type === 'error') {
+            toast.error(payload.message, {
+              duration: 5000,
+              style: {
+                background: '#ef4444',
+                color: 'white',
+              },
+            });
+          }
+          
+          // Send response back to agent
+          return JSON.stringify({ status: 'ok' });
+        } catch (e) {
+          console.error('Failed to parse RPC payload:', e);
+          return JSON.stringify({ status: 'error', message: 'Failed to parse payload' });
+        }
+      }
+      
+      return JSON.stringify({ status: 'unknown_method' });
+    };
+
+    // Register RPC handler
+    roomInstance.localParticipant.registerRpcMethod('show_toast', handleRPC);
+    console.log('🎯 [VoiceCard] RPC handler registered for show_toast');
+
+    return () => {
+      // Cleanup RPC handler on unmount or disconnect
+      roomInstance.localParticipant.unregisterRpcMethod('show_toast');
+    };
+  }, [isConnected, roomInstance]);
 
   const connectToLiveKit = async () => {
     if (isConnecting || isConnected) return;
