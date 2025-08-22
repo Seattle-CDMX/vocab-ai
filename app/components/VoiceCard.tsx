@@ -43,9 +43,9 @@ const VoiceCard = ({ voiceCard, onAnswer, onReset }: VoiceCardProps) => {
         console.log('🎯 [VoiceCard] Connected to LiveKit room successfully');
         console.log('🎯 [VoiceCard] Voice card data was passed via token metadata - no need to set attributes');
         
-        // Enable microphone for user responses
-        await roomInstance.localParticipant.enableCameraAndMicrophone();
-        console.log('🎯 [VoiceCard] Microphone enabled');
+        // Enable microphone for user responses (audio only, no camera)
+        await roomInstance.localParticipant.setMicrophoneEnabled(true);
+        console.log('🎯 [VoiceCard] Microphone enabled (audio only)');
         
         setIsConnected(true);
         console.log('🎯 [VoiceCard] ✅ COMPLETE: Connected to LiveKit with voice card data embedded in token for:', voiceCard.targetPhrasalVerb.verb);

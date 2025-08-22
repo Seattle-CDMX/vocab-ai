@@ -35,7 +35,9 @@ The application uses LiveKit for real-time video conferencing:
 
 ### API Endpoints
 
-- `GET /api/token?room={name}&username={user}` - Generate access token for room
+- `GET /api/token?room={name}&username={user}&voiceCardData={encoded_json}` - Generate access token for room
+  - `voiceCardData` (optional): URL-encoded JSON containing voice card data that will be embedded in the token metadata
+  - The metadata is accessible to LiveKit agents for context-aware voice interactions
 - `POST /api/token` - List all active rooms
 - `DELETE /api/token?room={name}` - Delete room and disconnect participants
 - `POST /api/auth` - Authenticate with app password
@@ -73,6 +75,8 @@ The application implements comprehensive password protection using:
 - Participant management and room cleanup
 - Session management with localStorage integration
 - Room deletion with participant disconnection
+- **Voice Card Integration**: Passes voice card data via token metadata to LiveKit agents for context-aware voice practice
+- **Audio-Only Mode**: VoiceCard component requests only microphone permission for voice-based learning
 
 ### Development Notes
 
