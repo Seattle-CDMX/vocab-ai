@@ -3,9 +3,19 @@
 import { Button } from "@/components/ui/button";
 import { BookOpen, Brain, Trophy, Zap } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 
 const Hero = () => {
   const router = useRouter();
+  const [currentWord, setCurrentWord] = useState(0);
+  const words = ['Vocab', 'Phrasal Verbs', 'Speaking'];
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentWord((prev) => (prev + 1) % words.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-study-bg to-primary/5">
@@ -16,7 +26,7 @@ const Hero = () => {
             <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary-glow rounded-lg flex items-center justify-center">
               <Brain className="w-5 h-5 text-primary-foreground" />
             </div>
-            <h1 className="text-xl font-bold text-foreground">PhrasalMaster</h1>
+            <h1 className="text-xl font-bold text-foreground">VocabAi.CC</h1>
           </div>
           <div className="flex gap-3">
             <Button variant="ghost" size="sm">Sign In</Button>
@@ -35,8 +45,22 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
             <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
-              Master Phrasal Verbs
-              <span className="block text-primary">Like Never Before</span>
+              Master{' '}
+              <span className="inline-block relative h-[1.2em] overflow-hidden align-middle" style={{ width: '280px' }}>
+                <span
+                  className="absolute transition-all duration-500 ease-in-out text-primary"
+                  style={{
+                    transform: `translateY(${-currentWord * 100}%)`,
+                  }}
+                >
+                  {words.map((word, index) => (
+                    <span key={index} className="block h-[1.2em] leading-[1.2em]">
+                      {word}
+                    </span>
+                  ))}
+                </span>
+              </span>
+              <span className="block">Like Never Before</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
               Master phrasal verbs for <span className="text-primary font-semibold">speaking</span> - this vocabulary will 
