@@ -27,9 +27,9 @@ const AboutUs = () => {
             <CardContent className="prose prose-gray max-w-none">
               <p className="text-muted-foreground leading-relaxed mb-4">
                 Phrasal verbs are combinations of verbs with prepositions or adverbs that create entirely new meanings. 
-                For example, "get up" means to rise from bed, while "get along with" means to have a good relationship. 
+                For example, &quot;get up&quot; means to rise from bed, while &quot;get along with&quot; means to have a good relationship. 
                 These combinations are essential for natural English communication but can be challenging because their 
-                meanings often can't be guessed from the individual words.
+                meanings often can&#39;t be guessed from the individual words.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 Native English speakers use phrasal verbs constantly in everyday conversation. Mastering them is the 
@@ -65,7 +65,7 @@ const AboutUs = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  A single phrasal verb can have multiple meanings depending on context. "Break down" 
+                  A single phrasal verb can have multiple meanings depending on context. &quot;Break down&quot; 
                   can mean to stop working, to cry, or to analyze something into parts.
                 </p>
               </CardContent>
@@ -84,34 +84,34 @@ const AboutUs = () => {
                   <div className="p-3 bg-primary/5 rounded-lg">
                     <strong className="text-primary">Look up</strong>
                     <p className="text-sm text-muted-foreground mt-1">Search for information</p>
-                    <p className="text-xs italic mt-1">"I'll look up the answer online"</p>
+                    <p className="text-xs italic mt-1">&quot;I&#39;ll look up the answer online&quot;</p>
                   </div>
                   <div className="p-3 bg-primary/5 rounded-lg">
                     <strong className="text-primary">Put off</strong>
                     <p className="text-sm text-muted-foreground mt-1">Postpone or delay</p>
-                    <p className="text-xs italic mt-1">"Don't put off your homework"</p>
+                    <p className="text-xs italic mt-1">&quot;Don&#39;t put off your homework&quot;</p>
                   </div>
                   <div className="p-3 bg-primary/5 rounded-lg">
                     <strong className="text-primary">Figure out</strong>
                     <p className="text-sm text-muted-foreground mt-1">Understand or solve</p>
-                    <p className="text-xs italic mt-1">"I can't figure out this problem"</p>
+                    <p className="text-xs italic mt-1">&quot;I can&#39;t figure out this problem&quot;</p>
                   </div>
                 </div>
                 <div className="space-y-3">
                   <div className="p-3 bg-primary/5 rounded-lg">
                     <strong className="text-primary">Give up</strong>
                     <p className="text-sm text-muted-foreground mt-1">Stop trying</p>
-                    <p className="text-xs italic mt-1">"Never give up on your dreams"</p>
+                    <p className="text-xs italic mt-1">&quot;Never give up on your dreams&quot;</p>
                   </div>
                   <div className="p-3 bg-primary/5 rounded-lg">
                     <strong className="text-primary">Turn down</strong>
                     <p className="text-sm text-muted-foreground mt-1">Reject or reduce</p>
-                    <p className="text-xs italic mt-1">"Please turn down the music"</p>
+                    <p className="text-xs italic mt-1">&quot;Please turn down the music&quot;</p>
                   </div>
                   <div className="p-3 bg-primary/5 rounded-lg">
                     <strong className="text-primary">Run into</strong>
                     <p className="text-sm text-muted-foreground mt-1">Meet unexpectedly</p>
-                    <p className="text-xs italic mt-1">"I ran into an old friend today"</p>
+                    <p className="text-xs italic mt-1">&quot;I ran into an old friend today&quot;</p>
                   </div>
                 </div>
               </div>
@@ -128,7 +128,7 @@ const AboutUs = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Traditional methods of learning phrasal verbs through lists and memorization don't work because 
+                Traditional methods of learning phrasal verbs through lists and memorization don&#39;t work because 
                 they lack context and practice. VocabAi.CC uses AI-powered conversation practice to help you 
                 learn phrasal verbs the way native speakers do - through actual usage.
               </p>

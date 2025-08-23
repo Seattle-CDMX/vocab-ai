@@ -16,6 +16,10 @@ interface VoiceCardProps {
   onReset?: () => void;
 }
 
+interface RPCData {
+  payload: string;
+}
+
 const VoiceCard = ({ voiceCard, onAnswer, onReset }: VoiceCardProps) => {
   const [isConnected, setIsConnected] = useState(false);
   const [isConnecting, setIsConnecting] = useState(false);
@@ -25,7 +29,7 @@ const VoiceCard = ({ voiceCard, onAnswer, onReset }: VoiceCardProps) => {
   useEffect(() => {
     if (!isConnected || !roomInstance) return;
 
-    const handleRPC = async (data: any) => {
+    const handleRPC = async (data: RPCData) => {
       console.log('🎯 [VoiceCard] Received RPC:', data);
       console.log('🎯 [VoiceCard] ✅ Handler called for show_toast method, processing payload...');
       
