@@ -27,38 +27,43 @@ const VoiceCard = ({ voiceCard, onAnswer, onReset }: VoiceCardProps) => {
 
     const handleRPC = async (data: any) => {
       console.log('🎯 [VoiceCard] Received RPC:', data);
+      console.log('🎯 [VoiceCard] ✅ Handler called for show_toast method, processing payload...');
       
-      if (data.method === 'show_toast') {
-        try {
-          const payload = JSON.parse(data.payload);
-          
-          if (payload.type === 'success') {
-            toast.success(payload.message, {
-              duration: 4000,
-              style: {
-                background: '#10b981',
-                color: 'white',
-              },
-            });
-          } else if (payload.type === 'error') {
-            toast.error(payload.message, {
-              duration: 5000,
-              style: {
-                background: '#ef4444',
-                color: 'white',
-              },
-            });
-          }
-          
-          // Send response back to agent
-          return JSON.stringify({ status: 'ok' });
-        } catch (e) {
-          console.error('Failed to parse RPC payload:', e);
-          return JSON.stringify({ status: 'error', message: 'Failed to parse payload' });
+      try {
+        const payload = JSON.parse(data.payload);
+        console.log('🎯 [VoiceCard] Parsed payload:', payload);
+        
+        if (payload.type === 'success') {
+          console.log('🎯 [VoiceCard] Showing SUCCESS toast:', payload.message);
+          toast.success(payload.message, {
+            duration: 4000,
+            style: {
+              background: '#10b981',
+              color: 'white',
+            },
+          });
+          console.log('🎯 [VoiceCard] SUCCESS toast.success() called');
+        } else if (payload.type === 'error') {
+          console.log('🎯 [VoiceCard] Showing ERROR toast:', payload.message);
+          toast.error(payload.message, {
+            duration: 5000,
+            style: {
+              background: '#ef4444',
+              color: 'white',
+            },
+          });
+          console.log('🎯 [VoiceCard] ERROR toast.error() called');
+        } else {
+          console.log('🎯 [VoiceCard] ❌ Unknown payload type:', payload.type);
         }
+        
+        // Send response back to agent
+        return JSON.stringify({ status: 'ok' });
+      } catch (e) {
+        console.error('🎯 [VoiceCard] Failed to parse RPC payload:', e);
+        console.error('🎯 [VoiceCard] Raw payload was:', data.payload);
+        return JSON.stringify({ status: 'error', message: 'Failed to parse payload' });
       }
-      
-      return JSON.stringify({ status: 'unknown_method' });
     };
 
     // Register RPC handler
