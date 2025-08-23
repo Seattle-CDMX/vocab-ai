@@ -42,13 +42,17 @@ class NativeExplainAgent(Agent):
     def __init__(self) -> None:
         instructions = load_prompt("native_explain_agent")
         super().__init__(instructions=instructions)
+        logger.info("🔧 [Agent] NativeExplainAgent initialized with enhanced tool calling instructions")
 
     @function_tool
     async def correct_sense_explained(self, context: RunContext, sense_number: int):
-        """Call this when the user has correctly explained a sense of the target lexical item.
+        """REQUIRED: Call this immediately when the user correctly explains any sense of the target lexical item.
+        
+        Use this when the user's explanation demonstrates understanding of the meaning, even if not perfectly worded.
+        This should be called for ANY correct explanation, regardless of how it's phrased.
 
         Args:
-            sense_number: The sense number that was correctly explained
+            sense_number: The sense number that was correctly explained (1, 2, 3, etc.)
         """
         logger.info(f"User correctly explained sense {sense_number}")
 
@@ -103,11 +107,14 @@ class NativeExplainAgent(Agent):
     async def wrong_answer(
         self, context: RunContext, correct_definition: str, helpful_hint: str = ""
     ):
-        """Call this when the user provides an incorrect explanation for a sense.
+        """REQUIRED: Call this immediately when the user provides an incorrect or incomplete explanation.
+        
+        Use this whenever the user's explanation doesn't capture the core meaning of the sense.
+        Always provide the correct definition to help them learn.
 
         Args:
-            correct_definition: The correct definition to share with the user
-            helpful_hint: Optional additional hint or explanation to help the user understand
+            correct_definition: The correct definition to share with the user (be specific and clear)
+            helpful_hint: Optional additional hint, example, or explanation to help the user understand better
         """
         logger.info("User provided incorrect explanation")
 
@@ -137,7 +144,9 @@ class NativeExplainAgent(Agent):
 
     @function_tool
     async def all_senses_completed(self, context: RunContext):
-        """Call this when the user has successfully explained all senses of the target lexical item."""
+        """REQUIRED: Call this immediately when the user has successfully explained ALL senses of the target lexical item.
+        
+        This should only be called once all senses have been correctly explained and marked as complete."""
         logger.info("All senses completed successfully")
 
         session_info = context.session.userdata
@@ -147,6 +156,19 @@ class NativeExplainAgent(Agent):
             return f"Congratulations {session_info.user_name}! You've successfully explained all {total_senses} senses of '{phrase}'. Great work on expanding your vocabulary!"
 
         return "Congratulations! You've completed explaining all the senses of this phrasal verb."
+
+    @function_tool
+    async def request_clarification(self, context: RunContext, sense_number: int, clarifying_question: str):
+        """Call this when the user's explanation is unclear and you need them to elaborate or clarify.
+        
+        Use this when you're not sure if their explanation is correct or incorrect and need more information.
+
+        Args:
+            sense_number: The sense number they're trying to explain
+            clarifying_question: A specific question to help them clarify their explanation
+        """
+        logger.info(f"Requesting clarification for sense {sense_number}")
+        return f"I want to make sure I understand your explanation correctly. {clarifying_question}"
 
     async def on_enter(self) -> None:
         """Agent initialization hook called when this agent becomes active."""

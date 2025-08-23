@@ -1,46 +1,104 @@
 {
   "voiceCardTypes": [
     {
-      "id": "native-explain-get-along-with",
+      "id": "native-explain-go-on",
       "type": "native_explain",
-      "title": "Explain: GET ALONG WITH",
+      "title": "Explain: GO ON",
       "difficulty": "intermediate",
       "targetPhrasalVerb": {
-        "verb": "GET ALONG WITH",
+        "verb": "GO ON",
         "senses": [
           {
             "senseNumber": 1,
-            "definition": "To have a good relationship with someone",
+            "definition": "Happen, take place",
             "examples": [
-              "She gets along with her coworkers very well.",
-              "I don't get along with my neighbor."
+              "There is a debate going on right now between the two parties."
+            ]
+          },
+          {
+            "senseNumber": 2,
+            "definition": "(+ To) Proceed to do or tackle STH after doing STH else",
+            "examples": [
+              "Does anyone have any questions before I go on to the next chapter?"
             ]
           }
         ]
       }
     },
     {
-      "id": "native-explain-break-down",
+      "id": "native-explain-pick-up",
       "type": "native_explain",
-      "title": "Explain: BREAK DOWN",
+      "title": "Explain: PICK UP",
       "difficulty": "beginner",
       "targetPhrasalVerb": {
-        "verb": "BREAK DOWN",
+        "verb": "PICK UP",
         "senses": [
           {
             "senseNumber": 1,
-            "definition": "To stop working (machines, vehicles)",
+            "definition": "Get or take SB/STH from a place",
             "examples": [
-              "My car broke down on the highway.",
-              "The printer broke down again."
+              "Can you pick up some food on the way home from work please?"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "native-explain-come-back",
+      "type": "native_explain",
+      "title": "Explain: COME BACK",
+      "difficulty": "beginner",
+      "targetPhrasalVerb": {
+        "verb": "COME BACK",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "Return to a place or a conversation topic",
+            "examples": [
+              "She came back to the kitchen with a bottle of fancy wine."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "native-explain-come-up",
+      "type": "native_explain",
+      "title": "Explain: COME UP",
+      "difficulty": "advanced",
+      "targetPhrasalVerb": {
+        "verb": "COME UP",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "(+ with) Bring forth or produce",
+            "examples": [
+              "She instantly came up with a solution to the problem."
             ]
           },
           {
             "senseNumber": 2,
-            "definition": "To lose control emotionally",
+            "definition": "(Be coming up) Be happening soon (esp. be broadcast soon)",
             "examples": [
-              "She broke down crying during the movie.",
-              "He broke down under pressure."
+              "Coming up after the news, our cooking program will feature cheese."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "native-explain-go-back",
+      "type": "native_explain",
+      "title": "Explain: GO BACK",
+      "difficulty": "beginner",
+      "targetPhrasalVerb": {
+        "verb": "GO BACK",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "Return to a place, time, situation, activity, conversation topic",
+            "examples": [
+              "He washed the dishes and went back to his room."
             ]
           }
         ]
@@ -48,64 +106,103 @@
     },
     {
       "id": "native-explain-put-off",
-      "type": "native_explain", 
+      "type": "native_explain",
       "title": "Explain: PUT OFF",
-      "difficulty": "beginner",
+      "difficulty": "intermediate",
       "targetPhrasalVerb": {
         "verb": "PUT OFF",
         "senses": [
           {
             "senseNumber": 1,
-            "definition": "To postpone or delay something",
+            "definition": "Delay until a later time or date",
             "examples": [
-              "I decided to put off the meeting until next week.",
-              "Don't put off your homework any longer."
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "native-explain-run-into", 
-      "type": "native_explain",
-      "title": "Explain: RUN INTO",
-      "difficulty": "intermediate",
-      "targetPhrasalVerb": {
-        "verb": "RUN INTO",
-        "senses": [
-          {
-            "senseNumber": 1,
-            "definition": "To meet someone unexpectedly",
-            "examples": [
-              "I ran into my old teacher at the grocery store.",
-              "We ran into some friends at the concert."
+              "Now that I had more free time, there was no excuse to put off exercising any longer."
             ]
           },
           {
             "senseNumber": 2,
-            "definition": "To encounter a problem",
+            "definition": "Cause to feel intense dislike",
             "examples": [
-              "We ran into some technical difficulties.",
-              "The project ran into budget issues."
+              "The bad smell put everyone off."
             ]
           }
         ]
       }
     },
     {
-      "id": "native-explain-come-up-with",
+      "id": "native-explain-come-about",
       "type": "native_explain",
-      "title": "Explain: COME UP WITH", 
-      "difficulty": "advanced",
+      "title": "Explain: COME ABOUT",
+      "difficulty": "beginner",
       "targetPhrasalVerb": {
-        "verb": "COME UP WITH",
+        "verb": "COME ABOUT",
         "senses": [
           {
             "senseNumber": 1,
-            "definition": "To think of an idea or solution",
+            "definition": "Take place or happen/occur, esp. unexpectedly",
             "examples": [
-              "We need to come up with a better plan for the project.",
-              "She came up with a brilliant solution to the problem."
+              "I did not expect this to come about."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "native-explain-close-down",
+      "type": "native_explain",
+      "title": "Explain: CLOSE DOWN",
+      "difficulty": "beginner",
+      "targetPhrasalVerb": {
+        "verb": "CLOSE DOWN",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "Stop operating or functioning",
+            "examples": [
+              "Non-profitable companies were closed down."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "native-explain-put-in",
+      "type": "native_explain",
+      "title": "Explain: PUT IN",
+      "difficulty": "intermediate",
+      "targetPhrasalVerb": {
+        "verb": "PUT IN",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "Put one thing inside another; include or insert",
+            "examples": [
+              "You need to put in your contact details in case there is a problem."
+            ]
+          },
+          {
+            "senseNumber": 2,
+            "definition": "Invest or devote so as to achieve STH (time, effort, work)",
+            "examples": [
+              "I put in ten hours a day at the office."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "native-explain-set-about",
+      "type": "native_explain",
+      "title": "Explain: SET ABOUT",
+      "difficulty": "beginner",
+      "targetPhrasalVerb": {
+        "verb": "SET ABOUT",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "Begin a course of action, usually with a specific purpose/objective in mind",
+            "examples": [
+              "We set about laying the table before our guests arrived."
             ]
           }
         ]
@@ -114,7 +211,7 @@
   ],
   "metadata": {
     "version": "1.0",
-    "totalCards": 5,
+    "totalCards": 10,
     "supportedTypes": ["native_explain"],
     "defaultType": "native_explain"
   }
