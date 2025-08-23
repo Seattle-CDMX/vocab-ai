@@ -208,7 +208,7 @@ async def entrypoint(ctx: JobContext):
         # See all providers at https://docs.livekit.io/agents/integrations/tts/
         tts=google.TTS(
             language="es-US",
-            voice_name="es-US-Chirp3-HD-Puck",
+            voice_name="es-US-Chirp3-HD-Schedar",
             credentials_info=parse_google_credentials(),
         ),
         # VAD and turn detection are used to determine when the user is speaking and when the agent should respond
