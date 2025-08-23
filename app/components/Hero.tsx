@@ -1,11 +1,26 @@
 'use client';
 
 import { Button } from "@/components/ui/button";
-import { BookOpen, Brain, Trophy, Zap } from "lucide-react";
+import { BookOpen, Brain, Trophy, Zap, LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-const Hero = () => {
+const Hero = ({ isAuthenticated, onSignOut }: { isAuthenticated: boolean; onSignOut: () => void }) => {
   const router = useRouter();
+
+  const handleSignOut = async () => {
+    try {
+      const response = await fetch('/api/auth', {
+        method: 'DELETE',
+        credentials: 'include'
+      });
+
+      if (response.ok) {
+        onSignOut();
+      }
+    } catch (error) {
+      console.error('Sign out error:', error);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-study-bg to-primary/5">
@@ -19,15 +34,54 @@ const Hero = () => {
             <h1 className="text-xl font-bold text-foreground">VocabAi.CC</h1>
           </div>
           <div className="flex gap-3">
-            <Button variant="ghost" size="sm">Sign In</Button>
-            <Button 
-              variant="outline" 
-              size="sm"
-              onClick={() => router.push('/dashboard')}
-            >
-              Dashboard
-            </Button>
-            <Button variant="default" size="sm">Get Started</Button>
+            {isAuthenticated ? (
+              <>
+                <div className="flex items-center gap-2 px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                  <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                  Signed In
+                </div>
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => router.push('/dashboard')}
+                >
+                  Dashboard
+                </Button>
+                <Button 
+                  variant="default" 
+                  size="sm"
+                  onClick={() => router.push('/study')}
+                >
+                  Start Session
+                </Button>
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  onClick={handleSignOut}
+                  className="text-red-600 hover:text-red-700 hover:bg-red-50"
+                >
+                  <LogOut className="w-4 h-4 mr-1" />
+                  Sign Out
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  onClick={() => router.push('/login')}
+                >
+                  Sign In
+                </Button>
+                <Button 
+                  variant="default" 
+                  size="sm"
+                  onClick={() => router.push('/login')}
+                >
+                  Get Started
+                </Button>
+              </>
+            )}
           </div>
         </nav>
 
@@ -50,19 +104,19 @@ const Hero = () => {
               variant="default" 
               size="lg" 
               className="text-lg px-8 py-6"
-              onClick={() => router.push('/study')}
+              onClick={() => router.push(isAuthenticated ? '/study' : '/login')}
             >
               <BookOpen className="w-5 h-5 mr-2" />
-              Start Learning
+              {isAuthenticated ? 'Start Learning' : 'Sign In to Start'}
             </Button>
             <Button 
               variant="outline" 
               size="lg" 
               className="text-lg px-8 py-6"
-              onClick={() => router.push('/study')}
+              onClick={() => router.push(isAuthenticated ? '/dashboard' : '/login')}
             >
               <Zap className="w-5 h-5 mr-2" />
-              Quick Demo
+              {isAuthenticated ? 'View Dashboard' : 'Sign In for Demo'}
             </Button>
           </div>
 

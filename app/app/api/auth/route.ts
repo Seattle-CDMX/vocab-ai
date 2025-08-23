@@ -53,3 +53,30 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+
+export async function DELETE() {
+  try {
+    // Create response for sign out
+    const response = NextResponse.json(
+      { success: true, message: 'Signed out successfully' },
+      { status: 200 }
+    );
+
+    // Clear the authentication cookie
+    response.cookies.set('app-authenticated', '', {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      maxAge: 0, // Expire immediately
+      path: '/',
+    });
+
+    return response;
+  } catch (error) {
+    console.error('Sign out API error:', error);
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
+  }
+}
