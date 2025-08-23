@@ -14,6 +14,7 @@ from livekit.agents import (
     RunContext,
     WorkerOptions,
     cli,
+    get_job_context,
     metrics,
 )
 from livekit.agents.llm import function_tool
@@ -59,8 +60,8 @@ class NativeExplainAgent(Agent):
             # Send RPC to frontend for toast notification
             try:
                 # Find the first remote participant (should be the student)
-                for participant in context.room.remote_participants.values():
-                    await context.room.local_participant.perform_rpc(
+                for participant in get_job_context().room.remote_participants.values():
+                    await get_job_context().room.local_participant.perform_rpc(
                         destination_identity=participant.identity,
                         method="show_toast",
                         payload=json.dumps({
@@ -79,8 +80,8 @@ class NativeExplainAgent(Agent):
             else:
                 # Send special completion toast
                 try:
-                    for participant in context.room.remote_participants.values():
-                        await context.room.local_participant.perform_rpc(
+                    for participant in get_job_context().room.remote_participants.values():
+                        await get_job_context().room.local_participant.perform_rpc(
                             destination_identity=participant.identity,
                             method="show_toast",
                             payload=json.dumps({
@@ -112,8 +113,8 @@ class NativeExplainAgent(Agent):
 
         # Send RPC to frontend for error toast notification
         try:
-            for participant in context.room.remote_participants.values():
-                await context.room.local_participant.perform_rpc(
+            for participant in get_job_context().room.remote_participants.values():
+                await get_job_context().room.local_participant.perform_rpc(
                     destination_identity=participant.identity,
                     method="show_toast",
                     payload=json.dumps({
