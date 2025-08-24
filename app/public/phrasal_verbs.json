@@ -32,14 +32,6 @@
         "examples": [
           "Can you pick up some food on the way home from work please?"
         ]
-      },
-      {
-        "senseNumber": 2,
-        "definition": "Learn or acquire (a skill, habit, language) gradually",
-        "confidencePercent": 45,
-        "examples": [
-          "She picked up French while living in Paris."
-        ]
       }
     ]
   },
@@ -53,14 +45,6 @@
         "confidencePercent": 96.5,
         "examples": [
           "She came back to the kitchen with a bottle of fancy wine."
-        ]
-      },
-      {
-        "senseNumber": 2,
-        "definition": "Become popular or fashionable again",
-        "confidencePercent": 32,
-        "examples": [
-          "Bell-bottom jeans are coming back into style."
         ]
       }
     ]
@@ -89,6 +73,3052 @@
   },
   {
     "id": 5,
+    "verb": "GO BACK",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Return to a place, time, situation, activity, conversation topic",
+        "confidencePercent": 90,
+        "examples": [
+          "He washed the dishes and went back to his room."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "verb": "FIND OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Discover STH; obtain knowledge of STH",
+        "confidencePercent": 100,
+        "examples": [
+          "We need to find out who did this to her."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "verb": "COME OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Leave a place (room, building, container) or appear from it",
+        "confidencePercent": 38,
+        "examples": [
+          "She went into the bank and came out with some money."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Become known or revealed after being kept secret",
+        "confidencePercent": 13.5,
+        "examples": [
+          "The news came out that he was leaving the team."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "(Come out and do STH) Make public knowledge a privately held position",
+        "confidencePercent": 11.5,
+        "examples": [
+          "People need to come out and say what they think about it."
+        ]
+      },
+      {
+        "senseNumber": 4,
+        "definition": "Become available or released to the public (film, record, book)",
+        "confidencePercent": 10,
+        "examples": [
+          "Their new album is coming out next month."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "verb": "GO OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Leave a room, building, car, or one’s home to go to a social event",
+        "confidencePercent": 56.5,
+        "examples": [
+          "We should go out for dinner sometime."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "(Go out and do STH) Used as an intensifier, to highlight the active nature of what is being done",
+        "confidencePercent": 19.5,
+        "examples": [
+          "Do you think he’ll go out and buy the whole company?"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "verb": "POINT OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Direct attention toward STH (fact, idea, information)",
+        "confidencePercent": 89,
+        "examples": [
+          "Experts have pointed out that eating too much sugar is extremely unhealthy."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "verb": "GROW UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Gradually advance in age and maturity",
+        "confidencePercent": 98,
+        "examples": [
+          "Seeing my kids growing up is such a lovely thing."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "verb": "SET UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Establish or create STH; arrange for STH to happen or exist",
+        "confidencePercent": 64.5,
+        "examples": [
+          "An advisory committee is being set up."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Place STH in a particular spot or position",
+        "confidencePercent": 16.5,
+        "examples": [
+          "We need to set up a few more chairs so everyone can sit down."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "verb": "TURN OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Prove or be discovered to happen or be",
+        "confidencePercent": 91,
+        "examples": [
+          "Her suspicion turned out to be justified."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "verb": "GET OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Leave a container (vehicle, room, building) or make SB/STH leave a container",
+        "confidencePercent": 75.5,
+        "examples": [
+          "These prisoners have no hope of ever getting out of jail."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "verb": "COME IN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Enter a place or area (room, building)",
+        "confidencePercent": 65,
+        "examples": [
+          "She opened the door and he came in."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Become involved in a situation",
+        "confidencePercent": 14,
+        "examples": [
+          "We need experts to come in and give us advice."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "verb": "TAKE ON",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Undertake or handle (role, task, responsibility, problem, issue)",
+        "confidencePercent": 42,
+        "examples": [
+          "Nobody was willing to take on such an awful job."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Acquire or assume as one’s own (quality, meaning, colour, shape)",
+        "confidencePercent": 41.5,
+        "examples": [
+          "The story takes on a whole new meaning when you read it again."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "verb": "GIVE UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Stop doing or having STH; abandon (activity, belief, possession)",
+        "confidencePercent": 80.5,
+        "examples": [
+          "She had to give up smoking when she got pregnant."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "verb": "MAKE UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Form the whole of an amount or entity",
+        "confidencePercent": 42.5,
+        "examples": [
+          "Hispanics make up more than 15% of the U.S. population."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "(+ for) Compensate for STH lacking, lost or missed",
+        "confidencePercent": 18.5,
+        "examples": [
+          "Some solution has to be found to make up for such losses."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "(Make up one’s mind) Make a decision",
+        "confidencePercent": 15.5,
+        "examples": [
+          "You should make up your mind about who you will vote for."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "verb": "END UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Finally do STH or be in a particular place, state, or situation after doing STH or as a consequence of it, esp. unexpectedly",
+        "confidencePercent": 100,
+        "examples": [
+          "She ended up having to sell her car after her accident."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "verb": "GET BACK",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Return to a place, position, state, activity, conversation topic",
+        "confidencePercent": 78.5,
+        "examples": [
+          "She got back to London last Monday."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "verb": "LOOK UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Raise one’s eyes",
+        "confidencePercent": 88,
+        "examples": [
+          "He looked up from his book and shook his head."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "verb": "FIGURE OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Come to understand or determine STH",
+        "confidencePercent": 100,
+        "examples": [
+          "Despite her efforts, she couldn’t figure out what had happened."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "verb": "SIT DOWN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Move from a standing position to a sitting position",
+        "confidencePercent": 100,
+        "examples": [
+          "Please sit down and have a drink."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "verb": "GET UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Rise or cause to rise after lying in bed or sitting/kneeling",
+        "confidencePercent": 92,
+        "examples": [
+          "She got up out of her chair and put on her shoes."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "verb": "TAKE OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Remove STH/SB from somewhere (container or abstract whole)",
+        "confidencePercent": 50.5,
+        "examples": [
+          "He tore open the envelope and took out a few bills."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Invite to a recreational place or social event",
+        "confidencePercent": 13.5,
+        "examples": [
+          "You should take her out to this new Chinese restaurant."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Obtain an official document or service from an authority",
+        "confidencePercent": 12.5,
+        "examples": [
+          "I had to take out a loan to cover all my expenses."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "verb": "COME ON",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Said to encourage SB to try harder, or do or say STH",
+        "confidencePercent": 50,
+        "examples": [
+          "Come on, don’t be shy and tell us your story."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Said to show SB disbelief, disagreement, or anger",
+        "confidencePercent": 19.5,
+        "examples": [
+          "Oh come on, you're just lying to me!"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "verb": "GO DOWN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Move down to a lower level or position",
+        "confidencePercent": 29,
+        "examples": [
+          "After hitting the iceberg, the ship began to go down."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Decrease in value or amount",
+        "confidencePercent": 27,
+        "examples": [
+          "I don’t think prices will go down."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Go from one place to another, esp. one that is further south or underneath",
+        "confidencePercent": 18,
+        "examples": [
+          "We went down to Australia last year."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "verb": "SHOW UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Make an appearance at a social or professional gathering",
+        "confidencePercent": 81,
+        "examples": [
+          "She didn’t show up at the meeting."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "verb": "TAKE OFF",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Remove STH (esp. piece of clothing or jewellery from one’s body)",
+        "confidencePercent": 41,
+        "examples": [
+          "I took off my shirt and went to bed."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Leave a place, especially suddenly",
+        "confidencePercent": 28.5,
+        "examples": [
+          "They jumped into the car and took off."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Leave the ground and rise into the air",
+        "confidencePercent": 14,
+        "examples": [
+          "The plane took off at 7am."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "verb": "WORK OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Plan, devise or think about STH carefully or in detail",
+        "confidencePercent": 33,
+        "examples": [
+          "We still need to work out the details of the procedure."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Exercise in order to improve health or strength",
+        "confidencePercent": 23,
+        "examples": [
+          "He works out at the gym five times a week."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "(+ well/badly) Happen or develop in a particular way",
+        "confidencePercent": 15,
+        "examples": [
+          "Everything worked out well in the end."
+        ]
+      },
+      {
+        "senseNumber": 4,
+        "definition": "Prove to be successful",
+        "confidencePercent": 12.5,
+        "examples": [
+          "Despite our efforts, it just didn’t work out."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "verb": "STAND UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Rise to a standing position after sitting or lying down",
+        "confidencePercent": 67.5,
+        "examples": [
+          "He pushed away from the table and stood up."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "(Stand up and say STH) Make public knowledge a privately held position",
+        "confidencePercent": 11,
+        "examples": [
+          "Somebody’s got to stand up and say what’s wrong with this country."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "verb": "COME DOWN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Move from a higher spatial location to a lower one; fall/land onto the ground",
+        "confidencePercent": 32.5,
+        "examples": [
+          "Come down from the roof or you will hurt yourself."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "(+ to) Reduce itself to one particular thing that is the most important or essential matter",
+        "confidencePercent": 20.5,
+        "examples": [
+          "What it all comes down to is that the rules have not been respected."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Become lower in amount or value",
+        "confidencePercent": 11,
+        "examples": [
+          "Interest rates are currently coming down."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "verb": "GO AHEAD",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Proceed with a course of action without further hesitation",
+        "confidencePercent": 99,
+        "examples": [
+          "Go ahead and ask me your question!"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "verb": "GO UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Become higher in value; increase",
+        "confidencePercent": 47.5,
+        "examples": [
+          "Oil prices have gone up last year."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Move upward, or from a lower spatial location to a higher one",
+        "confidencePercent": 20.5,
+        "examples": [
+          "He could see a few hands go up in the audience."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "verb": "LOOK BACK",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Think of STH again; reconsider STH past",
+        "confidencePercent": 49.5,
+        "examples": [
+          "Looking back on those days, we had a very happy life."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Look at STH/SB again after having momentarily looked elsewhere",
+        "confidencePercent": 30,
+        "examples": [
+          "He closed the dictionary and looked back to his notes."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "verb": "WAKE UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Become (or make SB become) conscious again after being asleep",
+        "confidencePercent": 92,
+        "examples": [
+          "I was so tired that I woke up at 10 this morning."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "verb": "CARRY OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Perform or complete (task, activity, study, experiment, attack, duties, etc)",
+        "confidencePercent": 63.5,
+        "examples": [
+          "The experiment was carried out by a well-known academic."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Put into execution; implement (plan, idea, wishes, orders, views, etc)",
+        "confidencePercent": 34,
+        "examples": [
+          "Economic reform will soon be carried out."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "verb": "TAKE OVER",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Gain control, management, or possession of STH/SB (task, job, political party, organisation)",
+        "confidencePercent": 96.5,
+        "examples": [
+          "After her father died, she took over the company."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "verb": "HOLD UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Hold STH in a high position (e.g. above one’s waist or head), so it can be seen or reached",
+        "confidencePercent": 54,
+        "examples": [
+          "The professor held up the picture so everyone could see it."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Remain strong or in a fairly good condition after a bad period or the wear of time (person, business, device)",
+        "confidencePercent": 14,
+        "examples": [
+          "These are really old shoes but they’re holding up quite well."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Delay or prevent the progression of STH/SB",
+        "confidencePercent": 11.5,
+        "examples": [
+          "We were held up by heavy traffic."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "verb": "PULL OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Take STH/SB out of a container, thing or place",
+        "confidencePercent": 75,
+        "examples": [
+          "He reached in his pocket and pulled out a gun."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "verb": "TURN AROUND",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Move so as to face in the opposite direction",
+        "confidencePercent": 67.5,
+        "examples": [
+          "She turned around and walked out the door."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Make STH become better or more successful than it previously was (economy, business)",
+        "confidencePercent": 24.5,
+        "examples": [
+          "People have stopped believing the President could turn around the economy."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "verb": "TAKE UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Use a particular amount of space, time or effort",
+        "confidencePercent": 25.5,
+        "examples": [
+          "The rewriting of the document took up a whole afternoon."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Discuss or deal with (issue, idea, matter)",
+        "confidencePercent": 17.5,
+        "examples": [
+          "The Senate will take up the issue tomorrow."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Start doing a particular job or activity, esp. for pleasure",
+        "confidencePercent": 10.5,
+        "examples": [
+          "He took up gardening last year."
+        ]
+      },
+      {
+        "senseNumber": 4,
+        "definition": "Grasp an object, often moving it from a lower to a higher position",
+        "confidencePercent": 10,
+        "examples": [
+          "I have to take up the carpet before I start hoovering."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "verb": "LOOK DOWN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Lower one’s eyes to see what is below",
+        "confidencePercent": 92,
+        "examples": [
+          "She looked down at the ground to see what she stepped on."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "verb": "PUT UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Display or attach STH (e.g. to a wall) so it can be seen",
+        "confidencePercent": 23,
+        "examples": [
+          "They put up a few posters on the wall."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "(+ with) Be willing to accept STH unpleasant or not desirable; tolerate",
+        "confidencePercent": 19,
+        "examples": [
+          "I won’t put up with your bad behaviour for much longer."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Build or place STH somewhere",
+        "confidencePercent": 18,
+        "examples": [
+          "They’re putting up a new fence after the previous one fell apart."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "verb": "BRING BACK",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Make STH/SB return to a place, state, situation, or conversation topic",
+        "confidencePercent": 52.5,
+        "examples": [
+          "This will bring back war into the country."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Bring STH one has taken from a place they come from",
+        "confidencePercent": 22.5,
+        "examples": [
+          "This is the hat he brought back from South America."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "verb": "BRING UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Raise for discussion or consideration",
+        "confidencePercent": 59.5,
+        "examples": [
+          "I didn’t think he would bring up the subject."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Care for/be responsible for a child until it becomes an adult",
+        "confidencePercent": 17.5,
+        "examples": [
+          "She brought up her children under very difficult circumstances."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "verb": "LOOK OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Look outside, or at the horizon",
+        "confidencePercent": 50.5,
+        "examples": [
+          "She liked to go by the window and look out at the garden."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Take care of SB and make sure they are well; protect SB’s interests",
+        "confidencePercent": 25.5,
+        "examples": [
+          "We look out for each other as if we were family."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "verb": "BRING IN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Bring STH to a place or situation",
+        "confidencePercent": 52,
+        "examples": [
+          "I brought in my laptop computer today because my office computer is broken."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Ask SB to do a particular job or task",
+        "confidencePercent": 30.5,
+        "examples": [
+          "He had been brought in to save the company."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "verb": "OPEN UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Make STH become available or possible, less limited",
+        "confidencePercent": 42.5,
+        "examples": [
+          "This opened up opportunities he would never have imagined."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Open STH (door, gate, book, bag)",
+        "confidencePercent": 27.5,
+        "examples": [
+          "She opened up the bag and grabbed some documents."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "verb": "CHECK OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Have a look at; examine STH/SB (esp. to get more information or make a judgement)",
+        "confidencePercent": 97,
+        "examples": [
+          "Check out our website for more information."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "verb": "MOVE ON",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Start doing or discussing STH new (job, activity, conversation topic)",
+        "confidencePercent": 42,
+        "examples": [
+          "Let’s move on to our next topic."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Change physical location (spot, room, country)",
+        "confidencePercent": 28,
+        "examples": [
+          "She lived in New York, then London, and finally moved on to Rome."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Forget about a difficult experience and move forward mentally/emotionally",
+        "confidencePercent": 25,
+        "examples": [
+          "He’s had a difficult year but he’s now ready to move on."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "verb": "PUT OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Make STH known or accessible to the public (information, products)",
+        "confidencePercent": 47,
+        "examples": [
+          "Police have put out a warning about thieves in the area."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Stop STH from burning or shining",
+        "confidencePercent": 14,
+        "examples": [
+          "The fire has finally been put out."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Place STH somewhere in order for it to be seen or used",
+        "confidencePercent": 10,
+        "examples": [
+          "I’ve put out some glasses and a bottle of wine."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "verb": "LOOK AROUND",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Examine a place or one’s surroundings so as to view what it might contain or look for a particular thing",
+        "confidencePercent": 100,
+        "examples": [
+          "They entered the shop and looked around but nobody was there."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "verb": "CATCH UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "(Be/Get caught up) Become involved in STH which prevents SB from making progress or moving forward",
+        "confidencePercent": 26,
+        "examples": [
+          "He is very busy and always caught up in his work."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Reach SB that is ahead by walking, running, or driving faster",
+        "confidencePercent": 18,
+        "examples": [
+          "She was running so fast that it was impossible to catch up with her."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Reach the same level or standard as SB who is more advanced",
+        "confidencePercent": 14,
+        "examples": [
+          "They made considerable improvements, which makes it hard for us to catch up."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "verb": "GO IN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Enter (place, area, room, building)",
+        "confidencePercent": 90,
+        "examples": [
+          "This restaurant looks really nice; let’s go in and have lunch."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "verb": "BREAK DOWN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Stop working or functioning; fail or collapse (vehicle, device, relationship, negotiations)",
+        "confidencePercent": 24,
+        "examples": [
+          "Our car broke down yesterday."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Divide or separate into categories or smaller components so as to make it easier to understand or deal with",
+        "confidencePercent": 20,
+        "examples": [
+          "Let’s break down the task into three easy steps."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Lose control of one’s emotions and yield to tears or distress",
+        "confidencePercent": 17.5,
+        "examples": [
+          "He broke down at his son’s funeral."
+        ]
+      },
+      {
+        "senseNumber": 4,
+        "definition": "Undergo chemical decomposition; separate into different substances",
+        "confidencePercent": 13.5,
+        "examples": [
+          "Digestion breaks down food into small molecules."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "verb": "GET OFF",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Go away from, leave (train, bus, aircraft, lift)",
+        "confidencePercent": 54,
+        "examples": [
+          "You need to take the bus and get off at the third stop."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "(Get off to a ... start) Begin something in a certain way",
+        "confidencePercent": 12.5,
+        "examples": [
+          "The team has got off to a good start this season."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Manage to avoid serious trouble or consequences (esp. legal punishment)",
+        "confidencePercent": 12,
+        "examples": [
+          "It’s not right that he could commit such a crime and get off so easily."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "verb": "KEEP UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Move, progress or increase at the same rate or pace as SB/STH",
+        "confidencePercent": 46,
+        "examples": [
+          "Workers’ income has not kept up with inflation."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Make STH continue",
+        "confidencePercent": 32.5,
+        "examples": [
+          "This is amazing; keep up the good work!"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "verb": "PUT DOWN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Place STH/SB on the floor or on a flat surface",
+        "confidencePercent": 62,
+        "examples": [
+          "She put down her glass and left the bar."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "verb": "REACH OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Stretch an arm in order to hold, touch, or get STH that is within short distance",
+        "confidencePercent": 48.5,
+        "examples": [
+          "She reached out for the empty jar on the table."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Make an effort to address or communicate with SB, so as to help them or involve them in STH",
+        "confidencePercent": 39.5,
+        "examples": [
+          "The government’s efforts to reach out to right-wing voters have paid off."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "verb": "GO OFF",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Go somewhere, esp. for a particular purpose",
+        "confidencePercent": 44.5,
+        "examples": [
+          "He decided to go off to college."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Emit a loud noise or sudden light as a signal or warning",
+        "confidencePercent": 22,
+        "examples": [
+          "Let’s hope the alarm doesn’t go off."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Explode (bomb) or be fired (gun)",
+        "confidencePercent": 14,
+        "examples": [
+          "They could hear bombs going off at a distance."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "verb": "CUT OFF",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Remove a part of STH by cutting it",
+        "confidencePercent": 27,
+        "examples": [
+          "Take the carrots and cut the ends off."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Interrupt SB as they are speaking",
+        "confidencePercent": 24.5,
+        "examples": [
+          "The teacher cut off the student in the middle of her sentence."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "End the provision of STH, or be deprived of a provision (supply, money)",
+        "confidencePercent": 23.5,
+        "examples": [
+          "The government decided to cut off food supplies."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "verb": "TURN BACK",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Turn around so as to face the opposite direction",
+        "confidencePercent": 51.5,
+        "examples": [
+          "Before leaving through the door, he turned back to kiss her goodbye."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Go back (or make SB/STH go back) in the direction SB/STH has come from",
+        "confidencePercent": 25.5,
+        "examples": [
+          "When the storm hit, we had to turn back."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "verb": "PULL UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Stop or cause a vehicle to stop",
+        "confidencePercent": 47,
+        "examples": [
+          "A van pulled up in front of them."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Move STH/SB from a lower position to a higher one; lift from the ground",
+        "confidencePercent": 35.5,
+        "examples": [
+          "She pulled up her scarf to cover her cold face."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 64,
+    "verb": "SET OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Start doing or working on STH, esp. with a particular goal in mind",
+        "confidencePercent": 42.5,
+        "examples": [
+          "I set out to discover the truth behind the story."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Start a journey",
+        "confidencePercent": 26.5,
+        "examples": [
+          "We set out for San Francisco on the following day."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Explain or present STH clearly, esp. officially and in writing",
+        "confidencePercent": 16,
+        "examples": [
+          "The official recommendations were set out in the document."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "verb": "CLEAN UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Get rid of dirt, mess, pollution, or chemical substances in a place or area",
+        "confidencePercent": 74,
+        "examples": [
+          "Make sure you clean up your mess because I won’t do it for you."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Make STH free from dangerous, unacceptable or controversial activities or contents",
+        "confidencePercent": 22,
+        "examples": [
+          "He was asked to clean up his bad language during his interview."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "verb": "SHUT DOWN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Stop (or make STH stop) working or operating (machine, computer, business, premise, strategy)",
+        "confidencePercent": 94,
+        "examples": [
+          "You should shut down your computer at night to save electricity."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "verb": "TURN OVER",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Surrender possession or control to SB/STH (esp. in authority)",
+        "confidencePercent": 59.5,
+        "examples": [
+          "The policeman turned over the criminal to the jail guard."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Change position so that the other side is facing towards the outside or the top, or another direction",
+        "confidencePercent": 34,
+        "examples": [
+          "Put the chicken on the grill and turn it over a few times."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "verb": "SLOW DOWN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Move, proceed or progress at a slower pace (vehicle, economy)",
+        "confidencePercent": 88.5,
+        "examples": [
+          "Economic growth has dramatically slowed down."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "verb": "WIND UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "End up in a particular situation, condition or place, esp. an unpleasant one",
+        "confidencePercent": 87,
+        "examples": [
+          "They wound up having to pay off his debts."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 70,
+    "verb": "TURN UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Yield; be (or make STH be) found, discovered, or noticed",
+        "confidencePercent": 48,
+        "examples": [
+          "The search turned up solid evidence against him."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Increase the volume or level of STH",
+        "confidencePercent": 21.5,
+        "examples": [
+          "I really like this song; could you turn up the radio?"
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Arrive or make an appearance somewhere",
+        "confidencePercent": 14,
+        "examples": [
+          "He turned up to the meeting half an hour late."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "verb": "LINE UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Form or make SB/STH form into a line (also figurative)",
+        "confidencePercent": 75,
+        "examples": [
+          "Dozens of taxis were lined up at the entrance."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 72,
+    "verb": "TAKE BACK",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Take STH/SB to a place, or time period (fig.), they were in before",
+        "confidencePercent": 50,
+        "examples": [
+          "After dinner, he took her back to her house."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Regain possession or control over STH",
+        "confidencePercent": 33.5,
+        "examples": [
+          "The politician’s ultimate goal is to take back the Senate."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 73,
+    "verb": "LAY OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Describe or explain STH clearly or in detail, esp. officially and in writing",
+        "confidencePercent": 46,
+        "examples": [
+          "The whole strategy was laid out in detail in a twenty-page document."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Spread STH out on a flat surface, so it can be seen or used",
+        "confidencePercent": 35,
+        "examples": [
+          "He laid out the plates on the table."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 74,
+    "verb": "GO OVER",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Move towards a place or person, esp. by crossing an area (room, city, country)",
+        "confidencePercent": 63,
+        "examples": [
+          "She went over to the window so she could watch the scene."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Examine or discuss each part of STH in detail in order to understand or remember it better, or make sure it is correct",
+        "confidencePercent": 20,
+        "examples": [
+          "We need to go over the list once again."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 75,
+    "verb": "HANG UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Finish a conversation on the telephone by putting the receiver down or switching the phone off",
+        "confidencePercent": 76.5,
+        "examples": [
+          "He hung up the phone without letting her answer his question."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 76,
+    "verb": "GO THROUGH",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Experience STH difficult or unpleasant",
+        "confidencePercent": 61,
+        "examples": [
+          "You have to understand the tough situation she went through before judging her."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Be officially accepted or approved",
+        "confidencePercent": 10,
+        "examples": [
+          "I hope the tax cut goes through next year."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 77,
+    "verb": "HOLD ON",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Refuse to let go of STH",
+        "confidencePercent": 57,
+        "examples": [
+          "He held on to his job until the very last day."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Wait for a short time",
+        "confidencePercent": 35.5,
+        "examples": [
+          "I’ll be quick, please hold on for one minute."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 78,
+    "verb": "PAY OFF",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Pay the complete amount of STH",
+        "confidencePercent": 49,
+        "examples": [
+          "It will take a dozen years for him to pay off his debts."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Pay back the effort spent in doing STH by becoming profitable or effective",
+        "confidencePercent": 48.5,
+        "examples": [
+          "All the hard work will pay off in the end."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 79,
+    "verb": "HOLD OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Move one’s hand or an object in one’s hand forward or towards SB, in order to grab or give STH",
+        "confidencePercent": 61,
+        "examples": [
+          "He took the keys and held them out to her."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Hold STH as likely to happen or succeed (hope, possibility, prospect, promise)",
+        "confidencePercent": 15,
+        "examples": [
+          "We don’t hold out much hope of finding the murderer."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 80,
+    "verb": "BREAK UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "End or cause to end or fail (esp. relationship)",
+        "confidencePercent": 59,
+        "examples": [
+          "Their marriage broke up in 2007."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Divide into smaller parts or components",
+        "confidencePercent": 34.5,
+        "examples": [
+          "The USSR broke up into more than 10 countries."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 81,
+    "verb": "BRING OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Make a particular detail, quality or feeling more noticeable than it usually is",
+        "confidencePercent": 36,
+        "examples": [
+          "This haircut brings out the natural curl in your hair."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Make SB or STH available for the public or an audience to see, know or buy",
+        "confidencePercent": 33,
+        "examples": [
+          "The band was about to bring out their new album."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Take STH/SB out of a container or enclosed space",
+        "confidencePercent": 27,
+        "examples": [
+          "They brought out another plate from the kitchen."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 82,
+    "verb": "PULL BACK",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Move backwards or make SB/STH move backwards",
+        "confidencePercent": 66.5,
+        "examples": [
+          "She pulled back the hair from her face."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Withdraw or retreat from an activity or location, esp. military",
+        "confidencePercent": 31,
+        "examples": [
+          "The army was forced to pull back due to bad weather."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 83,
+    "verb": "HANG ON",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Wait for a short time",
+        "confidencePercent": 41.5,
+        "examples": [
+          "Please hang on for a minute, I’ll be quick."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Refuse to let go of STH",
+        "confidencePercent": 35.5,
+        "examples": [
+          "He hung on to his job until the very last day."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 84,
+    "verb": "BUILD UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Increase or cause STH to increase, accumulate, or strengthen, especially progressively",
+        "confidencePercent": 76,
+        "examples": [
+          "Tension was building up among competitors."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 85,
+    "verb": "THROW OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Refuse to accept or consider (esp. by people of authority)",
+        "confidencePercent": 29,
+        "examples": [
+          "The president attempted to have the death penalty thrown out."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Put STH in a rubbish bin",
+        "confidencePercent": 25.5,
+        "examples": [
+          "He threw out a dozen empty boxes that were piled up in the room."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Make SB leave a place, activity or organization, esp. forcibly and unexpectedly",
+        "confidencePercent": 21,
+        "examples": [
+          "Several students were caught cheating and subsequently thrown out of school."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 86,
+    "verb": "HANG OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Spend time relaxing or enjoying oneself",
+        "confidencePercent": 84,
+        "examples": [
+          "I don't like to hang out with people I work with."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 87,
+    "verb": "PUT ON",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Put a piece of clothing or jewellery onto one’s body",
+        "confidencePercent": 52,
+        "examples": [
+          "You should put on your gloves, it’s really cold outside."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Present or stage (play, show, competition)",
+        "confidencePercent": 14.5,
+        "examples": [
+          "They put on such an incredible show last night!"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 88,
+    "verb": "GET DOWN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "(+ to) Begin to pay serious attention to STH",
+        "confidencePercent": 26,
+        "examples": [
+          "We should get down to discussing those issues as soon as possible."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Lower one’s body as by kneeling, sitting or lying",
+        "confidencePercent": 22.5,
+        "examples": [
+          "Get down on your knees so you can get a better view."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Come down from STH; descend (car, horse, tree)",
+        "confidencePercent": 17.5,
+        "examples": [
+          "He loves climbing trees but finds it hard to get down."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 89,
+    "verb": "COME OVER",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Come to a place or area (spot, room, town, country), esp. towards SB or to join SB",
+        "confidencePercent": 95,
+        "examples": [
+          "Could you come over and give me a hand with this?"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 90,
+    "verb": "MOVE IN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Settle into a new house or place",
+        "confidencePercent": 62.5,
+        "examples": [
+          "He liked the house so much that he decided to move in immediately."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Go towards SB/STH, esp. to attack or take control of them",
+        "confidencePercent": 34,
+        "examples": [
+          "The assault was led by Lieutenant Jones, moving in from behind the hill."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 91,
+    "verb": "START OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Start a life, existence, profession, or course of action in a particular way or by doing a particular thing",
+        "confidencePercent": 95,
+        "examples": [
+          "She started out as a shop assistant and gradually climbed the employment ladder."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 92,
+    "verb": "CALL OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Speak or utter loudly",
+        "confidencePercent": 79,
+        "examples": [
+          "He could hear a voice call out his name."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 93,
+    "verb": "SIT UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Rise from a lying to a sitting position",
+        "confidencePercent": 93.5,
+        "examples": [
+          "The sudden noise made her sit up in her bed and listen."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 94,
+    "verb": "TURN DOWN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Refuse or dismiss (request, offer, opportunity)",
+        "confidencePercent": 82.5,
+        "examples": [
+          "This is an opportunity you would be foolish to turn down."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 95,
+    "verb": "BACK UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Move or drive backwards a short way",
+        "confidencePercent": 26,
+        "examples": [
+          "He got into his car and backed up out of the alley."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Take action in order to support STH or make it happen",
+        "confidencePercent": 21,
+        "examples": [
+          "Politicians often fail to back up their words with actions."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Establish as valid or genuine",
+        "confidencePercent": 20.5,
+        "examples": [
+          "You have to back up your accusations with solid evidence."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 96,
+    "verb": "PUT BACK",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Move STH/SB to a place, position, or state they were in before",
+        "confidencePercent": 85.5,
+        "examples": [
+          "Could you put the milk back in the fridge please?"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 97,
+    "verb": "SEND OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Mail, send or distribute to a number of people",
+        "confidencePercent": 57,
+        "examples": [
+          "Hundreds of copies were sent out to the local population."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Send SB to a place for a particular purpose",
+        "confidencePercent": 32.5,
+        "examples": [
+          "Military troops were sent out to secure the region."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 98,
+    "verb": "GET IN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Go (or make STH/SB go) inside a place (car, house, room)",
+        "confidencePercent": 65.5,
+        "examples": [
+          "The new security lock prevents thieves from getting in."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "(+ on) Get involved in an exciting or profitable activity/opportunity",
+        "confidencePercent": 12.5,
+        "examples": [
+          "You should get in on the act!"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 99,
+    "verb": "BLOW UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Explode or destroy STH with a bomb, or cause to be exploded or destroyed",
+        "confidencePercent": 75.5,
+        "examples": [
+          "Several attempts were made at blowing up official buildings."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 100,
+    "verb": "CARRY ON",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Continue to do or be involved with STH, or make STH continue (especially despite difficulty)",
+        "confidencePercent": 66,
+        "examples": [
+          "I would like to carry on working after I retire."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Engage or take part in",
+        "confidencePercent": 15,
+        "examples": [
+          "His illness makes it difficult for him to carry on conversations."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 101,
+    "verb": "SET OFF",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Start on a trip or journey",
+        "confidencePercent": 30.5,
+        "examples": [
+          "We will finish packing and set off in the morning."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Cause a device to explode, or a signal to start, esp. by accident",
+        "confidencePercent": 27.5,
+        "examples": [
+          "He accidentally set off my car alarm."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Make STH happen or emerge, esp. without intending to",
+        "confidencePercent": 25.5,
+        "examples": [
+          "Employees started to protest, setting off a dispute over workers’ rights."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 102,
+    "verb": "KEEP ON",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Continue doing STH without stopping, or repeatedly",
+        "confidencePercent": 92.5,
+        "examples": [
+          "She wiped tears off her cheeks but kept on crying."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 103,
+    "verb": "RUN OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "(+ of) Use STH (or become used) completely so that nothing is left",
+        "confidencePercent": 49.5,
+        "examples": [
+          "We’ve run out of biscuits."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Leave suddenly, as if in a hurry",
+        "confidencePercent": 34,
+        "examples": [
+          "After the argument, she ran out into the garden and screamed."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 104,
+    "verb": "MAKE OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "See or hear with difficulty",
+        "confidencePercent": 60.5,
+        "examples": [
+          "I could barely make out his face in the dark."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Represent as being a particular way, esp. falsely",
+        "confidencePercent": 11,
+        "examples": [
+          "He was innocent, but the media made him out to be a criminal."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "(Make it out) Deal with a difficult situation successfully",
+        "confidencePercent": 10.5,
+        "examples": [
+          "We were lucky to make it out of the war alive."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 105,
+    "verb": "SHUT UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Stop (or make SB/STH stop) talking or making a noise",
+        "confidencePercent": 97,
+        "examples": [
+          "Just sit down and shut up!"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 106,
+    "verb": "TURN OFF",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Stop a piece of equipment working temporarily or a supply flowing by turning a tap, pressing a button, or moving a switch",
+        "confidencePercent": 69.5,
+        "examples": [
+          "People were asked to turn off their phones."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Cause to feel intense dislike",
+        "confidencePercent": 20.5,
+        "examples": [
+          "His speech turned off left-wing voters."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 107,
+    "verb": "BRING ABOUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Cause to happen or emerge, esp. STH positive",
+        "confidencePercent": 100,
+        "examples": [
+          "This decision will bring about change in the political sphere."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 108,
+    "verb": "STEP BACK",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Move back by lifting one’s foot and putting it down backwards",
+        "confidencePercent": 72,
+        "examples": [
+          "He stepped back when the big man threatened him."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Stop being involved in STH so as to consider it more carefully/objectively",
+        "confidencePercent": 22.5,
+        "examples": [
+          "We need to step back and take a broader perspective on the past events."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 109,
+    "verb": "LAY DOWN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Put STH away or down on a surface, esp. because one has stopped using it",
+        "confidencePercent": 31,
+        "examples": [
+          "I laid down my book and stood up."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Lie flat on a surface, usually to rest",
+        "confidencePercent": 28,
+        "examples": [
+          "He laid the child down on the bed and wished her good night."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Lay the foundations of; establish or create",
+        "confidencePercent": 17,
+        "examples": [
+          "The principles of good conduct were laid down decades ago."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 110,
+    "verb": "BRING DOWN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Cause SB/STH to move downward or fall to the ground",
+        "confidencePercent": 32.5,
+        "examples": [
+          "The rocket attack brought down the airliner."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Reduce the level, rate, or amount of STH",
+        "confidencePercent": 26,
+        "examples": [
+          "The company’s expenses need to be brought down."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Cause SB/STH in a position of power (government, president, system, organisation) to lose its power/status",
+        "confidencePercent": 25,
+        "examples": [
+          "They helped bring down one of the most corrupt dictatorships in history."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 111,
+    "verb": "STAND OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Distinguish oneself/itself by being better, more significant or more impressive than other people/things",
+        "confidencePercent": 60.5,
+        "examples": [
+          "Excellent product quality is what made the brand stand out from its competitors."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Be easily seen or noticeable",
+        "confidencePercent": 38,
+        "examples": [
+          "Flashing lights make planes stand out at night."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 112,
+    "verb": "COME ALONG",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Appear or arrive; come into existence",
+        "confidencePercent": 72.5,
+        "examples": [
+          "Such an opportunity comes along only once in a lifetime."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Go somewhere with SB",
+        "confidencePercent": 20.5,
+        "examples": [
+          "We’re going to the cinema tonight; you should come along with us!"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 113,
+    "verb": "PLAY OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Happen or develop; be enacted or performed",
+        "confidencePercent": 79.5,
+        "examples": [
+          "The way these negotiations play out will have important consequences."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 114,
+    "verb": "BREAK OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Start suddenly, esp. STH undesirable and unpleasant",
+        "confidencePercent": 69.5,
+        "examples": [
+          "Riots broke out that night."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 115,
+    "verb": "GO AROUND",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Go from one place/person to another; circulate",
+        "confidencePercent": 76,
+        "examples": [
+          "There is a rumour going around that she is pregnant."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 116,
+    "verb": "WALK OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Leave a place or event, especially suddenly or angrily",
+        "confidencePercent": 81.5,
+        "examples": [
+          "She walked out of the meeting feeling irritated by her colleagues."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 117,
+    "verb": "GET THROUGH",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "(+ to) Succeed in reaching a physical destination or stage",
+        "confidencePercent": 27,
+        "examples": [
+          "The food supplies never got through to the local population."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Be successfully communicated or understood",
+        "confidencePercent": 22.5,
+        "examples": [
+          "He needed to speak slowly and clearly so his message would get through to the audience."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Succeed in contacting SB on the telephone",
+        "confidencePercent": 20.5,
+        "examples": [
+          "I cannot seem to get through to the customer service department."
+        ]
+      },
+      {
+        "senseNumber": 4,
+        "definition": "Overcome STH, esp. difficult or unpleasant",
+        "confidencePercent": 14.5,
+        "examples": [
+          "He gave me useful advice, which helped me get through this difficult situation."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 118,
+    "verb": "HOLD BACK",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Decide not to do or say STH",
+        "confidencePercent": 23.5,
+        "examples": [
+          "They should not hold back from joining us if they want to."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Prevent SB/STH from reaching their full potential",
+        "confidencePercent": 21,
+        "examples": [
+          "You cannot let a few unmotivated pupils hold back the rest of the group."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Prevent SB/STH from going somewhere",
+        "confidencePercent": 17.5,
+        "examples": [
+          "Security guards tried to hold back the crowd."
+        ]
+      },
+      {
+        "senseNumber": 4,
+        "definition": "Contain an unwanted physical manifestation (tears, laughter, sigh, sneeze)",
+        "confidencePercent": 16,
+        "examples": [
+          "She was holding back the laughter with great effort."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 119,
+    "verb": "WRITE DOWN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Record information on paper",
+        "confidencePercent": 98,
+        "examples": [
+          "You should write down his contact details in case you want to get in touch."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 120,
+    "verb": "MOVE BACK",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Return to a place one has lived in before",
+        "confidencePercent": 75,
+        "examples": [
+          "We moved back to New York last year."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 121,
+    "verb": "FILL OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Complete a form or official document",
+        "confidencePercent": 81.5,
+        "examples": [
+          "We had to fill out a dozen forms in total."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 122,
+    "verb": "SIT BACK",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Rest in a comfortable position against the back of a seat",
+        "confidencePercent": 66,
+        "examples": [
+          "She sat back in her chair and turned on the TV."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "(Sit back and do STH) Deliberately take no action/remain passive about STH",
+        "confidencePercent": 34,
+        "examples": [
+          "We won’t just sit back and watch the situation getting worse and worse."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 123,
+    "verb": "RULE OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Exclude STH as a possibility, plausible cause or explanation",
+        "confidencePercent": 93.5,
+        "examples": [
+          "They ruled out the possibility of a mass murder."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 124,
+    "verb": "MOVE UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Move to a better position; advance to a higher level/rank",
+        "confidencePercent": 47,
+        "examples": [
+          "She moved up from secretary to senior manager in just a few years."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Move upward, from a lower spatial location to a higher one",
+        "confidencePercent": 22.5,
+        "examples": [
+          "She put her hand on his shoulder and moved it up along the back of his neck."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 125,
+    "verb": "PICK OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Choose SB/STH among a number of alternatives",
+        "confidencePercent": 71.5,
+        "examples": [
+          "She picked out the best-looking dress she could find."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Detect/be noticed among a group of things or people",
+        "confidencePercent": 19,
+        "examples": [
+          "My mum could easily be picked out in the picture."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 126,
+    "verb": "TAKE DOWN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Remove STH that was previously put up or put in place",
+        "confidencePercent": 38.5,
+        "examples": [
+          "After the exhibition, they took the paintings down."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Destroy, kill, or disable",
+        "confidencePercent": 27.5,
+        "examples": [
+          "The terrorists tried to take down the President's plane."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Take SB to a place, esp. further south or at a lower level",
+        "confidencePercent": 18,
+        "examples": [
+          "My dad decided to take us down to Florida."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 127,
+    "verb": "GET ON",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "(+ with) Continue doing STH after stopping",
+        "confidencePercent": 51,
+        "examples": [
+          "We might as well get on with it if we want to finish on time."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Get on board some form of public transportation (train, bus, plane, elevator)",
+        "confidencePercent": 14.5,
+        "examples": [
+          "He got on the bus to go to school."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 128,
+    "verb": "GIVE BACK",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Return STH to its original owner/provider",
+        "confidencePercent": 100,
+        "examples": [
+          "It’s nice to be able to give back to the community."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 129,
+    "verb": "HAND OVER",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Give STH to SB by holding it in one’s hand and offering it to them",
+        "confidencePercent": 58.5,
+        "examples": [
+          "She turned around to hand over her keys to her husband."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Surrender control or responsibility for STH/SB to SB else, esp. officially",
+        "confidencePercent": 41.5,
+        "examples": [
+          "The government isn’t willing to hand over power to local authorities."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 130,
+    "verb": "SUM UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Express or represent the most important/representative facts, ideas, or characteristics of SB/STH, especially in a brief manner",
+        "confidencePercent": 97,
+        "examples": [
+          "He summed up the whole discussion in just a few minutes."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 131,
+    "verb": "MOVE OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Leave one’s place of residence permanently",
+        "confidencePercent": 94.5,
+        "examples": [
+          "Our neighbour is going to move out next month."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 132,
+    "verb": "COME OFF",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Become detached or removed from a larger whole",
+        "confidencePercent": 34,
+        "examples": [
+          "The button is coming off my shirt."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Appear or seem to be a particular way",
+        "confidencePercent": 24.5,
+        "examples": [
+          "He was tired and not prepared, and so came off poorly in the interview."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Be finished with STH; have completed STH",
+        "confidencePercent": 17.5,
+        "examples": [
+          "The team just came off an incredibly successful season."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 133,
+    "verb": "PASS ON",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Circulate or communicate; give STH to SB after receiving it from SB else (information, ideas, object)",
+        "confidencePercent": 37.5,
+        "examples": [
+          "I got this message this morning and was asked to pass it on to you."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Transmit from one generation to the next (traditions, beliefs, skills, possessions)",
+        "confidencePercent": 37,
+        "examples": [
+          "These ancient traditions have been passed on from generation to generation."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Die (euphemism)",
+        "confidencePercent": 12.5,
+        "examples": [
+          "She has been very depressed since her mother passed on."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 134,
+    "verb": "TAKE IN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Provide a place for SB to live or stay",
+        "confidencePercent": 24.5,
+        "examples": [
+          "The family took her in when she was abandoned by her parents."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Fully understand or grasp the meaning of STH",
+        "confidencePercent": 17.5,
+        "examples": [
+          "You have to explain more thoroughly; it’s too difficult to take in."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Deceive by behaving in a dishonest way",
+        "confidencePercent": 10,
+        "examples": [
+          "He was very convincing, so I was easily taken in."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 135,
+    "verb": "SET DOWN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Put something on a surface or on the ground",
+        "confidencePercent": 75,
+        "examples": [
+          "He carried the bags to his room and set them down."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 136,
+    "verb": "SORT OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Do what is needed to solve a problem, conflict or difficult situation",
+        "confidencePercent": 51,
+        "examples": [
+          "A few ideas were raised to sort out the company’s financial issues."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Find out information so as to understand STH",
+        "confidencePercent": 25.5,
+        "examples": [
+          "He will need some time to sort out the reasons for his failure."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 137,
+    "verb": "FOLLOW UP",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Take action about STH after a previous action or thing, esp. so as to reinforce its effect",
+        "confidencePercent": 48.5,
+        "examples": [
+          "You won’t be cured immediately after the operation; you will have to follow up with therapy."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Try to find more information about STH",
+        "confidencePercent": 45.5,
+        "examples": [
+          "Detectives are following up on a few promising leads."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 138,
+    "verb": "COME THROUGH",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Be clearly perceived, noticed or seen (feeling, emotion, quality)",
+        "confidencePercent": 20.5,
+        "examples": [
+          "Her disappointment came through by the tone of her voice."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Reach success or a desired goal despite difficulty",
+        "confidencePercent": 20,
+        "examples": [
+          "He worked really hard, and despite some difficulties, he came through in the end."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Arrive at a destination; come into view (train, ship)",
+        "confidencePercent": 10,
+        "examples": [
+          "We had to wait for a ship to come through and rescue us."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 139,
+    "verb": "SETTLE DOWN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Adopt a quieter and steadier lifestyle",
+        "confidencePercent": 31,
+        "examples": [
+          "I just want to fall in love with the right guy and settle down."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Become calmer, quieter, more orderly",
+        "confidencePercent": 26.5,
+        "examples": [
+          "We need things to settle down before we can make a serious decision."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Get into a comfortable position, either sitting or lying",
+        "confidencePercent": 20,
+        "examples": [
+          "When he reached the top of the hill, he settled down in the grass to have a rest."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 140,
+    "verb": "COME AROUND",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Come in the area near STH/SB",
+        "confidencePercent": 45,
+        "examples": [
+          "He came around to my room and kissed me goodnight."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "(+ to) Convert to an opinion or decision",
+        "confidencePercent": 22,
+        "examples": [
+          "I believe she will come around to our way of thinking eventually."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Happen again as a regular event, at its usual time",
+        "confidencePercent": 10,
+        "examples": [
+          "You’ll have to wait until summer comes around."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 141,
+    "verb": "FILL IN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "(+ for) Do SB’s work temporarily because they cannot or will not do it themselves",
+        "confidencePercent": 31,
+        "examples": [
+          "I had to fill in for her yesterday because she was ill."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "(+ on) Give SB extra or missing information they want or need",
+        "confidencePercent": 29.5,
+        "examples": [
+          "She filled Carol in on the plan."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Put material or substance into STH in order to make it full or complete",
+        "confidencePercent": 19,
+        "examples": [
+          "All the remaining holes had to be filled in with concrete."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 142,
+    "verb": "GIVE OUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Give to each of a large number of people",
+        "confidencePercent": 40,
+        "examples": [
+          "The committee gave out more than 100 copies in the last meeting."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Make known openly or publicly",
+        "confidencePercent": 33.5,
+        "examples": [
+          "You should be more careful and not give out your phone number so easily."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Collapse/fail; stop functioning properly (heart, knees)",
+        "confidencePercent": 11.5,
+        "examples": [
+          "At 95 years of age, her heart finally gave out."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 143,
+    "verb": "GIVE IN",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Cease resistance to (liking/temptation/habit, or to SB’s demands/control)",
+        "confidencePercent": 100,
+        "examples": [
+          "She shouldn’t give in to her children’s demands."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 144,
+    "verb": "GO ALONG",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Progress or proceed with an activity",
+        "confidencePercent": 44,
+        "examples": [
+          "You will learn as you go along."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Act in cooperation or express agreement",
+        "confidencePercent": 28,
+        "examples": [
+          "The Democrats are not likely to go along with the plan."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Go to a place or event, esp. without much planning",
+        "confidencePercent": 15.5,
+        "examples": [
+          "Would you like to go along with us to the party?"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 145,
+    "verb": "BREAK OFF",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Separate a part (or become separate) from a larger piece",
+        "confidencePercent": 40,
+        "examples": [
+          "He accidentally broke off a piece of wood from the fence."
+        ]
+      },
+      {
+        "senseNumber": 2,
+        "definition": "Stop speaking, especially suddenly",
+        "confidencePercent": 28,
+        "examples": [
+          "“There is something that…” He broke off abruptly."
+        ]
+      },
+      {
+        "senseNumber": 3,
+        "definition": "Put an end to STH (relationship, discussion, talks, negotiations)",
+        "confidencePercent": 24,
+        "examples": [
+          "They broke off diplomatic relations in 1986."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 146,
     "verb": "PUT OFF",
     "senses": [
       {
@@ -110,7 +3140,7 @@
     ]
   },
   {
-    "id": 6,
+    "id": 147,
     "verb": "COME ABOUT",
     "senses": [
       {
@@ -120,19 +3150,11 @@
         "examples": [
           "I did not expect this to come about."
         ]
-      },
-      {
-        "senseNumber": 2,
-        "definition": "Happen as a result of something",
-        "confidencePercent": 38,
-        "examples": [
-          "The accident came about because of poor weather conditions."
-        ]
       }
     ]
   },
   {
-    "id": 7,
+    "id": 148,
     "verb": "CLOSE DOWN",
     "senses": [
       {
@@ -142,19 +3164,11 @@
         "examples": [
           "Non-profitable companies were closed down."
         ]
-      },
-      {
-        "senseNumber": 2,
-        "definition": "Shut temporarily or for the day",
-        "confidencePercent": 42,
-        "examples": [
-          "The restaurant closes down at midnight every day."
-        ]
       }
     ]
   },
   {
-    "id": 8,
+    "id": 149,
     "verb": "PUT IN",
     "senses": [
       {
@@ -171,6 +3185,20 @@
         "confidencePercent": 26.5,
         "examples": [
           "I put in ten hours a day at the office."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 150,
+    "verb": "SET ABOUT",
+    "senses": [
+      {
+        "senseNumber": 1,
+        "definition": "Begin a course of action, usually with a specific purpose/objective in mind",
+        "confidencePercent": 97,
+        "examples": [
+          "We set about laying the table before our guests arrived."
         ]
       }
     ]
