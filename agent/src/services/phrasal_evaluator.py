@@ -1,9 +1,9 @@
 import json
 import logging
-from typing import Any, Dict, Optional
+from typing import Any, Optional
 
-from livekit.plugins import openai
 from livekit.agents import ChatContext
+from livekit.plugins import openai
 
 logger = logging.getLogger("agent.phrasal_evaluator")
 
@@ -13,7 +13,7 @@ class PhrasalEvaluator:
 
     def __init__(self):
         self.llm = openai.LLM(model="gpt-4o-mini")
-        self._cache: Dict[str, Dict[str, Any]] = {}
+        self._cache: dict[str, dict[str, Any]] = {}
 
     async def evaluate_usage(
         self,
@@ -21,16 +21,16 @@ class PhrasalEvaluator:
         phrasal_verb: str,
         scenario: str,
         character: Optional[str] = None
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """
         Evaluate if the user correctly used the phrasal verb in context.
-        
+
         Args:
             user_text: What the user said
             phrasal_verb: The target phrasal verb (e.g., "go on")
             scenario: The conversation scenario/context
             character: Optional character name for context
-            
+
         Returns:
             Dictionary with:
                 - used_correctly: bool - whether the phrasal verb was used correctly
@@ -82,16 +82,19 @@ Examples of incorrect usage:
             chat_ctx.add_message(role="system", content="You are a language learning evaluator. Return only valid JSON.")
             chat_ctx.add_message(role="user", content=evaluation_prompt)
 
-            response = await self.llm.chat(chat_ctx=chat_ctx)
+            # Proper LLMStream usage with async context manager
+            content = ""
+            async with self.llm.chat(chat_ctx=chat_ctx) as stream:
+                async for chunk in stream:
+                    if chunk.delta and chunk.delta.content:
+                        content += chunk.delta.content
+
+            logger.info(f"Evaluation response: {content}")
 
             # Parse the response
             try:
-                # Extract JSON from the response
-                response_text = response.choices[0].message.content
-                logger.info(f"Evaluation response: {response_text}")
-
                 # Try to parse as JSON
-                result = json.loads(response_text)
+                result = json.loads(content.strip())
 
                 # Ensure required fields exist with defaults
                 evaluation = {
@@ -109,7 +112,7 @@ Examples of incorrect usage:
 
             except json.JSONDecodeError as e:
                 logger.error(f"Failed to parse LLM response as JSON: {e}")
-                logger.error(f"Response was: {response_text}")
+                logger.error(f"Response was: {content}")
 
                 # Return a default evaluation on parse error
                 return {

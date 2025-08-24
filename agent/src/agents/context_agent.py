@@ -1,3 +1,4 @@
+import asyncio
 import json
 import logging
 from typing import Optional
@@ -68,58 +69,47 @@ Remember: You are {self.character}, not a language teacher. Act naturally in the
 
         logger.info(f"🎯 [ContextAgent] Turn {self.turn_count}/{self.max_turns}: User said: {user_text}")
 
-        # Evaluate phrasal verb usage
-        evaluation = await self.evaluator.evaluate_usage(
-            user_text=user_text,
-            phrasal_verb=self.phrasal_verb,
-            scenario=self.situation,
-            character=self.character
-        )
+        # Start background evaluation - don't block conversation
+        self._evaluation_task = asyncio.create_task(self._evaluate_and_notify(user_text))
 
-        logger.info(f"📊 [ContextAgent] Evaluation: {evaluation}")
+        # Allow conversation to continue immediately while evaluation runs in background
+        logger.info("⚡ [ContextAgent] Evaluation started in background, conversation continues")
 
-        if evaluation["used_correctly"]:
-            # Success! User used the phrasal verb correctly
-            self.success = True
-            await self._send_success_toast()
-
-            # Add context for the agent to acknowledge success naturally
-            turn_ctx.add_message(
-                role="system",
-                content=f"CONTEXT: The student correctly used '{self.phrasal_verb}' in their response. Continue the conversation naturally as {self.character}, acknowledging what they said in a way that feels natural for the scenario. Do NOT explicitly praise their language use - just respond naturally to what they said."
+    async def _evaluate_and_notify(self, user_text: str) -> None:
+        """Evaluate phrasal verb usage in background and notify UI accordingly."""
+        try:
+            # Evaluate phrasal verb usage
+            evaluation = await self.evaluator.evaluate_usage(
+                user_text=user_text,
+                phrasal_verb=self.phrasal_verb,
+                scenario=self.situation,
+                character=self.character
             )
-            logger.info(f"✅ [ContextAgent] Success! User correctly used '{self.phrasal_verb}'")
 
-        elif self.turn_count >= self.max_turns and not self.success:
-            # Failed - out of turns
-            hint = evaluation.get("hint", f"You could have said something like: 'Could you {self.phrasal_verb} with your explanation?'")
-            await self._send_failure_toast(hint)
+            logger.info(f"📊 [ContextAgent] Background evaluation completed: {evaluation}")
 
-            # Add context for agent to wrap up
-            turn_ctx.add_message(
-                role="system",
-                content=f"CONTEXT: This is the final turn. The student didn't use '{self.phrasal_verb}' correctly. As {self.character}, naturally wrap up the conversation. You might say you need to go or end the meeting."
-            )
-            logger.info("❌ [ContextAgent] Failed - out of turns without correct usage")
+            if evaluation["used_correctly"]:
+                # Success! User used the phrasal verb correctly
+                self.success = True
+                await self._send_success_toast()
+                logger.info(f"✅ [ContextAgent] Success! User correctly used '{self.phrasal_verb}'")
 
-        else:
-            # Still have turns remaining
-            remaining = self.max_turns - self.turn_count
+            elif self.turn_count >= self.max_turns and not self.success:
+                # Failed - out of turns
+                hint = evaluation.get("hint", f"You could have said something like: 'Could you {self.phrasal_verb} with your explanation?'")
+                await self._send_failure_toast(hint)
+                logger.info("❌ [ContextAgent] Failed - out of turns without correct usage")
 
-            if evaluation.get("used_verb") and not evaluation.get("used_correctly"):
-                # They tried but got it wrong
-                turn_ctx.add_message(
-                    role="system",
-                    content=f"CONTEXT: The student attempted to use '{self.phrasal_verb}' but used it incorrectly. As {self.character}, respond naturally to what they said. If their meaning was unclear due to the incorrect usage, you can express confusion naturally, but stay in character."
-                )
-                logger.info(f"⚠️ [ContextAgent] Incorrect usage attempt. {remaining} turns remaining")
             else:
-                # They haven't used it yet
-                turn_ctx.add_message(
-                    role="system",
-                    content=f"CONTEXT: The student hasn't used '{self.phrasal_verb}' yet. {remaining} turns remaining. Continue as {self.character}, keeping the conversation going naturally. Create opportunities where using '{self.phrasal_verb}' would be natural, but don't force it."
-                )
-                logger.info(f"⏳ [ContextAgent] No usage yet. {remaining} turns remaining")
+                # Still have turns remaining - just log for now
+                remaining = self.max_turns - self.turn_count
+                if evaluation.get("used_verb") and not evaluation.get("used_correctly"):
+                    logger.info(f"⚠️ [ContextAgent] Incorrect usage attempt detected. {remaining} turns remaining")
+                else:
+                    logger.info(f"⏳ [ContextAgent] No usage detected yet. {remaining} turns remaining")
+
+        except Exception as e:
+            logger.error(f"❌ [ContextAgent] Background evaluation failed: {e}")
 
     async def _send_success_toast(self):
         """Send success notification to frontend."""
