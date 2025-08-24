@@ -2,35 +2,66 @@
 
 import { useState, useEffect } from 'react';
 import VoiceCard from '@/components/VoiceCard';
+import ContextCard from '@/components/ContextCard';
 import { Button } from '@/components/ui/button';
-import { getRandomVoiceCard, VoiceCard as VoiceCardType } from '@/lib/voice-card-types';
+import { VoiceCard as VoiceCardType } from '@/lib/voice-card-types';
+import { ContextCard as ContextCardType } from '@/lib/context-card-types';
 import { Settings } from 'lucide-react';
 import Link from 'next/link';
 
+type CardType = VoiceCardType | ContextCardType;
+
+// Function to get a random card (voice or context)
+async function getRandomCard(): Promise<CardType> {
+  const response = await fetch('/voice-card-types.json');
+  const data = await response.json();
+  const cards = data.voiceCardTypes;
+  // For testing, always get the first card (context card), 
+  // change back to random: cards[Math.floor(Math.random() * cards.length)]
+  const randomCard = cards[0];
+  
+  // Convert to appropriate type based on card type
+  if (randomCard.type === 'context') {
+    return {
+      id: randomCard.id,
+      type: 'context' as const,
+      title: randomCard.title,
+      contextText: randomCard.contextText,
+      imageUrl: randomCard.imageUrl,
+      ctaText: randomCard.ctaText,
+      scenario: randomCard.scenario,
+      targetPhrasalVerb: randomCard.targetPhrasalVerb
+    };
+  } else {
+    // Default to voice card
+    return randomCard as VoiceCardType;
+  }
+}
+
 export default function VocabularyPracticePage() {
-  // Start with null and load voice card after mount to avoid hydration issues
-  const [currentVoiceCard, setCurrentVoiceCard] = useState<VoiceCardType | null>(null);
+  // Start with null and load card after mount to avoid hydration issues
+  const [currentCard, setCurrentCard] = useState<CardType | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
-    // Load a random voice card after component mounts
-    const loadVoiceCard = async () => {
+    // Load a random card after component mounts
+    const loadCard = async () => {
       try {
-        const voiceCard = await getRandomVoiceCard();
-        setCurrentVoiceCard(voiceCard);
+        const card = await getRandomCard();
+        setCurrentCard(card);
       } catch (error) {
-        console.error('Failed to load voice card:', error);
+        console.error('Failed to load card:', error);
       } finally {
         setIsLoading(false);
       }
     };
     
-    loadVoiceCard();
+    loadCard();
   }, []);
   
   const [level] = useState(1);
   const [score, setScore] = useState(0);
-  const [currentCard] = useState(6); // Starting at card 6 as shown in the image
+  const [currentCardNumber] = useState(6); // Starting at card 6 as shown in the image
   const [totalCards] = useState(20);
   const [verbsStudying] = useState(5);
 
@@ -39,12 +70,12 @@ export default function VocabularyPracticePage() {
       setScore(prev => prev + 1);
     }
     
-    // Get a new random voice card for the next practice
+    // Get a new random card for the next practice
     try {
-      const voiceCard = await getRandomVoiceCard();
-      setCurrentVoiceCard(voiceCard);
+      const card = await getRandomCard();
+      setCurrentCard(card);
     } catch (error) {
-      console.error('Failed to load new voice card:', error);
+      console.error('Failed to load new card:', error);
     }
     
     // In a real app, you would advance to the next card or end the session
@@ -53,10 +84,10 @@ export default function VocabularyPracticePage() {
 
   const handleReset = async () => {
     try {
-      const voiceCard = await getRandomVoiceCard();
-      setCurrentVoiceCard(voiceCard);
+      const card = await getRandomCard();
+      setCurrentCard(card);
     } catch (error) {
-      console.error('Failed to load new voice card:', error);
+      console.error('Failed to load new card:', error);
     }
   };
 
@@ -83,7 +114,7 @@ export default function VocabularyPracticePage() {
             </div>
             <div className="hidden sm:flex h-6 w-px bg-gray-300" />
             <div className="text-center">
-              <div className="text-sm font-semibold">Cards: {currentCard}/{totalCards}</div>
+              <div className="text-sm font-semibold">Cards: {currentCardNumber}/{totalCards}</div>
               <div className="text-xs text-gray-600">Progress</div>
             </div>
             <div className="text-center">
@@ -101,7 +132,7 @@ export default function VocabularyPracticePage() {
             <div className="w-full bg-gray-200 rounded-full h-3">
               <div 
                 className="bg-blue-600 h-3 rounded-full transition-all duration-300"
-                style={{ width: `${(currentCard / totalCards) * 100}%` }}
+                style={{ width: `${(currentCardNumber / totalCards) * 100}%` }}
               ></div>
             </div>
           </div>
@@ -110,24 +141,32 @@ export default function VocabularyPracticePage() {
         {/* Vocabulary Practice Card */}
         {isLoading ? (
           <div className="max-w-2xl mx-auto text-center py-12">
-            <div className="text-lg text-gray-600">Loading voice card...</div>
+            <div className="text-lg text-gray-600">Loading practice card...</div>
           </div>
-        ) : currentVoiceCard ? (
-          <VoiceCard
-            voiceCard={currentVoiceCard}
-            onAnswer={handleAnswer}
-            onReset={handleReset}
-          />
+        ) : currentCard ? (
+          currentCard.type === 'context' ? (
+            <ContextCard
+              contextCard={currentCard as ContextCardType}
+              onAnswer={handleAnswer}
+              onReset={handleReset}
+            />
+          ) : (
+            <VoiceCard
+              voiceCard={currentCard as VoiceCardType}
+              onAnswer={handleAnswer}
+              onReset={handleReset}
+            />
+          )
         ) : (
           <div className="max-w-2xl mx-auto text-center py-12">
-            <div className="text-lg text-red-600">Failed to load voice card. Please refresh the page.</div>
+            <div className="text-lg text-red-600">Failed to load practice card. Please refresh the page.</div>
           </div>
         )}
 
         {/* Card Counter */}
         <div className="text-center mt-6">
           <span className="text-gray-600">
-            Card {currentCard} of {totalCards}
+            Card {currentCardNumber} of {totalCards}
           </span>
         </div>
       </div>

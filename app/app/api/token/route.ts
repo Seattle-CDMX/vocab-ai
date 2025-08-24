@@ -33,6 +33,7 @@ export async function GET(req: NextRequest) {
   const room = req.nextUrl.searchParams.get('room');
   const username = req.nextUrl.searchParams.get('username');
   const voiceCardData = req.nextUrl.searchParams.get('voiceCardData');
+  const metadata = req.nextUrl.searchParams.get('metadata');
   
   if (!room) {
     return NextResponse.json({ error: 'Missing "room" query parameter' }, { status: 400 });
@@ -49,12 +50,26 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    // Parse voice card data if provided
-    let parsedVoiceCardData = null;
-    if (voiceCardData) {
+    // Parse metadata if provided (new unified approach)
+    let parsedMetadata = null;
+    if (metadata) {
       try {
-        parsedVoiceCardData = JSON.parse(decodeURIComponent(voiceCardData));
-        console.log(`Voice card data received for token: ${parsedVoiceCardData.title}`);
+        parsedMetadata = JSON.parse(decodeURIComponent(metadata));
+        console.log(`Metadata received for token:`, parsedMetadata);
+      } catch (e) {
+        console.error('Failed to parse metadata:', e);
+        return NextResponse.json({ error: 'Invalid metadata format' }, { status: 400 });
+      }
+    }
+    // Legacy support for voiceCardData
+    else if (voiceCardData) {
+      try {
+        const parsedVoiceCardData = JSON.parse(decodeURIComponent(voiceCardData));
+        parsedMetadata = {
+          activityType: 'voice',
+          voiceCardData: parsedVoiceCardData
+        };
+        console.log(`Voice card data received for token (legacy): ${parsedVoiceCardData.title}`);
       } catch (e) {
         console.error('Failed to parse voice card data:', e);
         return NextResponse.json({ error: 'Invalid voice card data format' }, { status: 400 });
@@ -63,8 +78,8 @@ export async function GET(req: NextRequest) {
 
     const at = new AccessToken(apiKey, apiSecret, { 
       identity: username,
-      // Add voice card data as metadata in the token
-      metadata: parsedVoiceCardData ? JSON.stringify(parsedVoiceCardData) : undefined
+      // Add metadata in the token
+      metadata: parsedMetadata ? JSON.stringify(parsedMetadata) : undefined
     });
     
     at.addGrant({ 
@@ -76,7 +91,7 @@ export async function GET(req: NextRequest) {
 
     const token = await at.toJwt();
     
-    console.log(`Token generated for room: ${room}, user: ${username}${parsedVoiceCardData ? `, voice card: ${parsedVoiceCardData.title}` : ''}`);
+    console.log(`Token generated for room: ${room}, user: ${username}, activity: ${parsedMetadata?.activityType || 'unknown'}`);
     
     return NextResponse.json(
       { token },

@@ -8,77 +8,90 @@ from models.session import MySessionInfo, create_target_lexical_item
 logger = logging.getLogger("agent.handlers")
 
 
-def process_participant_voice_card_data(participant, session: AgentSession):
-    """Process participant voice card data and update session."""
+def process_participant_data(participant, session: AgentSession):
+    """Process participant data and return appropriate agent based on activity type."""
     logger.info(f"🎯 [Agent] Processing participant: {participant.identity}")
     logger.info(f"🎯 [Agent] All participant attributes: {participant.attributes}")
 
-    # First try to get voice card data from token metadata (new approach)
-    voice_card_json = None
+    # Try to get metadata from token (unified approach)
+    metadata_json = None
     if hasattr(participant, 'metadata') and participant.metadata:
-        voice_card_json = participant.metadata
-        logger.info(f"🎯 [Agent] Voice card JSON from token metadata: {voice_card_json}")
+        metadata_json = participant.metadata
+        logger.info(f"🎯 [Agent] Metadata from token: {metadata_json}")
     else:
-        # Fallback to participant attributes (old approach)
+        # Fallback to participant attributes (old approach for voice cards)
         voice_card_json = participant.attributes.get("voice_card_data")
-        logger.info(f"🎯 [Agent] Voice card JSON from attributes (fallback): {voice_card_json}")
+        if voice_card_json:
+            metadata_json = json.dumps({
+                "activityType": "voice",
+                "voiceCardData": json.loads(voice_card_json)
+            })
+        logger.info(f"🎯 [Agent] Voice card JSON from attributes (legacy fallback): {voice_card_json}")
 
     session_info = session.userdata
 
-    if voice_card_json:
+    # Determine which agent to use based on metadata
+    if metadata_json:
         try:
-            voice_card = json.loads(voice_card_json)
-            logger.info(
-                f"🎯 [Agent] Parsed voice card data successfully: {voice_card['title']}"
-            )
-            logger.info(f"🎯 [Agent] Voice card type: {voice_card['type']}")
-            logger.info(f"🎯 [Agent] Full voice card object: {voice_card}")
+            metadata = json.loads(metadata_json)
+            activity_type = metadata.get("activityType", "voice")
+            logger.info(f"🎯 [Agent] Activity type: {activity_type}")
+            logger.info(f"🎯 [Agent] Full metadata: {metadata}")
 
-            # Extract phrasal verb data from voice card
-            phrasal_verb = voice_card["targetPhrasalVerb"]
-            verb = phrasal_verb["verb"]
-            senses = phrasal_verb["senses"]
+            # Return the appropriate agent based on activity type
+            if activity_type == "context":
+                # Context-based practice with role-playing
+                from agents.context_agent import ContextAgent
 
-            logger.info(f"🎯 [Agent] Extracted verb: {verb}")
-            logger.info(f"🎯 [Agent] Extracted senses: {senses}")
+                scenario_data = metadata.get("scenario", {})
+                target_phrasal = metadata.get("targetPhrasalVerb", {})
 
-            # Create target lexical item from voice card data
-            target_item = create_target_lexical_item(verb, senses)
-            logger.info(
-                f"🎯 [Agent] Created target lexical item with {target_item.total_senses} senses"
-            )
+                # Merge target phrasal verb info into scenario
+                scenario_data["phrasalVerb"] = target_phrasal.get("verb", "go on")
 
-            # Update session info with dynamic data
-            if isinstance(session_info, MySessionInfo):
-                session_info.target_lexical_item = target_item
-                session.userdata = session_info
+                logger.info(f"🎭 [Agent] Creating ContextAgent for scenario: {scenario_data.get('character')}")
+                return ContextAgent(scenario_data=scenario_data)
 
-            logger.info(
-                f"🎯 [Agent] ✅ COMPLETE: Updated session with voice card data for: {verb} (source: {'token metadata' if hasattr(participant, 'metadata') and participant.metadata else 'participant attributes'})"
-            )
+            else:
+                # Default to voice card explanation mode
+                voice_card_data = metadata.get("voiceCardData")
+                if not voice_card_data:
+                    # For legacy format
+                    voice_card_data = metadata
 
-            # Now start the conversation with the voice card data
-            instructions = f"""The TARGET LEXICAL ITEM IS '{target_item.phrase}'. This phrasal verb has {target_item.total_senses} different meanings.
+                logger.info(f"🎯 [Agent] Processing as voice card: {voice_card_data.get('title', 'Unknown')}")
 
-Ask the user to explain what this phrasal verb means. When they explain a meaning, determine which of the {target_item.total_senses} senses they are explaining and whether it's correct.
+                # Extract phrasal verb data from voice card
+                phrasal_verb = voice_card_data["targetPhrasalVerb"]
+                verb = phrasal_verb["verb"]
+                senses = phrasal_verb["senses"]
 
-The {target_item.total_senses} senses are:
-"""
-            for sense in target_item.senses:
-                instructions += f"{sense.sense_number}. {sense.definition} (Example: {sense.examples[0]})\n"
+                logger.info(f"🎯 [Agent] Extracted verb: {verb}")
+                logger.info(f"🎯 [Agent] Extracted senses: {senses}")
 
-            instructions += (
-                f"\nStart by asking them to explain what '{target_item.phrase}' means."
-            )
+                # Create target lexical item from voice card data
+                target_item = create_target_lexical_item(verb, senses)
+                logger.info(
+                    f"🎯 [Agent] Created target lexical item with {target_item.total_senses} senses"
+                )
 
-            logger.info(
-                f"🎯 [Agent] 🗣️ Starting conversation about: {target_item.phrase}"
-            )
-            session.generate_reply(instructions=instructions)
+                # Update session info with dynamic data
+                if isinstance(session_info, MySessionInfo):
+                    session_info.target_lexical_item = target_item
+                    session.userdata = session_info
+
+                logger.info(
+                    f"🎯 [Agent] ✅ COMPLETE: Updated session with voice card data for: {verb}"
+                )
+
+                # Return the NativeExplainAgent for voice card mode
+                # The agent will access the session data and start the conversation
+                from agents.native_explain_agent import NativeExplainAgent
+                return NativeExplainAgent()
 
         except (json.JSONDecodeError, KeyError) as e:
-            logger.error(f"🎯 [Agent] ❌ Failed to parse voice card data: {e}")
-            logger.error(f"🎯 [Agent] Raw JSON that failed: {voice_card_json}")
+            logger.error(f"🎯 [Agent] ❌ Failed to parse metadata: {e}")
+            logger.error(f"🎯 [Agent] Raw JSON that failed: {metadata_json}")
             # Fallback: create a simple target item
             fallback_data = [
                 {
@@ -93,12 +106,13 @@ The {target_item.total_senses} senses are:
                 )
                 session.userdata = session_info
             logger.info("🎯 [Agent] Using fallback data: PRACTICE VERB")
-            session.generate_reply(
-                instructions="I couldn't get the voice card data. Let me ask you about a practice phrasal verb instead."
-            )
+
+            # Return default agent - it will handle the fallback
+            from agents.native_explain_agent import NativeExplainAgent
+            return NativeExplainAgent()
     else:
         logger.warning(
-            "🎯 [Agent] ❌ No voice card data found in token metadata or participant attributes"
+            "🎯 [Agent] ❌ No metadata found in token or participant attributes"
         )
         logger.warning(
             f"🎯 [Agent] Available attribute keys: {list(participant.attributes.keys())}"
@@ -120,6 +134,7 @@ The {target_item.total_senses} senses are:
             )
             session.userdata = session_info
         logger.info("🎯 [Agent] Using fallback data: PRACTICE VERB")
-        session.generate_reply(
-            instructions="I'm waiting for voice card data. Please ensure your connection includes the phrasal verb information."
-        )
+
+        # Return default agent - it will handle the fallback
+        from agents.native_explain_agent import NativeExplainAgent
+        return NativeExplainAgent()
