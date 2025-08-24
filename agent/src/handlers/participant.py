@@ -15,18 +15,19 @@ def process_participant_data(participant, session: AgentSession):
 
     # Try to get metadata from token (unified approach)
     metadata_json = None
-    if hasattr(participant, 'metadata') and participant.metadata:
+    if hasattr(participant, "metadata") and participant.metadata:
         metadata_json = participant.metadata
         logger.info(f"🎯 [Agent] Metadata from token: {metadata_json}")
     else:
         # Fallback to participant attributes (old approach for voice cards)
         voice_card_json = participant.attributes.get("voice_card_data")
         if voice_card_json:
-            metadata_json = json.dumps({
-                "activityType": "voice",
-                "voiceCardData": json.loads(voice_card_json)
-            })
-        logger.info(f"🎯 [Agent] Voice card JSON from attributes (legacy fallback): {voice_card_json}")
+            metadata_json = json.dumps(
+                {"activityType": "voice", "voiceCardData": json.loads(voice_card_json)}
+            )
+        logger.info(
+            f"🎯 [Agent] Voice card JSON from attributes (legacy fallback): {voice_card_json}"
+        )
 
     session_info = session.userdata
 
@@ -49,7 +50,9 @@ def process_participant_data(participant, session: AgentSession):
                 # Merge target phrasal verb info into scenario
                 scenario_data["phrasalVerb"] = target_phrasal.get("verb", "go on")
 
-                logger.info(f"🎭 [Agent] Creating ContextAgent for scenario: {scenario_data.get('character')}")
+                logger.info(
+                    f"🎭 [Agent] Creating ContextAgent for scenario: {scenario_data.get('character')}"
+                )
                 return ContextAgent(scenario_data=scenario_data)
 
             else:
@@ -59,7 +62,9 @@ def process_participant_data(participant, session: AgentSession):
                     # For legacy format
                     voice_card_data = metadata
 
-                logger.info(f"🎯 [Agent] Processing as voice card: {voice_card_data.get('title', 'Unknown')}")
+                logger.info(
+                    f"🎯 [Agent] Processing as voice card: {voice_card_data.get('title', 'Unknown')}"
+                )
 
                 # Extract phrasal verb data from voice card
                 phrasal_verb = voice_card_data["targetPhrasalVerb"]
@@ -87,6 +92,7 @@ def process_participant_data(participant, session: AgentSession):
                 # Return the NativeExplainAgent for voice card mode
                 # The agent will access the session data and start the conversation
                 from agents.native_explain_agent import NativeExplainAgent
+
                 return NativeExplainAgent()
 
         except (json.JSONDecodeError, KeyError) as e:
@@ -109,6 +115,7 @@ def process_participant_data(participant, session: AgentSession):
 
             # Return default agent - it will handle the fallback
             from agents.native_explain_agent import NativeExplainAgent
+
             return NativeExplainAgent()
     else:
         logger.warning(
@@ -137,4 +144,5 @@ def process_participant_data(participant, session: AgentSession):
 
         # Return default agent - it will handle the fallback
         from agents.native_explain_agent import NativeExplainAgent
+
         return NativeExplainAgent()

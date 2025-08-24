@@ -7,7 +7,10 @@ from livekit.agents import (
     get_job_context,
 )
 from livekit.agents.llm import function_tool
+from livekit.plugins import deepgram, google, openai, silero
+from livekit.plugins.turn_detector.multilingual import MultilingualModel
 
+from config.credentials import parse_google_credentials
 from models.session import MySessionInfo
 
 logger = logging.getLogger("agent.native_explain")
@@ -16,14 +19,28 @@ logger = logging.getLogger("agent.native_explain")
 class NativeExplainAgent(Agent):
     def __init__(self) -> None:
         from prompts.loader import load_prompt
+
         instructions = load_prompt("native_explain_agent")
-        super().__init__(instructions=instructions)
-        logger.info("🔧 [Agent] NativeExplainAgent initialized with enhanced tool calling instructions")
+        super().__init__(
+            instructions=instructions,
+            stt=deepgram.STT(model="nova-3", language="multi"),
+            llm=openai.LLM(model="gpt-4o-mini"),
+            tts=google.TTS(
+                language="es-US",
+                voice_name="es-US-Chirp3-HD-Schedar",
+                credentials_info=parse_google_credentials(),
+            ),
+            vad=silero.VAD.load(),
+            turn_detection=MultilingualModel(),
+        )
+        logger.info(
+            "🔧 [Agent] NativeExplainAgent initialized with enhanced tool calling instructions"
+        )
 
     @function_tool
     async def correct_sense_explained(self, context: RunContext, sense_number: int):
         """REQUIRED: Call this immediately when the user correctly explains any sense of the target lexical item.
-        
+
         Use this when the user's explanation demonstrates understanding of the meaning, even if not perfectly worded.
         This should be called for ANY correct explanation, regardless of how it's phrased.
 
@@ -44,10 +61,12 @@ class NativeExplainAgent(Agent):
                     await get_job_context().room.local_participant.perform_rpc(
                         destination_identity=participant.identity,
                         method="show_toast",
-                        payload=json.dumps({
-                            "type": "success",
-                            "message": f"Great job! You explained sense {sense_number} correctly! ✓"
-                        }),
+                        payload=json.dumps(
+                            {
+                                "type": "success",
+                                "message": f"Great job! You explained sense {sense_number} correctly! ✓",
+                            }
+                        ),
                         response_timeout=1.0,
                     )
                     logger.info(f"Sent success toast RPC to {participant.identity}")
@@ -60,17 +79,23 @@ class NativeExplainAgent(Agent):
             else:
                 # Send special completion toast
                 try:
-                    for participant in get_job_context().room.remote_participants.values():
+                    for (
+                        participant
+                    ) in get_job_context().room.remote_participants.values():
                         await get_job_context().room.local_participant.perform_rpc(
                             destination_identity=participant.identity,
                             method="show_toast",
-                            payload=json.dumps({
-                                "type": "success",
-                                "message": "Excellent! You've mastered all meanings of this phrasal verb! 🎉"
-                            }),
+                            payload=json.dumps(
+                                {
+                                    "type": "success",
+                                    "message": "Excellent! You've mastered all meanings of this phrasal verb! 🎉",
+                                }
+                            ),
                             response_timeout=1.0,
                         )
-                        logger.info(f"Sent completion toast RPC to {participant.identity}")
+                        logger.info(
+                            f"Sent completion toast RPC to {participant.identity}"
+                        )
                         break
                 except Exception as e:
                     logger.error(f"Failed to send completion RPC: {e}")
@@ -84,7 +109,7 @@ class NativeExplainAgent(Agent):
         self, context: RunContext, correct_definition: str, helpful_hint: str = ""
     ):
         """REQUIRED: Call this immediately when the user provides an incorrect or incomplete explanation.
-        
+
         Use this whenever the user's explanation doesn't capture the core meaning of the sense.
         Always provide the correct definition to help them learn.
 
@@ -100,10 +125,12 @@ class NativeExplainAgent(Agent):
                 await get_job_context().room.local_participant.perform_rpc(
                     destination_identity=participant.identity,
                     method="show_toast",
-                    payload=json.dumps({
-                        "type": "error",
-                        "message": f"Not quite right. Here's the correct meaning: {correct_definition[:50]}..."
-                    }),
+                    payload=json.dumps(
+                        {
+                            "type": "error",
+                            "message": f"Not quite right. Here's the correct meaning: {correct_definition[:50]}...",
+                        }
+                    ),
                     response_timeout=1.0,
                 )
                 logger.info(f"Sent error toast RPC to {participant.identity}")
@@ -121,7 +148,7 @@ class NativeExplainAgent(Agent):
     @function_tool
     async def all_senses_completed(self, context: RunContext):
         """REQUIRED: Call this immediately when the user has successfully explained ALL senses of the target lexical item.
-        
+
         This should only be called once all senses have been correctly explained and marked as complete."""
         logger.info("All senses completed successfully")
 
@@ -134,9 +161,11 @@ class NativeExplainAgent(Agent):
         return "Congratulations! You've completed explaining all the senses of this phrasal verb."
 
     @function_tool
-    async def request_clarification(self, context: RunContext, sense_number: int, clarifying_question: str):
+    async def request_clarification(
+        self, context: RunContext, sense_number: int, clarifying_question: str
+    ):
         """Call this when the user's explanation is unclear and you need them to elaborate or clarify.
-        
+
         Use this when you're not sure if their explanation is correct or incorrect and need more information.
 
         Args:
@@ -149,13 +178,13 @@ class NativeExplainAgent(Agent):
     async def on_enter(self) -> None:
         """Agent initialization hook called when this agent becomes active."""
         logger.info("🎯 [Agent] NativeExplainAgent on_enter called")
-        
+
         # Get session info to check if we have target lexical item data
         session_info = self.session.userdata
-        
+
         if isinstance(session_info, MySessionInfo) and session_info.target_lexical_item:
             target_item = session_info.target_lexical_item
-            
+
             # Build the initial instructions with the target phrasal verb data
             instructions = f"""The TARGET LEXICAL ITEM IS '{target_item.phrase}'. This phrasal verb has {target_item.total_senses} different meanings.
 
@@ -166,10 +195,12 @@ The {target_item.total_senses} senses are:
             for sense in target_item.senses:
                 instructions += f"{sense.sense_number}. {sense.definition} (Example: {sense.examples[0]})\n"
 
-            instructions += f"\nStart by asking them to explain what '{target_item.phrase}' means."
-            
+            instructions += (
+                f"\nStart by asking them to explain what '{target_item.phrase}' means."
+            )
+
             logger.info(f"🎯 [Agent] Starting conversation about: {target_item.phrase}")
-            
+
             # Generate the initial message to the user
             self.session.generate_reply(instructions=instructions)
         else:
@@ -178,4 +209,3 @@ The {target_item.total_senses} senses are:
             self.session.generate_reply(
                 instructions="I'm waiting for phrasal verb data. Please ensure your connection includes the necessary information."
             )
-

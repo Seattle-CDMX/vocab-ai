@@ -14,16 +14,12 @@ from livekit.agents import (
     metrics,
 )
 from livekit.plugins import (
-    deepgram,
-    google,
     noise_cancellation,
-    openai,
     silero,
 )
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
 
 from agents.native_explain_agent import NativeExplainAgent
-from config.credentials import parse_google_credentials
 from handlers.participant import process_participant_data
 from langfuse_setup import setup_langfuse
 from models.session import MySessionInfo
@@ -53,21 +49,8 @@ async def entrypoint(ctx: JobContext):
         target_lexical_item=None,  # Will be set dynamically from participant attributes
     )
 
-    # Set up a voice AI pipeline using OpenAI, Cartesia, Deepgram, and the LiveKit turn detector
+    # Set up a session - agents will now provide their own STT/TTS configuration
     session = AgentSession(
-        # A Large Language Model (LLM) is your agent's brain, processing user input and generating a response
-        # See all providers at https://docs.livekit.io/agents/integrations/llm/
-        llm=openai.LLM(model="gpt-4o-mini"),
-        # Speech-to-text (STT) is your agent's ears, turning the user's speech into text that the LLM can understand
-        # See all providers at https://docs.livekit.io/agents/integrations/stt/
-        stt=deepgram.STT(model="nova-3", language="multi"),
-        # Text-to-speech (TTS) is your agent's voice, turning the LLM's text into speech that the user can hear
-        # See all providers at https://docs.livekit.io/agents/integrations/tts/
-        tts=google.TTS(
-            language="es-US",
-            voice_name="es-US-Chirp3-HD-Schedar",
-            credentials_info=parse_google_credentials(),
-        ),
         # VAD and turn detection are used to determine when the user is speaking and when the agent should respond
         # See more at https://docs.livekit.io/agents/build/turns
         turn_detection=MultilingualModel(),
@@ -127,7 +110,9 @@ async def entrypoint(ctx: JobContext):
                 f"🎯 [Agent] Found existing participant: {participant.identity}"
             )
             selected_agent = process_participant_data(participant, session)
-            logger.info(f"🎯 [Agent] Selected agent: {type(selected_agent).__name__ if selected_agent else 'None'}")
+            logger.info(
+                f"🎯 [Agent] Selected agent: {type(selected_agent).__name__ if selected_agent else 'None'}"
+            )
 
     # Connect to room first to check for participants
     await ctx.connect()
@@ -138,7 +123,9 @@ async def entrypoint(ctx: JobContext):
 
     # Use the selected agent or default to NativeExplainAgent
     if not selected_agent:
-        logger.info("🎯 [Agent] No participants found yet, using default NativeExplainAgent")
+        logger.info(
+            "🎯 [Agent] No participants found yet, using default NativeExplainAgent"
+        )
         selected_agent = NativeExplainAgent()
 
     # Start the session with the selected agent

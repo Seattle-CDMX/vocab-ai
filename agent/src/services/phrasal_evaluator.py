@@ -20,7 +20,7 @@ class PhrasalEvaluator:
         user_text: str,
         phrasal_verb: str,
         scenario: str,
-        character: Optional[str] = None
+        character: Optional[str] = None,
     ) -> dict[str, Any]:
         """
         Evaluate if the user correctly used the phrasal verb in context.
@@ -48,7 +48,7 @@ class PhrasalEvaluator:
         evaluation_prompt = f"""You are evaluating if a student correctly used the phrasal verb "{phrasal_verb}" in a conversation.
 
 Scenario: {scenario}
-{f'Character context: Speaking with {character}' if character else ''}
+{f"Character context: Speaking with {character}" if character else ""}
 Target phrasal verb: "{phrasal_verb}"
 Student said: "{user_text}"
 
@@ -79,7 +79,10 @@ Examples of incorrect usage:
         try:
             # Use the LLM to evaluate
             chat_ctx = ChatContext()
-            chat_ctx.add_message(role="system", content="You are a language learning evaluator. Return only valid JSON.")
+            chat_ctx.add_message(
+                role="system",
+                content="You are a language learning evaluator. Return only valid JSON.",
+            )
             chat_ctx.add_message(role="user", content=evaluation_prompt)
 
             # Proper LLMStream usage with async context manager
@@ -101,7 +104,7 @@ Examples of incorrect usage:
                     "used_verb": result.get("used_verb", False),
                     "used_correctly": result.get("used_correctly", False),
                     "hint": result.get("hint", ""),
-                    "explanation": result.get("explanation", "")
+                    "explanation": result.get("explanation", ""),
                 }
 
                 # Cache the result
@@ -119,7 +122,7 @@ Examples of incorrect usage:
                     "used_verb": False,
                     "used_correctly": False,
                     "hint": f"Try using '{phrasal_verb}' in your response",
-                    "explanation": "Could not evaluate response"
+                    "explanation": "Could not evaluate response",
                 }
 
         except Exception as e:
@@ -128,11 +131,10 @@ Examples of incorrect usage:
                 "used_verb": False,
                 "used_correctly": False,
                 "hint": f"Try using '{phrasal_verb}' naturally in conversation",
-                "explanation": f"Evaluation error: {e!s}"
+                "explanation": f"Evaluation error: {e!s}",
             }
 
     def clear_cache(self):
         """Clear the evaluation cache."""
         self._cache.clear()
         logger.info("Evaluation cache cleared")
-
