@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mic, MicOff } from "lucide-react";
@@ -23,19 +23,29 @@ interface RPCData {
 const VoiceCard = ({ voiceCard, onAnswer, onReset }: VoiceCardProps) => {
   const [isConnected, setIsConnected] = useState(false);
   const [isConnecting, setIsConnecting] = useState(false);
+  const [sessionClosed, setSessionClosed] = useState(false);
   const [roomInstance] = useState(() => new Room());
 
-  // Set up RPC handler for toast notifications
+  const disconnectFromLiveKit = useCallback(async () => {
+    try {
+      await roomInstance.disconnect();
+      setIsConnected(false);
+      console.log('Disconnected from LiveKit');
+    } catch (e) {
+      console.error('Disconnect error:', e);
+    }
+  }, [roomInstance]);
+
+  // Set up RPC handlers for toast notifications and session closure
   useEffect(() => {
     if (!isConnected || !roomInstance) return;
 
-    const handleRPC = async (data: RPCData) => {
-      console.log('🎯 [VoiceCard] Received RPC:', data);
-      console.log('🎯 [VoiceCard] ✅ Handler called for show_toast method, processing payload...');
+    const handleToastRPC = async (data: RPCData) => {
+      console.log('🎯 [VoiceCard] Received toast RPC:', data);
       
       try {
         const payload = JSON.parse(data.payload);
-        console.log('🎯 [VoiceCard] Parsed payload:', payload);
+        console.log('🎯 [VoiceCard] Parsed toast payload:', payload);
         
         if (payload.type === 'success') {
           console.log('🎯 [VoiceCard] Showing SUCCESS toast:', payload.message);
@@ -46,12 +56,6 @@ const VoiceCard = ({ voiceCard, onAnswer, onReset }: VoiceCardProps) => {
               color: 'white',
             },
           });
-          console.log('🎯 [VoiceCard] SUCCESS toast.success() called');
-          
-          // Auto-progress on successful completion (matching ContextCard behavior)
-          if (payload.message.includes('correctly') || payload.message.includes('mastered') || payload.message.includes('successfully explained')) {
-            setTimeout(() => onAnswer(true), 2000);
-          }
         } else if (payload.type === 'error') {
           console.log('🎯 [VoiceCard] Showing ERROR toast:', payload.message);
           toast.error(payload.message, {
@@ -61,29 +65,47 @@ const VoiceCard = ({ voiceCard, onAnswer, onReset }: VoiceCardProps) => {
               color: 'white',
             },
           });
-          console.log('🎯 [VoiceCard] ERROR toast.error() called');
-        } else {
-          console.log('🎯 [VoiceCard] ❌ Unknown payload type:', payload.type);
         }
         
-        // Send response back to agent
         return JSON.stringify({ status: 'ok' });
       } catch (e) {
-        console.error('🎯 [VoiceCard] Failed to parse RPC payload:', e);
-        console.error('🎯 [VoiceCard] Raw payload was:', data.payload);
+        console.error('🎯 [VoiceCard] Failed to parse toast RPC payload:', e);
         return JSON.stringify({ status: 'error', message: 'Failed to parse payload' });
       }
     };
 
-    // Register RPC handler
-    roomInstance.localParticipant.registerRpcMethod('show_toast', handleRPC);
-    console.log('🎯 [VoiceCard] RPC handler registered for show_toast');
+    const handleSessionCloseRPC = async (data: RPCData) => {
+      console.log('🎯 [VoiceCard] Received session closure RPC:', data);
+      
+      try {
+        const payload = JSON.parse(data.payload);
+        console.log('🎯 [VoiceCard] Parsed session closure payload:', payload);
+        
+        if (payload.action === 'close_session') {
+          console.log('🎯 [VoiceCard] Closing LiveKit session as instructed by agent');
+          await disconnectFromLiveKit();
+          setSessionClosed(true);
+          console.log('🎯 [VoiceCard] Session closed, Next button now enabled');
+        }
+        
+        return JSON.stringify({ status: 'ok' });
+      } catch (e) {
+        console.error('🎯 [VoiceCard] Failed to parse session closure RPC payload:', e);
+        return JSON.stringify({ status: 'error', message: 'Failed to parse payload' });
+      }
+    };
+
+    // Register RPC handlers
+    roomInstance.localParticipant.registerRpcMethod('show_toast', handleToastRPC);
+    roomInstance.localParticipant.registerRpcMethod('close_session', handleSessionCloseRPC);
+    console.log('🎯 [VoiceCard] RPC handlers registered for show_toast and close_session');
 
     return () => {
-      // Cleanup RPC handler on unmount or disconnect
+      // Cleanup RPC handlers on unmount or disconnect
       roomInstance.localParticipant.unregisterRpcMethod('show_toast');
+      roomInstance.localParticipant.unregisterRpcMethod('close_session');
     };
-  }, [isConnected, roomInstance]);
+  }, [isConnected, roomInstance, disconnectFromLiveKit]);
 
   const connectToLiveKit = async () => {
     if (isConnecting || isConnected) return;
@@ -121,16 +143,6 @@ const VoiceCard = ({ voiceCard, onAnswer, onReset }: VoiceCardProps) => {
       console.error('Connection error:', e);
     } finally {
       setIsConnecting(false);
-    }
-  };
-
-  const disconnectFromLiveKit = async () => {
-    try {
-      await roomInstance.disconnect();
-      setIsConnected(false);
-      console.log('Disconnected from LiveKit');
-    } catch (e) {
-      console.error('Disconnect error:', e);
     }
   };
 
@@ -201,8 +213,20 @@ const VoiceCard = ({ voiceCard, onAnswer, onReset }: VoiceCardProps) => {
           {isConnected ? "LiveKit connection active" : "Ready to connect to LiveKit"}
         </div>
         <div className="flex gap-2">
-          <Button variant="outline" onClick={() => onAnswer(false)}>Skip</Button>
-          <Button variant="success" onClick={() => onAnswer(true)}>Finish</Button>
+          <Button 
+            variant="outline" 
+            onClick={() => onAnswer(false)}
+            disabled={isConnected && !sessionClosed}
+          >
+            Skip
+          </Button>
+          <Button 
+            variant="success" 
+            onClick={() => onAnswer(true)}
+            disabled={!sessionClosed && !isConnected}
+          >
+            Next
+          </Button>
           {onReset && (
             <Button variant="ghost" onClick={onReset}>Reset</Button>
           )}

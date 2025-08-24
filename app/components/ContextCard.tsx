@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mic, MicOff, MessageCircle } from "lucide-react";
@@ -23,18 +23,29 @@ interface RPCData {
 const ContextCard = ({ contextCard, onAnswer, onReset }: ContextCardProps) => {
   const [isConnected, setIsConnected] = useState(false);
   const [isConnecting, setIsConnecting] = useState(false);
+  const [sessionClosed, setSessionClosed] = useState(false);
   const [roomInstance] = useState(() => new Room());
 
-  // Set up RPC handler for toast notifications
+  const disconnectFromLiveKit = useCallback(async () => {
+    try {
+      await roomInstance.disconnect();
+      setIsConnected(false);
+      console.log('Disconnected from LiveKit');
+    } catch (e) {
+      console.error('Disconnect error:', e);
+    }
+  }, [roomInstance]);
+
+  // Set up RPC handlers for toast notifications and session closure
   useEffect(() => {
     if (!isConnected || !roomInstance) return;
 
-    const handleRPC = async (data: RPCData) => {
-      console.log('🎯 [ContextCard] Received RPC:', data);
+    const handleToastRPC = async (data: RPCData) => {
+      console.log('🎯 [ContextCard] Received toast RPC:', data);
       
       try {
         const payload = JSON.parse(data.payload);
-        console.log('🎯 [ContextCard] Parsed payload:', payload);
+        console.log('🎯 [ContextCard] Parsed toast payload:', payload);
         
         if (payload.type === 'success') {
           console.log('🎯 [ContextCard] Showing SUCCESS toast:', payload.message);
@@ -45,10 +56,6 @@ const ContextCard = ({ contextCard, onAnswer, onReset }: ContextCardProps) => {
               color: 'white',
             },
           });
-          // Mark as completed if success
-          if (payload.message.includes('correctly')) {
-            setTimeout(() => onAnswer(true), 2000);
-          }
         } else if (payload.type === 'error') {
           console.log('🎯 [ContextCard] Showing ERROR toast:', payload.message);
           toast.error(payload.message, {
@@ -58,29 +65,47 @@ const ContextCard = ({ contextCard, onAnswer, onReset }: ContextCardProps) => {
               color: 'white',
             },
           });
-          // Mark as failed if out of turns
-          if (payload.message.includes('Out of turns')) {
-            setTimeout(() => onAnswer(false), 2000);
-          }
         }
         
-        // Send response back to agent
         return JSON.stringify({ status: 'ok' });
       } catch (e) {
-        console.error('🎯 [ContextCard] Failed to parse RPC payload:', e);
+        console.error('🎯 [ContextCard] Failed to parse toast RPC payload:', e);
         return JSON.stringify({ status: 'error', message: 'Failed to parse payload' });
       }
     };
 
-    // Register RPC handler
-    roomInstance.localParticipant.registerRpcMethod('show_toast', handleRPC);
-    console.log('🎯 [ContextCard] RPC handler registered for show_toast');
+    const handleSessionCloseRPC = async (data: RPCData) => {
+      console.log('🎯 [ContextCard] Received session closure RPC:', data);
+      
+      try {
+        const payload = JSON.parse(data.payload);
+        console.log('🎯 [ContextCard] Parsed session closure payload:', payload);
+        
+        if (payload.action === 'close_session') {
+          console.log('🎯 [ContextCard] Closing LiveKit session as instructed by agent');
+          await disconnectFromLiveKit();
+          setSessionClosed(true);
+          console.log('🎯 [ContextCard] Session closed, Next button now enabled');
+        }
+        
+        return JSON.stringify({ status: 'ok' });
+      } catch (e) {
+        console.error('🎯 [ContextCard] Failed to parse session closure RPC payload:', e);
+        return JSON.stringify({ status: 'error', message: 'Failed to parse payload' });
+      }
+    };
+
+    // Register RPC handlers
+    roomInstance.localParticipant.registerRpcMethod('show_toast', handleToastRPC);
+    roomInstance.localParticipant.registerRpcMethod('close_session', handleSessionCloseRPC);
+    console.log('🎯 [ContextCard] RPC handlers registered for show_toast and close_session');
 
     return () => {
-      // Cleanup RPC handler on unmount or disconnect
+      // Cleanup RPC handlers on unmount or disconnect
       roomInstance.localParticipant.unregisterRpcMethod('show_toast');
+      roomInstance.localParticipant.unregisterRpcMethod('close_session');
     };
-  }, [isConnected, roomInstance, onAnswer]);
+  }, [isConnected, roomInstance, disconnectFromLiveKit]);
 
   const connectToLiveKit = async () => {
     if (isConnecting || isConnected) return;
@@ -126,16 +151,6 @@ const ContextCard = ({ contextCard, onAnswer, onReset }: ContextCardProps) => {
       toast.error('Connection error. Please try again.');
     } finally {
       setIsConnecting(false);
-    }
-  };
-
-  const disconnectFromLiveKit = async () => {
-    try {
-      await roomInstance.disconnect();
-      setIsConnected(false);
-      console.log('Disconnected from LiveKit');
-    } catch (e) {
-      console.error('Disconnect error:', e);
     }
   };
 
@@ -231,8 +246,20 @@ const ContextCard = ({ contextCard, onAnswer, onReset }: ContextCardProps) => {
           Practice using the verb in a real situation.
         </div>
         <div className="flex gap-2">
-          <Button variant="outline" onClick={() => onAnswer(false)}>Skip</Button>
-          <Button variant="success" onClick={() => onAnswer(true)}>Complete</Button>
+          <Button 
+            variant="outline" 
+            onClick={() => onAnswer(false)}
+            disabled={isConnected && !sessionClosed}
+          >
+            Skip
+          </Button>
+          <Button 
+            variant="success" 
+            onClick={() => onAnswer(true)}
+            disabled={!sessionClosed && !isConnected}
+          >
+            Next
+          </Button>
           {onReset && (
             <Button variant="ghost" onClick={onReset}>Reset</Button>
           )}

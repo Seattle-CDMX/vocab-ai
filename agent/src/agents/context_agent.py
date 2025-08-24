@@ -1,5 +1,4 @@
 import asyncio
-import json
 import logging
 from typing import Optional
 
@@ -7,13 +6,13 @@ from livekit.agents import (
     Agent,
     ChatContext,
     ChatMessage,
-    get_job_context,
 )
 from livekit.plugins import deepgram, google, openai, silero
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
 
 from config.credentials import parse_google_credentials
 from services.phrasal_evaluator import PhrasalEvaluator
+from services.terminal_state_manager import TerminalStateManager
 
 logger = logging.getLogger("agent.context")
 
@@ -119,7 +118,9 @@ Remember: You are {self.character}, not a language teacher. Act naturally in the
             if evaluation["used_correctly"]:
                 # Success! User used the phrasal verb correctly
                 self.success = True
-                await self._send_success_toast()
+                await TerminalStateManager.handle_success(
+                    f"Excellent! You used '{self.phrasal_verb}' correctly in context! 🎯"
+                )
                 logger.info(
                     f"✅ [ContextAgent] Success! User correctly used '{self.phrasal_verb}'"
                 )
@@ -130,7 +131,10 @@ Remember: You are {self.character}, not a language teacher. Act naturally in the
                     "hint",
                     f"You could have said something like: 'Could you {self.phrasal_verb} with your explanation?'",
                 )
-                await self._send_failure_toast(hint)
+                await TerminalStateManager.handle_failure(
+                    "Out of turns. Time to move on!",
+                    hint
+                )
                 logger.info(
                     "❌ [ContextAgent] Failed - out of turns without correct usage"
                 )
@@ -150,46 +154,6 @@ Remember: You are {self.character}, not a language teacher. Act naturally in the
         except Exception as e:
             logger.error(f"❌ [ContextAgent] Background evaluation failed: {e}")
 
-    async def _send_success_toast(self):
-        """Send success notification to frontend."""
-        try:
-            for participant in get_job_context().room.remote_participants.values():
-                await get_job_context().room.local_participant.perform_rpc(
-                    destination_identity=participant.identity,
-                    method="show_toast",
-                    payload=json.dumps(
-                        {
-                            "type": "success",
-                            "message": f"Excellent! You used '{self.phrasal_verb}' correctly in context! 🎯",
-                        }
-                    ),
-                    response_timeout=1.0,
-                )
-                logger.info(
-                    f"📤 [ContextAgent] Sent success toast to {participant.identity}"
-                )
-                break
-        except Exception as e:
-            logger.error(f"Failed to send success RPC: {e}")
-
-    async def _send_failure_toast(self, hint: str):
-        """Send failure notification with hint to frontend."""
-        try:
-            for participant in get_job_context().room.remote_participants.values():
-                await get_job_context().room.local_participant.perform_rpc(
-                    destination_identity=participant.identity,
-                    method="show_toast",
-                    payload=json.dumps(
-                        {"type": "error", "message": f"Out of turns. Hint: {hint}"}
-                    ),
-                    response_timeout=1.0,
-                )
-                logger.info(
-                    f"📤 [ContextAgent] Sent failure toast to {participant.identity}"
-                )
-                break
-        except Exception as e:
-            logger.error(f"Failed to send failure RPC: {e}")
 
     async def on_enter(self) -> None:
         """Called when the agent becomes active."""

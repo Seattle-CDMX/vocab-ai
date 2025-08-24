@@ -12,6 +12,7 @@ from livekit.plugins.turn_detector.multilingual import MultilingualModel
 
 from config.credentials import parse_google_credentials
 from models.session import MySessionInfo
+from services.terminal_state_manager import TerminalStateManager
 
 logger = logging.getLogger("agent.native_explain")
 
@@ -54,7 +55,7 @@ class NativeExplainAgent(Agent):
             session_info.target_lexical_item.mark_sense_explained(sense_number)
             remaining = session_info.target_lexical_item.remaining_senses
 
-            # Send RPC to frontend for toast notification
+            # Send RPC to frontend for toast notification (not terminal state, continue learning)
             try:
                 # Find the first remote participant (should be the student)
                 for participant in get_job_context().room.remote_participants.values():
@@ -77,28 +78,10 @@ class NativeExplainAgent(Agent):
             if remaining > 0:
                 return f"Great job! You got sense {sense_number} correct. You have {remaining} more sense{'s' if remaining != 1 else ''} to explain."
             else:
-                # Send special completion toast
-                try:
-                    for (
-                        participant
-                    ) in get_job_context().room.remote_participants.values():
-                        await get_job_context().room.local_participant.perform_rpc(
-                            destination_identity=participant.identity,
-                            method="show_toast",
-                            payload=json.dumps(
-                                {
-                                    "type": "success",
-                                    "message": "Excellent! You've mastered all meanings of this phrasal verb! 🎉",
-                                }
-                            ),
-                            response_timeout=1.0,
-                        )
-                        logger.info(
-                            f"Sent completion toast RPC to {participant.identity}"
-                        )
-                        break
-                except Exception as e:
-                    logger.error(f"Failed to send completion RPC: {e}")
+                # All senses completed - handle terminal success state
+                await TerminalStateManager.handle_success(
+                    "Excellent! You've mastered all meanings of this phrasal verb! 🎉"
+                )
 
                 return "Excellent! You've successfully explained all senses of this phrasal verb."
 
@@ -119,7 +102,8 @@ class NativeExplainAgent(Agent):
         """
         logger.info("User provided incorrect explanation")
 
-        # Send RPC to frontend for error toast notification
+        # For wrong answers, we continue teaching, so this is not a terminal state
+        # Just send a regular error toast (not using terminal state manager)
         try:
             for participant in get_job_context().room.remote_participants.values():
                 await get_job_context().room.local_participant.perform_rpc(
@@ -156,8 +140,19 @@ class NativeExplainAgent(Agent):
         if isinstance(session_info, MySessionInfo) and session_info.target_lexical_item:
             phrase = session_info.target_lexical_item.phrase
             total_senses = session_info.target_lexical_item.total_senses
+            
+            # Handle terminal success state
+            await TerminalStateManager.handle_success(
+                f"Congratulations! You've successfully explained all {total_senses} senses of '{phrase}'. Great work! 🎉"
+            )
+            
             return f"Congratulations {session_info.user_name}! You've successfully explained all {total_senses} senses of '{phrase}'. Great work on expanding your vocabulary!"
 
+        # Handle terminal success state for fallback case
+        await TerminalStateManager.handle_success(
+            "Congratulations! You've completed explaining all the senses of this phrasal verb! 🎉"
+        )
+        
         return "Congratulations! You've completed explaining all the senses of this phrasal verb."
 
     @function_tool
