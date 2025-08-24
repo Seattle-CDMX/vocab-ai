@@ -1,0 +1,545 @@
+{
+  "generatedAt": "2025-08-24-132428",
+  "totalCards": 10,
+  "voiceCardTypes": [
+    {
+      "id": "context-go-on-2025-08-24-132428",
+      "type": "context",
+      "title": "In-Context \u2014 GO ON",
+      "difficulty": "intermediate",
+      "contextText": "You're speaking with Ms. Chen, Project Manager. You're in a team meeting discussing project updates. Ms. Chen paused to check her notes and now wants to continue the discussion.",
+      "imageUrl": "/placeholder.svg",
+      "ctaText": "Talk to Ms. Chen",
+      "scenario": {
+        "character": "Ms. Chen",
+        "role": "Project Manager",
+        "situation": "You're in a team meeting discussing project updates. Ms. Chen paused to check her notes and now wants to continue the discussion.",
+        "phrasalVerb": "go on",
+        "contextText": "You're in a team meeting discussing project updates. Ms. Chen paused to check her notes and now wants to continue the discussion.",
+        "conversationStarter": "Sorry for the pause. Now, about the timeline for the next phase...",
+        "expectedUsage": "Please go on, I'm very interested in hearing about the timeline.",
+        "businessContext": "Team meeting",
+        "maxTurns": 5
+      },
+      "targetPhrasalVerb": {
+        "verb": "GO ON",
+        "definition": "Happen, take place",
+        "confidence": 64.5,
+        "examples": [
+          "There is a debate going on right now between the two parties.",
+          "Please go on, I'm very interested in hearing about the timeline."
+        ],
+        "learningTip": "Use 'go on' to encourage someone to continue speaking or to indicate continuation.",
+        "alternativeScenarios": [
+          "Presentation Q&A",
+          "One-on-one review",
+          "Conference call"
+        ]
+      },
+      "metadata": {
+        "originalId": 1,
+        "generatedAt": "2025-08-24-132428",
+        "allSenses": [
+          {
+            "senseNumber": 1,
+            "definition": "Happen, take place",
+            "confidencePercent": 64.5,
+            "examples": [
+              "There is a debate going on right now between the two parties."
+            ]
+          },
+          {
+            "senseNumber": 2,
+            "definition": "(+ To) Proceed to do or tackle STH after doing STH else",
+            "confidencePercent": 13,
+            "examples": [
+              "Does anyone have any questions before I go on to the next chapter?"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "context-pick-up-2025-08-24-132428",
+      "type": "context",
+      "title": "In-Context \u2014 PICK UP",
+      "difficulty": "beginner",
+      "contextText": "You're speaking with Mr. Johnson, Department Head. Mr. Johnson needs someone to collect important documents from the client's office on their way to the meeting.",
+      "imageUrl": "/placeholder.svg",
+      "ctaText": "Talk to Mr. Johnson",
+      "scenario": {
+        "character": "Mr. Johnson",
+        "role": "Department Head",
+        "situation": "Mr. Johnson needs someone to collect important documents from the client's office on their way to the meeting.",
+        "phrasalVerb": "pick up",
+        "contextText": "Mr. Johnson needs someone to collect important documents from the client's office on their way to the meeting.",
+        "conversationStarter": "I need someone to get the contracts from the client's office before our 3 PM meeting.",
+        "expectedUsage": "I can pick up the contracts on my way to the meeting.",
+        "businessContext": "Task delegation",
+        "maxTurns": 5
+      },
+      "targetPhrasalVerb": {
+        "verb": "PICK UP",
+        "definition": "Get or take SB/STH from a place",
+        "confidence": 70.5,
+        "examples": [
+          "Can you pick up some food on the way home from work please?",
+          "I can pick up the contracts on my way to the meeting."
+        ],
+        "learningTip": "'Pick up' means to collect or get something from somewhere.",
+        "alternativeScenarios": [
+          "Office supplies run",
+          "Client materials",
+          "Lunch order"
+        ]
+      },
+      "metadata": {
+        "originalId": 2,
+        "generatedAt": "2025-08-24-132428",
+        "allSenses": [
+          {
+            "senseNumber": 1,
+            "definition": "Get or take SB/STH from a place",
+            "confidencePercent": 70.5,
+            "examples": [
+              "Can you pick up some food on the way home from work please?"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "context-come-back-2025-08-24-132428",
+      "type": "context",
+      "title": "In-Context \u2014 COME BACK",
+      "difficulty": "intermediate",
+      "contextText": "You're speaking with Dr. Smith, Senior Consultant. A workplace situation where 'COME BACK' would be naturally used in conversation.",
+      "imageUrl": "/placeholder.svg",
+      "ctaText": "Talk to Dr. Smith",
+      "scenario": {
+        "character": "Dr. Smith",
+        "role": "Senior Consultant",
+        "situation": "A workplace situation where 'COME BACK' would be naturally used in conversation.",
+        "phrasalVerb": "come back",
+        "contextText": "A workplace situation where 'COME BACK' would be naturally used in conversation.",
+        "conversationStarter": "Let's discuss this matter further.",
+        "expectedUsage": "I'll come back with that approach.",
+        "businessContext": "Business discussion",
+        "maxTurns": 5
+      },
+      "targetPhrasalVerb": {
+        "verb": "COME BACK",
+        "definition": "Return to a place or a conversation topic",
+        "confidence": 96.5,
+        "examples": [
+          "She came back to the kitchen with a bottle of fancy wine.",
+          "I'll come back with that approach."
+        ],
+        "learningTip": "Remember: Return to a place or a conversation topic",
+        "alternativeScenarios": [
+          "Team meeting",
+          "Email discussion",
+          "Project planning"
+        ]
+      },
+      "metadata": {
+        "originalId": 3,
+        "generatedAt": "2025-08-24-132428",
+        "allSenses": [
+          {
+            "senseNumber": 1,
+            "definition": "Return to a place or a conversation topic",
+            "confidencePercent": 96.5,
+            "examples": [
+              "She came back to the kitchen with a bottle of fancy wine."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "context-come-up-2025-08-24-132428",
+      "type": "context",
+      "title": "In-Context \u2014 COME UP",
+      "difficulty": "intermediate",
+      "contextText": "You're speaking with Dr. Smith, Senior Consultant. A workplace situation where 'COME UP' would be naturally used in conversation.",
+      "imageUrl": "/placeholder.svg",
+      "ctaText": "Talk to Dr. Smith",
+      "scenario": {
+        "character": "Dr. Smith",
+        "role": "Senior Consultant",
+        "situation": "A workplace situation where 'COME UP' would be naturally used in conversation.",
+        "phrasalVerb": "come up",
+        "contextText": "A workplace situation where 'COME UP' would be naturally used in conversation.",
+        "conversationStarter": "Let's discuss this matter further.",
+        "expectedUsage": "I'll come up with that approach.",
+        "businessContext": "Business discussion",
+        "maxTurns": 5
+      },
+      "targetPhrasalVerb": {
+        "verb": "COME UP",
+        "definition": "(+ with) Bring forth or produce",
+        "confidence": 34,
+        "examples": [
+          "She instantly came up with a solution to the problem.",
+          "I'll come up with that approach."
+        ],
+        "learningTip": "Remember: (+ with) Bring forth or produce",
+        "alternativeScenarios": [
+          "Team meeting",
+          "Email discussion",
+          "Project planning"
+        ]
+      },
+      "metadata": {
+        "originalId": 4,
+        "generatedAt": "2025-08-24-132428",
+        "allSenses": [
+          {
+            "senseNumber": 1,
+            "definition": "(+ with) Bring forth or produce",
+            "confidencePercent": 34,
+            "examples": [
+              "She instantly came up with a solution to the problem."
+            ]
+          },
+          {
+            "senseNumber": 2,
+            "definition": "(Be coming up) Be happening soon (esp. be broadcast soon)",
+            "confidencePercent": 27.5,
+            "examples": [
+              "Coming up after the news, our cooking program will feature cheese."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "context-go-back-2025-08-24-132428",
+      "type": "context",
+      "title": "In-Context \u2014 GO BACK",
+      "difficulty": "intermediate",
+      "contextText": "You're speaking with Dr. Smith, Senior Consultant. A workplace situation where 'GO BACK' would be naturally used in conversation.",
+      "imageUrl": "/placeholder.svg",
+      "ctaText": "Talk to Dr. Smith",
+      "scenario": {
+        "character": "Dr. Smith",
+        "role": "Senior Consultant",
+        "situation": "A workplace situation where 'GO BACK' would be naturally used in conversation.",
+        "phrasalVerb": "go back",
+        "contextText": "A workplace situation where 'GO BACK' would be naturally used in conversation.",
+        "conversationStarter": "Let's discuss this matter further.",
+        "expectedUsage": "I'll go back with that approach.",
+        "businessContext": "Business discussion",
+        "maxTurns": 5
+      },
+      "targetPhrasalVerb": {
+        "verb": "GO BACK",
+        "definition": "Return to a place, time, situation, activity, conversation topic",
+        "confidence": 90,
+        "examples": [
+          "He washed the dishes and went back to his room.",
+          "I'll go back with that approach."
+        ],
+        "learningTip": "Remember: Return to a place, time, situation, activity, conversation topic",
+        "alternativeScenarios": [
+          "Team meeting",
+          "Email discussion",
+          "Project planning"
+        ]
+      },
+      "metadata": {
+        "originalId": 5,
+        "generatedAt": "2025-08-24-132428",
+        "allSenses": [
+          {
+            "senseNumber": 1,
+            "definition": "Return to a place, time, situation, activity, conversation topic",
+            "confidencePercent": 90,
+            "examples": [
+              "He washed the dishes and went back to his room."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "context-put-off-2025-08-24-132428",
+      "type": "context",
+      "title": "In-Context \u2014 PUT OFF",
+      "difficulty": "intermediate",
+      "contextText": "You're speaking with Dr. Smith, Senior Consultant. A workplace situation where 'PUT OFF' would be naturally used in conversation.",
+      "imageUrl": "/placeholder.svg",
+      "ctaText": "Talk to Dr. Smith",
+      "scenario": {
+        "character": "Dr. Smith",
+        "role": "Senior Consultant",
+        "situation": "A workplace situation where 'PUT OFF' would be naturally used in conversation.",
+        "phrasalVerb": "put off",
+        "contextText": "A workplace situation where 'PUT OFF' would be naturally used in conversation.",
+        "conversationStarter": "Let's discuss this matter further.",
+        "expectedUsage": "I'll put off with that approach.",
+        "businessContext": "Business discussion",
+        "maxTurns": 5
+      },
+      "targetPhrasalVerb": {
+        "verb": "PUT OFF",
+        "definition": "Delay until a later time or date",
+        "confidence": 68,
+        "examples": [
+          "Now that I had more free time, there was no excuse to put off exercising any longer.",
+          "I'll put off with that approach."
+        ],
+        "learningTip": "Remember: Delay until a later time or date",
+        "alternativeScenarios": [
+          "Team meeting",
+          "Email discussion",
+          "Project planning"
+        ]
+      },
+      "metadata": {
+        "originalId": 146,
+        "generatedAt": "2025-08-24-132428",
+        "allSenses": [
+          {
+            "senseNumber": 1,
+            "definition": "Delay until a later time or date",
+            "confidencePercent": 68,
+            "examples": [
+              "Now that I had more free time, there was no excuse to put off exercising any longer."
+            ]
+          },
+          {
+            "senseNumber": 2,
+            "definition": "Cause to feel intense dislike",
+            "confidencePercent": 27.5,
+            "examples": [
+              "The bad smell put everyone off."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "context-come-about-2025-08-24-132428",
+      "type": "context",
+      "title": "In-Context \u2014 COME ABOUT",
+      "difficulty": "intermediate",
+      "contextText": "You're speaking with Dr. Smith, Senior Consultant. A workplace situation where 'COME ABOUT' would be naturally used in conversation.",
+      "imageUrl": "/placeholder.svg",
+      "ctaText": "Talk to Dr. Smith",
+      "scenario": {
+        "character": "Dr. Smith",
+        "role": "Senior Consultant",
+        "situation": "A workplace situation where 'COME ABOUT' would be naturally used in conversation.",
+        "phrasalVerb": "come about",
+        "contextText": "A workplace situation where 'COME ABOUT' would be naturally used in conversation.",
+        "conversationStarter": "Let's discuss this matter further.",
+        "expectedUsage": "I'll come about with that approach.",
+        "businessContext": "Business discussion",
+        "maxTurns": 5
+      },
+      "targetPhrasalVerb": {
+        "verb": "COME ABOUT",
+        "definition": "Take place or happen/occur, esp. unexpectedly",
+        "confidence": 81.5,
+        "examples": [
+          "I did not expect this to come about.",
+          "I'll come about with that approach."
+        ],
+        "learningTip": "Remember: Take place or happen/occur, esp. unexpectedly",
+        "alternativeScenarios": [
+          "Team meeting",
+          "Email discussion",
+          "Project planning"
+        ]
+      },
+      "metadata": {
+        "originalId": 147,
+        "generatedAt": "2025-08-24-132428",
+        "allSenses": [
+          {
+            "senseNumber": 1,
+            "definition": "Take place or happen/occur, esp. unexpectedly",
+            "confidencePercent": 81.5,
+            "examples": [
+              "I did not expect this to come about."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "context-close-down-2025-08-24-132428",
+      "type": "context",
+      "title": "In-Context \u2014 CLOSE DOWN",
+      "difficulty": "intermediate",
+      "contextText": "You're speaking with Dr. Smith, Senior Consultant. A workplace situation where 'CLOSE DOWN' would be naturally used in conversation.",
+      "imageUrl": "/placeholder.svg",
+      "ctaText": "Talk to Dr. Smith",
+      "scenario": {
+        "character": "Dr. Smith",
+        "role": "Senior Consultant",
+        "situation": "A workplace situation where 'CLOSE DOWN' would be naturally used in conversation.",
+        "phrasalVerb": "close down",
+        "contextText": "A workplace situation where 'CLOSE DOWN' would be naturally used in conversation.",
+        "conversationStarter": "Let's discuss this matter further.",
+        "expectedUsage": "I'll close down with that approach.",
+        "businessContext": "Business discussion",
+        "maxTurns": 5
+      },
+      "targetPhrasalVerb": {
+        "verb": "CLOSE DOWN",
+        "definition": "Stop operating or functioning",
+        "confidence": 87,
+        "examples": [
+          "Non-profitable companies were closed down.",
+          "I'll close down with that approach."
+        ],
+        "learningTip": "Remember: Stop operating or functioning",
+        "alternativeScenarios": [
+          "Team meeting",
+          "Email discussion",
+          "Project planning"
+        ]
+      },
+      "metadata": {
+        "originalId": 148,
+        "generatedAt": "2025-08-24-132428",
+        "allSenses": [
+          {
+            "senseNumber": 1,
+            "definition": "Stop operating or functioning",
+            "confidencePercent": 87,
+            "examples": [
+              "Non-profitable companies were closed down."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "context-put-in-2025-08-24-132428",
+      "type": "context",
+      "title": "In-Context \u2014 PUT IN",
+      "difficulty": "intermediate",
+      "contextText": "You're speaking with Dr. Smith, Senior Consultant. A workplace situation where 'PUT IN' would be naturally used in conversation.",
+      "imageUrl": "/placeholder.svg",
+      "ctaText": "Talk to Dr. Smith",
+      "scenario": {
+        "character": "Dr. Smith",
+        "role": "Senior Consultant",
+        "situation": "A workplace situation where 'PUT IN' would be naturally used in conversation.",
+        "phrasalVerb": "put in",
+        "contextText": "A workplace situation where 'PUT IN' would be naturally used in conversation.",
+        "conversationStarter": "Let's discuss this matter further.",
+        "expectedUsage": "I'll put in with that approach.",
+        "businessContext": "Business discussion",
+        "maxTurns": 5
+      },
+      "targetPhrasalVerb": {
+        "verb": "PUT IN",
+        "definition": "Put one thing inside another; include or insert",
+        "confidence": 50,
+        "examples": [
+          "You need to put in your contact details in case there is a problem.",
+          "I'll put in with that approach."
+        ],
+        "learningTip": "Remember: Put one thing inside another; include or insert",
+        "alternativeScenarios": [
+          "Team meeting",
+          "Email discussion",
+          "Project planning"
+        ]
+      },
+      "metadata": {
+        "originalId": 149,
+        "generatedAt": "2025-08-24-132428",
+        "allSenses": [
+          {
+            "senseNumber": 1,
+            "definition": "Put one thing inside another; include or insert",
+            "confidencePercent": 50,
+            "examples": [
+              "You need to put in your contact details in case there is a problem."
+            ]
+          },
+          {
+            "senseNumber": 2,
+            "definition": "Invest or devote so as to achieve STH (time, effort, work)",
+            "confidencePercent": 26.5,
+            "examples": [
+              "I put in ten hours a day at the office."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "context-set-about-2025-08-24-132428",
+      "type": "context",
+      "title": "In-Context \u2014 SET ABOUT",
+      "difficulty": "intermediate",
+      "contextText": "You're speaking with Dr. Smith, Senior Consultant. A workplace situation where 'SET ABOUT' would be naturally used in conversation.",
+      "imageUrl": "/placeholder.svg",
+      "ctaText": "Talk to Dr. Smith",
+      "scenario": {
+        "character": "Dr. Smith",
+        "role": "Senior Consultant",
+        "situation": "A workplace situation where 'SET ABOUT' would be naturally used in conversation.",
+        "phrasalVerb": "set about",
+        "contextText": "A workplace situation where 'SET ABOUT' would be naturally used in conversation.",
+        "conversationStarter": "Let's discuss this matter further.",
+        "expectedUsage": "I'll set about with that approach.",
+        "businessContext": "Business discussion",
+        "maxTurns": 5
+      },
+      "targetPhrasalVerb": {
+        "verb": "SET ABOUT",
+        "definition": "Begin a course of action, usually with a specific purpose/objective in mind",
+        "confidence": 97,
+        "examples": [
+          "We set about laying the table before our guests arrived.",
+          "I'll set about with that approach."
+        ],
+        "learningTip": "Remember: Begin a course of action, usually with a specific purpose/objective in mind",
+        "alternativeScenarios": [
+          "Team meeting",
+          "Email discussion",
+          "Project planning"
+        ]
+      },
+      "metadata": {
+        "originalId": 150,
+        "generatedAt": "2025-08-24-132428",
+        "allSenses": [
+          {
+            "senseNumber": 1,
+            "definition": "Begin a course of action, usually with a specific purpose/objective in mind",
+            "confidencePercent": 97,
+            "examples": [
+              "We set about laying the table before our guests arrived."
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "generator": "demo_generator_test.py",
+    "version": "1.0.0-test",
+    "phrasalVerbsProcessed": [
+      "GO ON",
+      "PICK UP",
+      "COME BACK",
+      "COME UP",
+      "GO BACK",
+      "PUT OFF",
+      "COME ABOUT",
+      "CLOSE DOWN",
+      "PUT IN",
+      "SET ABOUT"
+    ],
+    "testMode": true
+  }
+}

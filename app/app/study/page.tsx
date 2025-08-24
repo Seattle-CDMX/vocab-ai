@@ -11,10 +11,34 @@ import Link from 'next/link';
 
 type CardType = VoiceCardType | ContextCardType;
 
+// Cache for loaded data
+let cachedData: any = null;
+
+// Function to load voice card data
+async function loadVoiceCardData() {
+  if (cachedData) return cachedData;
+  
+  try {
+    // First try to load generated data
+    const generatedResponse = await fetch('/api/generated-data?latest=true');
+    if (generatedResponse.ok) {
+      cachedData = await generatedResponse.json();
+      console.log('Using generated voice card data from:', cachedData.generatedAt);
+      return cachedData;
+    }
+  } catch (error) {
+    console.log('No generated data found, falling back to static file');
+  }
+  
+  // Fall back to static file
+  const response = await fetch('/voice-card-types.json');
+  cachedData = await response.json();
+  return cachedData;
+}
+
 // Function to get a card by index (sequential order)
 async function getCardByIndex(index: number): Promise<CardType | null> {
-  const response = await fetch('/voice-card-types.json');
-  const data = await response.json();
+  const data = await loadVoiceCardData();
   const cards = data.voiceCardTypes;
   
   if (index >= cards.length || index < 0) {
@@ -22,6 +46,23 @@ async function getCardByIndex(index: number): Promise<CardType | null> {
   }
   
   const card = cards[index];
+  
+  // Handle generated images
+  if (card.imageUrl && card.imageUrl.startsWith('/generated_data/images/')) {
+    try {
+      const imageResponse = await fetch('/api/generated-data', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ imagePath: card.imageUrl })
+      });
+      if (imageResponse.ok) {
+        const { image } = await imageResponse.json();
+        card.imageUrl = image;
+      }
+    } catch (error) {
+      console.error('Failed to load generated image:', error);
+    }
+  }
   
   // Convert to appropriate type based on card type
   if (card.type === 'context') {
@@ -52,8 +93,7 @@ export default function VocabularyPracticePage() {
     // Load the first card after component mounts
     const loadFirstCard = async () => {
       try {
-        const response = await fetch('/voice-card-types.json');
-        const data = await response.json();
+        const data = await loadVoiceCardData();
         const cardCount = data.voiceCardTypes.length;
         setTotalCards(cardCount);
         
