@@ -83,9 +83,12 @@ const VoiceCard = ({ voiceCard, onAnswer, onReset }: VoiceCardProps) => {
         
         if (payload.action === 'close_session') {
           console.log('🎯 [VoiceCard] Closing LiveKit session as instructed by agent');
-          await disconnectFromLiveKit();
-          setSessionClosed(true);
-          console.log('🎯 [VoiceCard] Session closed, Next button now enabled');
+          // Small delay to allow RPC response to be sent before disconnecting
+          setTimeout(async () => {
+            await disconnectFromLiveKit();
+            setSessionClosed(true);
+            console.log('🎯 [VoiceCard] Session closed, Next button now enabled');
+          }, 100); // 100ms delay to prevent race condition
         }
         
         return JSON.stringify({ status: 'ok' });
