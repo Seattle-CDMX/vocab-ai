@@ -5,15 +5,16 @@ Fetches premium Google Cloud TTS voices and generates culturally appropriate per
 """
 
 import json
-import os
-import asyncio
-from pathlib import Path
-from typing import Dict, List, Any
 import random
 from datetime import datetime
+from pathlib import Path
+from typing import Dict, List
 
-from google.cloud import texttospeech
 from dotenv import load_dotenv
+from google.cloud import texttospeech
+from google.oauth2 import service_account
+
+from config.credentials import parse_google_credentials
 
 load_dotenv(".env.local")
 
@@ -21,119 +22,57 @@ OUTPUT_FILE = Path(__file__).parent / "google_voice_personas.json"
 
 class VoicePersonasGenerator:
     def __init__(self):
-        # Initialize Google Cloud TTS client
-        # Note: Requires GOOGLE_APPLICATION_CREDENTIALS environment variable
-        self.client = texttospeech.TextToSpeechClient()
-        self.used_names = set()
+        # Initialize Google Cloud TTS client with same credentials as agent
+        credentials_info = parse_google_credentials()
+        if not credentials_info:
+            raise ValueError("Google Cloud credentials not found. Set GOOGLE_APPLICATION_CREDENTIALS_B64 or GOOGLE_APPLICATION_CREDENTIALS_JSON environment variable.")
         
+        credentials = service_account.Credentials.from_service_account_info(credentials_info)
+        self.client = texttospeech.TextToSpeechClient(credentials=credentials)
+        self.used_names = set()
+        print("✅ Successfully initialized Google Cloud TTS client with agent credentials")
+
     def fetch_premium_voices(self) -> List[Dict]:
-        """Fetch all premium voices from Google Cloud TTS"""
+        """Fetch only CHIRP 3 HD voices from Google Cloud TTS - FAIL FAST if API fails"""
+        print("🔍 Fetching real CHIRP 3 HD voices from Google Cloud TTS API...")
+        
         try:
             # List all available voices
             voices = self.client.list_voices()
-            
-            premium_voices = []
+
+            chirp3_hd_voices = []
             for voice in voices.voices:
                 voice_name = voice.name
                 language_code = voice.language_codes[0] if voice.language_codes else ""
-                
-                # Filter for premium voices (Neural2, WaveNet, Chirp3-HD, Studio)
-                if any(premium in voice_name for premium in ['Neural2', 'Wavenet', 'Chirp3-HD', 'Studio']):
-                    premium_voices.append({
+
+                # Filter for CHIRP 3 HD voices only
+                if 'Chirp3-HD' in voice_name:
+                    chirp3_hd_voices.append({
                         'name': voice_name,
                         'language_code': language_code,
                         'language_name': self.get_language_name(language_code),
                         'gender': voice.ssml_gender.name,
                         'voice_type': self.get_voice_type(voice_name)
                     })
+
+            if not chirp3_hd_voices:
+                raise ValueError("No CHIRP 3 HD voices found in Google Cloud TTS API response")
             
-            return premium_voices
-            
+            print(f"✅ Successfully fetched {len(chirp3_hd_voices)} real CHIRP 3 HD voices from Google Cloud")
+            return chirp3_hd_voices
+
         except Exception as e:
-            print(f"Error fetching voices from Google Cloud: {e}")
-            print("Falling back to hardcoded premium voices list...")
-            return self.get_fallback_premium_voices()
-    
-    def get_fallback_premium_voices(self) -> List[Dict]:
-        """Fallback premium voices if API is not available"""
-        return [
-            # English (US)
-            {'name': 'en-US-Neural2-A', 'language_code': 'en-US', 'language_name': 'English (US)', 'gender': 'MALE', 'voice_type': 'Neural2'},
-            {'name': 'en-US-Neural2-C', 'language_code': 'en-US', 'language_name': 'English (US)', 'gender': 'FEMALE', 'voice_type': 'Neural2'},
-            {'name': 'en-US-Neural2-D', 'language_code': 'en-US', 'language_name': 'English (US)', 'gender': 'MALE', 'voice_type': 'Neural2'},
-            {'name': 'en-US-Neural2-E', 'language_code': 'en-US', 'language_name': 'English (US)', 'gender': 'FEMALE', 'voice_type': 'Neural2'},
-            {'name': 'en-US-Neural2-F', 'language_code': 'en-US', 'language_name': 'English (US)', 'gender': 'FEMALE', 'voice_type': 'Neural2'},
-            {'name': 'en-US-Neural2-G', 'language_code': 'en-US', 'language_name': 'English (US)', 'gender': 'FEMALE', 'voice_type': 'Neural2'},
-            {'name': 'en-US-Neural2-H', 'language_code': 'en-US', 'language_name': 'English (US)', 'gender': 'FEMALE', 'voice_type': 'Neural2'},
-            {'name': 'en-US-Neural2-I', 'language_code': 'en-US', 'language_name': 'English (US)', 'gender': 'MALE', 'voice_type': 'Neural2'},
-            {'name': 'en-US-Neural2-J', 'language_code': 'en-US', 'language_name': 'English (US)', 'gender': 'MALE', 'voice_type': 'Neural2'},
-            {'name': 'en-US-Wavenet-A', 'language_code': 'en-US', 'language_name': 'English (US)', 'gender': 'MALE', 'voice_type': 'WaveNet'},
-            {'name': 'en-US-Wavenet-B', 'language_code': 'en-US', 'language_name': 'English (US)', 'gender': 'MALE', 'voice_type': 'WaveNet'},
-            {'name': 'en-US-Wavenet-C', 'language_code': 'en-US', 'language_name': 'English (US)', 'gender': 'FEMALE', 'voice_type': 'WaveNet'},
-            {'name': 'en-US-Studio-O', 'language_code': 'en-US', 'language_name': 'English (US)', 'gender': 'FEMALE', 'voice_type': 'Studio'},
-            {'name': 'en-US-Studio-Q', 'language_code': 'en-US', 'language_name': 'English (US)', 'gender': 'MALE', 'voice_type': 'Studio'},
-            
-            # English (UK)
-            {'name': 'en-GB-Neural2-A', 'language_code': 'en-GB', 'language_name': 'English (UK)', 'gender': 'FEMALE', 'voice_type': 'Neural2'},
-            {'name': 'en-GB-Neural2-B', 'language_code': 'en-GB', 'language_name': 'English (UK)', 'gender': 'MALE', 'voice_type': 'Neural2'},
-            {'name': 'en-GB-Neural2-C', 'language_code': 'en-GB', 'language_name': 'English (UK)', 'gender': 'FEMALE', 'voice_type': 'Neural2'},
-            {'name': 'en-GB-Neural2-D', 'language_code': 'en-GB', 'language_name': 'English (UK)', 'gender': 'MALE', 'voice_type': 'Neural2'},
-            {'name': 'en-GB-Wavenet-A', 'language_code': 'en-GB', 'language_name': 'English (UK)', 'gender': 'FEMALE', 'voice_type': 'WaveNet'},
-            {'name': 'en-GB-Wavenet-B', 'language_code': 'en-GB', 'language_name': 'English (UK)', 'gender': 'MALE', 'voice_type': 'WaveNet'},
-            {'name': 'en-GB-Studio-B', 'language_code': 'en-GB', 'language_name': 'English (UK)', 'gender': 'MALE', 'voice_type': 'Studio'},
-            {'name': 'en-GB-Studio-C', 'language_code': 'en-GB', 'language_name': 'English (UK)', 'gender': 'FEMALE', 'voice_type': 'Studio'},
-            
-            # English (AU)
-            {'name': 'en-AU-Neural2-A', 'language_code': 'en-AU', 'language_name': 'English (Australia)', 'gender': 'FEMALE', 'voice_type': 'Neural2'},
-            {'name': 'en-AU-Neural2-B', 'language_code': 'en-AU', 'language_name': 'English (Australia)', 'gender': 'MALE', 'voice_type': 'Neural2'},
-            {'name': 'en-AU-Neural2-C', 'language_code': 'en-AU', 'language_name': 'English (Australia)', 'gender': 'FEMALE', 'voice_type': 'Neural2'},
-            {'name': 'en-AU-Neural2-D', 'language_code': 'en-AU', 'language_name': 'English (Australia)', 'gender': 'MALE', 'voice_type': 'Neural2'},
-            {'name': 'en-AU-Wavenet-A', 'language_code': 'en-AU', 'language_name': 'English (Australia)', 'gender': 'FEMALE', 'voice_type': 'WaveNet'},
-            {'name': 'en-AU-Wavenet-B', 'language_code': 'en-AU', 'language_name': 'English (Australia)', 'gender': 'MALE', 'voice_type': 'WaveNet'},
-            
-            # French
-            {'name': 'fr-FR-Neural2-A', 'language_code': 'fr-FR', 'language_name': 'French (France)', 'gender': 'FEMALE', 'voice_type': 'Neural2'},
-            {'name': 'fr-FR-Neural2-B', 'language_code': 'fr-FR', 'language_name': 'French (France)', 'gender': 'MALE', 'voice_type': 'Neural2'},
-            {'name': 'fr-FR-Neural2-C', 'language_code': 'fr-FR', 'language_name': 'French (France)', 'gender': 'FEMALE', 'voice_type': 'Neural2'},
-            {'name': 'fr-FR-Neural2-D', 'language_code': 'fr-FR', 'language_name': 'French (France)', 'gender': 'MALE', 'voice_type': 'Neural2'},
-            {'name': 'fr-FR-Wavenet-A', 'language_code': 'fr-FR', 'language_name': 'French (France)', 'gender': 'FEMALE', 'voice_type': 'WaveNet'},
-            {'name': 'fr-FR-Wavenet-B', 'language_code': 'fr-FR', 'language_name': 'French (France)', 'gender': 'MALE', 'voice_type': 'WaveNet'},
-            
-            # German
-            {'name': 'de-DE-Neural2-A', 'language_code': 'de-DE', 'language_name': 'German (Germany)', 'gender': 'FEMALE', 'voice_type': 'Neural2'},
-            {'name': 'de-DE-Neural2-B', 'language_code': 'de-DE', 'language_name': 'German (Germany)', 'gender': 'MALE', 'voice_type': 'Neural2'},
-            {'name': 'de-DE-Neural2-C', 'language_code': 'de-DE', 'language_name': 'German (Germany)', 'gender': 'FEMALE', 'voice_type': 'Neural2'},
-            {'name': 'de-DE-Neural2-D', 'language_code': 'de-DE', 'language_name': 'German (Germany)', 'gender': 'MALE', 'voice_type': 'Neural2'},
-            {'name': 'de-DE-Wavenet-A', 'language_code': 'de-DE', 'language_name': 'German (Germany)', 'gender': 'FEMALE', 'voice_type': 'WaveNet'},
-            {'name': 'de-DE-Wavenet-B', 'language_code': 'de-DE', 'language_name': 'German (Germany)', 'voice_type': 'WaveNet', 'gender': 'MALE'},
-            
-            # Spanish
-            {'name': 'es-ES-Neural2-A', 'language_code': 'es-ES', 'language_name': 'Spanish (Spain)', 'gender': 'FEMALE', 'voice_type': 'Neural2'},
-            {'name': 'es-ES-Neural2-B', 'language_code': 'es-ES', 'language_name': 'Spanish (Spain)', 'gender': 'MALE', 'voice_type': 'Neural2'},
-            {'name': 'es-ES-Neural2-C', 'language_code': 'es-ES', 'language_name': 'Spanish (Spain)', 'gender': 'FEMALE', 'voice_type': 'Neural2'},
-            {'name': 'es-ES-Neural2-D', 'language_code': 'es-ES', 'language_name': 'Spanish (Spain)', 'gender': 'FEMALE', 'voice_type': 'Neural2'},
-            {'name': 'es-ES-Wavenet-B', 'language_code': 'es-ES', 'language_name': 'Spanish (Spain)', 'gender': 'MALE', 'voice_type': 'WaveNet'},
-            {'name': 'es-ES-Wavenet-C', 'language_code': 'es-ES', 'language_name': 'Spanish (Spain)', 'gender': 'FEMALE', 'voice_type': 'WaveNet'},
-            
-            # Italian
-            {'name': 'it-IT-Neural2-A', 'language_code': 'it-IT', 'language_name': 'Italian (Italy)', 'gender': 'FEMALE', 'voice_type': 'Neural2'},
-            {'name': 'it-IT-Neural2-C', 'language_code': 'it-IT', 'language_name': 'Italian (Italy)', 'gender': 'MALE', 'voice_type': 'Neural2'},
-            {'name': 'it-IT-Wavenet-A', 'language_code': 'it-IT', 'language_name': 'Italian (Italy)', 'gender': 'FEMALE', 'voice_type': 'WaveNet'},
-            {'name': 'it-IT-Wavenet-C', 'language_code': 'it-IT', 'language_name': 'Italian (Italy)', 'gender': 'MALE', 'voice_type': 'WaveNet'},
-            
-            # Japanese
-            {'name': 'ja-JP-Neural2-B', 'language_code': 'ja-JP', 'language_name': 'Japanese (Japan)', 'gender': 'FEMALE', 'voice_type': 'Neural2'},
-            {'name': 'ja-JP-Neural2-C', 'language_code': 'ja-JP', 'language_name': 'Japanese (Japan)', 'gender': 'MALE', 'voice_type': 'Neural2'},
-            {'name': 'ja-JP-Neural2-D', 'language_code': 'ja-JP', 'language_name': 'Japanese (Japan)', 'gender': 'MALE', 'voice_type': 'Neural2'},
-            {'name': 'ja-JP-Wavenet-A', 'language_code': 'ja-JP', 'language_name': 'Japanese (Japan)', 'gender': 'FEMALE', 'voice_type': 'WaveNet'},
-            {'name': 'ja-JP-Wavenet-B', 'language_code': 'ja-JP', 'language_name': 'Japanese (Japan)', 'gender': 'FEMALE', 'voice_type': 'WaveNet'},
-        ]
-    
+            print(f"❌ FAILED to fetch voices from Google Cloud TTS API: {e}")
+            print("🚫 NO FALLBACK - Script requires real voice data from Google Cloud API")
+            print("💡 Check your Google Cloud credentials and API access")
+            raise RuntimeError(f"Cannot generate voice personas without real Google Cloud TTS voices. API Error: {e}")
+
+
     def get_language_name(self, language_code: str) -> str:
         """Get human-readable language name from language code"""
         language_map = {
             'en-US': 'English (US)',
-            'en-GB': 'English (UK)', 
+            'en-GB': 'English (UK)',
             'en-AU': 'English (Australia)',
             'en-IN': 'English (India)',
             'fr-FR': 'French (France)',
@@ -158,7 +97,7 @@ class VoicePersonasGenerator:
             'pl-PL': 'Polish (Poland)',
         }
         return language_map.get(language_code, language_code)
-    
+
     def get_voice_type(self, voice_name: str) -> str:
         """Extract voice type from voice name"""
         if 'Chirp3-HD' in voice_name:
@@ -171,10 +110,10 @@ class VoicePersonasGenerator:
             return 'Studio'
         else:
             return 'Standard'
-    
+
     def generate_persona_name(self, language_code: str, gender: str) -> str:
         """Generate culturally appropriate names"""
-        
+
         # Names database organized by language and gender
         names_db = {
             'en-US': {
@@ -210,41 +149,41 @@ class VoicePersonasGenerator:
                 'FEMALE': ['佐藤先生', '田中博士', '鈴木教授', '高橋先生', '伊藤博士', '渡辺教授', '中村先生', '小林博士', '加藤教授', '吉田先生']
             }
         }
-        
+
         # Default to English US if language not found
         lang_key = language_code if language_code in names_db else 'en-US'
         available_names = names_db[lang_key][gender]
-        
+
         # Filter out already used names
         unused_names = [name for name in available_names if name not in self.used_names]
-        
+
         if not unused_names:
             # If all names are used, reset and reuse
             self.used_names.clear()
             unused_names = available_names
-        
+
         selected_name = random.choice(unused_names)
         self.used_names.add(selected_name)
-        
+
         return selected_name
-    
+
     def generate_persona(self, voice: Dict) -> Dict:
         """Generate a complete persona for a voice"""
         name = self.generate_persona_name(voice['language_code'], voice['gender'])
-        
+
         # Teaching styles and personalities
         teaching_styles = [
             "patient and encouraging", "direct and practical", "enthusiastic and energetic",
             "calm and methodical", "friendly and conversational", "professional and precise",
             "warm and supportive", "clear and structured", "engaging and interactive", "thorough and detailed"
         ]
-        
+
         expertise_areas = [
             "business communication", "workplace interactions", "professional presentations",
             "email writing", "meeting facilitation", "client relations", "team management",
             "project coordination", "cross-cultural communication", "negotiation skills"
         ]
-        
+
         return {
             'voice': voice,
             'persona': {
@@ -261,21 +200,21 @@ class VoicePersonasGenerator:
                 ], 3)
             }
         }
-    
+
     def generate_all_personas(self):
-        """Generate personas for all premium voices"""
-        print("Fetching premium voices from Google Cloud TTS...")
-        premium_voices = self.fetch_premium_voices()
-        
-        print(f"Found {len(premium_voices)} premium voices")
+        """Generate personas for all CHIRP 3 HD voices"""
+        print("Fetching CHIRP 3 HD voices from Google Cloud TTS...")
+        chirp3_hd_voices = self.fetch_premium_voices()
+
+        print(f"Found {len(chirp3_hd_voices)} CHIRP 3 HD voices")
         print("Generating personas...")
-        
+
         personas = []
-        for voice in premium_voices:
+        for voice in chirp3_hd_voices:
             persona = self.generate_persona(voice)
             personas.append(persona)
             print(f"Generated persona: {persona['persona']['name']} ({voice['name']})")
-        
+
         # Create output structure
         output = {
             'generated_at': str(datetime.now().isoformat()),
@@ -283,19 +222,19 @@ class VoicePersonasGenerator:
             'personas': personas,
             'metadata': {
                 'generator': 'generate_voice_personas.py',
-                'version': '1.0.0',
-                'description': 'Google Cloud TTS premium voice personas for vocabulary learning'
+                'version': '2.0.0',
+                'description': 'Google Cloud TTS CHIRP 3 HD voice personas for vocabulary learning'
             }
         }
-        
+
         # Save to file
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
             json.dump(output, f, indent=2, ensure_ascii=False)
-        
-        print(f"\nPersona generation complete!")
+
+        print("\nPersona generation complete!")
         print(f"Output saved to: {OUTPUT_FILE}")
         print(f"Total personas generated: {len(personas)}")
-        
+
         return OUTPUT_FILE
 
 def main():

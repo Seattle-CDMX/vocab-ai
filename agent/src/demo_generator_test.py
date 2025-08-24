@@ -5,10 +5,9 @@ Generates mock data for testing the system integration
 """
 
 import json
-import os
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Any
+from typing import Dict, List
 
 PHRASAL_VERBS_PATH = Path(__file__).parent.parent.parent / "app" / "public" / "phrasal_verbs.json"
 OUTPUT_DIR = Path(__file__).parent.parent / "generated_data"
@@ -18,24 +17,24 @@ class MockDemoGenerator:
     def __init__(self):
         self.timestamp = datetime.now().strftime("%Y-%m-%d-%H%M%S")
         self.ensure_directories()
-        
+
     def ensure_directories(self):
         """Create necessary directories if they don't exist"""
         OUTPUT_DIR.mkdir(exist_ok=True)
         IMAGES_DIR.mkdir(exist_ok=True)
-        
+
     def load_phrasal_verbs(self) -> List[Dict]:
         """Load phrasal verbs from JSON file"""
-        with open(PHRASAL_VERBS_PATH, 'r') as f:
+        with open(PHRASAL_VERBS_PATH) as f:
             data = json.load(f)
         return data
-    
+
     def get_selected_verbs(self, verbs: List[Dict]) -> List[Dict]:
         """Get first 5 and last 5 phrasal verbs"""
         first_five = verbs[:5]
         last_five = verbs[-5:]
         return first_five + last_five
-    
+
     def generate_mock_scenario(self, verb: Dict) -> Dict:
         """Generate a mock workplace scenario"""
         scenarios = {
@@ -64,7 +63,7 @@ class MockDemoGenerator:
                 "alternative_scenarios": ["Office supplies run", "Client materials", "Lunch order"]
             }
         }
-        
+
         # Default scenario for verbs not in the mock data
         default = {
             "scenario_title": f"Practice {verb['verb']}",
@@ -78,23 +77,23 @@ class MockDemoGenerator:
             "learning_tip": f"Remember: {verb['senses'][0]['definition']}",
             "alternative_scenarios": ["Team meeting", "Email discussion", "Project planning"]
         }
-        
+
         return scenarios.get(verb['verb'], default)
-    
+
     def create_mock_image(self, verb: Dict) -> str:
         """Create a placeholder for image (in real version, this would generate an image)"""
         # In the test version, we'll just return placeholder
         # In production, this would call DALL-E API
         return "/placeholder.svg"
-    
+
     def create_voice_card(self, verb: Dict, index: int) -> Dict:
         """Create a voice card with mock data"""
         scenario = self.generate_mock_scenario(verb)
         image_path = self.create_mock_image(verb)
-        
+
         # Use the first sense as the primary definition
         primary_sense = verb['senses'][0]
-        
+
         voice_card = {
             "id": f"context-{verb['verb'].lower().replace(' ', '-')}-{self.timestamp}",
             "type": "context",
@@ -128,27 +127,27 @@ class MockDemoGenerator:
                 "allSenses": verb['senses']
             }
         }
-        
+
         return voice_card
-    
+
     def generate_all_cards(self):
         """Main generation process"""
         print(f"Starting mock demo generation at {self.timestamp}")
-        
+
         # Load and select verbs
         all_verbs = self.load_phrasal_verbs()
         selected_verbs = self.get_selected_verbs(all_verbs)
-        
+
         print(f"Processing {len(selected_verbs)} phrasal verbs...")
         print(f"Selected verbs: {[v['verb'] for v in selected_verbs]}")
-        
+
         # Generate voice cards
         voice_cards = []
         for i, verb in enumerate(selected_verbs):
             print(f"Processing {i+1}/{len(selected_verbs)}: {verb['verb']}")
             card = self.create_voice_card(verb, i)
             voice_cards.append(card)
-        
+
         # Create output structure
         output = {
             "generatedAt": self.timestamp,
@@ -161,22 +160,22 @@ class MockDemoGenerator:
                 "testMode": True
             }
         }
-        
+
         # Save to timestamped file
         output_file = OUTPUT_DIR / f"voice-cards-{self.timestamp}.json"
         with open(output_file, 'w') as f:
             json.dump(output, f, indent=2)
-        
-        print(f"\nMock generation complete!")
+
+        print("\nMock generation complete!")
         print(f"Output saved to: {output_file}")
-        
+
         # Also create a symlink to latest for easy access
         latest_link = OUTPUT_DIR / "voice-cards-latest.json"
         if latest_link.exists():
             latest_link.unlink()
         latest_link.symlink_to(output_file.name)
         print(f"Latest symlink created: {latest_link}")
-        
+
         return output_file
 
 def main():

@@ -1,0 +1,936 @@
+{
+  "generatedAt": "2025-08-24-154123",
+  "totalCards": 12,
+  "nativeExplainCards": 6,
+  "situationCards": 6,
+  "voiceCardTypes": [
+    {
+      "id": "native-explain-go-on",
+      "type": "native_explain",
+      "title": "Explain: GO ON",
+      "difficulty": "beginner/intermediate",
+      "targetPhrasalVerb": {
+        "verb": "GO ON",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "Happen, take place",
+            "confidencePercent": 64.5,
+            "examples": [
+              "There is a debate going on right now between the two parties."
+            ]
+          },
+          {
+            "senseNumber": 2,
+            "definition": "(+ To) Proceed to do or tackle STH after doing STH else",
+            "confidencePercent": 13,
+            "examples": [
+              "Does anyone have any questions before I go on to the next chapter?"
+            ]
+          }
+        ]
+      },
+      "teachingScenario": {
+        "teacher": "Ms. Rodriguez",
+        "approach": "step-by-step breakdown with engaging examples and interactive practice",
+        "mainDefinition": "'Go on' means to happen or take place, or to proceed with an action after completing something else.",
+        "keyTeachingPoints": [
+          "1. 'Go on' can describe events that are currently happening.",
+          "2. It can also signal a transition to the next step in a process or conversation.",
+          "3. Context matters! The meaning can change based on how it's used in a sentence.",
+          "4. It's often used in informal settings, making it a great choice for conversational English."
+        ],
+        "usageExamples": [
+          "There is a debate going on right now between the two parties.",
+          "After finishing the introduction, I'll go on to the next chapter of the story.",
+          "If you have any questions, please go on and ask before we continue."
+        ],
+        "commonMistakes": [
+          "Confusing 'go on' with 'go in' - remember, 'go on' is about events or continuing actions.",
+          "Omitting the preposition 'to' when using the second meaning - it's 'go on to' not just 'go on'."
+        ],
+        "memoryTips": [
+          "Visualize a conversation flowing - like a river that continues to 'go on' without stopping.",
+          "Think of 'go on' as a signal to keep moving forward in a discussion or activity."
+        ],
+        "teachingPersonality": "Engaging and supportive, I encourage learners to participate actively, making learning fun and interactive."
+      },
+      "voicePersona": {
+        "voice": {
+          "name": "nl-BE-Chirp3-HD-Despina",
+          "language_code": "nl-BE",
+          "language_name": "nl-BE",
+          "gender": "FEMALE",
+          "voice_type": "Chirp3-HD"
+        },
+        "persona": {
+          "name": "Ms. Rodriguez",
+          "teaching_style": "engaging and interactive",
+          "expertise": "business communication",
+          "personality_traits": [
+            "engaging",
+            "encouraging",
+            "supportive"
+          ],
+          "preferred_contexts": [
+            "emails",
+            "workshops",
+            "interviews"
+          ]
+        }
+      },
+      "metadata": {
+        "originalId": 1,
+        "generatedAt": "2025-08-24-154123",
+        "cardType": "native_explain"
+      }
+    },
+    {
+      "id": "context-go-on",
+      "type": "context",
+      "title": "In-Context \u2014 GO ON",
+      "difficulty": "intermediate",
+      "contextText": "You're speaking with Mr. Johnson, Project Coordinator. Mr. Johnson is leading a weekly team meeting to discuss the current progress of various projects. He wants to ensure everyone is aware of ongoing issues and updates, and he encourages team members to share any challenges they are facing. During the discussion, he prompts the team to report on what is going on with their individual projects.",
+      "imageUrl": "/generated_data/images/go-on.png",
+      "ctaText": "Talk to Mr. Johnson",
+      "scenario": {
+        "character": "Mr. Johnson",
+        "role": "Project Coordinator",
+        "situation": "Mr. Johnson is leading a weekly team meeting to discuss the current progress of various projects. He wants to ensure everyone is aware of ongoing issues and updates, and he encourages team members to share any challenges they are facing. During the discussion, he prompts the team to report on what is going on with their individual projects.",
+        "phrasalVerb": "go on",
+        "contextText": "Mr. Johnson is leading a weekly team meeting to discuss the current progress of various projects. He wants to ensure everyone is aware of ongoing issues and updates, and he encourages team members to share any challenges they are facing. During the discussion, he prompts the team to report on what is going on with their individual projects.",
+        "conversationStarter": "Good morning, everyone! I hope you\u2019re all doing well. Let\u2019s start our meeting by going around the room. Can anyone share what is going on with their projects this week?",
+        "expectedUsage": "In response, a team member might say, 'Well, there are a few challenges going on with the marketing campaign that I\u2019d like to address.'",
+        "businessContext": "meeting",
+        "maxTurns": 5
+      },
+      "targetPhrasalVerb": {
+        "verb": "GO ON",
+        "definition": "Happen, take place",
+        "confidence": 64.5,
+        "examples": [
+          "There is a debate going on right now between the two parties.",
+          "In response, a team member might say, 'Well, there are a few challenges going on with the marketing campaign that I\u2019d like to address.'"
+        ],
+        "learningTip": "Remember that 'go on' can often refer to ongoing situations or events, like projects or discussions that are currently happening. Think of it as observing the present activity.",
+        "alternativeScenarios": [
+          "1. During a sales presentation, the sales manager asks the team, 'What promotions are going on this month that we should highlight to our clients?'",
+          "2. In an email discussion, a team leader might write, 'I wanted to check in and see what discussions are going on regarding the budget for next quarter.'",
+          "3. While attending a conference, a participant asks a colleague, 'What sessions are going on today that are worth attending?'"
+        ]
+      },
+      "voicePersona": {
+        "voice": {
+          "name": "en-US-Chirp3-HD-Zubenelgenubi",
+          "language_code": "en-US",
+          "language_name": "English (US)",
+          "gender": "MALE",
+          "voice_type": "Chirp3-HD"
+        },
+        "persona": {
+          "name": "Mr. Wilson",
+          "teaching_style": "patient and encouraging",
+          "expertise": "professional presentations",
+          "personality_traits": [
+            "professional",
+            "engaging",
+            "patient"
+          ],
+          "preferred_contexts": [
+            "workshops",
+            "presentations",
+            "interviews"
+          ]
+        }
+      },
+      "metadata": {
+        "originalId": 1,
+        "generatedAt": "2025-08-24-154123",
+        "allSenses": [
+          {
+            "senseNumber": 1,
+            "definition": "Happen, take place",
+            "confidencePercent": 64.5,
+            "examples": [
+              "There is a debate going on right now between the two parties."
+            ]
+          },
+          {
+            "senseNumber": 2,
+            "definition": "(+ To) Proceed to do or tackle STH after doing STH else",
+            "confidencePercent": 13,
+            "examples": [
+              "Does anyone have any questions before I go on to the next chapter?"
+            ]
+          }
+        ],
+        "cardType": "context"
+      }
+    },
+    {
+      "id": "native-explain-pick-up",
+      "type": "native_explain",
+      "title": "Explain: PICK UP",
+      "difficulty": "beginner",
+      "targetPhrasalVerb": {
+        "verb": "PICK UP",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "Get or take SB/STH from a place",
+            "confidencePercent": 70.5,
+            "examples": [
+              "Can you pick up some food on the way home from work please?"
+            ]
+          }
+        ]
+      },
+      "teachingScenario": {
+        "teacher": "Sig. Ricci",
+        "approach": "step-by-step breakdown",
+        "mainDefinition": "To get or take someone or something from a particular place.",
+        "keyTeachingPoints": [
+          "The verb 'pick' indicates choosing or selecting, while 'up' implies a motion towards oneself.",
+          "It can be used in both literal and figurative contexts.",
+          "It's commonly used in everyday conversation, making it a practical phrasal verb to know.",
+          "In questions or negatives, the structure remains the same: 'pick up' + object."
+        ],
+        "usageExamples": [
+          "Could you pick up the package from the post office?",
+          "I'll pick up my daughter from school after work.",
+          "He forgot to pick up the dry cleaning on his way home."
+        ],
+        "commonMistakes": [
+          "Confusing 'pick up' with 'pick', as 'pick up' requires an object (e.g., 'pick up the book', not just 'pick the book').",
+          "Using it incorrectly in negative forms (e.g., saying 'I can\u2019t pick the food up' instead of 'I can\u2019t pick up the food')."
+        ],
+        "memoryTips": [
+          "Visualize the action of physically lifting something from the ground to remember the 'up' aspect of the verb.",
+          "Associate the phrase with common situations, like errands or picking up friends, to make it more relatable."
+        ],
+        "teachingPersonality": "I am practical, supportive, and knowledgeable, ensuring that learners feel confident and equipped to use language effectively."
+      },
+      "voicePersona": {
+        "voice": {
+          "name": "it-IT-Chirp3-HD-Enceladus",
+          "language_code": "it-IT",
+          "language_name": "Italian (Italy)",
+          "gender": "MALE",
+          "voice_type": "Chirp3-HD"
+        },
+        "persona": {
+          "name": "Sig. Ricci",
+          "teaching_style": "professional and precise",
+          "expertise": "business communication",
+          "personality_traits": [
+            "practical",
+            "supportive",
+            "knowledgeable"
+          ],
+          "preferred_contexts": [
+            "training sessions",
+            "meetings",
+            "client meetings"
+          ]
+        }
+      },
+      "metadata": {
+        "originalId": 2,
+        "generatedAt": "2025-08-24-154123",
+        "cardType": "native_explain"
+      }
+    },
+    {
+      "id": "context-pick-up",
+      "type": "context",
+      "title": "In-Context \u2014 PICK UP",
+      "difficulty": "beginner",
+      "contextText": "You're speaking with Ms. Taylor, Office Administrator. The team is planning a lunch meeting to discuss the upcoming project. Ms. Taylor is coordinating the arrangements and needs someone to pick up the food from a nearby restaurant.",
+      "imageUrl": "/generated_data/images/pick-up.png",
+      "ctaText": "Talk to Ms. Taylor",
+      "scenario": {
+        "character": "Ms. Taylor",
+        "role": "Office Administrator",
+        "situation": "The team is planning a lunch meeting to discuss the upcoming project. Ms. Taylor is coordinating the arrangements and needs someone to pick up the food from a nearby restaurant.",
+        "phrasalVerb": "pick up",
+        "contextText": "The team is planning a lunch meeting to discuss the upcoming project. Ms. Taylor is coordinating the arrangements and needs someone to pick up the food from a nearby restaurant.",
+        "conversationStarter": "Hey team, we need to finalize our lunch plans for the meeting. Can someone help by picking up the food from 'Gourmet Bites' at noon?",
+        "expectedUsage": "Sure, I can pick up the food on my way back from the meeting with the client.",
+        "businessContext": "team meeting planning",
+        "maxTurns": 5
+      },
+      "targetPhrasalVerb": {
+        "verb": "PICK UP",
+        "definition": "Get or take SB/STH from a place",
+        "confidence": 70.5,
+        "examples": [
+          "Can you pick up some food on the way home from work please?",
+          "Sure, I can pick up the food on my way back from the meeting with the client."
+        ],
+        "learningTip": "Remember that 'pick up' can refer to physically collecting items, so visualize going to get something when using it.",
+        "alternativeScenarios": [
+          "A colleague asks if you can pick up some supplies from the office supply store on your way to work.",
+          "During a project meeting, the manager requests someone to pick up the presentation materials from the print shop.",
+          "A team member needs someone to pick up the conference badges from the registration desk before the event starts."
+        ]
+      },
+      "voicePersona": {
+        "voice": {
+          "name": "id-ID-Chirp3-HD-Umbriel",
+          "language_code": "id-ID",
+          "language_name": "id-ID",
+          "gender": "MALE",
+          "voice_type": "Chirp3-HD"
+        },
+        "persona": {
+          "name": "Prof. Davis",
+          "teaching_style": "calm and methodical",
+          "expertise": "client relations",
+          "personality_traits": [
+            "supportive",
+            "warm",
+            "thorough"
+          ],
+          "preferred_contexts": [
+            "training sessions",
+            "networking events",
+            "interviews"
+          ]
+        }
+      },
+      "metadata": {
+        "originalId": 2,
+        "generatedAt": "2025-08-24-154123",
+        "allSenses": [
+          {
+            "senseNumber": 1,
+            "definition": "Get or take SB/STH from a place",
+            "confidencePercent": 70.5,
+            "examples": [
+              "Can you pick up some food on the way home from work please?"
+            ]
+          }
+        ],
+        "cardType": "context"
+      }
+    },
+    {
+      "id": "native-explain-come-back",
+      "type": "native_explain",
+      "title": "Explain: COME BACK",
+      "difficulty": "beginner",
+      "targetPhrasalVerb": {
+        "verb": "COME BACK",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "Return to a place or a conversation topic",
+            "confidencePercent": 96.5,
+            "examples": [
+              "She came back to the kitchen with a bottle of fancy wine."
+            ]
+          }
+        ]
+      },
+      "teachingScenario": {
+        "teacher": "Prof. Wilson",
+        "approach": "step-by-step breakdown",
+        "mainDefinition": "The phrasal verb 'come back' means to return to a place or to return to a topic in a conversation.",
+        "keyTeachingPoints": [
+          "1. 'Come back' can refer to physically returning to a location, such as home or a specific room.",
+          "2. It can also refer to returning to a discussion topic after a digression.",
+          "3. It's often used in informal contexts, making it a friendly and approachable expression.",
+          "4. Pay attention to the context to understand whether it's about a physical return or a conversational return."
+        ],
+        "usageExamples": [
+          "After a long vacation, he finally came back to work feeling refreshed.",
+          "Let's come back to the topic of our plans for the weekend after we finish discussing this project.",
+          "She forgot her phone and had to come back to the caf\u00e9 to retrieve it."
+        ],
+        "commonMistakes": [
+          "1. Confusing 'come back' with 'go back' \u2013 remember, 'come' implies moving towards the speaker, while 'go' implies moving away.",
+          "2. Using 'came back' when referring to a future event instead of 'will come back' or 'is coming back'.",
+          "3. Not using the correct preposition when discussing returning to a topic (e.g., saying 'come back on' instead of 'come back to')."
+        ],
+        "memoryTips": [
+          "1. Visualize a friend leaving a room and then returning; this imagery reinforces the idea of coming back.",
+          "2. Create a simple sentence with 'come back' that relates to your own life, making it more personal and memorable."
+        ],
+        "teachingPersonality": "I am thorough and patient, always encouraging my students to engage actively in learning while maintaining an enthusiastic and energetic atmosphere."
+      },
+      "voicePersona": {
+        "voice": {
+          "name": "sw-KE-Chirp3-HD-Despina",
+          "language_code": "sw-KE",
+          "language_name": "sw-KE",
+          "gender": "FEMALE",
+          "voice_type": "Chirp3-HD"
+        },
+        "persona": {
+          "name": "Prof. Wilson",
+          "teaching_style": "enthusiastic and energetic",
+          "expertise": "professional presentations",
+          "personality_traits": [
+            "thorough",
+            "encouraging",
+            "patient"
+          ],
+          "preferred_contexts": [
+            "team discussions",
+            "meetings",
+            "phone calls"
+          ]
+        }
+      },
+      "metadata": {
+        "originalId": 3,
+        "generatedAt": "2025-08-24-154123",
+        "cardType": "native_explain"
+      }
+    },
+    {
+      "id": "context-come-back",
+      "type": "context",
+      "title": "In-Context \u2014 COME BACK",
+      "difficulty": "intermediate",
+      "contextText": "You're speaking with Mr. Thompson, Marketing Director. During a weekly team meeting, Mr. Thompson discusses the new marketing strategy. Midway through the meeting, he gets sidetracked by a question about budget allocations. He later aims to return to the original topic of the marketing strategy after addressing the question.",
+      "imageUrl": "/generated_data/images/come-back.png",
+      "ctaText": "Talk to Mr. Thompson",
+      "scenario": {
+        "character": "Mr. Thompson",
+        "role": "Marketing Director",
+        "situation": "During a weekly team meeting, Mr. Thompson discusses the new marketing strategy. Midway through the meeting, he gets sidetracked by a question about budget allocations. He later aims to return to the original topic of the marketing strategy after addressing the question.",
+        "phrasalVerb": "come back",
+        "contextText": "During a weekly team meeting, Mr. Thompson discusses the new marketing strategy. Midway through the meeting, he gets sidetracked by a question about budget allocations. He later aims to return to the original topic of the marketing strategy after addressing the question.",
+        "conversationStarter": "Mr. Thompson says, 'That's a great question about the budget. Let's address that first, and then I\u2019ll come back to the marketing strategy.'",
+        "expectedUsage": "The learner should respond with, 'Sure, and I think it\u2019s important that we come back to the marketing strategy because it ties into our overall goals.'",
+        "businessContext": "team meeting",
+        "maxTurns": 5
+      },
+      "targetPhrasalVerb": {
+        "verb": "COME BACK",
+        "definition": "Return to a place or a conversation topic",
+        "confidence": 96.5,
+        "examples": [
+          "She came back to the kitchen with a bottle of fancy wine.",
+          "The learner should respond with, 'Sure, and I think it\u2019s important that we come back to the marketing strategy because it ties into our overall goals.'"
+        ],
+        "learningTip": "Think of 'come back' as a way to return to something important after a brief distraction, just like returning to your favorite book after a phone call.",
+        "alternativeScenarios": [
+          "1. In a project update email, a team member acknowledges feedback and mentions they will come back with a revised timeline.",
+          "2. During a client presentation, after addressing a client's concern, the presenter says they will come back to a previous slide for further clarification.",
+          "3. In a brainstorming session, a team leader asks participants to come back to a previous idea after exploring new suggestions."
+        ]
+      },
+      "voicePersona": {
+        "voice": {
+          "name": "uk-UA-Chirp3-HD-Pulcherrima",
+          "language_code": "uk-UA",
+          "language_name": "uk-UA",
+          "gender": "FEMALE",
+          "voice_type": "Chirp3-HD"
+        },
+        "persona": {
+          "name": "Dr. Jones",
+          "teaching_style": "calm and methodical",
+          "expertise": "team management",
+          "personality_traits": [
+            "encouraging",
+            "direct",
+            "patient"
+          ],
+          "preferred_contexts": [
+            "networking events",
+            "client meetings",
+            "phone calls"
+          ]
+        }
+      },
+      "metadata": {
+        "originalId": 3,
+        "generatedAt": "2025-08-24-154123",
+        "allSenses": [
+          {
+            "senseNumber": 1,
+            "definition": "Return to a place or a conversation topic",
+            "confidencePercent": 96.5,
+            "examples": [
+              "She came back to the kitchen with a bottle of fancy wine."
+            ]
+          }
+        ],
+        "cardType": "context"
+      }
+    },
+    {
+      "id": "native-explain-close-down",
+      "type": "native_explain",
+      "title": "Explain: CLOSE DOWN",
+      "difficulty": "beginner",
+      "targetPhrasalVerb": {
+        "verb": "CLOSE DOWN",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "Stop operating or functioning",
+            "confidencePercent": 87,
+            "examples": [
+              "Non-profitable companies were closed down."
+            ]
+          }
+        ]
+      },
+      "teachingScenario": {
+        "teacher": "Dr. Garcia",
+        "approach": "step-by-step breakdown",
+        "mainDefinition": "To stop operating or functioning, often used in the context of businesses or organizations.",
+        "keyTeachingPoints": [
+          "The phrasal verb 'close down' is often used in relation to businesses that are no longer profitable or viable.",
+          "It can also refer to the cessation of any ongoing activities, not just businesses.",
+          "The phrase indicates a permanent or long-term stop, rather than a temporary closure."
+        ],
+        "usageExamples": [
+          "Due to the economic crisis, many small shops were forced to close down.",
+          "The factory will close down next month because it cannot compete with cheaper imports.",
+          "After several years of losses, the restaurant finally decided to close down."
+        ],
+        "commonMistakes": [
+          "Using 'close down' when referring to temporary closures (e.g., 'The store is closed down for renovations' should be 'The store is closed for renovations').",
+          "Mixing it up with 'close up,' which can imply sealing something rather than stopping operations.",
+          "Confusing it with 'shut down,' which can be similar but is often used for machines or technology."
+        ],
+        "memoryTips": [
+          "Think of 'close down' as a definitive end\u2014like closing the door to a business forever.",
+          "Visualize a 'closed' sign on a storefront to remember that it signifies a permanent state."
+        ],
+        "teachingPersonality": "I am calm and methodical in my approach, ensuring that learners feel supported as they grasp new concepts and practice their usage."
+      },
+      "voicePersona": {
+        "voice": {
+          "name": "mr-IN-Chirp3-HD-Enceladus",
+          "language_code": "mr-IN",
+          "language_name": "mr-IN",
+          "gender": "MALE",
+          "voice_type": "Chirp3-HD"
+        },
+        "persona": {
+          "name": "Dr. Garcia",
+          "teaching_style": "calm and methodical",
+          "expertise": "meeting facilitation",
+          "personality_traits": [
+            "clear",
+            "supportive",
+            "thorough"
+          ],
+          "preferred_contexts": [
+            "presentations",
+            "phone calls",
+            "meetings"
+          ]
+        }
+      },
+      "metadata": {
+        "originalId": 148,
+        "generatedAt": "2025-08-24-154123",
+        "cardType": "native_explain"
+      }
+    },
+    {
+      "id": "context-close-down",
+      "type": "context",
+      "title": "In-Context \u2014 CLOSE DOWN",
+      "difficulty": "intermediate",
+      "contextText": "You're speaking with Ms. Thompson, Finance Director. Ms. Thompson has called a meeting with her team to discuss the recent budget cuts that have affected their department. She needs to inform them about the possibility of having to close down one of the projects that is currently underperforming financially. The team is anxious about job security and the future of their ongoing projects.",
+      "imageUrl": "/generated_data/images/close-down.png",
+      "ctaText": "Talk to Ms. Thompson",
+      "scenario": {
+        "character": "Ms. Thompson",
+        "role": "Finance Director",
+        "situation": "Ms. Thompson has called a meeting with her team to discuss the recent budget cuts that have affected their department. She needs to inform them about the possibility of having to close down one of the projects that is currently underperforming financially. The team is anxious about job security and the future of their ongoing projects.",
+        "phrasalVerb": "close down",
+        "contextText": "Ms. Thompson has called a meeting with her team to discuss the recent budget cuts that have affected their department. She needs to inform them about the possibility of having to close down one of the projects that is currently underperforming financially. The team is anxious about job security and the future of their ongoing projects.",
+        "conversationStarter": "Good morning, everyone. I appreciate you all taking the time to meet today. As you know, we\u2019ve been facing significant budget cuts, and we need to have an honest discussion about the future of our projects.",
+        "expectedUsage": "In response, a team member might say, 'Are we really considering to close down the marketing initiative? I thought it had potential for growth.'",
+        "businessContext": "team meeting",
+        "maxTurns": 5
+      },
+      "targetPhrasalVerb": {
+        "verb": "CLOSE DOWN",
+        "definition": "Stop operating or functioning",
+        "confidence": 87,
+        "examples": [
+          "Non-profitable companies were closed down.",
+          "In response, a team member might say, 'Are we really considering to close down the marketing initiative? I thought it had potential for growth.'"
+        ],
+        "learningTip": "Remember that 'close down' implies a definitive stop to operations, often due to financial reasons. Visualize a business shutting its doors to help reinforce the meaning.",
+        "alternativeScenarios": [
+          "A manager communicating to staff about the potential closure of a branch due to low sales.",
+          "An executive discussing with the board about the need to close down a product line that is not meeting sales targets.",
+          "A project manager reporting to stakeholders the decision to close down a project that is over budget and behind schedule."
+        ]
+      },
+      "voicePersona": {
+        "voice": {
+          "name": "en-GB-Chirp3-HD-Laomedeia",
+          "language_code": "en-GB",
+          "language_name": "English (UK)",
+          "gender": "FEMALE",
+          "voice_type": "Chirp3-HD"
+        },
+        "persona": {
+          "name": "Prof. Richardson",
+          "teaching_style": "thorough and detailed",
+          "expertise": "negotiation skills",
+          "personality_traits": [
+            "patient",
+            "thorough",
+            "clear"
+          ],
+          "preferred_contexts": [
+            "emails",
+            "phone calls",
+            "workshops"
+          ]
+        }
+      },
+      "metadata": {
+        "originalId": 148,
+        "generatedAt": "2025-08-24-154123",
+        "allSenses": [
+          {
+            "senseNumber": 1,
+            "definition": "Stop operating or functioning",
+            "confidencePercent": 87,
+            "examples": [
+              "Non-profitable companies were closed down."
+            ]
+          }
+        ],
+        "cardType": "context"
+      }
+    },
+    {
+      "id": "native-explain-put-in",
+      "type": "native_explain",
+      "title": "Explain: PUT IN",
+      "difficulty": "beginner",
+      "targetPhrasalVerb": {
+        "verb": "PUT IN",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "Put one thing inside another; include or insert",
+            "confidencePercent": 50,
+            "examples": [
+              "You need to put in your contact details in case there is a problem."
+            ]
+          },
+          {
+            "senseNumber": 2,
+            "definition": "Invest or devote so as to achieve STH (time, effort, work)",
+            "confidencePercent": 26.5,
+            "examples": [
+              "I put in ten hours a day at the office."
+            ]
+          }
+        ]
+      },
+      "teachingScenario": {
+        "teacher": "Dr. Davis",
+        "approach": "step-by-step breakdown",
+        "mainDefinition": "To 'put in' means to insert or include something within another thing, or to invest time and effort into achieving a goal.",
+        "keyTeachingPoints": [
+          "The phrase can indicate physical insertion, like putting a paper in a folder.",
+          "It can also refer to the investment of time or effort, such as working hard on a project.",
+          "Context is key; understanding whether 'put in' refers to insertion or effort depends on the surrounding words.",
+          "It's commonly used in both formal and informal contexts."
+        ],
+        "usageExamples": [
+          "Please put in your application before the deadline.",
+          "She puts in a lot of effort to ensure her students succeed.",
+          "He put in two hours of study before the exam."
+        ],
+        "commonMistakes": [
+          "Confusing 'put in' with similar phrases like 'put on' or 'put out', which have different meanings.",
+          "Using 'put in' without the necessary preposition when referring to effort (e.g., saying 'I put hours' instead of 'I put in hours')."
+        ],
+        "memoryTips": [
+          "Visualize physically placing an object into a container to remember the first sense.",
+          "Think of 'putting in' effort as if you're 'depositing' time into a bank of achievements."
+        ],
+        "teachingPersonality": "I am engaging and warm, ensuring that my learners feel comfortable and motivated. My structured approach helps them grasp concepts clearly and apply them confidently."
+      },
+      "voicePersona": {
+        "voice": {
+          "name": "bn-IN-Chirp3-HD-Autonoe",
+          "language_code": "bn-IN",
+          "language_name": "bn-IN",
+          "gender": "FEMALE",
+          "voice_type": "Chirp3-HD"
+        },
+        "persona": {
+          "name": "Dr. Davis",
+          "teaching_style": "clear and structured",
+          "expertise": "project coordination",
+          "personality_traits": [
+            "engaging",
+            "warm",
+            "knowledgeable"
+          ],
+          "preferred_contexts": [
+            "client meetings",
+            "emails",
+            "phone calls"
+          ]
+        }
+      },
+      "metadata": {
+        "originalId": 149,
+        "generatedAt": "2025-08-24-154123",
+        "cardType": "native_explain"
+      }
+    },
+    {
+      "id": "context-put-in",
+      "type": "context",
+      "title": "In-Context \u2014 PUT IN",
+      "difficulty": "intermediate",
+      "contextText": "You're speaking with Ms. Rodriguez, Project Coordinator. Ms. Rodriguez is reviewing a project proposal with her team. She notices that some key information is missing, particularly about the budget and timelines. To ensure the proposal is comprehensive before submission, she reminds her team to include all necessary details.",
+      "imageUrl": "/generated_data/images/put-in.png",
+      "ctaText": "Talk to Ms. Rodriguez",
+      "scenario": {
+        "character": "Ms. Rodriguez",
+        "role": "Project Coordinator",
+        "situation": "Ms. Rodriguez is reviewing a project proposal with her team. She notices that some key information is missing, particularly about the budget and timelines. To ensure the proposal is comprehensive before submission, she reminds her team to include all necessary details.",
+        "phrasalVerb": "put in",
+        "contextText": "Ms. Rodriguez is reviewing a project proposal with her team. She notices that some key information is missing, particularly about the budget and timelines. To ensure the proposal is comprehensive before submission, she reminds her team to include all necessary details.",
+        "conversationStarter": "Alright team, as we finalize the project proposal, I want to make sure we've included everything we need.",
+        "expectedUsage": "The learner should respond with something like, 'We need to put in the budget details and timelines to make it complete.'",
+        "businessContext": "team meeting for project proposal review",
+        "maxTurns": 5
+      },
+      "targetPhrasalVerb": {
+        "verb": "PUT IN",
+        "definition": "Put one thing inside another; include or insert",
+        "confidence": 50,
+        "examples": [
+          "You need to put in your contact details in case there is a problem.",
+          "The learner should respond with something like, 'We need to put in the budget details and timelines to make it complete.'"
+        ],
+        "learningTip": "Think of 'put in' as a way to physically insert information into a document, just like putting a book on a shelf.",
+        "alternativeScenarios": [
+          "During an onboarding session, an HR manager instructs a new employee to put in their personal information into the company database.",
+          "In a marketing team meeting, the team leader asks members to put in their ideas for the upcoming campaign into a shared document.",
+          "While preparing a presentation, a team member reminds others to put in their sections of the report before the deadline."
+        ]
+      },
+      "voicePersona": {
+        "voice": {
+          "name": "en-AU-Chirp3-HD-Sadaltager",
+          "language_code": "en-AU",
+          "language_name": "English (Australia)",
+          "gender": "MALE",
+          "voice_type": "Chirp3-HD"
+        },
+        "persona": {
+          "name": "Dr. Morrison",
+          "teaching_style": "enthusiastic and energetic",
+          "expertise": "workplace interactions",
+          "personality_traits": [
+            "professional",
+            "encouraging",
+            "warm"
+          ],
+          "preferred_contexts": [
+            "workshops",
+            "client meetings",
+            "emails"
+          ]
+        }
+      },
+      "metadata": {
+        "originalId": 149,
+        "generatedAt": "2025-08-24-154123",
+        "allSenses": [
+          {
+            "senseNumber": 1,
+            "definition": "Put one thing inside another; include or insert",
+            "confidencePercent": 50,
+            "examples": [
+              "You need to put in your contact details in case there is a problem."
+            ]
+          },
+          {
+            "senseNumber": 2,
+            "definition": "Invest or devote so as to achieve STH (time, effort, work)",
+            "confidencePercent": 26.5,
+            "examples": [
+              "I put in ten hours a day at the office."
+            ]
+          }
+        ],
+        "cardType": "context"
+      }
+    },
+    {
+      "id": "native-explain-set-about",
+      "type": "native_explain",
+      "title": "Explain: SET ABOUT",
+      "difficulty": "intermediate",
+      "targetPhrasalVerb": {
+        "verb": "SET ABOUT",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "Begin a course of action, usually with a specific purpose/objective in mind",
+            "confidencePercent": 97,
+            "examples": [
+              "We set about laying the table before our guests arrived."
+            ]
+          }
+        ]
+      },
+      "teachingScenario": {
+        "teacher": "Mr. Anderson",
+        "approach": "step-by-step breakdown",
+        "mainDefinition": "To 'set about' means to begin doing something with a specific aim or goal in mind.",
+        "keyTeachingPoints": [
+          "1. 'Set about' is often followed by a gerund (verb + -ing) to indicate the action you are starting.",
+          "2. It implies a sense of intention or purpose behind the action.",
+          "3. This phrasal verb is commonly used in both formal and informal contexts."
+        ],
+        "usageExamples": [
+          "After discussing our plans, we set about organizing the event.",
+          "She set about studying for her exams early this year.",
+          "The team set about addressing the issues raised during the meeting."
+        ],
+        "commonMistakes": [
+          "1. Confusing 'set about' with 'set off'; remember that 'set off' means to start a journey or a process, while 'set about' focuses on starting a task.",
+          "2. Using 'set about' without a specific action; it should always be followed by what you are starting to do."
+        ],
+        "memoryTips": [
+          "1. Think of 'set about' as 'setting your mind to start something'; this links the idea of intention with action.",
+          "2. Create a visual image of yourself preparing to start a task, like laying a table, to reinforce the meaning."
+        ],
+        "teachingPersonality": "I am thorough and knowledgeable, providing clear explanations and encouraging students to practice until they feel confident."
+      },
+      "voicePersona": {
+        "voice": {
+          "name": "sw-KE-Chirp3-HD-Orus",
+          "language_code": "sw-KE",
+          "language_name": "sw-KE",
+          "gender": "MALE",
+          "voice_type": "Chirp3-HD"
+        },
+        "persona": {
+          "name": "Mr. Anderson",
+          "teaching_style": "patient and encouraging",
+          "expertise": "cross-cultural communication",
+          "personality_traits": [
+            "thorough",
+            "knowledgeable",
+            "direct"
+          ],
+          "preferred_contexts": [
+            "meetings",
+            "networking events",
+            "phone calls"
+          ]
+        }
+      },
+      "metadata": {
+        "originalId": 150,
+        "generatedAt": "2025-08-24-154123",
+        "cardType": "native_explain"
+      }
+    },
+    {
+      "id": "context-set-about",
+      "type": "context",
+      "title": "In-Context \u2014 SET ABOUT",
+      "difficulty": "intermediate",
+      "contextText": "You're speaking with Ms. Patel, Project Manager. Ms. Patel is leading a kickoff meeting for a new marketing campaign. She wants to ensure that her team understands the objectives of the project and knows how to start the tasks necessary to achieve those goals. After outlining the project goals, she encourages her team to take initiative.",
+      "imageUrl": "/generated_data/images/set-about.png",
+      "ctaText": "Talk to Ms. Patel",
+      "scenario": {
+        "character": "Ms. Patel",
+        "role": "Project Manager",
+        "situation": "Ms. Patel is leading a kickoff meeting for a new marketing campaign. She wants to ensure that her team understands the objectives of the project and knows how to start the tasks necessary to achieve those goals. After outlining the project goals, she encourages her team to take initiative.",
+        "phrasalVerb": "set about",
+        "contextText": "Ms. Patel is leading a kickoff meeting for a new marketing campaign. She wants to ensure that her team understands the objectives of the project and knows how to start the tasks necessary to achieve those goals. After outlining the project goals, she encourages her team to take initiative.",
+        "conversationStarter": "As we begin this project, I would like to discuss how we can effectively set about our tasks to ensure a successful campaign.",
+        "expectedUsage": "The team members should respond by discussing specific actions they will take, for example: 'I think we should set about researching our target audience right away.'",
+        "businessContext": "meeting",
+        "maxTurns": 5
+      },
+      "targetPhrasalVerb": {
+        "verb": "SET ABOUT",
+        "definition": "Begin a course of action, usually with a specific purpose/objective in mind",
+        "confidence": 97,
+        "examples": [
+          "We set about laying the table before our guests arrived.",
+          "The team members should respond by discussing specific actions they will take, for example: 'I think we should set about researching our target audience right away.'"
+        ],
+        "learningTip": "Remember that 'set about' is often followed by an action or task that indicates what you are starting to do, linking it to a purpose.",
+        "alternativeScenarios": [
+          "During a team brainstorming session, a colleague suggests how to set about generating new ideas for a product launch.",
+          "In an email to the marketing department, a supervisor states that they should set about developing a social media strategy for the upcoming quarter.",
+          "In a performance review, a manager discusses how an employee set about improving their communication skills over the past year."
+        ]
+      },
+      "voicePersona": {
+        "voice": {
+          "name": "en-US-Chirp3-HD-Sadachbia",
+          "language_code": "en-US",
+          "language_name": "English (US)",
+          "gender": "MALE",
+          "voice_type": "Chirp3-HD"
+        },
+        "persona": {
+          "name": "Mr. Johnson",
+          "teaching_style": "thorough and detailed",
+          "expertise": "cross-cultural communication",
+          "personality_traits": [
+            "professional",
+            "clear",
+            "engaging"
+          ],
+          "preferred_contexts": [
+            "training sessions",
+            "phone calls",
+            "presentations"
+          ]
+        }
+      },
+      "metadata": {
+        "originalId": 150,
+        "generatedAt": "2025-08-24-154123",
+        "allSenses": [
+          {
+            "senseNumber": 1,
+            "definition": "Begin a course of action, usually with a specific purpose/objective in mind",
+            "confidencePercent": 97,
+            "examples": [
+              "We set about laying the table before our guests arrived."
+            ]
+          }
+        ],
+        "cardType": "context"
+      }
+    }
+  ],
+  "metadata": {
+    "generator": "demo_generator.py",
+    "version": "2.0.0",
+    "phrasalVerbsProcessed": [
+      "GO ON",
+      "PICK UP",
+      "COME BACK",
+      "CLOSE DOWN",
+      "PUT IN",
+      "SET ABOUT"
+    ],
+    "voicePersonasUsed": 12,
+    "cardStructure": "1 native_explain + 1 context per phrasal verb"
+  }
+}

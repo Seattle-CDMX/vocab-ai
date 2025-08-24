@@ -74,7 +74,8 @@ async function getCardByIndex(index: number): Promise<CardType | null> {
       imageUrl: card.imageUrl,
       ctaText: card.ctaText,
       scenario: card.scenario,
-      targetPhrasalVerb: card.targetPhrasalVerb
+      targetPhrasalVerb: card.targetPhrasalVerb,
+      voicePersona: card.voicePersona
     };
   } else {
     // Default to voice card

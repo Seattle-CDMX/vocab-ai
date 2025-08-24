@@ -20,11 +20,12 @@ logger = logging.getLogger("agent.context")
 class ContextAgent(Agent):
     """Agent for context-based phrasal verb practice with role-playing scenarios."""
 
-    def __init__(self, scenario_data: Optional[dict] = None):
+    def __init__(self, scenario_data: Optional[dict] = None, voice_persona: Optional[dict] = None):
         self.max_turns = 5
         self.turn_count = 0
         self.success = False
         self.evaluator = PhrasalEvaluator()
+        self.voice_persona = voice_persona or {}
 
         # Extract scenario data
         if scenario_data:
@@ -40,13 +41,20 @@ class ContextAgent(Agent):
             self.phrasal_verb = "go on"
             self.context_text = "You need to speak with Mr. Yang"
 
-        # Build agent instructions
+        # Build agent instructions with persona information
+        persona_info = self.voice_persona.get('persona', {})
+        teaching_style = persona_info.get('teaching_style', 'professional and clear')
+        personality_traits = persona_info.get('personality_traits', ['professional', 'clear', 'supportive'])
+
         instructions = f"""You are {self.character} in this scenario: {self.situation}
+
+Your teaching approach: {teaching_style}
+Your personality traits: {', '.join(personality_traits)}
 
 Your role:
 1. Act naturally as {self.character} in the given situation
-2. Respond authentically to what the student says
-3. Keep the conversation flowing naturally
+2. Respond authentically to what the student says with your {teaching_style} style
+3. Keep the conversation flowing naturally while being {', '.join(personality_traits)}
 4. Do NOT explicitly ask them to use the phrasal verb
 5. Do NOT mention the phrasal verb directly unless they use it
 6. Stay in character throughout the conversation
@@ -55,15 +63,21 @@ Context: {self.context_text}
 
 Start by greeting the student and setting up the scenario naturally. For example, if you're Mr. Yang in a paused meeting, you might say something like "Oh hello! I was just reviewing my notes. Where were we in our discussion?"
 
-Remember: You are {self.character}, not a language teacher. Act naturally in the scenario."""
+Remember: You are {self.character}, not a language teacher. Act naturally in the scenario while embodying your {teaching_style} approach."""
+
+        # Configure TTS with voice persona data
+        voice_info = self.voice_persona.get('voice', {})
+        language_code = voice_info.get('language_code', 'en-US')
+        voice_name = voice_info.get('name', 'en-US-Chirp3-HD-Achernar')  # Default CHIRP 3 HD voice
+
 
         super().__init__(
             instructions=instructions,
             stt=deepgram.STT(model="nova-3", language="multi"),
             llm=openai.LLM(model="gpt-4o-mini"),
             tts=google.TTS(
-                language="cmn-CN",
-                voice_name="cmn-CN-Chirp3-HD-Sadachbia",
+                language=language_code,
+                voice_name=voice_name,
                 credentials_info=parse_google_credentials(),
             ),
             vad=silero.VAD.load(),
@@ -71,6 +85,12 @@ Remember: You are {self.character}, not a language teacher. Act naturally in the
         )
         logger.info(
             f"🎭 [ContextAgent] Initialized as {self.character} for phrasal verb: {self.phrasal_verb}"
+        )
+        logger.info(
+            f"🔊 [ContextAgent] Voice configured: {voice_name} ({language_code})"
+        )
+        logger.info(
+            f"👤 [ContextAgent] Persona: {persona_info.get('name', 'Unknown')} with {teaching_style} style"
         )
 
     async def on_user_turn_completed(

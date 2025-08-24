@@ -1,5 +1,22 @@
 export type ActivityType = 'voice' | 'context';
 
+export interface VoicePersona {
+  voice: {
+    name: string;
+    language_code: string;
+    language_name: string;
+    gender: string;
+    voice_type: string;
+  };
+  persona: {
+    name: string;
+    teaching_style: string;
+    expertise: string;
+    personality_traits: string[];
+    preferred_contexts: string[];
+  };
+}
+
 export interface ContextScenario {
   character: string;
   situation: string;
@@ -21,6 +38,7 @@ export interface ContextCard {
     definition: string;
     example: string;
   };
+  voicePersona: VoicePersona;
 }
 
 interface VoiceCardData {
@@ -40,5 +58,11 @@ interface VoiceCardData {
 export interface TokenMetadata {
   activityType: ActivityType;
   scenario?: ContextScenario;
+  targetPhrasalVerb?: {
+    verb: string;
+    definition: string;
+    example: string;
+  };
+  voicePersona?: VoicePersona;
   voiceCardData?: VoiceCardData;
 }

@@ -4,18 +4,17 @@ Demo Generator for Voice Card Types
 Generates enhanced voice card data with OpenAI-powered content and images
 """
 
+import asyncio
 import json
 import os
-import asyncio
+import random
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Any
-import base64
-import httpx
-import random
+from typing import Dict, List
 
-from openai import AsyncOpenAI
+import httpx
 from dotenv import load_dotenv
+from openai import AsyncOpenAI
 
 load_dotenv(".env.local")
 
@@ -31,49 +30,49 @@ class DemoGenerator:
         self.voice_personas = self.load_voice_personas()
         self.used_personas = set()
         self.ensure_directories()
-        
+
     def ensure_directories(self):
         """Create necessary directories if they don't exist"""
         OUTPUT_DIR.mkdir(exist_ok=True)
         IMAGES_DIR.mkdir(exist_ok=True)
-        
+
     def load_phrasal_verbs(self) -> List[Dict]:
         """Load phrasal verbs from JSON file"""
-        with open(PHRASAL_VERBS_PATH, 'r') as f:
+        with open(PHRASAL_VERBS_PATH) as f:
             data = json.load(f)
         return data
-    
+
     def load_voice_personas(self) -> List[Dict]:
         """Load voice personas from JSON file"""
         try:
-            with open(VOICE_PERSONAS_PATH, 'r', encoding='utf-8') as f:
+            with open(VOICE_PERSONAS_PATH, encoding='utf-8') as f:
                 data = json.load(f)
             return data['personas']
         except Exception as e:
             print(f"Error loading voice personas: {e}")
             return []
-    
+
     def get_random_persona(self) -> Dict:
         """Get a random voice persona, avoiding recently used ones"""
         if not self.voice_personas:
             return self.get_fallback_persona()
-        
+
         # Filter out recently used personas
         available_personas = [
-            p for p in self.voice_personas 
+            p for p in self.voice_personas
             if p['persona']['name'] not in self.used_personas
         ]
-        
+
         # If all personas are used, reset and reuse
         if not available_personas:
             self.used_personas.clear()
             available_personas = self.voice_personas
-        
+
         selected_persona = random.choice(available_personas)
         self.used_personas.add(selected_persona['persona']['name'])
-        
+
         return selected_persona
-    
+
     def get_fallback_persona(self) -> Dict:
         """Fallback persona if voice personas file is not available"""
         return {
@@ -92,17 +91,18 @@ class DemoGenerator:
                 'preferred_contexts': ['meetings', 'presentations', 'emails']
             }
         }
-    
+
     def get_selected_verbs(self, verbs: List[Dict]) -> List[Dict]:
-        """Get first 5 and last 5 phrasal verbs"""
+        """Get first 3 and last 3 phrasal verbs for faster testing"""
         # For testing: just use the first verb
         if os.getenv("DEMO_TEST_MODE") == "1":
             return verbs[:1]
-        
-        first_five = verbs[:5]
-        last_five = verbs[-5:]
-        return first_five + last_five
-    
+
+        # Use first 3 and last 3 for faster generation (6 total cards)
+        first_three = verbs[:3]
+        last_three = verbs[-3:]
+        return first_three + last_three
+
     async def generate_workplace_scenario(self, verb: Dict, persona: Dict) -> Dict:
         """Generate a workplace-appropriate scenario using OpenAI"""
         prompt = f"""
@@ -125,7 +125,7 @@ class DemoGenerator:
             "alternative_scenarios": ["2-3 other workplace situations where this verb applies"]
         }}
         """
-        
+
         try:
             response = await self.client.chat.completions.create(
                 model="gpt-4o-mini",
@@ -136,12 +136,12 @@ class DemoGenerator:
                 response_format={"type": "json_object"},
                 temperature=0.7
             )
-            
+
             return json.loads(response.choices[0].message.content)
         except Exception as e:
             print(f"Error generating scenario for {verb['verb']}: {e}")
             return self.get_fallback_scenario(verb, persona)
-    
+
     def get_fallback_scenario(self, verb: Dict, persona: Dict) -> Dict:
         """Fallback scenario if API fails"""
         return {
@@ -156,17 +156,19 @@ class DemoGenerator:
             "learning_tip": f"Remember: {verb['senses'][0]['definition']}",
             "alternative_scenarios": ["Meeting discussion", "Email follow-up", "Project planning"]
         }
-    
+
     async def generate_image(self, verb: Dict, scenario: Dict) -> str:
         """Generate an image using DALL-E and save locally"""
         image_prompt = f"""
-        Professional office setting showing a {scenario['business_context']} scenario.
-        Include a diverse business professional in a modern workplace.
-        Style: Clean, modern, corporate photography.
+        Friendly, approachable office setting with a {scenario['business_context']} scenario.
+        Include diverse business professionals with warm smiles and engaging expressions in a bright, modern workplace.
+        Style: Natural, bright, welcoming photography with soft lighting and warm colors.
+        Show people being collaborative, friendly, and approachable - not overly formal or stiff.
+        Capture a sense of positive energy and learning atmosphere.
         No text or words in the image.
-        Convey the action of "{verb['verb']}" through body language and context.
+        Convey the action of "{verb['verb']}" through natural body language and friendly interaction.
         """
-        
+
         try:
             response = await self.client.images.generate(
                 model="dall-e-3",
@@ -175,28 +177,28 @@ class DemoGenerator:
                 quality="standard",
                 n=1
             )
-            
+
             image_url = response.data[0].url
-            
-            # Download and save image locally
-            image_filename = f"{verb['verb'].lower().replace(' ', '-')}-{self.timestamp}.png"
+
+            # Download and save image locally (simple filename, overwrite existing)
+            image_filename = f"{verb['verb'].lower().replace(' ', '-')}.png"
             image_path = IMAGES_DIR / image_filename
-            
+
             async with httpx.AsyncClient() as client:
                 img_response = await client.get(image_url)
                 with open(image_path, 'wb') as f:
                     f.write(img_response.content)
-            
+
             return f"/generated_data/images/{image_filename}"
-            
+
         except Exception as e:
             print(f"Error generating image for {verb['verb']}: {e}")
             return "/placeholder.svg"
-    
+
     async def generate_native_explain_scenario(self, verb: Dict, persona: Dict) -> Dict:
         """Generate a native explanation scenario using OpenAI"""
         primary_sense = verb['senses'][0]
-        
+
         prompt = f"""
         You are {persona['persona']['name']}, a {persona['persona']['expertise']} expert with a {persona['persona']['teaching_style']} teaching style.
         
@@ -217,7 +219,7 @@ class DemoGenerator:
             "teaching_personality": "Brief description of your teaching personality based on your traits"
         }}
         """
-        
+
         try:
             response = await self.client.chat.completions.create(
                 model="gpt-4o-mini",
@@ -228,12 +230,12 @@ class DemoGenerator:
                 response_format={"type": "json_object"},
                 temperature=0.7
             )
-            
+
             return json.loads(response.choices[0].message.content)
         except Exception as e:
             print(f"Error generating native explain scenario for {verb['verb']}: {e}")
             return self.get_fallback_native_explain(verb, persona)
-    
+
     def get_fallback_native_explain(self, verb: Dict, persona: Dict) -> Dict:
         """Fallback native explain scenario if API fails"""
         primary_sense = verb['senses'][0]
@@ -247,17 +249,17 @@ class DemoGenerator:
             "difficulty_level": "intermediate",
             "teaching_personality": persona['persona']['teaching_style']
         }
-    
+
     async def create_native_explain_card(self, verb: Dict) -> Dict:
         """Create a native explain card with voice persona"""
         persona = self.get_random_persona()
         scenario = await self.generate_native_explain_scenario(verb, persona)
-        
+
         # Use the first sense as the primary definition
         primary_sense = verb['senses'][0]
-        
+
         native_explain_card = {
-            "id": f"native-explain-{verb['verb'].lower().replace(' ', '-')}-{self.timestamp}",
+            "id": f"native-explain-{verb['verb'].lower().replace(' ', '-')}",
             "type": "native_explain",
             "title": f"Explain: {verb['verb']}",
             "difficulty": scenario['difficulty_level'],
@@ -282,20 +284,20 @@ class DemoGenerator:
                 "cardType": "native_explain"
             }
         }
-        
+
         return native_explain_card
-    
+
     async def create_situation_card(self, verb: Dict) -> Dict:
         """Create a situation/context card with voice persona"""
         persona = self.get_random_persona()
         scenario = await self.generate_workplace_scenario(verb, persona)
         image_path = await self.generate_image(verb, scenario)
-        
+
         # Use the first sense as the primary definition
         primary_sense = verb['senses'][0]
-        
+
         situation_card = {
-            "id": f"context-{verb['verb'].lower().replace(' ', '-')}-{self.timestamp}",
+            "id": f"context-{verb['verb'].lower().replace(' ', '-')}",
             "type": "context",
             "title": f"In-Context — {verb['verb']}",
             "difficulty": scenario['difficulty'],
@@ -329,44 +331,44 @@ class DemoGenerator:
                 "cardType": "context"
             }
         }
-        
+
         return situation_card
-    
+
     async def generate_all_cards(self):
         """Main generation process"""
         print(f"Starting demo generation at {self.timestamp}")
-        
+
         # Load and select verbs
         all_verbs = self.load_phrasal_verbs()
         selected_verbs = self.get_selected_verbs(all_verbs)
-        
+
         print(f"Processing {len(selected_verbs)} phrasal verbs...")
-        
+
         # Generate voice cards (1 native explain + 1 situation per verb = 20 total)
         voice_cards = []
         for i, verb in enumerate(selected_verbs):
             print(f"Processing {i+1}/{len(selected_verbs)}: {verb['verb']}")
-            
+
             # Create 1 native explain card
-            print(f"  - Generating native explain card...")
+            print("  - Generating native explain card...")
             native_card = await self.create_native_explain_card(verb)
             voice_cards.append(native_card)
-            
+
             # Small delay to avoid rate limits
             await asyncio.sleep(0.5)
-            
+
             # Create 1 situation card
-            print(f"  - Generating situation card...")
+            print("  - Generating situation card...")
             situation_card = await self.create_situation_card(verb)
             voice_cards.append(situation_card)
-            
+
             # Small delay to avoid rate limits
             await asyncio.sleep(1)
-        
+
         # Separate cards by type for statistics
         native_explains = [card for card in voice_cards if card['type'] == 'native_explain']
         situations = [card for card in voice_cards if card['type'] == 'context']
-        
+
         # Create output structure
         output = {
             "generatedAt": self.timestamp,
@@ -382,27 +384,20 @@ class DemoGenerator:
                 "cardStructure": "1 native_explain + 1 context per phrasal verb"
             }
         }
-        
-        # Save to timestamped file
-        output_file = OUTPUT_DIR / f"voice-cards-{self.timestamp}.json"
+
+        # Save to simple filename (overwrite existing)
+        output_file = OUTPUT_DIR / "voice-cards.json"
         with open(output_file, 'w') as f:
             json.dump(output, f, indent=2)
-        
-        print(f"\nGeneration complete!")
+
+        print("\nGeneration complete!")
         print(f"Total cards generated: {len(voice_cards)}")
         print(f"  - Native explain cards: {len(native_explains)}")
         print(f"  - Situation cards: {len(situations)}")
         print(f"Voice personas used: {len(self.used_personas)}")
         print(f"Output saved to: {output_file}")
         print(f"Images saved to: {IMAGES_DIR}")
-        
-        # Also create a symlink to latest for easy access
-        latest_link = OUTPUT_DIR / "voice-cards-latest.json"
-        if latest_link.exists():
-            latest_link.unlink()
-        latest_link.symlink_to(output_file.name)
-        print(f"Latest symlink created: {latest_link}")
-        
+
         return output_file
 
 async def main():

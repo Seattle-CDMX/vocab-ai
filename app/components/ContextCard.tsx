@@ -122,11 +122,12 @@ const ContextCard = ({ contextCard, onAnswer, onReset }: ContextCardProps) => {
       console.log('🎯 [ContextCard] Connecting to LiveKit for context practice:', contextCard.title);
       console.log('🎯 [ContextCard] Context card data to be sent:', contextCard);
       
-      // Prepare metadata with activity type and scenario
+      // Prepare metadata with activity type, scenario, and voice persona
       const metadata = {
         activityType: 'context',
         scenario: contextCard.scenario,
-        targetPhrasalVerb: contextCard.targetPhrasalVerb
+        targetPhrasalVerb: contextCard.targetPhrasalVerb,
+        voicePersona: contextCard.voicePersona
       };
       
       // Encode metadata for URL transmission

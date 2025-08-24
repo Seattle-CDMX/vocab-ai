@@ -15,44 +15,32 @@ export async function GET(request: NextRequest) {
       }, { status: 404 });
     }
 
-    // Get all voice-cards JSON files
-    const files = fs.readdirSync(GENERATED_DATA_DIR)
-      .filter(file => file.startsWith('voice-cards-') && file.endsWith('.json'))
-      .map(file => {
-        const filePath = path.join(GENERATED_DATA_DIR, file);
-        const stats = fs.statSync(filePath);
-        return {
-          name: file,
-          path: filePath,
-          created: stats.birthtime,
-          modified: stats.mtime,
-          size: stats.size
-        };
-      })
-      .sort((a, b) => b.modified.getTime() - a.modified.getTime());
-
-    if (files.length === 0) {
+    // Check for the main voice cards file
+    const mainFilePath = path.join(GENERATED_DATA_DIR, 'voice-cards.json');
+    
+    if (!fs.existsSync(mainFilePath)) {
       return NextResponse.json({ 
-        error: 'No generated voice card files found',
+        error: 'Voice cards file not found. Run the demo generator to create voice-cards.json',
         latestFile: null,
         files: [] 
       }, { status: 404 });
     }
 
-    // Get the latest file
-    const latestFile = files[0];
+    // Get the main file stats
+    const stats = fs.statSync(mainFilePath);
+    const mainFile = {
+      name: 'voice-cards.json',
+      path: mainFilePath,
+      created: stats.birthtime,
+      modified: stats.mtime,
+      size: stats.size
+    };
     
     // Check for specific file request
     const fileName = request.nextUrl.searchParams.get('file');
     
-    if (fileName) {
-      // Return specific file content
-      const requestedFile = files.find(f => f.name === fileName);
-      if (!requestedFile) {
-        return NextResponse.json({ error: 'File not found' }, { status: 404 });
-      }
-      
-      const content = fs.readFileSync(requestedFile.path, 'utf-8');
+    if (fileName && fileName === 'voice-cards.json') {
+      const content = fs.readFileSync(mainFilePath, 'utf-8');
       return NextResponse.json(JSON.parse(content));
     }
 
@@ -60,19 +48,14 @@ export async function GET(request: NextRequest) {
     const getLatest = request.nextUrl.searchParams.get('latest');
     
     if (getLatest === 'true') {
-      const content = fs.readFileSync(latestFile.path, 'utf-8');
+      const content = fs.readFileSync(mainFilePath, 'utf-8');
       return NextResponse.json(JSON.parse(content));
     }
 
-    // Return list of available files
+    // Return file info
     return NextResponse.json({
-      latestFile: latestFile.name,
-      files: files.map(f => ({
-        name: f.name,
-        created: f.created,
-        modified: f.modified,
-        size: f.size
-      }))
+      latestFile: mainFile.name,
+      files: [mainFile]
     });
 
   } catch (error) {

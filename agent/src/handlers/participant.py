@@ -10,7 +10,7 @@ logger = logging.getLogger("agent.handlers")
 
 def process_participant_data(participant, session: AgentSession):
     """Process participant data and return appropriate agent based on activity type."""
-    logger.info(f"🎯 [Agent] ========== PROCESSING PARTICIPANT ==========")
+    logger.info("🎯 [Agent] ========== PROCESSING PARTICIPANT ==========")
     logger.info(f"🎯 [Agent] Processing participant: {participant.identity}")
     logger.info(f"🎯 [Agent] 🔄 CLOUD DEBUG: Participant type: {type(participant)}")
     logger.info(f"🎯 [Agent] 🔄 CLOUD DEBUG: Has metadata attr: {hasattr(participant, 'metadata')}")
@@ -35,7 +35,7 @@ def process_participant_data(participant, session: AgentSession):
             )
             logger.info(f"🎯 [Agent] 🔄 FALLBACK: Using voice card from attributes: {voice_card_json}")
         else:
-            logger.warning(f"🎯 [Agent] ⚠️ NO VOICE CARD DATA in attributes either")
+            logger.warning("🎯 [Agent] ⚠️ NO VOICE CARD DATA in attributes either")
 
     session_info = session.userdata
 
@@ -45,6 +45,7 @@ def process_participant_data(participant, session: AgentSession):
             metadata = json.loads(metadata_json)
             activity_type = metadata.get("activityType", "voice")
             logger.info(f"🎯 [Agent] Activity type: {activity_type}")
+            logger.info(f"🎯 [Agent] Full metadata keys: {list(metadata.keys())}")
             logger.info(f"🎯 [Agent] Full metadata: {metadata}")
 
             # Return the appropriate agent based on activity type
@@ -54,17 +55,26 @@ def process_participant_data(participant, session: AgentSession):
 
                 scenario_data = metadata.get("scenario", {})
                 target_phrasal = metadata.get("targetPhrasalVerb", {})
+                voice_persona = metadata.get("voicePersona", {})
+
+                # Check if voice persona is present
+                if not voice_persona:
+                    logger.warning("🎭 [Agent] ⚠️ WARNING: voicePersona is missing from metadata. Using fallback voice configuration.")
+                    voice_persona = {}  # Will use fallback in ContextAgent
+
+                logger.info(f"🎭 [Agent] ✅ Voice persona: {voice_persona.get('persona', {}).get('name', 'Fallback') if voice_persona else 'Using fallback'}")
 
                 # Merge target phrasal verb info into scenario
                 scenario_data["phrasalVerb"] = target_phrasal.get("verb", "go on")
 
-                logger.info(f"🎭 [Agent] ✅ SUCCESS: Creating ContextAgent for scenario")
+                logger.info("🎭 [Agent] ✅ SUCCESS: Creating ContextAgent for scenario")
                 logger.info(f"🎭 [Agent] 🔄 CLOUD DEBUG: Scenario data: {scenario_data}")
                 logger.info(f"🎭 [Agent] 🔄 CLOUD DEBUG: Target phrasal: {target_phrasal}")
+                logger.info(f"🎭 [Agent] 🔄 CLOUD DEBUG: Voice persona: {voice_persona}")
                 logger.info(f"🎭 [Agent] 🔄 CLOUD DEBUG: Character: {scenario_data.get('character', 'NOT_FOUND')}")
                 logger.info(f"🎭 [Agent] 🔄 CLOUD DEBUG: Phrasal verb: {scenario_data.get('phrasalVerb', 'NOT_FOUND')}")
-                
-                return ContextAgent(scenario_data=scenario_data)
+
+                return ContextAgent(scenario_data=scenario_data, voice_persona=voice_persona)
 
             else:
                 # Default to voice card explanation mode
@@ -109,7 +119,7 @@ def process_participant_data(participant, session: AgentSession):
         except (json.JSONDecodeError, KeyError) as e:
             logger.error(f"🎯 [Agent] ❌ Failed to parse metadata: {e}")
             logger.error(f"🎯 [Agent] Raw JSON that failed: {metadata_json}")
-            logger.error(f"🎯 [Agent] 🔄 CLOUD DEBUG: Metadata parsing failed - returning None to wait for proper connection")
+            logger.error("🎯 [Agent] 🔄 CLOUD DEBUG: Metadata parsing failed - returning None to wait for proper connection")
             # Don't fallback to NativeExplainAgent - return None to wait for proper metadata
             return None
     else:
