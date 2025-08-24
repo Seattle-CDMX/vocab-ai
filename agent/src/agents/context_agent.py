@@ -189,3 +189,12 @@ Remember: You are {self.character}, not a language teacher. Act naturally in the
         logger.info(f"🎯 [ContextAgent] Target phrasal verb: {self.phrasal_verb}")
         logger.info(f"📝 [ContextAgent] Scenario: {self.situation}")
         logger.info(f"🔢 [ContextAgent] Max turns: {self.max_turns}")
+        
+        # Generate automatic first message to start conversation immediately
+        if self.situation == "a meeting" and self.character == "Mr. Yang":
+            greeting = "Oh hello! I was just reviewing my notes. Where were we in our discussion?"
+        else:
+            greeting = f"Hello! I'm {self.character}. {self.context_text}"
+            
+        logger.info(f"🗣️ [ContextAgent] Starting conversation with: {greeting}")
+        self.session.generate_reply(instructions=greeting)
