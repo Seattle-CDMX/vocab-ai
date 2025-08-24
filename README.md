@@ -24,14 +24,6 @@ This monorepo contains all the components of the Vocab AI ecosystem - a comprehe
 - **Setup**: See `app/README.md` for setup instructions
 - **Run**: `cd app && npm run dev`
 
-### 📚 assets
-**Phrasal Verb Learning Tool** - Interactive React application focused on phrasal verb mastery.
-
-- **Technology**: React, Vite, TypeScript
-- **Features**: Flashcard-based learning, progress tracking, interactive study modes
-- **Setup**: See `assets/README.md` for setup instructions  
-- **Run**: `cd assets && npm run dev`
-
 ## Development Workflow
 
 ### Getting Started
@@ -44,13 +36,11 @@ This monorepo contains all the components of the Vocab AI ecosystem - a comprehe
 2. Set up each project according to its individual README:
    - `agent/README.md` - Python/UV setup
    - `app/README.md` - Next.js setup
-   - `assets/README.md` - React/Vite setup
 
 ### Environment Configuration
 Each project has its own environment configuration:
 - `agent/.env.local` - LiveKit, OpenAI, Deepgram, Cartesia credentials
 - `app/.env` - Web app specific environment variables
-- `assets/` - No environment files (client-side only)
 
 ### Project Structure
 ```
@@ -66,19 +56,14 @@ vocab_ai/
 │   ├── app/                    # Next.js app directory
 │   ├── .env                    # Web app environment
 │   └── README.md               # Web app documentation
-└── assets/                      # Phrasal verb tool (React/Vite)
-    ├── src/                    # React components
-    ├── phrasal_verbs.json      # Phrasal verb data
-    └── README.md               # Tool documentation
 ```
 
 ## Architecture Overview
 
-The Vocab AI ecosystem consists of three complementary applications:
+The Vocab AI ecosystem consists of two complementary applications:
 
 1. **Voice AI Agent**: Provides conversational vocabulary learning through voice interactions
 2. **Web Application**: Offers a comprehensive web-based learning platform
-3. **Phrasal Verb Tool**: Specialized tool for mastering English phrasal verbs
 
 Each project can be developed and deployed independently while sharing common vocabulary learning goals.
 
