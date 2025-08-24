@@ -104,10 +104,12 @@ export default function VocabularyPracticePage() {
 
   const handleReset = async () => {
     try {
-      const card = await getCardByIndex(currentCardIndex);
+      const card = await getCardByIndex(0);
       setCurrentCard(card);
+      setCurrentCardIndex(0);
+      console.log('Reset to first card');
     } catch (error) {
-      console.error('Failed to reload current card:', error);
+      console.error('Failed to reset to first card:', error);
     }
   };
 
