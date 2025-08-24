@@ -63,7 +63,7 @@ Remember: You are {self.character}, not a language teacher. Act naturally in the
             stt=deepgram.STT(model="nova-3", language="multi"),
             llm=openai.LLM(model="gpt-4o-mini"),
             tts=google.TTS(
-                language="cmn-CN",
+                language="es-US",
                 voice_name="cmn-CN-Chirp3-HD-Sadachbia",
                 credentials_info=parse_google_credentials(),
             ),

@@ -47,6 +47,11 @@ const VoiceCard = ({ voiceCard, onAnswer, onReset }: VoiceCardProps) => {
             },
           });
           console.log('🎯 [VoiceCard] SUCCESS toast.success() called');
+          
+          // Auto-progress on successful completion (matching ContextCard behavior)
+          if (payload.message.includes('correctly') || payload.message.includes('mastered') || payload.message.includes('successfully explained')) {
+            setTimeout(() => onAnswer(true), 2000);
+          }
         } else if (payload.type === 'error') {
           console.log('🎯 [VoiceCard] Showing ERROR toast:', payload.message);
           toast.error(payload.message, {
