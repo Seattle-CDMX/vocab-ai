@@ -118,8 +118,12 @@ Remember: You are {self.character}, not a language teacher. Act naturally in the
             if evaluation["used_correctly"]:
                 # Success! User used the phrasal verb correctly
                 self.success = True
-                await TerminalStateManager.handle_success(
-                    f"Excellent! You used '{self.phrasal_verb}' correctly in context! 🎯"
+                # Schedule terminal success state with delay to allow agent to finish speaking
+                asyncio.create_task(  # noqa: RUF006
+                    TerminalStateManager.handle_success(
+                        f"Excellent! You used '{self.phrasal_verb}' correctly in context! 🎯",
+                        delay_seconds=3.5  # Shorter delay for context conversations
+                    )
                 )
                 logger.info(
                     f"✅ [ContextAgent] Success! User correctly used '{self.phrasal_verb}'"
@@ -131,9 +135,13 @@ Remember: You are {self.character}, not a language teacher. Act naturally in the
                     "hint",
                     f"You could have said something like: 'Could you {self.phrasal_verb} with your explanation?'",
                 )
-                await TerminalStateManager.handle_failure(
-                    "Out of turns. Time to move on!",
-                    hint
+                # Schedule terminal failure state with delay to allow agent to finish speaking
+                asyncio.create_task(  # noqa: RUF006
+                    TerminalStateManager.handle_failure(
+                        "Out of turns. Time to move on!",
+                        hint,
+                        delay_seconds=2.5  # Shorter delay for failure messages
+                    )
                 )
                 logger.info(
                     "❌ [ContextAgent] Failed - out of turns without correct usage"

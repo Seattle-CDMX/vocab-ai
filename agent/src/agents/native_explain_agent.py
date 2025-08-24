@@ -1,3 +1,4 @@
+import asyncio
 import json
 import logging
 
@@ -78,9 +79,12 @@ class NativeExplainAgent(Agent):
             if remaining > 0:
                 return f"Great job! You got sense {sense_number} correct. You have {remaining} more sense{'s' if remaining != 1 else ''} to explain."
             else:
-                # All senses completed - handle terminal success state
-                await TerminalStateManager.handle_success(
-                    "Excellent! You've mastered all meanings of this phrasal verb! 🎉"
+                # All senses completed - schedule terminal success state with delay
+                asyncio.create_task(  # noqa: RUF006
+                    TerminalStateManager.handle_success(
+                        "Excellent! You've mastered all meanings of this phrasal verb! 🎉",
+                        delay_seconds=5.0  # Longer delay for final completion message
+                    )
                 )
 
                 return "Excellent! You've successfully explained all senses of this phrasal verb."
@@ -140,19 +144,25 @@ class NativeExplainAgent(Agent):
         if isinstance(session_info, MySessionInfo) and session_info.target_lexical_item:
             phrase = session_info.target_lexical_item.phrase
             total_senses = session_info.target_lexical_item.total_senses
-            
-            # Handle terminal success state
-            await TerminalStateManager.handle_success(
-                f"Congratulations! You've successfully explained all {total_senses} senses of '{phrase}'. Great work! 🎉"
+
+            # Schedule terminal success state with delay
+            asyncio.create_task(  # noqa: RUF006
+                TerminalStateManager.handle_success(
+                    f"Congratulations! You've successfully explained all {total_senses} senses of '{phrase}'. Great work! 🎉",
+                    delay_seconds=5.0  # Longer delay for final completion message
+                )
             )
-            
+
             return f"Congratulations {session_info.user_name}! You've successfully explained all {total_senses} senses of '{phrase}'. Great work on expanding your vocabulary!"
 
-        # Handle terminal success state for fallback case
-        await TerminalStateManager.handle_success(
-            "Congratulations! You've completed explaining all the senses of this phrasal verb! 🎉"
+        # Schedule terminal success state for fallback case with delay
+        asyncio.create_task(  # noqa: RUF006
+            TerminalStateManager.handle_success(
+                "Congratulations! You've completed explaining all the senses of this phrasal verb! 🎉",
+                delay_seconds=5.0  # Longer delay for final completion message
+            )
         )
-        
+
         return "Congratulations! You've completed explaining all the senses of this phrasal verb."
 
     @function_tool

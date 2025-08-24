@@ -1,19 +1,19 @@
 from dataclasses import dataclass
-from typing import List, Optional
+from typing import Optional
 
 
 @dataclass
 class LexicalSense:
     sense_number: int
     definition: str
-    examples: List[str]
+    examples: list[str]
     explained: bool = False
 
 
 @dataclass
 class TargetLexicalItem:
     phrase: str
-    senses: List[LexicalSense]
+    senses: list[LexicalSense]
 
     @property
     def total_senses(self) -> int:
@@ -49,7 +49,7 @@ class MySessionInfo:
 
 
 def create_target_lexical_item(
-    phrase: str, sense_data: List[dict]
+    phrase: str, sense_data: list[dict]
 ) -> TargetLexicalItem:
     senses = []
     for data in sense_data:
