@@ -2,7 +2,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
-const GENERATED_DATA_DIR = path.join(process.cwd(), '..', 'agent', 'generated_data');
+// Try multiple paths for different deployment environments
+const GENERATED_DATA_PATHS = [
+  path.join(process.cwd(), '..', 'agent', 'generated_data'), // Local development (monorepo)
+  path.join(process.cwd(), 'generated_data'), // Vercel deployment (copied to app dir)
+];
+
+const GENERATED_DATA_DIR = GENERATED_DATA_PATHS.find(dir => fs.existsSync(dir)) || GENERATED_DATA_PATHS[0];
 
 export async function GET(request: NextRequest) {
   try {
@@ -76,7 +82,13 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Invalid image path' }, { status: 400 });
     }
     
-    const fullPath = path.join(process.cwd(), '..', 'agent', imagePath.substring(1));
+    // Try multiple paths for image serving
+    const imagePaths = [
+      path.join(process.cwd(), '..', 'agent', imagePath.substring(1)), // Local development
+      path.join(process.cwd(), imagePath.substring(1)), // Vercel deployment
+    ];
+    
+    const fullPath = imagePaths.find(imgPath => fs.existsSync(imgPath)) || imagePaths[0];
     
     if (!fs.existsSync(fullPath)) {
       return NextResponse.json({ error: 'Image not found' }, { status: 404 });
