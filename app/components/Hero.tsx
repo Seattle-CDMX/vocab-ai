@@ -16,6 +16,8 @@ const Hero = ({ isAuthenticated, onSignOut }: { isAuthenticated: boolean; onSign
 
       if (response.ok) {
         onSignOut();
+        // Force a page refresh to ensure all client-side state is cleared
+        window.location.reload();
       }
     } catch (error) {
       console.error('Sign out error:', error);

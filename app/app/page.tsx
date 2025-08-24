@@ -9,13 +9,14 @@ export default function HomePage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Check authentication status by trying to access a protected route
-    fetch('/dashboard', { 
-      method: 'HEAD',
+    // Check authentication status using dedicated auth status endpoint
+    fetch('/api/auth-status', { 
+      method: 'GET',
       credentials: 'include' 
     })
-    .then(response => {
-      setIsAuthenticated(response.ok);
+    .then(response => response.json())
+    .then(data => {
+      setIsAuthenticated(data.isAuthenticated);
     })
     .catch(() => {
       setIsAuthenticated(false);
