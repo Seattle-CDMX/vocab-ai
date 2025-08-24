@@ -11,30 +11,33 @@ import Link from 'next/link';
 
 type CardType = VoiceCardType | ContextCardType;
 
-// Function to get a random card (voice or context)
-async function getRandomCard(): Promise<CardType> {
+// Function to get a card by index (sequential order)
+async function getCardByIndex(index: number): Promise<CardType | null> {
   const response = await fetch('/voice-card-types.json');
   const data = await response.json();
   const cards = data.voiceCardTypes;
-  // For testing, always get the first card (context card), 
-  // change back to random: cards[Math.floor(Math.random() * cards.length)]
-  const randomCard = cards[0];
+  
+  if (index >= cards.length || index < 0) {
+    return null; // End of deck or invalid index
+  }
+  
+  const card = cards[index];
   
   // Convert to appropriate type based on card type
-  if (randomCard.type === 'context') {
+  if (card.type === 'context') {
     return {
-      id: randomCard.id,
+      id: card.id,
       type: 'context' as const,
-      title: randomCard.title,
-      contextText: randomCard.contextText,
-      imageUrl: randomCard.imageUrl,
-      ctaText: randomCard.ctaText,
-      scenario: randomCard.scenario,
-      targetPhrasalVerb: randomCard.targetPhrasalVerb
+      title: card.title,
+      contextText: card.contextText,
+      imageUrl: card.imageUrl,
+      ctaText: card.ctaText,
+      scenario: card.scenario,
+      targetPhrasalVerb: card.targetPhrasalVerb
     };
   } else {
     // Default to voice card
-    return randomCard as VoiceCardType;
+    return card as VoiceCardType;
   }
 }
 
@@ -42,12 +45,19 @@ export default function VocabularyPracticePage() {
   // Start with null and load card after mount to avoid hydration issues
   const [currentCard, setCurrentCard] = useState<CardType | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const [totalCards, setTotalCards] = useState(0);
   
   useEffect(() => {
-    // Load a random card after component mounts
-    const loadCard = async () => {
+    // Load the first card after component mounts
+    const loadFirstCard = async () => {
       try {
-        const card = await getRandomCard();
+        const response = await fetch('/voice-card-types.json');
+        const data = await response.json();
+        const cardCount = data.voiceCardTypes.length;
+        setTotalCards(cardCount);
+        
+        const card = await getCardByIndex(0);
         setCurrentCard(card);
       } catch (error) {
         console.error('Failed to load card:', error);
@@ -56,13 +66,11 @@ export default function VocabularyPracticePage() {
       }
     };
     
-    loadCard();
+    loadFirstCard();
   }, []);
   
   const [level] = useState(1);
   const [score, setScore] = useState(0);
-  const [currentCardNumber] = useState(6); // Starting at card 6 as shown in the image
-  const [totalCards] = useState(20);
   const [verbsStudying] = useState(5);
 
   const handleAnswer = async (correct: boolean) => {
@@ -70,24 +78,36 @@ export default function VocabularyPracticePage() {
       setScore(prev => prev + 1);
     }
     
-    // Get a new random card for the next practice
-    try {
-      const card = await getRandomCard();
-      setCurrentCard(card);
-    } catch (error) {
-      console.error('Failed to load new card:', error);
+    // Move to the next card in sequence
+    const nextIndex = currentCardIndex + 1;
+    
+    if (nextIndex >= totalCards) {
+      // End of deck reached
+      console.log('All cards completed! Final score:', score + (correct ? 1 : 0));
+      alert(`Congratulations! You've completed all ${totalCards} cards. Final score: ${score + (correct ? 1 : 0)}/${totalCards}`);
+      return;
     }
     
-    // In a real app, you would advance to the next card or end the session
+    try {
+      const nextCard = await getCardByIndex(nextIndex);
+      if (nextCard) {
+        setCurrentCard(nextCard);
+        setCurrentCardIndex(nextIndex);
+        console.log(`Advanced to card ${nextIndex + 1}/${totalCards}:`, nextCard.title);
+      }
+    } catch (error) {
+      console.error('Failed to load next card:', error);
+    }
+    
     console.log('Answer recorded:', correct ? 'Correct' : 'Incorrect');
   };
 
   const handleReset = async () => {
     try {
-      const card = await getRandomCard();
+      const card = await getCardByIndex(currentCardIndex);
       setCurrentCard(card);
     } catch (error) {
-      console.error('Failed to load new card:', error);
+      console.error('Failed to reload current card:', error);
     }
   };
 
@@ -114,7 +134,7 @@ export default function VocabularyPracticePage() {
             </div>
             <div className="hidden sm:flex h-6 w-px bg-gray-300" />
             <div className="text-center">
-              <div className="text-sm font-semibold">Cards: {currentCardNumber}/{totalCards}</div>
+              <div className="text-sm font-semibold">Cards: {currentCardIndex + 1}/{totalCards}</div>
               <div className="text-xs text-gray-600">Progress</div>
             </div>
             <div className="text-center">
@@ -132,7 +152,7 @@ export default function VocabularyPracticePage() {
             <div className="w-full bg-gray-200 rounded-full h-3">
               <div 
                 className="bg-blue-600 h-3 rounded-full transition-all duration-300"
-                style={{ width: `${(currentCardNumber / totalCards) * 100}%` }}
+                style={{ width: `${totalCards > 0 ? ((currentCardIndex + 1) / totalCards) * 100 : 0}%` }}
               ></div>
             </div>
           </div>
@@ -166,7 +186,7 @@ export default function VocabularyPracticePage() {
         {/* Card Counter */}
         <div className="text-center mt-6">
           <span className="text-gray-600">
-            Card {currentCardNumber} of {totalCards}
+            Card {currentCardIndex + 1} of {totalCards}
           </span>
         </div>
       </div>
