@@ -19,7 +19,7 @@ from livekit.plugins import (
 )
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
 
-from agents.native_explain_agent import NativeExplainAgent
+# Agents are imported when needed to avoid circular imports
 from handlers.participant import process_participant_data
 from langfuse_setup import setup_langfuse
 from models.session import MySessionInfo
@@ -98,21 +98,61 @@ async def entrypoint(ctx: JobContext):
     def on_participant_connected(participant):
         nonlocal selected_agent
         logger.info("🎯 [Agent] NEW participant connected event fired!")
-        selected_agent = process_participant_data(participant, session)
-        logger.info(f"🎯 [Agent] Selected agent: {type(selected_agent).__name__}")
+        logger.info(f"🎯 [Agent] 🔄 CLOUD DEBUG: Participant identity: {participant.identity}")
+        logger.info(f"🎯 [Agent] 🔄 CLOUD DEBUG: Participant attributes: {participant.attributes}")
+        logger.info(f"🎯 [Agent] 🔄 CLOUD DEBUG: Participant metadata: {getattr(participant, 'metadata', 'None')}")
+        
+        new_agent = process_participant_data(participant, session)
+        if new_agent is not None:
+            selected_agent = new_agent
+            logger.info(f"🎯 [Agent] ✅ Selected agent: {type(selected_agent).__name__}")
+            # If session is already started, we need to update the agent dynamically
+            if hasattr(session, '_agent') and session._agent is not None:
+                logger.info("🎯 [Agent] 🔄 CLOUD DEBUG: Session already started - agent will be updated dynamically")
+        else:
+            logger.warning(f"🎯 [Agent] ⚠️ CLOUD DEBUG: process_participant_data returned None - will retry on next connection")
+    
+    # Add retry mechanism for metadata processing
+    retry_count = 0
+    max_retries = 5
+    
+    async def retry_participant_processing():
+        nonlocal selected_agent, retry_count
+        if retry_count >= max_retries:
+            logger.error(f"🎯 [Agent] ❌ Max retries ({max_retries}) reached for participant processing")
+            return
+            
+        retry_count += 1
+        logger.info(f"🎯 [Agent] 🔄 CLOUD DEBUG: Retry attempt {retry_count}/{max_retries} for participant processing")
+        
+        for participant in ctx.room.remote_participants.values():
+            logger.info(f"🎯 [Agent] 🔄 RETRY: Processing participant {participant.identity}")
+            new_agent = process_participant_data(participant, session)
+            if new_agent is not None:
+                selected_agent = new_agent
+                logger.info(f"🎯 [Agent] ✅ RETRY SUCCESS: Selected agent: {type(selected_agent).__name__}")
+                return
+        
+        # Schedule another retry after a delay
+        import asyncio
+        await asyncio.sleep(2.0)  # Wait 2 seconds before next retry
+        await retry_participant_processing()
 
     # Check for existing participants when agent starts
     async def check_existing_participants():
         nonlocal selected_agent
         logger.info("🎯 [Agent] Checking for existing participants...")
         for participant in ctx.room.remote_participants.values():
-            logger.info(
-                f"🎯 [Agent] Found existing participant: {participant.identity}"
-            )
-            selected_agent = process_participant_data(participant, session)
-            logger.info(
-                f"🎯 [Agent] Selected agent: {type(selected_agent).__name__ if selected_agent else 'None'}"
-            )
+            logger.info(f"🎯 [Agent] Found existing participant: {participant.identity}")
+            logger.info(f"🎯 [Agent] 🔄 CLOUD DEBUG: Existing participant attributes: {participant.attributes}")
+            logger.info(f"🎯 [Agent] 🔄 CLOUD DEBUG: Existing participant metadata: {getattr(participant, 'metadata', 'None')}")
+            
+            new_agent = process_participant_data(participant, session)
+            if new_agent is not None:
+                selected_agent = new_agent
+                logger.info(f"🎯 [Agent] ✅ Selected agent from existing participant: {type(selected_agent).__name__}")
+            else:
+                logger.warning(f"🎯 [Agent] ⚠️ CLOUD DEBUG: process_participant_data returned None for existing participant - will wait for proper connection")
 
     # Connect to room first to check for participants
     await ctx.connect()
@@ -121,12 +161,22 @@ async def entrypoint(ctx: JobContext):
     logger.info("🎯 [Agent] Agent connected, checking for existing participants...")
     await check_existing_participants()
 
-    # Use the selected agent or default to NativeExplainAgent
+    # Wait for proper agent selection - don't fallback to NativeExplainAgent
     if not selected_agent:
-        logger.info(
-            "🎯 [Agent] No participants found yet, using default NativeExplainAgent"
-        )
-        selected_agent = NativeExplainAgent()
+        logger.info("🎯 [Agent] 🔄 CLOUD DEBUG: No valid agent selected yet - starting retry mechanism")
+        # Try retry mechanism before creating waiting agent
+        await retry_participant_processing()
+        
+        if not selected_agent:
+            logger.info("🎯 [Agent] 🔄 CLOUD DEBUG: Still no valid agent after retries - creating waiting ContextAgent")
+            # Create a minimal waiting agent that just waits for proper connection
+            from agents.context_agent import ContextAgent
+            
+            # Create ContextAgent with no scenario data - it will use defaults but won't start inappropriate conversation
+            selected_agent = ContextAgent(scenario_data=None)
+            logger.info("🎯 [Agent] Created waiting ContextAgent - waiting for user connection with proper scenario data")
+        else:
+            logger.info("🎯 [Agent] ✅ RETRY SUCCESS: Got valid agent from retry mechanism")
 
     # Start the session with the selected agent
     await session.start(

@@ -10,24 +10,32 @@ logger = logging.getLogger("agent.handlers")
 
 def process_participant_data(participant, session: AgentSession):
     """Process participant data and return appropriate agent based on activity type."""
+    logger.info(f"🎯 [Agent] ========== PROCESSING PARTICIPANT ==========")
     logger.info(f"🎯 [Agent] Processing participant: {participant.identity}")
-    logger.info(f"🎯 [Agent] All participant attributes: {participant.attributes}")
+    logger.info(f"🎯 [Agent] 🔄 CLOUD DEBUG: Participant type: {type(participant)}")
+    logger.info(f"🎯 [Agent] 🔄 CLOUD DEBUG: Has metadata attr: {hasattr(participant, 'metadata')}")
+    logger.info(f"🎯 [Agent] 🔄 CLOUD DEBUG: Metadata value: {getattr(participant, 'metadata', 'MISSING')}")
+    logger.info(f"🎯 [Agent] 🔄 CLOUD DEBUG: All participant attributes: {participant.attributes}")
+    logger.info(f"🎯 [Agent] 🔄 CLOUD DEBUG: Participant attributes keys: {list(participant.attributes.keys())}")
 
     # Try to get metadata from token (unified approach)
     metadata_json = None
     if hasattr(participant, "metadata") and participant.metadata:
         metadata_json = participant.metadata
-        logger.info(f"🎯 [Agent] Metadata from token: {metadata_json}")
+        logger.info(f"🎯 [Agent] ✅ SUCCESS: Metadata from token: {metadata_json}")
+        logger.info(f"🎯 [Agent] 🔄 CLOUD DEBUG: Metadata type: {type(metadata_json)}")
+        logger.info(f"🎯 [Agent] 🔄 CLOUD DEBUG: Metadata length: {len(str(metadata_json))}")
     else:
+        logger.warning(f"🎯 [Agent] ⚠️ NO TOKEN METADATA: hasattr={hasattr(participant, 'metadata')}, value={getattr(participant, 'metadata', 'MISSING')}")
         # Fallback to participant attributes (old approach for voice cards)
         voice_card_json = participant.attributes.get("voice_card_data")
         if voice_card_json:
             metadata_json = json.dumps(
                 {"activityType": "voice", "voiceCardData": json.loads(voice_card_json)}
             )
-        logger.info(
-            f"🎯 [Agent] Voice card JSON from attributes (legacy fallback): {voice_card_json}"
-        )
+            logger.info(f"🎯 [Agent] 🔄 FALLBACK: Using voice card from attributes: {voice_card_json}")
+        else:
+            logger.warning(f"🎯 [Agent] ⚠️ NO VOICE CARD DATA in attributes either")
 
     session_info = session.userdata
 
@@ -50,9 +58,12 @@ def process_participant_data(participant, session: AgentSession):
                 # Merge target phrasal verb info into scenario
                 scenario_data["phrasalVerb"] = target_phrasal.get("verb", "go on")
 
-                logger.info(
-                    f"🎭 [Agent] Creating ContextAgent for scenario: {scenario_data.get('character')}"
-                )
+                logger.info(f"🎭 [Agent] ✅ SUCCESS: Creating ContextAgent for scenario")
+                logger.info(f"🎭 [Agent] 🔄 CLOUD DEBUG: Scenario data: {scenario_data}")
+                logger.info(f"🎭 [Agent] 🔄 CLOUD DEBUG: Target phrasal: {target_phrasal}")
+                logger.info(f"🎭 [Agent] 🔄 CLOUD DEBUG: Character: {scenario_data.get('character', 'NOT_FOUND')}")
+                logger.info(f"🎭 [Agent] 🔄 CLOUD DEBUG: Phrasal verb: {scenario_data.get('phrasalVerb', 'NOT_FOUND')}")
+                
                 return ContextAgent(scenario_data=scenario_data)
 
             else:
@@ -98,51 +109,13 @@ def process_participant_data(participant, session: AgentSession):
         except (json.JSONDecodeError, KeyError) as e:
             logger.error(f"🎯 [Agent] ❌ Failed to parse metadata: {e}")
             logger.error(f"🎯 [Agent] Raw JSON that failed: {metadata_json}")
-            # Fallback: create a simple target item
-            fallback_data = [
-                {
-                    "senseNumber": 1,
-                    "definition": "Practice phrasal verb",
-                    "examples": ["Example sentence"],
-                }
-            ]
-            if isinstance(session_info, MySessionInfo):
-                session_info.target_lexical_item = create_target_lexical_item(
-                    "PRACTICE VERB", fallback_data
-                )
-                session.userdata = session_info
-            logger.info("🎯 [Agent] Using fallback data: PRACTICE VERB")
-
-            # Return default agent - it will handle the fallback
-            from agents.native_explain_agent import NativeExplainAgent
-
-            return NativeExplainAgent()
+            logger.error(f"🎯 [Agent] 🔄 CLOUD DEBUG: Metadata parsing failed - returning None to wait for proper connection")
+            # Don't fallback to NativeExplainAgent - return None to wait for proper metadata
+            return None
     else:
-        logger.warning(
-            "🎯 [Agent] ❌ No metadata found in token or participant attributes"
-        )
-        logger.warning(
-            f"🎯 [Agent] Available attribute keys: {list(participant.attributes.keys())}"
-        )
-        logger.warning(
-            f"🎯 [Agent] Participant metadata: {getattr(participant, 'metadata', 'None')}"
-        )
-        # Fallback: create a simple target item
-        fallback_data = [
-            {
-                "senseNumber": 1,
-                "definition": "Practice phrasal verb",
-                "examples": ["Example sentence"],
-            }
-        ]
-        if isinstance(session_info, MySessionInfo):
-            session_info.target_lexical_item = create_target_lexical_item(
-                "PRACTICE VERB", fallback_data
-            )
-            session.userdata = session_info
-        logger.info("🎯 [Agent] Using fallback data: PRACTICE VERB")
-
-        # Return default agent - it will handle the fallback
-        from agents.native_explain_agent import NativeExplainAgent
-
-        return NativeExplainAgent()
+        logger.warning("🎯 [Agent] ❌ No metadata found in token or participant attributes")
+        logger.warning(f"🎯 [Agent] Available attribute keys: {list(participant.attributes.keys())}")
+        logger.warning(f"🎯 [Agent] Participant metadata: {getattr(participant, 'metadata', 'None')}")
+        logger.warning("🎯 [Agent] 🔄 CLOUD DEBUG: No metadata found - returning None to wait for proper connection")
+        # Don't fallback to NativeExplainAgent - return None to wait for proper metadata
+        return None
