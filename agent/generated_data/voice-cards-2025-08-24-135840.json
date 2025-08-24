@@ -1,0 +1,181 @@
+{
+  "generatedAt": "2025-08-24-135840",
+  "totalCards": 2,
+  "nativeExplainCards": 1,
+  "situationCards": 1,
+  "voiceCardTypes": [
+    {
+      "id": "native-explain-go-on-2025-08-24-135840",
+      "type": "native_explain",
+      "title": "Explain: GO ON",
+      "difficulty": "beginner/intermediate",
+      "targetPhrasalVerb": {
+        "verb": "GO ON",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "Happen, take place",
+            "confidencePercent": 64.5,
+            "examples": [
+              "There is a debate going on right now between the two parties."
+            ]
+          },
+          {
+            "senseNumber": 2,
+            "definition": "(+ To) Proceed to do or tackle STH after doing STH else",
+            "confidencePercent": 13,
+            "examples": [
+              "Does anyone have any questions before I go on to the next chapter?"
+            ]
+          }
+        ]
+      },
+      "teachingScenario": {
+        "teacher": "Prof. Pemberton",
+        "approach": "step-by-step breakdown",
+        "mainDefinition": "The phrasal verb 'go on' can mean to happen or take place, or to proceed to do something after doing something else.",
+        "keyTeachingPoints": [
+          "1. 'Go on' can refer to events happening at a specific moment.",
+          "2. It can also indicate moving from one task to the next.",
+          "3. The phrase can be used in both formal and informal contexts.",
+          "4. Pay attention to the context to understand which meaning is intended."
+        ],
+        "usageExamples": [
+          "There is a debate going on right now between the two parties.",
+          "After discussing the current topic, let\u2019s go on to the next chapter.",
+          "The concert will go on despite the rain."
+        ],
+        "commonMistakes": [
+          "1. Using 'go on' incorrectly in negative sentences, such as saying 'It didn\u2019t go on' instead of 'It didn\u2019t happen.'",
+          "2. Confusing the meaning of 'go on' with similar phrasal verbs like 'carry on' or 'keep on'.",
+          "3. Forgetting to use 'to' after 'go on' when transitioning to a new task."
+        ],
+        "memoryTips": [
+          "1. Visualize a sequence: Imagine a story where events unfold one after another\u2014this can help you remember how to use 'go on.'",
+          "2. Create a personal sentence using 'go on' in both senses to solidify your understanding."
+        ],
+        "teachingPersonality": "I am engaging and enthusiastic, always encouraging my students to express themselves and explore the language with confidence and energy!"
+      },
+      "voicePersona": {
+        "voice": {
+          "name": "en-GB-Neural2-D",
+          "language_code": "en-GB",
+          "language_name": "English (UK)",
+          "gender": "MALE",
+          "voice_type": "Neural2"
+        },
+        "persona": {
+          "name": "Prof. Pemberton",
+          "teaching_style": "enthusiastic and energetic",
+          "expertise": "team management",
+          "personality_traits": [
+            "engaging",
+            "direct",
+            "encouraging"
+          ],
+          "preferred_contexts": [
+            "networking events",
+            "workshops",
+            "client meetings"
+          ]
+        }
+      },
+      "metadata": {
+        "originalId": 1,
+        "generatedAt": "2025-08-24-135840",
+        "cardType": "native_explain"
+      }
+    },
+    {
+      "id": "context-go-on-2025-08-24-135840",
+      "type": "context",
+      "title": "In-Context \u2014 GO ON",
+      "difficulty": "intermediate",
+      "contextText": "You're speaking with Dr. Hoffmann, Project Coordinator. Dr. Hoffmann is leading a team meeting to discuss the current progress of various projects. During the meeting, she wants to ensure that everyone is aware of the ongoing activities and any issues that need to be addressed. She wants to encourage her team to share any updates or challenges they are facing.",
+      "imageUrl": "/generated_data/images/go-on-2025-08-24-135840.png",
+      "ctaText": "Talk to Dr. Hoffmann",
+      "scenario": {
+        "character": "Dr. Hoffmann",
+        "role": "Project Coordinator",
+        "situation": "Dr. Hoffmann is leading a team meeting to discuss the current progress of various projects. During the meeting, she wants to ensure that everyone is aware of the ongoing activities and any issues that need to be addressed. She wants to encourage her team to share any updates or challenges they are facing.",
+        "phrasalVerb": "go on",
+        "contextText": "Dr. Hoffmann is leading a team meeting to discuss the current progress of various projects. During the meeting, she wants to ensure that everyone is aware of the ongoing activities and any issues that need to be addressed. She wants to encourage her team to share any updates or challenges they are facing.",
+        "conversationStarter": "Good morning, team! Before we dive into our individual updates, I\u2019d like to know what's going on with the marketing campaign. Can someone fill us in?",
+        "expectedUsage": "The learner should respond with something like, 'There are several initiatives going on, including the social media strategy and the new advertisement rollout.'",
+        "businessContext": "team meeting",
+        "maxTurns": 5
+      },
+      "targetPhrasalVerb": {
+        "verb": "GO ON",
+        "definition": "Happen, take place",
+        "confidence": 64.5,
+        "examples": [
+          "There is a debate going on right now between the two parties.",
+          "The learner should respond with something like, 'There are several initiatives going on, including the social media strategy and the new advertisement rollout.'"
+        ],
+        "learningTip": "To remember 'go on', think of it as a way to describe events that are currently happening, like a movie that is playing right now.",
+        "alternativeScenarios": [
+          "1. A team member updating the project manager about a client meeting that is going on.",
+          "2. An employee discussing the changes that are going on in the company with a colleague.",
+          "3. A supervisor asking about the training sessions that are going on for new hires."
+        ]
+      },
+      "voicePersona": {
+        "voice": {
+          "name": "de-DE-Wavenet-A",
+          "language_code": "de-DE",
+          "language_name": "German (Germany)",
+          "gender": "FEMALE",
+          "voice_type": "WaveNet"
+        },
+        "persona": {
+          "name": "Dr. Hoffmann",
+          "teaching_style": "warm and supportive",
+          "expertise": "project coordination",
+          "personality_traits": [
+            "friendly",
+            "clear",
+            "patient"
+          ],
+          "preferred_contexts": [
+            "interviews",
+            "client meetings",
+            "presentations"
+          ]
+        }
+      },
+      "metadata": {
+        "originalId": 1,
+        "generatedAt": "2025-08-24-135840",
+        "allSenses": [
+          {
+            "senseNumber": 1,
+            "definition": "Happen, take place",
+            "confidencePercent": 64.5,
+            "examples": [
+              "There is a debate going on right now between the two parties."
+            ]
+          },
+          {
+            "senseNumber": 2,
+            "definition": "(+ To) Proceed to do or tackle STH after doing STH else",
+            "confidencePercent": 13,
+            "examples": [
+              "Does anyone have any questions before I go on to the next chapter?"
+            ]
+          }
+        ],
+        "cardType": "context"
+      }
+    }
+  ],
+  "metadata": {
+    "generator": "demo_generator.py",
+    "version": "2.0.0",
+    "phrasalVerbsProcessed": [
+      "GO ON"
+    ],
+    "voicePersonasUsed": 2,
+    "cardStructure": "1 native_explain + 1 context per phrasal verb"
+  }
+}

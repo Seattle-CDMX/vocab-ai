@@ -1,0 +1,1331 @@
+{
+  "generated_at": "2025-08-24T13:54:04.625911",
+  "total_personas": 55,
+  "personas": [
+    {
+      "voice": {
+        "name": "en-US-Neural2-A",
+        "language_code": "en-US",
+        "language_name": "English (US)",
+        "gender": "MALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Dr. Brown",
+        "teaching_style": "thorough and detailed",
+        "expertise": "professional presentations",
+        "personality_traits": [
+          "professional",
+          "clear",
+          "warm"
+        ],
+        "preferred_contexts": [
+          "networking events",
+          "client meetings",
+          "presentations"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-US-Neural2-C",
+        "language_code": "en-US",
+        "language_name": "English (US)",
+        "gender": "FEMALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Prof. Wilson",
+        "teaching_style": "engaging and interactive",
+        "expertise": "project coordination",
+        "personality_traits": [
+          "knowledgeable",
+          "engaging",
+          "supportive"
+        ],
+        "preferred_contexts": [
+          "networking events",
+          "presentations",
+          "phone calls"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-US-Neural2-D",
+        "language_code": "en-US",
+        "language_name": "English (US)",
+        "gender": "MALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Prof. Davis",
+        "teaching_style": "professional and precise",
+        "expertise": "email writing",
+        "personality_traits": [
+          "engaging",
+          "patient",
+          "knowledgeable"
+        ],
+        "preferred_contexts": [
+          "workshops",
+          "networking events",
+          "client meetings"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-US-Neural2-E",
+        "language_code": "en-US",
+        "language_name": "English (US)",
+        "gender": "FEMALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Prof. Miller",
+        "teaching_style": "enthusiastic and energetic",
+        "expertise": "meeting facilitation",
+        "personality_traits": [
+          "patient",
+          "professional",
+          "friendly"
+        ],
+        "preferred_contexts": [
+          "interviews",
+          "phone calls",
+          "emails"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-US-Neural2-F",
+        "language_code": "en-US",
+        "language_name": "English (US)",
+        "gender": "FEMALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Ms. Garcia",
+        "teaching_style": "enthusiastic and energetic",
+        "expertise": "business communication",
+        "personality_traits": [
+          "warm",
+          "practical",
+          "patient"
+        ],
+        "preferred_contexts": [
+          "training sessions",
+          "phone calls",
+          "presentations"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-US-Neural2-G",
+        "language_code": "en-US",
+        "language_name": "English (US)",
+        "gender": "FEMALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Ms. Rodriguez",
+        "teaching_style": "clear and structured",
+        "expertise": "professional presentations",
+        "personality_traits": [
+          "engaging",
+          "knowledgeable",
+          "practical"
+        ],
+        "preferred_contexts": [
+          "presentations",
+          "team discussions",
+          "training sessions"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-US-Neural2-H",
+        "language_code": "en-US",
+        "language_name": "English (US)",
+        "gender": "FEMALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Ms. Johnson",
+        "teaching_style": "professional and precise",
+        "expertise": "client relations",
+        "personality_traits": [
+          "practical",
+          "engaging",
+          "friendly"
+        ],
+        "preferred_contexts": [
+          "meetings",
+          "networking events",
+          "presentations"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-US-Neural2-I",
+        "language_code": "en-US",
+        "language_name": "English (US)",
+        "gender": "MALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Mr. Wilson",
+        "teaching_style": "friendly and conversational",
+        "expertise": "cross-cultural communication",
+        "personality_traits": [
+          "professional",
+          "patient",
+          "friendly"
+        ],
+        "preferred_contexts": [
+          "emails",
+          "client meetings",
+          "team discussions"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-US-Neural2-J",
+        "language_code": "en-US",
+        "language_name": "English (US)",
+        "gender": "MALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Dr. Williams",
+        "teaching_style": "patient and encouraging",
+        "expertise": "workplace interactions",
+        "personality_traits": [
+          "direct",
+          "friendly",
+          "warm"
+        ],
+        "preferred_contexts": [
+          "interviews",
+          "training sessions",
+          "networking events"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-US-Wavenet-A",
+        "language_code": "en-US",
+        "language_name": "English (US)",
+        "gender": "MALE",
+        "voice_type": "WaveNet"
+      },
+      "persona": {
+        "name": "Prof. Robinson",
+        "teaching_style": "clear and structured",
+        "expertise": "business communication",
+        "personality_traits": [
+          "knowledgeable",
+          "warm",
+          "patient"
+        ],
+        "preferred_contexts": [
+          "training sessions",
+          "meetings",
+          "networking events"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-US-Wavenet-B",
+        "language_code": "en-US",
+        "language_name": "English (US)",
+        "gender": "MALE",
+        "voice_type": "WaveNet"
+      },
+      "persona": {
+        "name": "Mr. Johnson",
+        "teaching_style": "engaging and interactive",
+        "expertise": "business communication",
+        "personality_traits": [
+          "supportive",
+          "practical",
+          "encouraging"
+        ],
+        "preferred_contexts": [
+          "client meetings",
+          "team discussions",
+          "networking events"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-US-Wavenet-C",
+        "language_code": "en-US",
+        "language_name": "English (US)",
+        "gender": "FEMALE",
+        "voice_type": "WaveNet"
+      },
+      "persona": {
+        "name": "Dr. Davis",
+        "teaching_style": "patient and encouraging",
+        "expertise": "business communication",
+        "personality_traits": [
+          "warm",
+          "thorough",
+          "clear"
+        ],
+        "preferred_contexts": [
+          "phone calls",
+          "interviews",
+          "meetings"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-US-Studio-O",
+        "language_code": "en-US",
+        "language_name": "English (US)",
+        "gender": "FEMALE",
+        "voice_type": "Studio"
+      },
+      "persona": {
+        "name": "Dr. Smith",
+        "teaching_style": "professional and precise",
+        "expertise": "project coordination",
+        "personality_traits": [
+          "professional",
+          "engaging",
+          "clear"
+        ],
+        "preferred_contexts": [
+          "emails",
+          "networking events",
+          "training sessions"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-US-Studio-Q",
+        "language_code": "en-US",
+        "language_name": "English (US)",
+        "gender": "MALE",
+        "voice_type": "Studio"
+      },
+      "persona": {
+        "name": "Dr. Garcia",
+        "teaching_style": "enthusiastic and energetic",
+        "expertise": "negotiation skills",
+        "personality_traits": [
+          "warm",
+          "clear",
+          "supportive"
+        ],
+        "preferred_contexts": [
+          "client meetings",
+          "emails",
+          "networking events"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-GB-Neural2-A",
+        "language_code": "en-GB",
+        "language_name": "English (UK)",
+        "gender": "FEMALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Dr. Whitmore",
+        "teaching_style": "warm and supportive",
+        "expertise": "meeting facilitation",
+        "personality_traits": [
+          "direct",
+          "clear",
+          "supportive"
+        ],
+        "preferred_contexts": [
+          "presentations",
+          "networking events",
+          "client meetings"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-GB-Neural2-B",
+        "language_code": "en-GB",
+        "language_name": "English (UK)",
+        "gender": "MALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Mr. Ashworth",
+        "teaching_style": "professional and precise",
+        "expertise": "team management",
+        "personality_traits": [
+          "professional",
+          "encouraging",
+          "knowledgeable"
+        ],
+        "preferred_contexts": [
+          "workshops",
+          "client meetings",
+          "phone calls"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-GB-Neural2-C",
+        "language_code": "en-GB",
+        "language_name": "English (UK)",
+        "gender": "FEMALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Prof. Clarke",
+        "teaching_style": "patient and encouraging",
+        "expertise": "project coordination",
+        "personality_traits": [
+          "patient",
+          "warm",
+          "encouraging"
+        ],
+        "preferred_contexts": [
+          "phone calls",
+          "interviews",
+          "networking events"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-GB-Neural2-D",
+        "language_code": "en-GB",
+        "language_name": "English (UK)",
+        "gender": "MALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Prof. Pemberton",
+        "teaching_style": "enthusiastic and energetic",
+        "expertise": "team management",
+        "personality_traits": [
+          "engaging",
+          "direct",
+          "encouraging"
+        ],
+        "preferred_contexts": [
+          "networking events",
+          "workshops",
+          "client meetings"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-GB-Wavenet-A",
+        "language_code": "en-GB",
+        "language_name": "English (UK)",
+        "gender": "FEMALE",
+        "voice_type": "WaveNet"
+      },
+      "persona": {
+        "name": "Prof. Richardson",
+        "teaching_style": "enthusiastic and energetic",
+        "expertise": "team management",
+        "personality_traits": [
+          "clear",
+          "friendly",
+          "encouraging"
+        ],
+        "preferred_contexts": [
+          "team discussions",
+          "client meetings",
+          "phone calls"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-GB-Wavenet-B",
+        "language_code": "en-GB",
+        "language_name": "English (UK)",
+        "gender": "MALE",
+        "voice_type": "WaveNet"
+      },
+      "persona": {
+        "name": "Mr. Sterling",
+        "teaching_style": "calm and methodical",
+        "expertise": "client relations",
+        "personality_traits": [
+          "friendly",
+          "patient",
+          "supportive"
+        ],
+        "preferred_contexts": [
+          "meetings",
+          "team discussions",
+          "phone calls"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-GB-Studio-B",
+        "language_code": "en-GB",
+        "language_name": "English (UK)",
+        "gender": "MALE",
+        "voice_type": "Studio"
+      },
+      "persona": {
+        "name": "Dr. Fletcher",
+        "teaching_style": "enthusiastic and energetic",
+        "expertise": "cross-cultural communication",
+        "personality_traits": [
+          "practical",
+          "thorough",
+          "warm"
+        ],
+        "preferred_contexts": [
+          "presentations",
+          "workshops",
+          "networking events"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-GB-Studio-C",
+        "language_code": "en-GB",
+        "language_name": "English (UK)",
+        "gender": "FEMALE",
+        "voice_type": "Studio"
+      },
+      "persona": {
+        "name": "Ms. Ashford",
+        "teaching_style": "calm and methodical",
+        "expertise": "business communication",
+        "personality_traits": [
+          "engaging",
+          "warm",
+          "knowledgeable"
+        ],
+        "preferred_contexts": [
+          "networking events",
+          "team discussions",
+          "interviews"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-AU-Neural2-A",
+        "language_code": "en-AU",
+        "language_name": "English (Australia)",
+        "gender": "FEMALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Dr. Campbell",
+        "teaching_style": "patient and encouraging",
+        "expertise": "professional presentations",
+        "personality_traits": [
+          "direct",
+          "patient",
+          "encouraging"
+        ],
+        "preferred_contexts": [
+          "networking events",
+          "presentations",
+          "phone calls"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-AU-Neural2-B",
+        "language_code": "en-AU",
+        "language_name": "English (Australia)",
+        "gender": "MALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Mr. Stewart",
+        "teaching_style": "clear and structured",
+        "expertise": "professional presentations",
+        "personality_traits": [
+          "patient",
+          "knowledgeable",
+          "professional"
+        ],
+        "preferred_contexts": [
+          "meetings",
+          "interviews",
+          "presentations"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-AU-Neural2-C",
+        "language_code": "en-AU",
+        "language_name": "English (Australia)",
+        "gender": "FEMALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Ms. McKenzie",
+        "teaching_style": "direct and practical",
+        "expertise": "negotiation skills",
+        "personality_traits": [
+          "direct",
+          "encouraging",
+          "supportive"
+        ],
+        "preferred_contexts": [
+          "phone calls",
+          "workshops",
+          "emails"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-AU-Neural2-D",
+        "language_code": "en-AU",
+        "language_name": "English (Australia)",
+        "gender": "MALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Prof. McKenzie",
+        "teaching_style": "thorough and detailed",
+        "expertise": "negotiation skills",
+        "personality_traits": [
+          "engaging",
+          "friendly",
+          "encouraging"
+        ],
+        "preferred_contexts": [
+          "interviews",
+          "meetings",
+          "presentations"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-AU-Wavenet-A",
+        "language_code": "en-AU",
+        "language_name": "English (Australia)",
+        "gender": "FEMALE",
+        "voice_type": "WaveNet"
+      },
+      "persona": {
+        "name": "Dr. Stewart",
+        "teaching_style": "friendly and conversational",
+        "expertise": "team management",
+        "personality_traits": [
+          "professional",
+          "thorough",
+          "practical"
+        ],
+        "preferred_contexts": [
+          "networking events",
+          "client meetings",
+          "workshops"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "en-AU-Wavenet-B",
+        "language_code": "en-AU",
+        "language_name": "English (Australia)",
+        "gender": "MALE",
+        "voice_type": "WaveNet"
+      },
+      "persona": {
+        "name": "Mr. O'Brien",
+        "teaching_style": "warm and supportive",
+        "expertise": "email writing",
+        "personality_traits": [
+          "encouraging",
+          "supportive",
+          "professional"
+        ],
+        "preferred_contexts": [
+          "interviews",
+          "phone calls",
+          "emails"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "fr-FR-Neural2-A",
+        "language_code": "fr-FR",
+        "language_name": "French (France)",
+        "gender": "FEMALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Mme. Laurent",
+        "teaching_style": "enthusiastic and energetic",
+        "expertise": "team management",
+        "personality_traits": [
+          "patient",
+          "knowledgeable",
+          "engaging"
+        ],
+        "preferred_contexts": [
+          "networking events",
+          "emails",
+          "team discussions"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "fr-FR-Neural2-B",
+        "language_code": "fr-FR",
+        "language_name": "French (France)",
+        "gender": "MALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "M. Durand",
+        "teaching_style": "patient and encouraging",
+        "expertise": "meeting facilitation",
+        "personality_traits": [
+          "supportive",
+          "patient",
+          "practical"
+        ],
+        "preferred_contexts": [
+          "presentations",
+          "training sessions",
+          "emails"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "fr-FR-Neural2-C",
+        "language_code": "fr-FR",
+        "language_name": "French (France)",
+        "gender": "FEMALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Mme. Petit",
+        "teaching_style": "professional and precise",
+        "expertise": "project coordination",
+        "personality_traits": [
+          "warm",
+          "friendly",
+          "supportive"
+        ],
+        "preferred_contexts": [
+          "phone calls",
+          "client meetings",
+          "meetings"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "fr-FR-Neural2-D",
+        "language_code": "fr-FR",
+        "language_name": "French (France)",
+        "gender": "MALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Dr. Laurent",
+        "teaching_style": "clear and structured",
+        "expertise": "business communication",
+        "personality_traits": [
+          "knowledgeable",
+          "clear",
+          "engaging"
+        ],
+        "preferred_contexts": [
+          "presentations",
+          "workshops",
+          "interviews"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "fr-FR-Wavenet-A",
+        "language_code": "fr-FR",
+        "language_name": "French (France)",
+        "gender": "FEMALE",
+        "voice_type": "WaveNet"
+      },
+      "persona": {
+        "name": "Mme. Robert",
+        "teaching_style": "enthusiastic and energetic",
+        "expertise": "negotiation skills",
+        "personality_traits": [
+          "knowledgeable",
+          "patient",
+          "warm"
+        ],
+        "preferred_contexts": [
+          "meetings",
+          "interviews",
+          "team discussions"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "fr-FR-Wavenet-B",
+        "language_code": "fr-FR",
+        "language_name": "French (France)",
+        "gender": "MALE",
+        "voice_type": "WaveNet"
+      },
+      "persona": {
+        "name": "M. Dubois",
+        "teaching_style": "enthusiastic and energetic",
+        "expertise": "cross-cultural communication",
+        "personality_traits": [
+          "supportive",
+          "professional",
+          "practical"
+        ],
+        "preferred_contexts": [
+          "meetings",
+          "team discussions",
+          "workshops"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "de-DE-Neural2-A",
+        "language_code": "de-DE",
+        "language_name": "German (Germany)",
+        "gender": "FEMALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Frau Wagner",
+        "teaching_style": "professional and precise",
+        "expertise": "business communication",
+        "personality_traits": [
+          "professional",
+          "clear",
+          "patient"
+        ],
+        "preferred_contexts": [
+          "emails",
+          "phone calls",
+          "networking events"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "de-DE-Neural2-B",
+        "language_code": "de-DE",
+        "language_name": "German (Germany)",
+        "gender": "MALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Dr. Schaefer",
+        "teaching_style": "direct and practical",
+        "expertise": "business communication",
+        "personality_traits": [
+          "supportive",
+          "engaging",
+          "professional"
+        ],
+        "preferred_contexts": [
+          "team discussions",
+          "emails",
+          "networking events"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "de-DE-Neural2-C",
+        "language_code": "de-DE",
+        "language_name": "German (Germany)",
+        "gender": "FEMALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Prof. Weber",
+        "teaching_style": "patient and encouraging",
+        "expertise": "project coordination",
+        "personality_traits": [
+          "friendly",
+          "warm",
+          "thorough"
+        ],
+        "preferred_contexts": [
+          "workshops",
+          "client meetings",
+          "presentations"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "de-DE-Neural2-D",
+        "language_code": "de-DE",
+        "language_name": "German (Germany)",
+        "gender": "MALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Dr. Mueller",
+        "teaching_style": "enthusiastic and energetic",
+        "expertise": "meeting facilitation",
+        "personality_traits": [
+          "clear",
+          "engaging",
+          "encouraging"
+        ],
+        "preferred_contexts": [
+          "meetings",
+          "workshops",
+          "client meetings"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "de-DE-Wavenet-A",
+        "language_code": "de-DE",
+        "language_name": "German (Germany)",
+        "gender": "FEMALE",
+        "voice_type": "WaveNet"
+      },
+      "persona": {
+        "name": "Dr. Hoffmann",
+        "teaching_style": "warm and supportive",
+        "expertise": "project coordination",
+        "personality_traits": [
+          "friendly",
+          "clear",
+          "patient"
+        ],
+        "preferred_contexts": [
+          "interviews",
+          "client meetings",
+          "presentations"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "de-DE-Wavenet-B",
+        "language_code": "de-DE",
+        "language_name": "German (Germany)",
+        "voice_type": "WaveNet",
+        "gender": "MALE"
+      },
+      "persona": {
+        "name": "Herr Koch",
+        "teaching_style": "engaging and interactive",
+        "expertise": "professional presentations",
+        "personality_traits": [
+          "clear",
+          "patient",
+          "direct"
+        ],
+        "preferred_contexts": [
+          "presentations",
+          "training sessions",
+          "meetings"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "es-ES-Neural2-A",
+        "language_code": "es-ES",
+        "language_name": "Spanish (Spain)",
+        "gender": "FEMALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Dra. Garcia",
+        "teaching_style": "warm and supportive",
+        "expertise": "professional presentations",
+        "personality_traits": [
+          "patient",
+          "friendly",
+          "professional"
+        ],
+        "preferred_contexts": [
+          "networking events",
+          "emails",
+          "team discussions"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "es-ES-Neural2-B",
+        "language_code": "es-ES",
+        "language_name": "Spanish (Spain)",
+        "gender": "MALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Sr. Lopez",
+        "teaching_style": "clear and structured",
+        "expertise": "client relations",
+        "personality_traits": [
+          "thorough",
+          "warm",
+          "encouraging"
+        ],
+        "preferred_contexts": [
+          "phone calls",
+          "interviews",
+          "meetings"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "es-ES-Neural2-C",
+        "language_code": "es-ES",
+        "language_name": "Spanish (Spain)",
+        "gender": "FEMALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Sra. Perez",
+        "teaching_style": "thorough and detailed",
+        "expertise": "cross-cultural communication",
+        "personality_traits": [
+          "clear",
+          "supportive",
+          "engaging"
+        ],
+        "preferred_contexts": [
+          "meetings",
+          "phone calls",
+          "workshops"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "es-ES-Neural2-D",
+        "language_code": "es-ES",
+        "language_name": "Spanish (Spain)",
+        "gender": "FEMALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Prof. Martinez",
+        "teaching_style": "friendly and conversational",
+        "expertise": "professional presentations",
+        "personality_traits": [
+          "friendly",
+          "direct",
+          "knowledgeable"
+        ],
+        "preferred_contexts": [
+          "workshops",
+          "client meetings",
+          "phone calls"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "es-ES-Wavenet-B",
+        "language_code": "es-ES",
+        "language_name": "Spanish (Spain)",
+        "gender": "MALE",
+        "voice_type": "WaveNet"
+      },
+      "persona": {
+        "name": "Prof. Sanchez",
+        "teaching_style": "engaging and interactive",
+        "expertise": "project coordination",
+        "personality_traits": [
+          "supportive",
+          "clear",
+          "warm"
+        ],
+        "preferred_contexts": [
+          "emails",
+          "training sessions",
+          "presentations"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "es-ES-Wavenet-C",
+        "language_code": "es-ES",
+        "language_name": "Spanish (Spain)",
+        "gender": "FEMALE",
+        "voice_type": "WaveNet"
+      },
+      "persona": {
+        "name": "Dra. Ramirez",
+        "teaching_style": "direct and practical",
+        "expertise": "business communication",
+        "personality_traits": [
+          "professional",
+          "practical",
+          "encouraging"
+        ],
+        "preferred_contexts": [
+          "emails",
+          "team discussions",
+          "presentations"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "it-IT-Neural2-A",
+        "language_code": "it-IT",
+        "language_name": "Italian (Italy)",
+        "gender": "FEMALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Sig.ra Bianchi",
+        "teaching_style": "enthusiastic and energetic",
+        "expertise": "negotiation skills",
+        "personality_traits": [
+          "warm",
+          "patient",
+          "thorough"
+        ],
+        "preferred_contexts": [
+          "phone calls",
+          "training sessions",
+          "presentations"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "it-IT-Neural2-C",
+        "language_code": "it-IT",
+        "language_name": "Italian (Italy)",
+        "gender": "MALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "Sig. Rossi",
+        "teaching_style": "professional and precise",
+        "expertise": "email writing",
+        "personality_traits": [
+          "supportive",
+          "friendly",
+          "patient"
+        ],
+        "preferred_contexts": [
+          "emails",
+          "meetings",
+          "presentations"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "it-IT-Wavenet-A",
+        "language_code": "it-IT",
+        "language_name": "Italian (Italy)",
+        "gender": "FEMALE",
+        "voice_type": "WaveNet"
+      },
+      "persona": {
+        "name": "Sig.ra Ferrari",
+        "teaching_style": "engaging and interactive",
+        "expertise": "project coordination",
+        "personality_traits": [
+          "warm",
+          "professional",
+          "encouraging"
+        ],
+        "preferred_contexts": [
+          "training sessions",
+          "presentations",
+          "networking events"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "it-IT-Wavenet-C",
+        "language_code": "it-IT",
+        "language_name": "Italian (Italy)",
+        "gender": "MALE",
+        "voice_type": "WaveNet"
+      },
+      "persona": {
+        "name": "Dr. Bruno",
+        "teaching_style": "calm and methodical",
+        "expertise": "business communication",
+        "personality_traits": [
+          "practical",
+          "warm",
+          "thorough"
+        ],
+        "preferred_contexts": [
+          "team discussions",
+          "interviews",
+          "client meetings"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "ja-JP-Neural2-B",
+        "language_code": "ja-JP",
+        "language_name": "Japanese (Japan)",
+        "gender": "FEMALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "伊藤博士",
+        "teaching_style": "thorough and detailed",
+        "expertise": "meeting facilitation",
+        "personality_traits": [
+          "practical",
+          "knowledgeable",
+          "clear"
+        ],
+        "preferred_contexts": [
+          "presentations",
+          "interviews",
+          "emails"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "ja-JP-Neural2-C",
+        "language_code": "ja-JP",
+        "language_name": "Japanese (Japan)",
+        "gender": "MALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "田中先生",
+        "teaching_style": "clear and structured",
+        "expertise": "negotiation skills",
+        "personality_traits": [
+          "knowledgeable",
+          "direct",
+          "professional"
+        ],
+        "preferred_contexts": [
+          "client meetings",
+          "phone calls",
+          "interviews"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "ja-JP-Neural2-D",
+        "language_code": "ja-JP",
+        "language_name": "Japanese (Japan)",
+        "gender": "MALE",
+        "voice_type": "Neural2"
+      },
+      "persona": {
+        "name": "中村先生",
+        "teaching_style": "professional and precise",
+        "expertise": "professional presentations",
+        "personality_traits": [
+          "engaging",
+          "warm",
+          "encouraging"
+        ],
+        "preferred_contexts": [
+          "presentations",
+          "meetings",
+          "training sessions"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "ja-JP-Wavenet-A",
+        "language_code": "ja-JP",
+        "language_name": "Japanese (Japan)",
+        "gender": "FEMALE",
+        "voice_type": "WaveNet"
+      },
+      "persona": {
+        "name": "高橋先生",
+        "teaching_style": "engaging and interactive",
+        "expertise": "cross-cultural communication",
+        "personality_traits": [
+          "practical",
+          "supportive",
+          "patient"
+        ],
+        "preferred_contexts": [
+          "team discussions",
+          "meetings",
+          "emails"
+        ]
+      }
+    },
+    {
+      "voice": {
+        "name": "ja-JP-Wavenet-B",
+        "language_code": "ja-JP",
+        "language_name": "Japanese (Japan)",
+        "gender": "FEMALE",
+        "voice_type": "WaveNet"
+      },
+      "persona": {
+        "name": "加藤教授",
+        "teaching_style": "clear and structured",
+        "expertise": "meeting facilitation",
+        "personality_traits": [
+          "engaging",
+          "supportive",
+          "thorough"
+        ],
+        "preferred_contexts": [
+          "interviews",
+          "meetings",
+          "emails"
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "generator": "generate_voice_personas.py",
+    "version": "1.0.0",
+    "description": "Google Cloud TTS premium voice personas for vocabulary learning"
+  }
+}
