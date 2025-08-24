@@ -12,7 +12,7 @@ import Link from 'next/link';
 type CardType = VoiceCardType | ContextCardType;
 
 // Cache for loaded data
-let cachedData: any = null;
+let cachedData: { voiceCardTypes: CardType[]; generatedAt?: string } | null = null;
 
 // Function to load voice card data
 async function loadVoiceCardData() {
@@ -23,10 +23,10 @@ async function loadVoiceCardData() {
     const generatedResponse = await fetch('/api/generated-data?latest=true');
     if (generatedResponse.ok) {
       cachedData = await generatedResponse.json();
-      console.log('Using generated voice card data from:', cachedData.generatedAt);
+      console.log('Using generated voice card data from:', cachedData?.generatedAt);
       return cachedData;
     }
-  } catch (error) {
+  } catch {
     console.log('No generated data found, falling back to static file');
   }
   
@@ -39,6 +39,7 @@ async function loadVoiceCardData() {
 // Function to get a card by index (sequential order)
 async function getCardByIndex(index: number): Promise<CardType | null> {
   const data = await loadVoiceCardData();
+  if (!data) return null;
   const cards = data.voiceCardTypes;
   
   if (index >= cards.length || index < 0) {
@@ -47,8 +48,8 @@ async function getCardByIndex(index: number): Promise<CardType | null> {
   
   const card = cards[index];
   
-  // Handle generated images
-  if (card.imageUrl && card.imageUrl.startsWith('/generated_data/images/')) {
+  // Handle generated images (only for context cards)
+  if ('imageUrl' in card && card.imageUrl && card.imageUrl.startsWith('/generated_data/images/')) {
     try {
       const imageResponse = await fetch('/api/generated-data', {
         method: 'POST',
@@ -66,17 +67,7 @@ async function getCardByIndex(index: number): Promise<CardType | null> {
   
   // Convert to appropriate type based on card type
   if (card.type === 'context') {
-    return {
-      id: card.id,
-      type: 'context' as const,
-      title: card.title,
-      contextText: card.contextText,
-      imageUrl: card.imageUrl,
-      ctaText: card.ctaText,
-      scenario: card.scenario,
-      targetPhrasalVerb: card.targetPhrasalVerb,
-      voicePersona: card.voicePersona
-    };
+    return card as ContextCardType;
   } else {
     // Default to voice card
     return card as VoiceCardType;
@@ -95,6 +86,10 @@ export default function VocabularyPracticePage() {
     const loadFirstCard = async () => {
       try {
         const data = await loadVoiceCardData();
+        if (!data) {
+          console.error('Failed to load voice card data');
+          return;
+        }
         const cardCount = data.voiceCardTypes.length;
         setTotalCards(cardCount);
         

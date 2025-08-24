@@ -105,7 +105,7 @@ export default function HighFrequencyPhrasalVerbsPost() {
         </div>
 
         <p className="mb-4">
-          Each of these common phrasal verbs occurs over 5,000 times in the corpus, underscoring their importance in everyday communication. Similar frequency studies in American English (using the 1-billion-word Corpus of Contemporary American English, or COCA) show a very comparable top tier of phrasal verbs—for instance, "go on" is ranked #1 and "pick up" #2 in American corpus-based lists as well.
+          Each of these common phrasal verbs occurs over 5,000 times in the corpus, underscoring their importance in everyday communication. Similar frequency studies in American English (using the 1-billion-word Corpus of Contemporary American English, or COCA) show a very comparable top tier of phrasal verbs—for instance, &quot;go on&quot; is ranked #1 and &quot;pick up&quot; #2 in American corpus-based lists as well.
         </p>
 
         <div className="bg-blue-50 border-l-4 border-blue-500 p-6 my-8">
@@ -114,7 +114,7 @@ export default function HighFrequencyPhrasalVerbsPost() {
             Researchers Garnier & Schmitt (2015) created the PHaVE List (Phrasal Verb Pedagogical List) of 150 high-frequency phrasal verbs along with their most frequent meaning senses. Based on large corpus data (COCA), the list focuses on core meanings that cover 75%+ of occurrences for each verb.
           </p>
           <p>
-            This helps teachers target not only which phrasal verbs to teach but also the primary meanings students should learn first. According to the PHaVE list, the very top phrasal verbs include "go on," "pick up," "come back," "come up," "go back," and "find out"—essentially mirroring the items seen in our frequency table above.
+            This helps teachers target not only which phrasal verbs to teach but also the primary meanings students should learn first. According to the PHaVE list, the very top phrasal verbs include &quot;go on,&quot; &quot;pick up,&quot; &quot;come back,&quot; &quot;come up,&quot; &quot;go back,&quot; and &quot;find out&quot;—essentially mirroring the items seen in our frequency table above.
           </p>
         </div>
       </section>
@@ -131,11 +131,11 @@ export default function HighFrequencyPhrasalVerbsPost() {
             <h3 className="text-lg font-semibold mb-3">Conversational English</h3>
             <p className="mb-3">Heavily features items like:</p>
             <ul className="list-disc list-inside space-y-1">
-              <li>"get up"</li>
-              <li>"go out"</li>
-              <li>"come back"</li>
-              <li>"pick up"</li>
-              <li>"find out"</li>
+              <li>&quot;get up&quot;</li>
+              <li>&quot;go out&quot;</li>
+              <li>&quot;come back&quot;</li>
+              <li>&quot;pick up&quot;</li>
+              <li>&quot;find out&quot;</li>
             </ul>
           </div>
           
@@ -143,11 +143,11 @@ export default function HighFrequencyPhrasalVerbsPost() {
             <h3 className="text-lg font-semibold mb-3">Academic Writing</h3>
             <p className="mb-3">May include more formal phrasal verbs:</p>
             <ul className="list-disc list-inside space-y-1">
-              <li>"carry out" (an experiment)</li>
-              <li>"point out" (a fact)</li>
-              <li>"result in"</li>
-              <li>"account for"</li>
-              <li>"set up" (a study)</li>
+              <li>&quot;carry out&quot; (an experiment)</li>
+              <li>&quot;point out&quot; (a fact)</li>
+              <li>&quot;result in&quot;</li>
+              <li>&quot;account for&quot;</li>
+              <li>&quot;set up&quot; (a study)</li>
             </ul>
           </div>
         </div>
@@ -161,13 +161,13 @@ export default function HighFrequencyPhrasalVerbsPost() {
         <h2 className="text-3xl font-semibold mb-6">Learner Challenges and Teaching Implications</h2>
         
         <p className="mb-4">
-          From a learner perspective, phrasal verbs are notoriously challenging. Learner corpus research confirms that students frequently struggle with them, often underusing them or making errors. An analysis of the Cambridge Learner Corpus notes that English learners "do often make mistakes in the use of phrasal verbs," such as choosing the wrong verb or wrong particle (e.g., using "hand out" instead of "hand over").
+          From a learner perspective, phrasal verbs are notoriously challenging. Learner corpus research confirms that students frequently struggle with them, often underusing them or making errors. An analysis of the Cambridge Learner Corpus notes that English learners &quot;do often make mistakes in the use of phrasal verbs,&quot; such as choosing the wrong verb or wrong particle (e.g., using &quot;hand out&quot; instead of &quot;hand over&quot;).
         </p>
 
         <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 my-8">
           <h3 className="text-xl font-semibold mb-3">Common Learner Difficulties</h3>
           <ul className="list-disc list-inside space-y-2">
-            <li><strong>Particle confusion:</strong> Using the wrong particle (e.g., "look up to" instead of "look up")</li>
+            <li><strong>Particle confusion:</strong> Using the wrong particle (e.g., &quot;look up to&quot; instead of &quot;look up&quot;)</li>
             <li><strong>Avoidance:</strong> Using formal single verbs instead, making speech sound unnaturally stiff</li>
             <li><strong>Literal translation:</strong> Attempting word-for-word translation from their native language</li>
             <li><strong>Separability issues:</strong> Not knowing when to separate the verb and particle</li>
@@ -175,7 +175,7 @@ export default function HighFrequencyPhrasalVerbsPost() {
         </div>
 
         <p className="mb-4">
-          Given these issues, TESOL materials place special emphasis on practicing phrasal verbs in context so that students become comfortable with them. The high-frequency items should be introduced early in learning and revisited often, because mastering these yields a big payoff in communicative ability. As guidance for teachers states: <em>"if you spend time practicing these important verbs, it becomes easier to communicate with fluency in English."</em>
+          Given these issues, TESOL materials place special emphasis on practicing phrasal verbs in context so that students become comfortable with them. The high-frequency items should be introduced early in learning and revisited often, because mastering these yields a big payoff in communicative ability. As guidance for teachers states: <em>&quot;if you spend time practicing these important verbs, it becomes easier to communicate with fluency in English.&quot;</em>
         </p>
       </section>
 
@@ -190,21 +190,21 @@ export default function HighFrequencyPhrasalVerbsPost() {
           <div className="border-l-4 border-gray-400 pl-6">
             <h3 className="text-xl font-semibold mb-2">TESOL International Association</h3>
             <p className="text-gray-700">
-              A global professional association for English language teachers (founded 1966). TESOL International is the "trusted global community for knowledge and expertise in English language teaching," with over 10,000 members worldwide. It publishes TESOL Quarterly, a top peer-reviewed research journal in language teaching.
+              A global professional association for English language teachers (founded 1966). TESOL International is the &quot;trusted global community for knowledge and expertise in English language teaching,&quot; with over 10,000 members worldwide. It publishes TESOL Quarterly, a top peer-reviewed research journal in language teaching.
             </p>
           </div>
 
           <div className="border-l-4 border-gray-400 pl-6">
             <h3 className="text-xl font-semibold mb-2">IATEFL</h3>
             <p className="text-gray-700">
-              International Association of Teachers of English as a Foreign Language, based in the UK. IATEFL is "one of the widest-reaching teacher associations in the world, with members in nearly 120 countries." Together with TESOL International, they are seen as the two leading international TESOL/ELT associations.
+              International Association of Teachers of English as a Foreign Language, based in the UK. IATEFL is &quot;one of the widest-reaching teacher associations in the world, with members in nearly 120 countries.&quot; Together with TESOL International, they are seen as the two leading international TESOL/ELT associations.
             </p>
           </div>
 
           <div className="border-l-4 border-gray-400 pl-6">
             <h3 className="text-xl font-semibold mb-2">British Council</h3>
             <p className="text-gray-700">
-              The UK's international organization for education and cultural relations, active in English teaching worldwide. It operates in over 100 countries, promoting English language learning and teacher training through resources like the TeachingEnglish website.
+              The UK&apos;s international organization for education and cultural relations, active in English teaching worldwide. It operates in over 100 countries, promoting English language learning and teacher training through resources like the TeachingEnglish website.
             </p>
           </div>
 
@@ -241,7 +241,7 @@ export default function HighFrequencyPhrasalVerbsPost() {
             <li><strong>Learn in chunks:</strong> Study phrasal verbs as complete units, not separate words</li>
             <li><strong>Notice patterns:</strong> Many phrasal verbs share particles with similar meanings</li>
             <li><strong>Practice actively:</strong> Use new phrasal verbs in your own sentences and conversations</li>
-            <li><strong>Don't avoid them:</strong> Phrasal verbs make your English sound more natural and fluent</li>
+            <li><strong>Don&apos;t avoid them:</strong> Phrasal verbs make your English sound more natural and fluent</li>
           </ol>
         </div>
       </section>
@@ -258,7 +258,7 @@ export default function HighFrequencyPhrasalVerbsPost() {
         </p>
         
         <p className="mb-4">
-          As the research demonstrates, knowing just the top 25 phrasal verbs can help learners understand nearly one-third of all phrasal verb occurrences they'll encounter. This makes mastering high-frequency phrasal verbs one of the most efficient ways to improve English fluency and comprehension.
+          As the research demonstrates, knowing just the top 25 phrasal verbs can help learners understand nearly one-third of all phrasal verb occurrences they&apos;ll encounter. This makes mastering high-frequency phrasal verbs one of the most efficient ways to improve English fluency and comprehension.
         </p>
       </section>
 

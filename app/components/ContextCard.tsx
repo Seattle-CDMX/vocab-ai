@@ -9,6 +9,7 @@ import { RoomAudioRenderer, StartAudio, RoomContext } from '@livekit/components-
 import '@livekit/components-styles';
 import { ContextCard as ContextCardType } from '@/lib/context-card-types';
 import { toast } from 'sonner';
+import Image from 'next/image';
 
 interface ContextCardProps {
   contextCard: ContextCardType;
@@ -183,10 +184,11 @@ const ContextCard = ({ contextCard, onAnswer, onReset }: ContextCardProps) => {
           
           {contextCard.imageUrl && (
             <div className="rounded-lg overflow-hidden border">
-              <img
+              <Image
                 src={contextCard.imageUrl}
                 alt={`Context for ${contextCard.scenario.character}`}
-                loading="lazy"
+                width={800}
+                height={192}
                 className="w-full h-48 object-cover"
               />
             </div>
