@@ -8,14 +8,39 @@ export default function SlidesPage() {
   useEffect(() => {
     let deck: any = null;
     
+    // Load Reveal.js CSS first
+    const loadCSS = (href: string) => {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+      document.head.appendChild(link);
+    };
+
+    // Load Reveal.js CSS from CDN
+    loadCSS('https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.css');
+    loadCSS('https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/theme/white.css');
+    
     import('reveal.js').then((module) => {
       const Reveal = module.default;
-      deck = new Reveal();
-      deck.initialize();
-    }).catch(console.error);
+      deck = new Reveal({
+        hash: true,
+        controls: true,
+        progress: true,
+        center: true,
+        transition: 'slide'
+      });
+      deck.initialize().then(() => {
+        console.log('Reveal.js initialized successfully');
+        console.log('Total slides:', deck.getTotalSlides());
+      });
+    }).catch((error) => {
+      console.error('Failed to load Reveal.js:', error);
+    });
 
     return () => {
-      if (deck?.destroy) deck.destroy();
+      if (deck?.destroy) {
+        deck.destroy();
+      }
     };
   }, []);
 
@@ -34,54 +59,58 @@ export default function SlidesPage() {
           <p className="text-2xl text-white/90">Spaced Repitition enhanced by LLM powered voice agents</p>
         </section>
 
-        {/* Problem Section */}
+        {/* The Complexity Examples Slide - Now slide #1 */}
         <section>
-          <section data-background-color="hsl(0, 75%, 55%)">
-            <h2 className="text-5xl font-bold text-white mb-8">The Problem</h2>
-            <h3 className="text-2xl text-white/90">Phrasal verbs are the #1 challenge for Spanish speakers learning English</h3>
-          </section>
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>The Complexity of Phrasal Verbs</h2>
           
-          <section>
-            <h3 className="text-4xl font-bold mb-8">Why Phrasal Verbs Are So Difficult</h3>
-            <div className="grid grid-cols-2 gap-8 text-left">
-              <div>
-                <h4 className="text-2xl font-semibold mb-4 text-primary">Spanish Structure</h4>
-                <ul className="text-lg space-y-2">
-                  <li>• One verb = one meaning</li>
-                  <li>• &quot;Recoger&quot; = to pick up</li>
-                  <li>• &quot;Continuar&quot; = to continue</li>
-                  <li>• Predictable and logical</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-2xl font-semibold mb-4 text-destructive">English Phrasal Verbs</h4>
-                <ul className="text-lg space-y-2">
-                  <li>• &quot;Pick up&quot; has 12+ meanings</li>
-                  <li>• &quot;Go on&quot; can mean continue, happen, or ramble</li>
-                  <li>• &quot;Put up with&quot; means tolerate</li>
-                  <li>• Seemingly random combinations</li>
-                </ul>
+          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
+            <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
+              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#fbbf24'}}>🧩 Multi-word and Multi Meaning</h3>
+              <p style={{fontSize: '1.2rem', marginBottom: '0.5rem'}}>&quot;to go on&quot; = happen or continue</p>
+              <p style={{fontSize: '1rem', opacity: '0.8'}}>(not literally going on a journey!)</p>
+            </div>
+
+            <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
+              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#fbbf24'}}>🔀 Parts ≠ Whole</h3>
+              <p style={{fontSize: '1.2rem', marginBottom: '0.5rem'}}>&quot;break up&quot; (end relationship)</p>
+              <p style={{fontSize: '1rem', opacity: '0.8'}}>≠ &quot;break&quot; + &quot;up&quot; (physically breaking upward)</p>
+            </div>
+
+            <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
+              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#fbbf24'}}>⚡ Grammar Rules</h3>
+              <div style={{fontSize: '1.1rem'}}>
+                <div style={{color: '#34d399', marginBottom: '0.5rem'}}>✅ &quot;turn on the TV&quot; → &quot;turn it on&quot;</div>
+                <div style={{color: '#f87171'}}>❌ &quot;look after kids&quot; → &quot;look them after&quot;</div>
               </div>
             </div>
-          </section>
-          
-          <section>
-            <h3 className="text-4xl font-bold mb-8">The Scale of the Challenge</h3>
-            <div className="grid grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="text-6xl font-bold text-primary mb-4">2000+</div>
-                <p className="text-xl">Common phrasal verbs in English</p>
-              </div>
-              <div className="text-center">
-                <div className="text-6xl font-bold text-warning mb-4">80%</div>
-                <p className="text-xl">of conversation uses phrasal verbs</p>
-              </div>
-              <div className="text-center">
-                <div className="text-6xl font-bold text-destructive mb-4">15x</div>
-                <p className="text-xl">longer to master than regular verbs</p>
+
+            <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
+              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#fbbf24'}}>🗣️ Everyday Champions for Spoken English</h3>
+              <div style={{fontSize: '1.1rem'}}>
+                <div style={{marginBottom: '0.5rem', opacity: '0.9'}}>Formal: &quot;Please tolerate the noise&quot;</div>
+                <div style={{color: '#60a5fa'}}>Casual: &quot;Just put up with it&quot;</div>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
+        
+        {/* The Scale of Challenge Slide */}
+        <section data-background-gradient="linear-gradient(135deg, hsl(200, 85%, 60%) 0%, hsl(200, 85%, 80%) 100%)">
+          <h3 className="text-4xl font-bold text-white mb-8">The Scale of the Challenge</h3>
+          <div className="grid grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="text-6xl font-bold text-white mb-4">2000+</div>
+              <p className="text-xl text-white/90">Common phrasal verbs in English</p>
+            </div>
+            <div className="text-center">
+              <div className="text-6xl font-bold text-white mb-4">80%</div>
+              <p className="text-xl text-white/90">of conversation uses phrasal verbs</p>
+            </div>
+            <div className="text-center">
+              <div className="text-6xl font-bold text-white mb-4">15x</div>
+              <p className="text-xl text-white/90">longer to master than regular verbs</p>
+            </div>
+          </div>
         </section>
 
         {/* Success Section */}

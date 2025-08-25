@@ -25,8 +25,8 @@ I used to be a language teacher, for me and my students, phrasal verbs were alwa
 
 ## [SLIDE 2: Problem Section] - The Problem (1:00)
 
-**Main Problem Statement (30 seconds)**
-Phrasal verbs are the number one challenge for Spanish speakers learning English. While Spanish uses single verbs with predictable meanings, English combines verbs and particles in seemingly random ways.
+** The Complexity of Phrasal Verbs (30 seconds)**
+Walk through point
 
 **[NEXT SLIDE: 1:30]**
 

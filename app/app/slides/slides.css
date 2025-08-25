@@ -28,12 +28,9 @@
   left: 0 !important;
 }
 
-.reveal .slides section:first-child {
-  background: linear-gradient(135deg, hsl(200, 85%, 45%) 0%, hsl(200, 85%, 65%) 100%) !important;
-}
-
-.reveal .slides section[data-background-color="hsl(0, 75%, 55%)"] {
-  background: hsl(0, 75%, 55%) !important;
+/* Background gradients are now handled by data-background-gradient attributes */
+.reveal .slides section[data-background-gradient] {
+  background: var(--background-gradient) !important;
 }
 
 .reveal .slides section[data-background-color="hsl(145, 65%, 45%)"] {
@@ -67,6 +64,37 @@
   color: white !important;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5) !important;
   font-size: 1.5rem !important;
+}
+
+/* Override text colors for content inside white cards */
+.reveal .bg-white h1,
+.reveal .bg-white h2, 
+.reveal .bg-white h3,
+.reveal .bg-white h4,
+.reveal .bg-white h5,
+.reveal .bg-white h6 {
+  color: inherit !important;
+  text-shadow: none !important;
+}
+
+.reveal .bg-white p,
+.reveal .bg-white li,
+.reveal .bg-white div {
+  color: inherit !important;
+  text-shadow: none !important;
+  font-size: inherit !important;
+}
+
+/* Force dark titles for slides without backgrounds */
+.reveal section h2[style*="color: #1e3a8a"] {
+  color: #1e3a8a !important;
+  text-shadow: none !important;
+}
+
+/* More specific override for the title */
+.reveal section:not([data-background-gradient]):not([data-background-color]) h2 {
+  color: #1e3a8a !important;
+  text-shadow: none !important;
 }
 
 /* Override with custom theme using your design tokens */
