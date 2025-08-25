@@ -84,3 +84,12 @@ The application implements comprehensive password protection using:
 - ESLint configured with Next.js recommended settings
 - Strict TypeScript configuration enabled
 - No test framework currently configured
+
+### Common Deployment Issues
+
+#### React Unescaped Entities Error
+When deploying to Vercel, you may encounter ESLint errors about unescaped entities in JSX:
+- Apostrophes (`'`) should be replaced with `&apos;`
+- Double quotes (`"`) should be replaced with `&quot;`
+- This is enforced by the `react/no-unescaped-entities` ESLint rule
+- The build will fail on Vercel if these aren't properly escaped, even if they work locally

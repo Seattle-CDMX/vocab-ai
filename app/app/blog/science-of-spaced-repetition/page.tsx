@@ -26,7 +26,7 @@ export default function ScienceOfSpacedRepetitionPost() {
           Have you ever wondered why cramming for exams feels so exhausting yet yields such poor long-term retention? Or why some people seem to effortlessly remember foreign vocabulary while others struggle despite hours of study? The answer lies in understanding how our brains naturally form and maintain memories—and leveraging a scientifically-backed learning technique called spaced repetition.
         </p>
         <p className="mb-4">
-          Spaced repetition is not just another study hack; it's a learning method grounded in over a century of memory research and validated by cutting-edge neuroscience. This comprehensive guide explores the latest 2024 research findings, the neural mechanisms that make spaced repetition so effective, and practical applications for language learners, students, and professionals.
+          Spaced repetition is not just another study hack; it&apos;s a learning method grounded in over a century of memory research and validated by cutting-edge neuroscience. This comprehensive guide explores the latest 2024 research findings, the neural mechanisms that make spaced repetition so effective, and practical applications for language learners, students, and professionals.
         </p>
       </section>
 
@@ -34,16 +34,16 @@ export default function ScienceOfSpacedRepetitionPost() {
         <h2 className="text-3xl font-semibold mb-6">What is Spaced Repetition?</h2>
         
         <p className="mb-4">
-          Spaced repetition is a learning technique that involves reviewing information at systematically increasing intervals. Instead of cramming all at once (massed practice), you review material just as you're about to forget it, gradually extending the time between reviews as the memory becomes stronger.
+          Spaced repetition is a learning technique that involves reviewing information at systematically increasing intervals. Instead of cramming all at once (massed practice), you review material just as you&apos;re about to forget it, gradually extending the time between reviews as the memory becomes stronger.
         </p>
 
         <div className="bg-blue-50 border-l-4 border-blue-500 p-6 my-8">
           <h3 className="text-xl font-semibold mb-3">The Basic Principle</h3>
           <p className="mb-3">
-            The core insight is deceptively simple: <strong>forgetting is not the enemy of learning—it's an essential part of it</strong>. When you struggle to recall information that's partially forgotten, the act of retrieval strengthens the memory trace more than passive review ever could.
+            The core insight is deceptively simple: <strong>forgetting is not the enemy of learning—it&apos;s an essential part of it</strong>. When you struggle to recall information that&apos;s partially forgotten, the act of retrieval strengthens the memory trace more than passive review ever could.
           </p>
           <p>
-            This creates what researchers call "desirable difficulty"—the optimal challenge level that promotes long-term retention without overwhelming the learner.
+            This creates what researchers call &quot;desirable difficulty&quot;—the optimal challenge level that promotes long-term retention without overwhelming the learner.
           </p>
         </div>
 
@@ -56,7 +56,7 @@ export default function ScienceOfSpacedRepetitionPost() {
         <h2 className="text-3xl font-semibold mb-6">The Neuroscience Behind Spaced Repetition</h2>
         
         <p className="mb-4">
-          Recent advances in neuroscience have revealed exactly why spaced repetition is so powerful. When you recall information, you're literally rewiring your brain at the cellular level.
+          Recent advances in neuroscience have revealed exactly why spaced repetition is so powerful. When you recall information, you&apos;re literally rewiring your brain at the cellular level.
         </p>
 
         <h3 className="text-2xl font-semibold mb-4">Neural Pattern Similarity and Memory Formation</h3>
@@ -150,7 +150,7 @@ export default function ScienceOfSpacedRepetitionPost() {
         <h2 className="text-3xl font-semibold mb-6">The Forgetting Curve and Optimal Intervals</h2>
         
         <p className="mb-4">
-          Hermann Ebbinghaus's pioneering research on the "forgetting curve" laid the foundation for understanding memory decay. His work showed that information is lost exponentially over time unless reinforced through review.
+          Hermann Ebbinghaus&apos;s pioneering research on the &quot;forgetting curve&quot; laid the foundation for understanding memory decay. His work showed that information is lost exponentially over time unless reinforced through review.
         </p>
 
         <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 my-8">
@@ -169,7 +169,7 @@ export default function ScienceOfSpacedRepetitionPost() {
         </p>
         
         <p className="mb-4">
-          Bahrick's research demonstrated that properly spaced reviews could maintain knowledge at 80-90% accuracy levels even after years without practice—a phenomenon he termed "permastore."
+          Bahrick&apos;s research demonstrated that properly spaced reviews could maintain knowledge at 80-90% accuracy levels even after years without practice—a phenomenon he termed &quot;permastore.&quot;
         </p>
       </section>
 
@@ -261,7 +261,7 @@ export default function ScienceOfSpacedRepetitionPost() {
 
         <h3 className="text-2xl font-semibold mb-4">Beyond Individual Card Scheduling</h3>
         <p className="mb-4">
-          Traditional systems like SM-2 and FSRS treat each flashcard in isolation, relying solely on individual review history. However, 2024 research by Shu et al. introduced "content-aware scheduling," which considers relationships between different pieces of information.
+          Traditional systems like SM-2 and FSRS treat each flashcard in isolation, relying solely on individual review history. However, 2024 research by Shu et al. introduced &quot;content-aware scheduling,&quot; which considers relationships between different pieces of information.
         </p>
 
         <div className="bg-orange-50 border-l-4 border-orange-500 p-6 my-8">
@@ -279,7 +279,7 @@ export default function ScienceOfSpacedRepetitionPost() {
         <h2 className="text-3xl font-semibold mb-6">The Testing Effect and Active Recall</h2>
         
         <p className="mb-4">
-          Spaced repetition's effectiveness is amplified by the testing effect—the finding that attempting to retrieve information strengthens memory more than passive review.
+          Spaced repetition&apos;s effectiveness is amplified by the testing effect—the finding that attempting to retrieve information strengthens memory more than passive review.
         </p>
 
         <h3 className="text-2xl font-semibold mb-4">Retrieval Practice Enhancement</h3>
@@ -320,7 +320,7 @@ export default function ScienceOfSpacedRepetitionPost() {
             <ol className="list-decimal list-inside space-y-2 text-sm">
               <li><strong>Trust the process:</strong> Difficulty during retrieval indicates learning</li>
               <li><strong>Be consistent:</strong> Daily short sessions outperform sporadic long ones</li>
-              <li><strong>Focus on understanding:</strong> Don't just memorize—comprehend</li>
+              <li><strong>Focus on understanding:</strong> Don&apos;t just memorize—comprehend</li>
               <li><strong>Use multiple senses:</strong> Combine visual, auditory, and kinesthetic elements</li>
               <li><strong>Track your progress:</strong> Celebrate improvements in retention and speed</li>
             </ol>
@@ -372,11 +372,11 @@ export default function ScienceOfSpacedRepetitionPost() {
         <h2 className="text-3xl font-semibold mb-6">Conclusion</h2>
         
         <p className="mb-4">
-          The science is clear: spaced repetition represents one of the most effective learning strategies ever discovered. By working with—rather than against—the brain's natural forgetting processes, this method creates durable memories that last for years, not weeks.
+          The science is clear: spaced repetition represents one of the most effective learning strategies ever discovered. By working with—rather than against—the brain&apos;s natural forgetting processes, this method creates durable memories that last for years, not weeks.
         </p>
         
         <p className="mb-4">
-          The latest 2024 research has deepened our understanding of the neural mechanisms behind spaced repetition's effectiveness, revealing how it literally rewires our brains for better learning. From neural pattern similarity to Long-Term Potentiation, the biological foundations of this technique are now well-established.
+          The latest 2024 research has deepened our understanding of the neural mechanisms behind spaced repetition&apos;s effectiveness, revealing how it literally rewires our brains for better learning. From neural pattern similarity to Long-Term Potentiation, the biological foundations of this technique are now well-established.
         </p>
         
         <p className="mb-4">
@@ -387,7 +387,7 @@ export default function ScienceOfSpacedRepetitionPost() {
           <h3 className="text-xl font-semibold mb-3">Key Takeaways</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Spaced repetition works by optimizing the timing of memory retrieval</li>
-            <li>Forgetting is not failure—it's an essential component of strong memory formation</li>
+            <li>Forgetting is not failure—it&apos;s an essential component of strong memory formation</li>
             <li>Active recall significantly outperforms passive review methods</li>
             <li>Modern algorithms like FSRS offer substantial improvements over traditional approaches</li>
             <li>Consistency and patience are crucial for long-term success</li>
@@ -395,11 +395,11 @@ export default function ScienceOfSpacedRepetitionPost() {
         </div>
         
         <p className="mb-4">
-          Whether you're learning a new language, preparing for exams, or developing professional skills, spaced repetition can transform how efficiently you acquire and retain knowledge. The investment in understanding and implementing this technique pays dividends that compound over time—quite literally changing how your brain learns.
+          Whether you&apos;re learning a new language, preparing for exams, or developing professional skills, spaced repetition can transform how efficiently you acquire and retain knowledge. The investment in understanding and implementing this technique pays dividends that compound over time—quite literally changing how your brain learns.
         </p>
 
         <p>
-          As we continue to unlock the mysteries of memory and cognition, spaced repetition stands as a testament to the power of scientific approaches to learning. By embracing difficulty, trusting the process, and leveraging the brain's natural patterns, we can achieve remarkable results that seemed impossible just a generation ago.
+          As we continue to unlock the mysteries of memory and cognition, spaced repetition stands as a testament to the power of scientific approaches to learning. By embracing difficulty, trusting the process, and leveraging the brain&apos;s natural patterns, we can achieve remarkable results that seemed impossible just a generation ago.
         </p>
       </section>
 
@@ -421,7 +421,7 @@ export default function ScienceOfSpacedRepetitionPost() {
           
           <p>van Rijn, H., et al. (2009). The right time to learn: mechanisms and optimization of spaced learning. <em>Frontiers in Human Neuroscience, 3</em>, 4.</p>
           
-          <p>Wozniak, P. A. (1990). Optimization of learning. Master's thesis, University of Technology in Poznan.</p>
+          <p>Wozniak, P. A. (1990). Optimization of learning. Master&apos;s thesis, University of Technology in Poznan.</p>
           
           <p>Ye, J. (2024). Free Spaced Repetition Scheduler (FSRS-6): Algorithm documentation. <em>Open Spaced Repetition</em>. Available at: github.com/open-spaced-repetition</p>
         </div>
