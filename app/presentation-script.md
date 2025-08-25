@@ -25,8 +25,8 @@ I used to be a language teacher, for me and my students, phrasal verbs were alwa
 
 ## [SLIDE 2: Problem Section] - The Problem (1:00)
 
-** The Complexity of Phrasal Verbs (30 seconds)**
-Walk through point
+**The Complexity of Phrasal Verbs (30 seconds)**
+Walk through point by point, and emphasize how these are 
 
 **[NEXT SLIDE: 1:30]**
 

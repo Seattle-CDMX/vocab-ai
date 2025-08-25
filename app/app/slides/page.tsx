@@ -93,34 +93,31 @@ export default function SlidesPage() {
             </div>
           </div>
         </section>
-        
-        {/* The Scale of Challenge Slide */}
-        <section data-background-gradient="linear-gradient(135deg, hsl(200, 85%, 60%) 0%, hsl(200, 85%, 80%) 100%)">
-          <h3 className="text-4xl font-bold text-white mb-8">The Scale of the Challenge</h3>
-          <div className="grid grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="text-6xl font-bold text-white mb-4">2000+</div>
-              <p className="text-xl text-white/90">Common phrasal verbs in English</p>
-            </div>
-            <div className="text-center">
-              <div className="text-6xl font-bold text-white mb-4">80%</div>
-              <p className="text-xl text-white/90">of conversation uses phrasal verbs</p>
-            </div>
-            <div className="text-center">
-              <div className="text-6xl font-bold text-white mb-4">15x</div>
-              <p className="text-xl text-white/90">longer to master than regular verbs</p>
-            </div>
-          </div>
-        </section>
 
-        {/* Success Section */}
-        <section data-background-color="hsl(145, 65%, 45%)">
-          <h2 className="text-5xl font-bold text-white mb-8">Success Story</h2>
-          <div className="text-2xl text-white/90 space-y-6">
-            <p>&quot;I built VoiceCard AI to solve my own problem as a Spanish speaker&quot;</p>
-            <p>• Increased my phrasal verb accuracy from 40% to 85%</p>
-            <p>• Native speakers now say I sound &apos;more natural&apos;</p>
-            <p>• Reduced learning time by 60% through AI-powered practice</p>
+        {/* Problem & Solution Gap Slide */}
+        <section>
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>The Learning Gap</h2>
+          
+          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', maxWidth: '1200px', margin: '0 auto'}}>
+            <div style={{backgroundColor: '#dc2626', color: 'white', padding: '3rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
+              <h3 style={{fontSize: '2rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fef3c7'}}>😤 Daily Frustrations</h3>
+              <div style={{fontSize: '1.3rem', lineHeight: '1.6'}}>
+                <div style={{marginBottom: '1rem'}}>❌ "I understand grammar but sound robotic"</div>
+                <div style={{marginBottom: '1rem'}}>❌ "Native speakers use phrases I don't know"</div>
+                <div style={{marginBottom: '1rem'}}>❌ "I freeze up in real conversations"</div>
+                <div>❌ "My English sounds textbook, not natural"</div>
+              </div>
+            </div>
+
+            <div style={{backgroundColor: '#1e40af', color: 'white', padding: '3rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
+              <h3 style={{fontSize: '2rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fbbf24'}}>🎯 Why Current Methods Fail</h3>
+              <div style={{fontSize: '1.3rem', lineHeight: '1.6'}}>
+                <div style={{marginBottom: '1rem', opacity: '0.9'}}>📚 Spaced repetition: Text-only, no voice practice</div>
+                <div style={{marginBottom: '1rem', opacity: '0.9'}}>🦜 Duolingo: Over-promises, under-delivers on conversation</div>
+                <div style={{marginBottom: '1rem', opacity: '0.9'}}>😴 Traditional ESL: Boring grammar drills</div>
+                <div style={{color: '#34d399', fontWeight: 'bold'}}>✅ Need: Interactive voice + AI feedback</div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -133,25 +130,39 @@ export default function SlidesPage() {
           
           <section>
             <h3 className="text-4xl font-bold mb-8">Market Size & Opportunity</h3>
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="text-6xl font-bold text-primary mb-4">559M</div>
-                <p className="text-xl">Spanish speakers worldwide</p>
+                <div className="text-5xl font-bold text-primary mb-4">1.5B</div>
+                <p className="text-lg">People learning English globally</p>
               </div>
               <div className="text-center">
-                <div className="text-6xl font-bold text-primary mb-4">41M</div>
-                <p className="text-xl">Spanish speakers in the US</p>
+                <div className="text-5xl font-bold text-primary mb-4">559M</div>
+                <p className="text-lg">Spanish speakers worldwide</p>
+              </div>
+              <div className="text-center">
+                <div className="text-5xl font-bold text-primary mb-4">41M</div>
+                <p className="text-lg">Spanish speakers in the US</p>
               </div>
             </div>
-            <div className="text-center mt-8">
-              <div className="text-6xl font-bold text-success mb-4">$60B</div>
-              <p className="text-xl">Global language learning market by 2027</p>
+            <div className="grid grid-cols-2 gap-8 mt-8">
+              <div className="text-center">
+                <div className="text-5xl font-bold text-success mb-4">$60B</div>
+                <p className="text-lg">Global language learning market by 2027</p>
+              </div>
+              <div className="text-center">
+                <div className="text-5xl font-bold text-warning mb-4">21+</div>
+                <p className="text-lg">Spanish-speaking countries with growing nearshoring sectors</p>
+              </div>
             </div>
           </section>
           
           <section>
             <h3 className="text-4xl font-bold mb-8">Why Spanish Speakers?</h3>
             <ul className="text-xl space-y-4 text-left max-w-4xl mx-auto">
+              <li className="flex items-start">
+                <span className="text-2xl mr-4">🌎</span>
+                <span>Nearshoring boom: Millions in Mexico, Colombia, Costa Rica working with US companies</span>
+              </li>
               <li className="flex items-start">
                 <span className="text-2xl mr-4">🧠</span>
                 <span>Cognitive interference: Spanish sentence structure conflicts with phrasal verb patterns</span>
