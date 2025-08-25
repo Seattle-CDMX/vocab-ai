@@ -17,7 +17,9 @@ This is a Next.js 15 application implementing a LiveKit video conferencing room 
 
 - **App Router Structure**: Uses Next.js App Router with TypeScript
 - **Main Room Interface** (`app/page.tsx`): Primary video conferencing interface with room management
-- **Room Page** (`app/room/page.tsx`): Currently a single-line file, appears to be minimal
+- **Study Page** (`app/study/page.tsx`): Voice card practice interface with phrasal verb learning
+- **Dashboard** (`app/dashboard/page.tsx`): User progress tracking and statistics
+- **Slides Presentation** (`app/slides/page.tsx`): Reveal.js presentation system with Mermaid diagrams
 - **API Routes** (`app/api/token/route.ts`): Handles LiveKit token generation, room listing, and deletion
 
 ### LiveKit Integration
@@ -77,6 +79,8 @@ The application implements comprehensive password protection using:
 - Room deletion with participant disconnection
 - **Voice Card Integration**: Passes voice card data via token metadata to LiveKit agents for context-aware voice practice
 - **Audio-Only Mode**: VoiceCard component requests only microphone permission for voice-based learning
+- **Presentation System**: Reveal.js slides with Mermaid diagram support for technical presentations
+- **Spaced Repetition Learning**: Built-in SRS system for phrasal verb practice with progress tracking
 
 ### Development Notes
 
@@ -93,3 +97,16 @@ When deploying to Vercel, you may encounter ESLint errors about unescaped entiti
 - Double quotes (`"`) should be replaced with `&quot;`
 - This is enforced by the `react/no-unescaped-entities` ESLint rule
 - The build will fail on Vercel if these aren't properly escaped, even if they work locally
+
+#### TypeScript Module Declaration Issues
+When using external libraries like `reveal.js` without built-in TypeScript support:
+- Install corresponding `@types` packages: `npm install --save-dev @types/reveal.js`
+- For missing type declarations, create a `.d.ts` file or use `declare module` statements
+- This prevents TypeScript compilation errors during Vercel builds
+
+#### Dependencies and Package Management
+Current key dependencies include:
+- **Presentation**: `reveal.js`, `mermaid` for slides and diagrams
+- **LiveKit**: `@livekit/components-react`, `livekit-client`, `livekit-server-sdk`
+- **UI Components**: `@radix-ui/react-slot`, `lucide-react`, `sonner`
+- **Styling**: `tailwindcss`, `class-variance-authority`, `clsx`, `tailwind-merge`

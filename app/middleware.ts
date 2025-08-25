@@ -4,7 +4,7 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   
-  // Skip middleware for static files, API routes (except auth), login page, root page, and blog
+  // Skip middleware for static files, API routes (except auth), login page, root page, blog, and slides
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/favicon') ||
@@ -13,6 +13,7 @@ export function middleware(request: NextRequest) {
     pathname === '/login' ||
     pathname === '/' ||
     pathname.startsWith('/blog') ||
+    pathname.startsWith('/slides') ||
     pathname.includes('.')
   ) {
     return NextResponse.next();

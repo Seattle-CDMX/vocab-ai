@@ -1,0 +1,345 @@
+/* Custom Reveal.js styling matching VoiceCard design */
+/* Note: Reveal.js CSS is loaded via JavaScript to avoid import issues */
+
+/* Force full viewport usage and proper positioning */
+.reveal {
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+.reveal .slides {
+  width: 100% !important;
+  height: 100% !important;
+  left: 0 !important;
+  top: 0 !important;
+  transform: none !important;
+}
+
+/* Force backgrounds to be visible and override default styling */
+.reveal .slides section {
+  width: 100vw !important;
+  height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 2rem !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+.reveal .slides section:first-child {
+  background: linear-gradient(135deg, hsl(200, 85%, 45%) 0%, hsl(200, 85%, 65%) 100%) !important;
+}
+
+.reveal .slides section[data-background-color="hsl(0, 75%, 55%)"] {
+  background: hsl(0, 75%, 55%) !important;
+}
+
+.reveal .slides section[data-background-color="hsl(145, 65%, 45%)"] {
+  background: hsl(145, 65%, 45%) !important;
+}
+
+.reveal .slides section[data-background-color="hsl(45, 90%, 55%)"] {
+  background: hsl(45, 90%, 55%) !important;
+}
+
+/* Ensure text is always visible with fallback colors */
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+  color: white !important;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5) !important;
+  margin-bottom: 1rem !important;
+}
+
+.reveal h1 {
+  font-size: 4rem !important;
+}
+
+.reveal h2 {
+  font-size: 2.5rem !important;
+}
+
+.reveal h3 {
+  font-size: 2rem !important;
+}
+
+.reveal p, .reveal li {
+  color: white !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5) !important;
+  font-size: 1.5rem !important;
+}
+
+/* Override with custom theme using your design tokens */
+:root {
+  /* Use your existing CSS custom properties */
+  --r-background-color: hsl(210, 25%, 97%);
+  --r-main-font: 'Geist Sans', Arial, Helvetica, sans-serif;
+  --r-main-font-size: 40px;
+  --r-main-color: hsl(215, 25%, 15%);
+  --r-block-margin: 20px;
+  --r-heading-margin: 0 0 20px 0;
+  --r-heading-font: 'Geist Sans', Arial, Helvetica, sans-serif;
+  --r-heading-color: hsl(215, 25%, 15%);
+  --r-heading-line-height: 1.2;
+  --r-heading-letter-spacing: normal;
+  --r-heading-text-transform: none;
+  --r-heading-text-shadow: none;
+  --r-heading-font-weight: 600;
+  --r-heading1-text-shadow: none;
+  --r-heading1-size: 2.5em;
+  --r-heading2-size: 2em;
+  --r-heading3-size: 1.5em;
+  --r-heading4-size: 1.2em;
+  --r-code-font: 'Geist Mono', 'Courier New', monospace;
+  --r-link-color: hsl(200, 85%, 45%);
+  --r-link-color-dark: hsl(200, 85%, 45%);
+  --r-link-color-hover: hsl(200, 85%, 65%);
+  --r-selection-background-color: hsl(200, 85%, 45%);
+  --r-selection-color: white;
+}
+
+/* Slide styling */
+.reveal .slides section {
+  text-align: center;
+}
+
+.reveal .slides section.has-light-background,
+.reveal .slides section.has-light-background h1,
+.reveal .slides section.has-light-background h2,
+.reveal .slides section.has-light-background h3,
+.reveal .slides section.has-light-background h4,
+.reveal .slides section.has-light-background h5,
+.reveal .slides section.has-light-background h6 {
+  color: #222;
+}
+
+/* Custom card-like styling for content */
+.reveal .slides section > div {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  margin: 1rem 0;
+}
+
+/* Grid layouts */
+.reveal .grid {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+.reveal .grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.reveal .grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Text utilities matching your Tailwind setup */
+.reveal .text-left {
+  text-align: left !important;
+}
+
+.reveal .text-center {
+  text-align: center !important;
+}
+
+.reveal .text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.reveal .text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.reveal .text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.reveal .text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.reveal .text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.reveal .text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.reveal .text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+/* Color utilities */
+.reveal .text-white {
+  color: white !important;
+}
+
+.reveal .text-black {
+  color: black !important;
+}
+
+.reveal .text-primary {
+  color: hsl(200, 85%, 45%) !important;
+}
+
+.reveal .text-success {
+  color: hsl(145, 65%, 45%) !important;
+}
+
+.reveal .text-warning {
+  color: hsl(45, 90%, 55%) !important;
+}
+
+.reveal .text-destructive {
+  color: hsl(0, 75%, 55%) !important;
+}
+
+.reveal .text-white\/90 {
+  color: rgb(255 255 255 / 0.9) !important;
+}
+
+.reveal .text-white\/80 {
+  color: rgb(255 255 255 / 0.8) !important;
+}
+
+.reveal .text-black\/80 {
+  color: rgb(0 0 0 / 0.8) !important;
+}
+
+.reveal .text-black\/70 {
+  color: rgb(0 0 0 / 0.7) !important;
+}
+
+.reveal .text-black\/60 {
+  color: rgb(0 0 0 / 0.6) !important;
+}
+
+/* Font weights */
+.reveal .font-bold {
+  font-weight: 700;
+}
+
+.reveal .font-semibold {
+  font-weight: 600;
+}
+
+/* Spacing utilities */
+.reveal .mb-4 {
+  margin-bottom: 1rem;
+}
+
+.reveal .mb-8 {
+  margin-bottom: 2rem;
+}
+
+.reveal .mb-12 {
+  margin-bottom: 3rem;
+}
+
+.reveal .mt-4 {
+  margin-top: 1rem;
+}
+
+.reveal .mt-8 {
+  margin-top: 2rem;
+}
+
+.reveal .mt-12 {
+  margin-top: 3rem;
+}
+
+.reveal .space-y-2 > * + * {
+  margin-top: 0.5rem;
+}
+
+.reveal .space-y-4 > * + * {
+  margin-top: 1rem;
+}
+
+.reveal .space-y-6 > * + * {
+  margin-top: 1.5rem;
+}
+
+/* Flexbox utilities */
+.reveal .flex {
+  display: flex;
+}
+
+.reveal .items-start {
+  align-items: flex-start;
+}
+
+.reveal .items-center {
+  align-items: center;
+}
+
+.reveal .max-w-4xl {
+  max-width: 56rem;
+}
+
+.reveal .mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reveal .mr-4 {
+  margin-right: 1rem;
+}
+
+/* Lists */
+.reveal ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.reveal ul li {
+  margin: 0.5rem 0;
+}
+
+/* Mermaid diagram styling */
+.reveal .mermaid {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.reveal .mermaid pre {
+  background: transparent;
+  border: none;
+  font-size: 0.8rem;
+  margin: 0;
+  box-shadow: none;
+}
+
+/* Controls styling */
+.reveal .controls {
+  color: hsl(200, 85%, 45%);
+}
+
+.reveal .controls button {
+  color: hsl(200, 85%, 45%);
+}
+
+/* Progress bar */
+.reveal .progress {
+  background: rgba(200, 85, 45, 0.2);
+}
+
+.reveal .progress span {
+  background: hsl(200, 85%, 45%);
+}

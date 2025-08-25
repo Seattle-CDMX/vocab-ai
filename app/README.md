@@ -8,6 +8,9 @@ A Next.js 15 application with LiveKit integration for real-time video conferenci
 - 🎥 **Video Conferencing** - Real-time video chat with adaptive streaming
 - 🏠 **Room Management** - Create, join, and delete video conference rooms
 - 👥 **Participant Management** - Handle multiple participants with ease
+- 🗣️ **Voice Learning** - AI-powered phrasal verb practice with LiveKit integration
+- 📊 **Progress Tracking** - Spaced repetition system with learning analytics
+- 📽️ **Presentation System** - Reveal.js slides with Mermaid diagrams
 - 🌐 **Vercel Ready** - Optimized for seamless deployment
 
 ## Quick Start
@@ -107,10 +110,15 @@ npm run lint     # Run ESLint
 ├── app/
 │   ├── api/
 │   │   ├── auth/         # Authentication API
-│   │   └── token/        # LiveKit token management
+│   │   ├── token/        # LiveKit token management
+│   │   └── generated-data/ # Voice card data generation
+│   ├── dashboard/        # User progress and analytics
 │   ├── login/            # Login page
+│   ├── slides/           # Reveal.js presentation system
+│   ├── study/            # Voice card practice interface
 │   ├── layout.tsx        # Root layout
 │   └── page.tsx          # Main app interface
+├── components/           # Reusable React components
 ├── middleware.ts         # Password protection middleware
 ├── .env.example          # Environment template
 └── README.md
@@ -141,6 +149,8 @@ This app requires a LiveKit server. You can:
 - Run `npm run build` locally to test
 - Ensure all environment variables are set in production
 - Check deployment logs for specific errors
+- For unescaped entities errors: Replace `'` with `&apos;` and `"` with `&quot;` in JSX
+- For missing TypeScript declarations: Install `@types/package-name` or create `.d.ts` files
 
 ## Contributing
 

@@ -142,9 +142,9 @@ const Hero = ({ isAuthenticated, onSignOut }: { isAuthenticated: boolean; onSign
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
                 <Brain className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Smart Repetition</h3>
+              <h3 className="text-lg font-semibold mb-2">Spaced Repetition</h3>
               <p className="text-muted-foreground">
-                Advanced algorithm adapts to your learning pace and remembers what you struggle with
+                The same spaced repition used by in the language learning space.
               </p>
             </div>
 
