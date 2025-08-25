@@ -20,7 +20,9 @@ logger = logging.getLogger("agent.context")
 class ContextAgent(Agent):
     """Agent for context-based phrasal verb practice with role-playing scenarios."""
 
-    def __init__(self, scenario_data: Optional[dict] = None, voice_persona: Optional[dict] = None):
+    def __init__(
+        self, scenario_data: Optional[dict] = None, voice_persona: Optional[dict] = None
+    ):
         self.max_turns = 5
         self.turn_count = 0
         self.success = False
@@ -32,29 +34,46 @@ class ContextAgent(Agent):
             self.character = scenario_data.get("character", "Mr. Yang")
             self.situation = scenario_data.get("situation", "a meeting")
             self.phrasal_verb = scenario_data.get("phrasalVerb", "go on")
+            self.phrasal_verb_definition = scenario_data.get("phrasalVerbDefinition")
             self.context_text = scenario_data.get("contextText", "")
             self.max_turns = scenario_data.get("maxTurns", 5)
+
+            # Fail loudly if critical data is missing
+            if not self.character:
+                raise ValueError(
+                    "Character data is missing from metadata. Check frontend metadata passing."
+                )
+            if not self.phrasal_verb_definition:
+                raise ValueError(
+                    "Phrasal verb definition is missing from metadata. This is required for proper evaluation."
+                )
         else:
-            # Defaults
+            # Defaults for testing/fallback - should not be used in production
+            logger.warning(
+                "⚠️ [ContextAgent] No scenario_data provided - using fallbacks. This should not happen in production."
+            )
             self.character = "Mr. Yang"
             self.situation = "a meeting"
             self.phrasal_verb = "go on"
+            self.phrasal_verb_definition = "Happen, take place"  # Default for testing
             self.context_text = "You need to speak with Mr. Yang"
 
         # Build agent instructions with persona information
-        persona_info = self.voice_persona.get('persona', {})
-        teaching_style = persona_info.get('teaching_style', 'professional and clear')
-        personality_traits = persona_info.get('personality_traits', ['professional', 'clear', 'supportive'])
+        persona_info = self.voice_persona.get("persona", {})
+        teaching_style = persona_info.get("teaching_style", "professional and clear")
+        personality_traits = persona_info.get(
+            "personality_traits", ["professional", "clear", "supportive"]
+        )
 
         instructions = f"""You are {self.character} in this scenario: {self.situation}
 
 Your teaching approach: {teaching_style}
-Your personality traits: {', '.join(personality_traits)}
+Your personality traits: {", ".join(personality_traits)}
 
 Your role:
 1. Act naturally as {self.character} in the given situation
 2. Respond authentically to what the student says with your {teaching_style} style
-3. Keep the conversation flowing naturally while being {', '.join(personality_traits)}
+3. Keep the conversation flowing naturally while being {", ".join(personality_traits)}
 4. Do NOT explicitly ask them to use the phrasal verb
 5. Do NOT mention the phrasal verb directly unless they use it
 6. Stay in character throughout the conversation
@@ -66,10 +85,11 @@ Start by greeting the student and setting up the scenario naturally. For example
 Remember: You are {self.character}, not a language teacher. Act naturally in the scenario while embodying your {teaching_style} approach."""
 
         # Configure TTS with voice persona data
-        voice_info = self.voice_persona.get('voice', {})
-        language_code = voice_info.get('language_code', 'en-US')
-        voice_name = voice_info.get('name', 'en-US-Chirp3-HD-Achernar')  # Default CHIRP 3 HD voice
-
+        voice_info = self.voice_persona.get("voice", {})
+        language_code = voice_info.get("language_code", "en-US")
+        voice_name = voice_info.get(
+            "name", "en-US-Chirp3-HD-Achernar"
+        )  # Default CHIRP 3 HD voice
 
         super().__init__(
             instructions=instructions,
@@ -127,6 +147,7 @@ Remember: You are {self.character}, not a language teacher. Act naturally in the
             evaluation = await self.evaluator.evaluate_usage(
                 user_text=user_text,
                 phrasal_verb=self.phrasal_verb,
+                phrasal_verb_definition=self.phrasal_verb_definition,
                 scenario=self.situation,
                 character=self.character,
             )
@@ -142,7 +163,7 @@ Remember: You are {self.character}, not a language teacher. Act naturally in the
                 asyncio.create_task(  # noqa: RUF006
                     TerminalStateManager.handle_success(
                         f"Excellent! You used '{self.phrasal_verb}' correctly in context! 🎯",
-                        delay_seconds=3.5  # Shorter delay for context conversations
+                        delay_seconds=3.5,  # Shorter delay for context conversations
                     )
                 )
                 logger.info(
@@ -160,7 +181,7 @@ Remember: You are {self.character}, not a language teacher. Act naturally in the
                     TerminalStateManager.handle_failure(
                         "Out of turns. Time to move on!",
                         hint,
-                        delay_seconds=2.5  # Shorter delay for failure messages
+                        delay_seconds=2.5,  # Shorter delay for failure messages
                     )
                 )
                 logger.info(
@@ -182,19 +203,18 @@ Remember: You are {self.character}, not a language teacher. Act naturally in the
         except Exception as e:
             logger.error(f"❌ [ContextAgent] Background evaluation failed: {e}")
 
-
     async def on_enter(self) -> None:
         """Called when the agent becomes active."""
         logger.info(f"🎭 [ContextAgent] Agent entering as {self.character}")
         logger.info(f"🎯 [ContextAgent] Target phrasal verb: {self.phrasal_verb}")
         logger.info(f"📝 [ContextAgent] Scenario: {self.situation}")
         logger.info(f"🔢 [ContextAgent] Max turns: {self.max_turns}")
-        
+
         # Generate automatic first message to start conversation immediately
         if self.situation == "a meeting" and self.character == "Mr. Yang":
             greeting = "Oh hello! I was just reviewing my notes. Where were we in our discussion?"
         else:
             greeting = f"Hello! I'm {self.character}. {self.context_text}"
-            
+
         logger.info(f"🗣️ [ContextAgent] Starting conversation with: {greeting}")
         self.session.generate_reply(instructions=greeting)
