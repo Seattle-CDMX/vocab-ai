@@ -14,10 +14,10 @@
 ## [SLIDE 1: Title] - VoiceCard AI (0:00)
 
 **Opening (30 seconds)**
-Good [morning/afternoon] everyone. I'm excited to share VoiceCard AI - an AI-powered solution that's revolutionizing how Spanish speakers master English phrasal verbs.
+Don't say anything, just ride off the inroduction
 
 **Brief Hook (30 seconds)**  
-How many of you have struggled with phrasal verbs? They're everywhere in English, but incredibly difficult for non-native speakers. Today I'll show you how AI conversation practice is solving this 559-million-person problem.
+I used to be a language teacher, for me and my students, phrasal verbs were always one of the most challenging aspects of acquiring English vocabularly. And the consequences of not mastering phrasal verbs often has an oversized negative impact on speaking skills.
 
 **[NEXT SLIDE: 1:00]**
 

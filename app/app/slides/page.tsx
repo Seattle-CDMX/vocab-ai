@@ -1,65 +1,22 @@
 'use client';
 
 import { useEffect } from 'react';
+import { Brain } from 'lucide-react';
 import './slides.css';
 
 export default function SlidesPage() {
   useEffect(() => {
-    // Dynamically import Reveal.js and Mermaid to avoid SSR issues
-    Promise.all([
-      import('reveal.js'),
-      import('mermaid')
-    ]).then(([{ default: Reveal }, mermaidModule]) => {
-      // Check if mermaid has the correct API
-      const mermaid = mermaidModule.default || mermaidModule;
-      
-      // Initialize Mermaid
-      if (mermaid && typeof mermaid.initialize === 'function') {
-        mermaid.initialize({ 
-          startOnLoad: true,
-          theme: 'default',
-          themeVariables: {
-            primaryColor: 'hsl(200, 85%, 45%)',
-            primaryTextColor: 'hsl(215, 25%, 15%)',
-            primaryBorderColor: 'hsl(200, 25%, 88%)',
-            lineColor: 'hsl(200, 25%, 75%)',
-            secondaryColor: 'hsl(195, 25%, 92%)',
-            tertiaryColor: 'hsl(145, 65%, 45%)'
-          }
-        });
-      }
+    let deck: any = null;
+    
+    import('reveal.js').then((module) => {
+      const Reveal = module.default;
+      deck = new Reveal();
+      deck.initialize();
+    }).catch(console.error);
 
-      const deck = new Reveal({
-        hash: true,
-        controls: true,
-        progress: true,
-        center: true,
-        transition: 'slide',
-        backgroundTransition: 'fade',
-        width: '100%',
-        height: '100%',
-        margin: 0,
-        minScale: 1,
-        maxScale: 1,
-        disableLayout: false,
-      });
-
-      deck.initialize().then(() => {
-        // Re-render Mermaid diagrams after Reveal.js is initialized
-        if (mermaid && typeof mermaid.run === 'function') {
-          mermaid.run();
-        } else if (mermaid && typeof mermaid.contentLoaded === 'function') {
-          mermaid.contentLoaded();
-        }
-      });
-
-      // Cleanup function
-      return () => {
-        deck.destroy();
-      };
-    }).catch((error) => {
-      console.error('Failed to load dependencies:', error);
-    });
+    return () => {
+      if (deck?.destroy) deck.destroy();
+    };
   }, []);
 
   return (
@@ -67,9 +24,14 @@ export default function SlidesPage() {
       <div className="slides">
         {/* Title Slide */}
         <section data-background-gradient="linear-gradient(135deg, hsl(200, 85%, 45%) 0%, hsl(200, 85%, 65%) 100%)">
-          <h1 className="text-6xl font-bold text-white mb-8">VoiceCard AI</h1>
-          <h2 className="text-3xl text-white/90 mb-12">Mastering Phrasal Verbs with AI</h2>
-          <p className="text-xl text-white/80">Revolutionizing language learning for Spanish speakers</p>
+          <div className="flex items-center justify-center mb-8">
+            <div className="w-20 h-20 bg-blue-900/30 border-4 border-white rounded-2xl flex items-center justify-center mr-6" style={{backgroundColor: 'rgba(30, 58, 138, 0.3)', borderColor: 'white'}}>
+              <Brain className="w-12 h-12" style={{color: 'white', strokeWidth: 2}} />
+            </div>
+            <h1 className="text-6xl font-bold text-white">Voice Card</h1>
+          </div>
+          <h2 className="text-4xl font-bold text-white mb-8">Master Vocab For Speaking</h2>
+          <p className="text-2xl text-white/90">Spaced Repitition enhanced by LLM powered voice agents</p>
         </section>
 
         {/* Problem Section */}

@@ -106,12 +106,11 @@ const Hero = ({ isAuthenticated, onSignOut }: { isAuthenticated: boolean; onSign
           <div className="mb-8">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
               Master <span className="text-primary">Vocab</span>
-              <span className="block">Like Never Before</span>
+              <span className="block">For Speaking</span>
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
-              Master phrasal verbs for <span className="text-primary font-semibold">speaking</span> - this vocabulary will 
-              skyrocket your spoken English understanding. Learn multiple meanings, get assessed on your 
-              pronunciation, and conquer the trickiest part of English fluency.
+              Master vocabulary for <span className="text-primary font-semibold">speaking</span> - phrasal verbs will 
+              skyrocket your spoken English.
             </p>
           </div>
 
@@ -144,7 +143,7 @@ const Hero = ({ isAuthenticated, onSignOut }: { isAuthenticated: boolean; onSign
               </div>
               <h3 className="text-lg font-semibold mb-2">Spaced Repetition</h3>
               <p className="text-muted-foreground">
-                The same spaced repition used by in the language learning space.
+                We use spaced repeition similar to Anki and other language learning apps.
               </p>
             </div>
 
@@ -154,7 +153,7 @@ const Hero = ({ isAuthenticated, onSignOut }: { isAuthenticated: boolean; onSign
               </div>
               <h3 className="text-lg font-semibold mb-2">AI Tutors & Pronunciation</h3>
               <p className="text-muted-foreground">
-                Practice using phrasal verbs in context with AI tutors and get real-time pronunciation evaluation
+                Practice using phrasal verbs in realistic interactions.
               </p>
             </div>
 
