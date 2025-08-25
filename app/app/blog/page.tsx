@@ -3,6 +3,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 
 const blogPosts = [
   {
+    slug: "science-of-spaced-repetition",
+    title: "The Science of Spaced Repetition: Why Your Brain Loves This Learning Method",
+    description: "Explore the latest 2024 neuroscience research on spaced repetition, neural mechanisms, and practical applications for language learning.",
+    date: "2024-08-25",
+    readTime: "18 min read",
+    tags: ["Neuroscience", "Learning", "Memory", "Spaced Repetition", "Research"]
+  },
+  {
     slug: "high-frequency-phrasal-verbs",
     title: "High-Frequency Phrasal Verbs: The Essential Guide for English Learners",
     description: "Discover the most common phrasal verbs based on corpus research, understand their importance in TESOL, and learn from authoritative resources.",

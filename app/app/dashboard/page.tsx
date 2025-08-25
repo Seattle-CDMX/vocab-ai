@@ -165,7 +165,7 @@ export default function Dashboard() {
               className="flex items-center gap-2"
             >
               <Brain className="w-5 h-5" />
-              VocabAi.CC
+              VoiceCard
             </Button>
             <h1 className="text-3xl font-bold text-foreground">Phrasal Verb Dashboard</h1>
           </div>

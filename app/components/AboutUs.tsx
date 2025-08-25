@@ -123,13 +123,13 @@ const AboutUs = () => {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Users className="w-5 h-5 text-primary" />
-                Why Learn with VocabAi.CC?
+                Why Learn with VoiceCard?
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 Traditional methods of learning phrasal verbs through lists and memorization don&#39;t work because 
-                they lack context and practice. VocabAi.CC uses AI-powered conversation practice to help you 
+                they lack context and practice. VoiceCard uses AI-powered conversation practice to help you 
                 learn phrasal verbs the way native speakers do - through actual usage.
               </p>
               <ul className="space-y-2 text-muted-foreground">
