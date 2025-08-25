@@ -66,8 +66,8 @@ export default function SlidesPage() {
           <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
             <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
               <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#fbbf24'}}>🧩 Multi-word and Multi Meaning</h3>
-              <p style={{fontSize: '1.2rem', marginBottom: '0.5rem'}}>&quot;to go on&quot; = happen or continue</p>
-              <p style={{fontSize: '1rem', opacity: '0.8'}}>(not literally going on a journey!)</p>
+              <p style={{fontSize: '1.2rem', marginBottom: '0.5rem'}}>&quot;to go on&quot; = can mean "to happen" or "to continue"</p>
+              
             </div>
 
             <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
@@ -79,13 +79,13 @@ export default function SlidesPage() {
             <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
               <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#fbbf24'}}>⚡ Grammar Rules</h3>
               <div style={{fontSize: '1.1rem'}}>
-                <div style={{color: '#34d399', marginBottom: '0.5rem'}}>✅ &quot;turn on the TV&quot; → &quot;turn it on&quot;</div>
-                <div style={{color: '#f87171'}}>❌ &quot;look after kids&quot; → &quot;look them after&quot;</div>
+                <div style={{color: '#34d399', marginBottom: '0.5rem'}}>✅ &quot;to   turn on the TV&quot; → &quot;turn it on&quot;</div>
+                <div style={{color: '#f87171'}}>❌ &quot;to look after my car&quot; → &quot;look if after&quot;</div>
               </div>
             </div>
 
             <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
-              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#fbbf24'}}>🗣️ Everyday Champions for Spoken English</h3>
+              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#fbbf24'}}>🗣️ The Secret Sauce of Spoken Engish</h3>
               <div style={{fontSize: '1.1rem'}}>
                 <div style={{marginBottom: '0.5rem', opacity: '0.9'}}>Formal: &quot;Please tolerate the noise&quot;</div>
                 <div style={{color: '#60a5fa'}}>Casual: &quot;Just put up with it&quot;</div>
@@ -124,62 +124,71 @@ export default function SlidesPage() {
         {/* Target Audience */}
         <section>
           <section>
-            <h2 className="text-5xl font-bold mb-8">Target Audience</h2>
-            <h3 className="text-3xl text-primary mb-8">Spanish Speakers Learning English</h3>
+            <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '2rem'}}>Target Audience</h2>
+            <h3 style={{fontSize: '2rem', color: '#1e40af', marginBottom: '3rem'}}>Spanish Speakers Learning English</h3>
           </section>
           
           <section>
-            <h3 className="text-4xl font-bold mb-8">Market Size & Opportunity</h3>
-            <div className="grid grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="text-5xl font-bold text-primary mb-4">1.5B</div>
-                <p className="text-lg">People learning English globally</p>
+            <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>Market Size & Opportunity</h2>
+            
+            <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '2rem', maxWidth: '1200px', margin: '0 auto 3rem auto'}}>
+              <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', textAlign: 'center'}}>
+                <div style={{fontSize: '3rem', fontWeight: 'bold', marginBottom: '1rem', color: '#fbbf24'}}>1.5B</div>
+                <p style={{fontSize: '1.1rem'}}>People learning English globally</p>
               </div>
-              <div className="text-center">
-                <div className="text-5xl font-bold text-primary mb-4">559M</div>
-                <p className="text-lg">Spanish speakers worldwide</p>
+              <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', textAlign: 'center'}}>
+                <div style={{fontSize: '3rem', fontWeight: 'bold', marginBottom: '1rem', color: '#fbbf24'}}>559M</div>
+                <p style={{fontSize: '1.1rem'}}>Spanish speakers worldwide</p>
               </div>
-              <div className="text-center">
-                <div className="text-5xl font-bold text-primary mb-4">41M</div>
-                <p className="text-lg">Spanish speakers in the US</p>
+              <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', textAlign: 'center'}}>
+                <div style={{fontSize: '3rem', fontWeight: 'bold', marginBottom: '1rem', color: '#fbbf24'}}>41M</div>
+                <p style={{fontSize: '1.1rem'}}>Spanish speakers in the US</p>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-8 mt-8">
-              <div className="text-center">
-                <div className="text-5xl font-bold text-success mb-4">$60B</div>
-                <p className="text-lg">Global language learning market by 2027</p>
+            
+            <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', maxWidth: '800px', margin: '0 auto'}}>
+              <div style={{backgroundColor: '#16a34a', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', textAlign: 'center'}}>
+                <div style={{fontSize: '3rem', fontWeight: 'bold', marginBottom: '1rem', color: '#fef3c7'}}>$60B</div>
+                <p style={{fontSize: '1.1rem'}}>Global language learning market by 2027</p>
               </div>
-              <div className="text-center">
-                <div className="text-5xl font-bold text-warning mb-4">21+</div>
-                <p className="text-lg">Spanish-speaking countries with growing nearshoring sectors</p>
+              <div style={{backgroundColor: '#ea580c', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', textAlign: 'center'}}>
+                <div style={{fontSize: '3rem', fontWeight: 'bold', marginBottom: '1rem', color: '#fef3c7'}}>21+</div>
+                <p style={{fontSize: '1.1rem'}}>Spanish-speaking countries with growing nearshoring sectors</p>
               </div>
             </div>
           </section>
           
           <section>
-            <h3 className="text-4xl font-bold mb-8">Why Spanish Speakers?</h3>
-            <ul className="text-xl space-y-4 text-left max-w-4xl mx-auto">
-              <li className="flex items-start">
-                <span className="text-2xl mr-4">🌎</span>
-                <span>Nearshoring boom: Millions in Mexico, Colombia, Costa Rica working with US companies</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-2xl mr-4">🧠</span>
-                <span>Cognitive interference: Spanish sentence structure conflicts with phrasal verb patterns</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-2xl mr-4">📚</span>
-                <span>Educational gap: Most ESL materials don&apos;t address Spanish-specific challenges</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-2xl mr-4">💼</span>
-                <span>Economic motivation: Phrasal verb fluency correlates with 23% higher salaries</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-2xl mr-4">🎯</span>
-                <span>Underserved market: No existing AI solution targets this specific language pair</span>
-              </li>
-            </ul>
+            <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>Why Spanish Speakers?</h2>
+            
+            <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
+              <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
+                <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fbbf24'}}>🌎 Nearshoring Boom</h3>
+                <p style={{fontSize: '1.1rem', lineHeight: '1.5'}}>Millions in Mexico, Colombia, Costa Rica working with US companies</p>
+              </div>
+              
+              <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
+                <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fbbf24'}}>🧠 Cognitive Challenge</h3>
+                <p style={{fontSize: '1.1rem', lineHeight: '1.5'}}>Spanish sentence structure conflicts with phrasal verb patterns</p>
+              </div>
+              
+              <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
+                <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fbbf24'}}>📚 Educational Gap</h3>
+                <p style={{fontSize: '1.1rem', lineHeight: '1.5'}}>Most ESL materials don't address Spanish-specific challenges</p>
+              </div>
+              
+              <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
+                <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fbbf24'}}>💼 Economic Impact</h3>
+                <p style={{fontSize: '1.1rem', lineHeight: '1.5'}}>Phrasal verb fluency correlates with 23% higher salaries</p>
+              </div>
+            </div>
+            
+            <div style={{display: 'flex', justifyContent: 'center', marginTop: '2rem'}}>
+              <div style={{backgroundColor: '#16a34a', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', maxWidth: '500px'}}>
+                <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fef3c7', textAlign: 'center'}}>🎯 Market Opportunity</h3>
+                <p style={{fontSize: '1.1rem', lineHeight: '1.5', textAlign: 'center'}}>Underserved market: No existing AI solution targets this specific language pair</p>
+              </div>
+            </div>
           </section>
         </section>
 

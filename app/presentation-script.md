@@ -17,7 +17,7 @@
 Don't say anything, just ride off the inroduction
 
 **Brief Hook (30 seconds)**  
-I used to be a language teacher, for me and my students, phrasal verbs were always one of the most challenging aspects of acquiring English vocabularly. And the consequences of not mastering phrasal verbs often has an oversized negative impact on speaking skills.
+For anyone learning English as a second or foreign language, mastering phrasal verbs is an enormous hurdle to achieving advanced fluency. These tricky multi-word verbs, like "pick up," "run into," or "put off"—aren’t just difficult; they’re absolutely essential for sounding natural and confident in conversation. Phrasal verbs are the secret sauce of spoken English, and cracking their code is the key to levlling speaking skills.
 
 **[NEXT SLIDE: 1:00]**
 
