@@ -4,10 +4,13 @@ import logging
 
 from livekit.agents import (
     Agent,
+    AudioConfig,
+    BackgroundAudioPlayer,
+    BuiltinAudioClip,
     RunContext,
     get_job_context,
 )
-from livekit.agents.llm import function_tool
+from livekit.agents.llm import ChatContext, ChatMessage, function_tool
 from livekit.plugins import deepgram, google, openai, silero
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
 
@@ -35,8 +38,22 @@ class NativeExplainAgent(Agent):
             vad=silero.VAD.load(),
             turn_detection=MultilingualModel(),
         )
+        self.spanish_validation_result = None  # Store RAG validation results
+        
+        # Initialize background audio player with thinking sounds
+        self.background_audio = BackgroundAudioPlayer(
+            # Optional: ambient sounds (commented out to avoid distracting from learning)
+            # ambient_sound=AudioConfig(BuiltinAudioClip.OFFICE_AMBIENCE, volume=0.3),
+            
+            # Thinking sounds for RAG processing and validation delays
+            thinking_sound=[
+                AudioConfig(BuiltinAudioClip.KEYBOARD_TYPING, volume=0.6),
+                AudioConfig(BuiltinAudioClip.KEYBOARD_TYPING2, volume=0.5),
+            ]
+        )
+        
         logger.info(
-            "🔧 [Agent] NativeExplainAgent initialized with enhanced tool calling instructions"
+            "🔧 [Agent] NativeExplainAgent initialized with Spanish translation support and thinking sounds"
         )
 
     @function_tool
@@ -76,18 +93,16 @@ class NativeExplainAgent(Agent):
             except Exception as e:
                 logger.error(f"Failed to send RPC: {e}")
 
-            if remaining > 0:
-                return f"Great job! You got sense {sense_number} correct. You have {remaining} more sense{'s' if remaining != 1 else ''} to explain."
-            else:
-                # All senses completed - schedule terminal success state with delay
-                asyncio.create_task(  # noqa: RUF006
-                    TerminalStateManager.handle_success(
-                        "Excellent! You've mastered all meanings of this phrasal verb! 🎉",
-                        delay_seconds=5.0  # Longer delay for final completion message
-                    )
+            # END SESSION AFTER ONE CORRECT SENSE
+            # Schedule terminal success state immediately for single correct answer
+            asyncio.create_task(  # noqa: RUF006
+                TerminalStateManager.handle_success(
+                    f"Excellent! You correctly explained sense {sense_number} of this phrasal verb! 🎉",
+                    delay_seconds=5.0  # Delay to allow agent to finish speaking
                 )
+            )
 
-                return "Excellent! You've successfully explained all senses of this phrasal verb."
+            return f"Excellent! You correctly explained sense {sense_number}. Great job understanding this phrasal verb!"
 
         return "Good work on explaining that sense!"
 
@@ -106,30 +121,20 @@ class NativeExplainAgent(Agent):
         """
         logger.info("User provided incorrect explanation")
 
-        # For wrong answers, we continue teaching, so this is not a terminal state
-        # Just send a regular error toast (not using terminal state manager)
-        try:
-            for participant in get_job_context().room.remote_participants.values():
-                await get_job_context().room.local_participant.perform_rpc(
-                    destination_identity=participant.identity,
-                    method="show_toast",
-                    payload=json.dumps(
-                        {
-                            "type": "error",
-                            "message": f"Not quite right. Here's the correct meaning: {correct_definition[:50]}...",
-                        }
-                    ),
-                    response_timeout=1.0,
-                )
-                logger.info(f"Sent error toast RPC to {participant.identity}")
-                break
-        except Exception as e:
-            logger.error(f"Failed to send error RPC: {e}")
-
+        # END SESSION FOR WRONG ANSWERS
         response = f"Not quite right. The correct definition is: {correct_definition}"
         if helpful_hint:
             response += f" {helpful_hint}"
-        response += " Let's try the next sense."
+        response += " Keep practicing and you'll get it next time!"
+
+        # Schedule terminal failure state with delay
+        asyncio.create_task(  # noqa: RUF006
+            TerminalStateManager.handle_failure(
+                f"Not quite right. The correct meaning is: {correct_definition[:100]}...",
+                hint="Keep practicing! You'll master this phrasal verb.",
+                delay_seconds=5.0  # Delay to allow agent to finish speaking
+            )
+        )
 
         return response
 
@@ -183,6 +188,16 @@ class NativeExplainAgent(Agent):
     async def on_enter(self) -> None:
         """Agent initialization hook called when this agent becomes active."""
         logger.info("🎯 [Agent] NativeExplainAgent on_enter called")
+        
+        # Start background audio for thinking sounds
+        try:
+            await self.background_audio.start(
+                room=get_job_context().room,
+                agent_session=self.session
+            )
+            logger.info("🎵 [Agent] Background audio with thinking sounds started successfully")
+        except Exception as e:
+            logger.error(f"❌ [Agent] Failed to start background audio: {e}")
 
         # Get session info to check if we have target lexical item data
         session_info = self.session.userdata
@@ -214,3 +229,79 @@ The {target_item.total_senses} senses are:
             self.session.generate_reply(
                 instructions="I'm waiting for phrasal verb data. Please ensure your connection includes the necessary information."
             )
+
+    async def on_user_turn_completed(
+        self, turn_ctx: ChatContext, new_message: ChatMessage
+    ) -> None:
+        """RAG method to validate Spanish translations before LLM processing."""
+        session_info = self.session.userdata
+        
+        if not isinstance(session_info, MySessionInfo) or not session_info.target_lexical_item:
+            return
+        
+        target_item = session_info.target_lexical_item
+        user_response = new_message.content
+        
+        # Build sense definitions for RAG validation
+        senses_info = ""
+        for sense in target_item.senses:
+            senses_info += f"Sense {sense.sense_number}: {sense.definition}\n"
+        
+        # Use LLM to check if response is a Spanish translation
+        validation_prompt = f"""Analyze this user response for the phrasal verb '{target_item.phrase}':
+
+User said: "{user_response}"
+
+Phrasa verb senses:
+{senses_info}
+
+Determine:
+1. Is this response in Spanish? (yes/no)
+2. If Spanish, which sense number does it correctly translate to? (1, 2, etc. or 'none' if incorrect)
+3. Brief explanation of why
+
+Respond in JSON format:
+{{"is_spanish": boolean, "correct_sense": number or null, "explanation": "brief explanation"}}
+"""
+        
+        try:
+            # Create a simple LLM instance for RAG validation
+            llm = openai.LLM(model="gpt-4o-mini")
+            validation_response = await llm.chat(
+                messages=[
+                    ChatMessage.system("You are a language validation assistant. Respond only in JSON format."),
+                    ChatMessage.user(validation_prompt)
+                ]
+            )
+            
+            # Parse the validation result
+            import json
+            result = json.loads(validation_response.content)
+            
+            # Store result for function tools to use
+            self.spanish_validation_result = result
+            
+            # If Spanish translation is correct, add context to help the agent
+            if result.get("is_spanish") and result.get("correct_sense"):
+                # Inject context into the chat to guide the agent
+                turn_ctx.messages.append(
+                    ChatMessage.system(
+                        f"[SPANISH TRANSLATION DETECTED] The user provided a correct Spanish translation for sense {result['correct_sense']}. "
+                        f"Call correct_sense_explained with sense_number={result['correct_sense']} immediately."
+                    )
+                )
+                logger.info(f"✅ Spanish translation validated for sense {result['correct_sense']}: {user_response}")
+            elif result.get("is_spanish") and not result.get("correct_sense"):
+                # Spanish but incorrect
+                turn_ctx.messages.append(
+                    ChatMessage.system(
+                        f"[SPANISH TRANSLATION DETECTED] The user provided a Spanish response but it doesn't correctly match any sense. "
+                        f"Call wrong_answer and provide the correct definition."
+                    )
+                )
+                logger.info(f"❌ Incorrect Spanish translation detected: {user_response}")
+                
+        except Exception as e:
+            logger.error(f"Failed to validate Spanish translation: {e}")
+            # Continue without validation on error
+            self.spanish_validation_result = None
