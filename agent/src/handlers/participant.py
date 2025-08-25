@@ -13,10 +13,18 @@ def process_participant_data(participant, session: AgentSession):
     logger.info("🎯 [Agent] ========== PROCESSING PARTICIPANT ==========")
     logger.info(f"🎯 [Agent] Processing participant: {participant.identity}")
     logger.info(f"🎯 [Agent] 🔄 CLOUD DEBUG: Participant type: {type(participant)}")
-    logger.info(f"🎯 [Agent] 🔄 CLOUD DEBUG: Has metadata attr: {hasattr(participant, 'metadata')}")
-    logger.info(f"🎯 [Agent] 🔄 CLOUD DEBUG: Metadata value: {getattr(participant, 'metadata', 'MISSING')}")
-    logger.info(f"🎯 [Agent] 🔄 CLOUD DEBUG: All participant attributes: {participant.attributes}")
-    logger.info(f"🎯 [Agent] 🔄 CLOUD DEBUG: Participant attributes keys: {list(participant.attributes.keys())}")
+    logger.info(
+        f"🎯 [Agent] 🔄 CLOUD DEBUG: Has metadata attr: {hasattr(participant, 'metadata')}"
+    )
+    logger.info(
+        f"🎯 [Agent] 🔄 CLOUD DEBUG: Metadata value: {getattr(participant, 'metadata', 'MISSING')}"
+    )
+    logger.info(
+        f"🎯 [Agent] 🔄 CLOUD DEBUG: All participant attributes: {participant.attributes}"
+    )
+    logger.info(
+        f"🎯 [Agent] 🔄 CLOUD DEBUG: Participant attributes keys: {list(participant.attributes.keys())}"
+    )
 
     # Try to get metadata from token (unified approach)
     metadata_json = None
@@ -24,16 +32,22 @@ def process_participant_data(participant, session: AgentSession):
         metadata_json = participant.metadata
         logger.info(f"🎯 [Agent] ✅ SUCCESS: Metadata from token: {metadata_json}")
         logger.info(f"🎯 [Agent] 🔄 CLOUD DEBUG: Metadata type: {type(metadata_json)}")
-        logger.info(f"🎯 [Agent] 🔄 CLOUD DEBUG: Metadata length: {len(str(metadata_json))}")
+        logger.info(
+            f"🎯 [Agent] 🔄 CLOUD DEBUG: Metadata length: {len(str(metadata_json))}"
+        )
     else:
-        logger.warning(f"🎯 [Agent] ⚠️ NO TOKEN METADATA: hasattr={hasattr(participant, 'metadata')}, value={getattr(participant, 'metadata', 'MISSING')}")
+        logger.warning(
+            f"🎯 [Agent] ⚠️ NO TOKEN METADATA: hasattr={hasattr(participant, 'metadata')}, value={getattr(participant, 'metadata', 'MISSING')}"
+        )
         # Fallback to participant attributes (old approach for voice cards)
         voice_card_json = participant.attributes.get("voice_card_data")
         if voice_card_json:
             metadata_json = json.dumps(
                 {"activityType": "voice", "voiceCardData": json.loads(voice_card_json)}
             )
-            logger.info(f"🎯 [Agent] 🔄 FALLBACK: Using voice card from attributes: {voice_card_json}")
+            logger.info(
+                f"🎯 [Agent] 🔄 FALLBACK: Using voice card from attributes: {voice_card_json}"
+            )
         else:
             logger.warning("🎯 [Agent] ⚠️ NO VOICE CARD DATA in attributes either")
 
@@ -59,22 +73,41 @@ def process_participant_data(participant, session: AgentSession):
 
                 # Check if voice persona is present
                 if not voice_persona:
-                    logger.warning("🎭 [Agent] ⚠️ WARNING: voicePersona is missing from metadata. Using fallback voice configuration.")
+                    logger.warning(
+                        "🎭 [Agent] ⚠️ WARNING: voicePersona is missing from metadata. Using fallback voice configuration."
+                    )
                     voice_persona = {}  # Will use fallback in ContextAgent
 
-                logger.info(f"🎭 [Agent] ✅ Voice persona: {voice_persona.get('persona', {}).get('name', 'Fallback') if voice_persona else 'Using fallback'}")
+                logger.info(
+                    f"🎭 [Agent] ✅ Voice persona: {voice_persona.get('persona', {}).get('name', 'Fallback') if voice_persona else 'Using fallback'}"
+                )
 
                 # Merge target phrasal verb info into scenario
                 scenario_data["phrasalVerb"] = target_phrasal.get("verb", "go on")
+                scenario_data["phrasalVerbDefinition"] = target_phrasal.get(
+                    "definition", None
+                )
 
                 logger.info("🎭 [Agent] ✅ SUCCESS: Creating ContextAgent for scenario")
-                logger.info(f"🎭 [Agent] 🔄 CLOUD DEBUG: Scenario data: {scenario_data}")
-                logger.info(f"🎭 [Agent] 🔄 CLOUD DEBUG: Target phrasal: {target_phrasal}")
-                logger.info(f"🎭 [Agent] 🔄 CLOUD DEBUG: Voice persona: {voice_persona}")
-                logger.info(f"🎭 [Agent] 🔄 CLOUD DEBUG: Character: {scenario_data.get('character', 'NOT_FOUND')}")
-                logger.info(f"🎭 [Agent] 🔄 CLOUD DEBUG: Phrasal verb: {scenario_data.get('phrasalVerb', 'NOT_FOUND')}")
+                logger.info(
+                    f"🎭 [Agent] 🔄 CLOUD DEBUG: Scenario data: {scenario_data}"
+                )
+                logger.info(
+                    f"🎭 [Agent] 🔄 CLOUD DEBUG: Target phrasal: {target_phrasal}"
+                )
+                logger.info(
+                    f"🎭 [Agent] 🔄 CLOUD DEBUG: Voice persona: {voice_persona}"
+                )
+                logger.info(
+                    f"🎭 [Agent] 🔄 CLOUD DEBUG: Character: {scenario_data.get('character', 'NOT_FOUND')}"
+                )
+                logger.info(
+                    f"🎭 [Agent] 🔄 CLOUD DEBUG: Phrasal verb: {scenario_data.get('phrasalVerb', 'NOT_FOUND')}"
+                )
 
-                return ContextAgent(scenario_data=scenario_data, voice_persona=voice_persona)
+                return ContextAgent(
+                    scenario_data=scenario_data, voice_persona=voice_persona
+                )
 
             else:
                 # Default to voice card explanation mode
@@ -119,13 +152,23 @@ def process_participant_data(participant, session: AgentSession):
         except (json.JSONDecodeError, KeyError) as e:
             logger.error(f"🎯 [Agent] ❌ Failed to parse metadata: {e}")
             logger.error(f"🎯 [Agent] Raw JSON that failed: {metadata_json}")
-            logger.error("🎯 [Agent] 🔄 CLOUD DEBUG: Metadata parsing failed - returning None to wait for proper connection")
+            logger.error(
+                "🎯 [Agent] 🔄 CLOUD DEBUG: Metadata parsing failed - returning None to wait for proper connection"
+            )
             # Don't fallback to NativeExplainAgent - return None to wait for proper metadata
             return None
     else:
-        logger.warning("🎯 [Agent] ❌ No metadata found in token or participant attributes")
-        logger.warning(f"🎯 [Agent] Available attribute keys: {list(participant.attributes.keys())}")
-        logger.warning(f"🎯 [Agent] Participant metadata: {getattr(participant, 'metadata', 'None')}")
-        logger.warning("🎯 [Agent] 🔄 CLOUD DEBUG: No metadata found - returning None to wait for proper connection")
+        logger.warning(
+            "🎯 [Agent] ❌ No metadata found in token or participant attributes"
+        )
+        logger.warning(
+            f"🎯 [Agent] Available attribute keys: {list(participant.attributes.keys())}"
+        )
+        logger.warning(
+            f"🎯 [Agent] Participant metadata: {getattr(participant, 'metadata', 'None')}"
+        )
+        logger.warning(
+            "🎯 [Agent] 🔄 CLOUD DEBUG: No metadata found - returning None to wait for proper connection"
+        )
         # Don't fallback to NativeExplainAgent - return None to wait for proper metadata
         return None
