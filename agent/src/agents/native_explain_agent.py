@@ -4,9 +4,6 @@ import logging
 
 from livekit.agents import (
     Agent,
-    AudioConfig,
-    BackgroundAudioPlayer,
-    BuiltinAudioClip,
     RunContext,
     get_job_context,
 )
@@ -40,20 +37,8 @@ class NativeExplainAgent(Agent):
         )
         self.spanish_validation_result = None  # Store RAG validation results
         
-        # Initialize background audio player with thinking sounds
-        self.background_audio = BackgroundAudioPlayer(
-            # Optional: ambient sounds (commented out to avoid distracting from learning)
-            # ambient_sound=AudioConfig(BuiltinAudioClip.OFFICE_AMBIENCE, volume=0.3),
-            
-            # Thinking sounds for RAG processing and validation delays
-            thinking_sound=[
-                AudioConfig(BuiltinAudioClip.KEYBOARD_TYPING, volume=0.6),
-                AudioConfig(BuiltinAudioClip.KEYBOARD_TYPING2, volume=0.5),
-            ]
-        )
-        
         logger.info(
-            "🔧 [Agent] NativeExplainAgent initialized with Spanish translation support and thinking sounds"
+            "🔧 [Agent] NativeExplainAgent initialized with Spanish translation support"
         )
 
     @function_tool
@@ -189,16 +174,6 @@ class NativeExplainAgent(Agent):
         """Agent initialization hook called when this agent becomes active."""
         logger.info("🎯 [Agent] NativeExplainAgent on_enter called")
         
-        # Start background audio for thinking sounds
-        try:
-            await self.background_audio.start(
-                room=get_job_context().room,
-                agent_session=self.session
-            )
-            logger.info("🎵 [Agent] Background audio with thinking sounds started successfully")
-        except Exception as e:
-            logger.error(f"❌ [Agent] Failed to start background audio: {e}")
-
         # Get session info to check if we have target lexical item data
         session_info = self.session.userdata
 
