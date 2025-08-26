@@ -69,11 +69,13 @@ class ContextAgent(Agent):
 Teaching style: {teaching_style}
 
 Your role:
-1. Act naturally as {self.character}
-2. Respond authentically to the student
-3. Keep conversations brief and natural
-4. Do NOT mention the phrasal verb
-5. Stay in character
+1. Act naturally as {self.character} - you are NOT talking to someone with the same name as you
+2. The user is your colleague/employee, address them appropriately (not by your own name)
+3. Keep conversations brief and natural - do NOT provide lengthy explanations upfront
+4. Be vague initially about problems - let the user ask for details
+5. Do NOT mention the phrasal verb directly
+6. Stay in character at all times
+7. Speak concisely - one or two sentences maximum per turn
 
 Context: {self.context_text}"""
 
@@ -204,16 +206,23 @@ Context: {self.context_text}"""
         logger.info(f"📝 [ContextAgent] Scenario: {self.situation}")
         logger.info(f"🔢 [ContextAgent] Max turns: {self.max_turns}")
 
-        # Use conversationStarter from scenario data, or fallback to simple greeting
+        # Use conversationStarter from scenario data
         if self.conversation_starter:
             # Remove [username] placeholder if present
             greeting = self.conversation_starter.replace("[username]", "").strip()
-            # Make it shorter - just take the first sentence if it's too long
-            if len(greeting) > 100:
-                first_sentence = greeting.split(".")[0] + "."
-                greeting = first_sentence
+            
+            # Special case: For Mr. Williams "go on" scenario, be more vague initially
+            # This specific greeting gives away too much detail upfront
+            if "Mr. Williams" in self.character and "bad has happened" in greeting:
+                greeting = "I need to speak with you about something urgent."
+                instruction_prefix = "Start with this brief opener and wait for their response: "
+            else:
+                # For other scenarios (pick up, come back, close down), use the original starter
+                # These are appropriately contextual without giving away the solution
+                instruction_prefix = "Start the conversation naturally: "
         else:
             greeting = "Hello! Where were we?"
+            instruction_prefix = "Start with this greeting: "
 
         logger.info(f"🗣️ [ContextAgent] Starting conversation with: {greeting}")
-        self.session.generate_reply(instructions=greeting)
+        self.session.generate_reply(instructions=f"{instruction_prefix}'{greeting}'")
