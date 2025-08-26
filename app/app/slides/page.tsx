@@ -1,12 +1,17 @@
 'use client';
 
 import { useEffect } from 'react';
+import Image from 'next/image';
 import { Brain } from 'lucide-react';
 import './slides.css';
 
 export default function SlidesPage() {
   useEffect(() => {
-    let deck: any = null;
+    let deck: {
+      destroy?: () => void;
+      initialize: () => Promise<unknown>;
+      getTotalSlides: () => number;
+    } | null = null;
     
     // Load Reveal.js CSS first
     const loadCSS = (href: string) => {
@@ -31,7 +36,7 @@ export default function SlidesPage() {
       });
       deck.initialize().then(() => {
         console.log('Reveal.js initialized successfully');
-        console.log('Total slides:', deck.getTotalSlides());
+        console.log('Total slides:', deck?.getTotalSlides());
       });
     }).catch((error) => {
       console.error('Failed to load Reveal.js:', error);
@@ -66,7 +71,7 @@ export default function SlidesPage() {
           <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
             <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
               <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#fbbf24'}}>🧩 Multi-word and Multi Meaning</h3>
-              <p style={{fontSize: '1.2rem', marginBottom: '0.5rem'}}>&quot;to go on&quot; = can mean "to happen" or "to continue"</p>
+              <p style={{fontSize: '1.2rem', marginBottom: '0.5rem'}}>&quot;to go on&quot; = can mean &quot;to happen&quot; or &quot;to continue&quot;</p>
               
             </div>
 
@@ -100,10 +105,12 @@ export default function SlidesPage() {
           
           <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', maxWidth: '1200px', margin: '0 auto'}}>
             <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-              <img 
+              <Image 
                 src="/phrasal-verbs-meme.png" 
                 alt="Comic showing the struggle of learning phrasal verbs"
-                style={{maxWidth: '280px', maxHeight: '250px', width: 'auto', height: 'auto', borderRadius: '8px', marginBottom: '1rem'}}
+                width={280}
+                height={250}
+                style={{borderRadius: '8px', marginBottom: '1rem'}}
               />
               <p style={{fontSize: '1.1rem', fontWeight: 'bold', color: '#fbbf24', textAlign: 'center'}}>The eternal struggle!</p>
             </div>
@@ -171,109 +178,111 @@ export default function SlidesPage() {
           </div>
         </section>
 
-        {/* Infrastructure Diagrams */}
+        {/* System Architecture - Title Slide */}
+        <section data-background-gradient="linear-gradient(135deg, hsl(280, 65%, 45%) 0%, hsl(200, 85%, 45%) 100%)">
+          <h2 style={{fontSize: '4rem', fontWeight: 'bold', color: 'white', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', marginBottom: '2rem'}}>System Architecture</h2>
+          <p style={{fontSize: '1.5rem', color: 'white', textShadow: '1px 1px 2px rgba(0,0,0,0.6)'}}>Technical Deep Dive into VoiceCard AI</p>
+        </section>
+
+        {/* LiveKit Architecture */}
         <section>
-          <section>
-            <h2 className="text-5xl font-bold mb-8">System Architecture</h2>
-          </section>
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>LiveKit Architecture</h2>
           
-          <section>
-            <h3 className="text-3xl font-bold mb-8">Overall Architecture</h3>
-            <div className="mermaid">{`
-graph TB
-    A[Next.js Web App] --> B[LiveKit Room]
-    B --> C[AI Agent]
-    C --> D[OpenAI GPT-4o-mini]
-    C --> E[Deepgram Nova-3 STT]
-    C --> F[Cartesia TTS]
-    A --> G[Spaced Repetition System]
-    G --> H[Local Storage]
-    A --> I[Voice Card Generator]
-    I --> J[Phrasal Verb Database]
-`}</div>
-          </section>
+          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
+            <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
+              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fbbf24'}}>🎙️ Real-time Communication</h3>
+              <div style={{fontSize: '1.1rem', lineHeight: '1.6'}}>
+                <div style={{marginBottom: '0.5rem'}}>• WebRTC-based voice streaming</div>
+                <div style={{marginBottom: '0.5rem'}}>• Low-latency bidirectional audio</div>
+                <div style={{marginBottom: '0.5rem'}}>• Room-based session management</div>
+                <div style={{marginBottom: '0.5rem'}}>• Automatic connection recovery</div>
+                <div>• Cross-platform compatibility</div>
+              </div>
+            </div>
+
+            <div style={{backgroundColor: '#16a34a', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
+              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fef3c7'}}>🔧 LiveKit Components</h3>
+              <div style={{fontSize: '1.1rem', lineHeight: '1.6'}}>
+                <div style={{marginBottom: '0.5rem'}}>• LiveKit Server (SFU)</div>
+                <div style={{marginBottom: '0.5rem'}}>• React SDK integration</div>
+                <div style={{marginBottom: '0.5rem'}}>• Python Agent framework</div>
+                <div style={{marginBottom: '0.5rem'}}>• Token-based authentication</div>
+                <div>• Room metadata for context</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Application Architecture */}
+        <section>
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>Application Architecture</h2>
           
-          <section>
-            <h3 className="text-3xl font-bold mb-8">Voice Processing Pipeline</h3>
-            <div className="mermaid">{`
-sequenceDiagram
-    participant U as User
-    participant W as Web App
-    participant L as LiveKit
-    participant A as AI Agent
-    participant S as STT (Deepgram)
-    participant G as GPT-4o-mini
-    participant T as TTS (Cartesia)
-    
-    U->>W: Start practice session
-    W->>L: Connect to room with voice card data
-    L->>A: Agent receives context
-    A->>T: Generate welcome message
-    T->>U: Play greeting
-    U->>S: Speak phrasal verb explanation
-    S->>A: Transcribed text
-    A->>G: Analyze explanation accuracy
-    G->>A: Feedback and correction
-    A->>T: Generate response
-    T->>U: AI feedback
-`}</div>
-          </section>
+          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
+            <div style={{backgroundColor: '#7c3aed', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
+              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fbbf24'}}>🌐 Frontend (Next.js)</h3>
+              <div style={{fontSize: '1.1rem', lineHeight: '1.6'}}>
+                <div style={{marginBottom: '0.5rem'}}>• React 19 with TypeScript</div>
+                <div style={{marginBottom: '0.5rem'}}>• App Router for navigation</div>
+                <div style={{marginBottom: '0.5rem'}}>• Spaced Repetition System (SRS)</div>
+                <div style={{marginBottom: '0.5rem'}}>• Voice card data management</div>
+                <div style={{marginBottom: '0.5rem'}}>• Progress tracking & analytics</div>
+                <div>• Responsive UI with Tailwind</div>
+              </div>
+            </div>
+
+            <div style={{backgroundColor: '#ea580c', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
+              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fef3c7'}}>⚡ API Layer</h3>
+              <div style={{fontSize: '1.1rem', lineHeight: '1.6'}}>
+                <div style={{marginBottom: '0.5rem'}}>• Token generation for LiveKit</div>
+                <div style={{marginBottom: '0.5rem'}}>• Room management endpoints</div>
+                <div style={{marginBottom: '0.5rem'}}>• Authentication middleware</div>
+                <div style={{marginBottom: '0.5rem'}}>• Generated data serving</div>
+                <div style={{marginBottom: '0.5rem'}}>• Session state management</div>
+                <div>• Error handling & logging</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Agent Architecture */}
+        <section>
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>Agent Architecture</h2>
           
-          <section>
-            <h3 className="text-3xl font-bold mb-8">Learning Algorithm Flow</h3>
-            <div className="mermaid">{`
-flowchart TD
-    A[User starts session] --> B[Select next card from SRS]
-    B --> C[Present phrasal verb]
-    C --> D[User explains in Spanish]
-    D --> E[AI analyzes response]
-    E --> F{Correct explanation?}
-    F -->|Yes| G[Mark as correct]
-    F -->|No| H[Provide correction]
-    G --> I[Update SRS algorithm]
-    H --> I
-    I --> J[Schedule next review]
-    J --> K{More cards?}
-    K -->|Yes| B
-    K -->|No| L[End session]
-`}</div>
-          </section>
-          
-          <section>
-            <h3 className="text-3xl font-bold mb-8">Technology Stack</h3>
-            <div className="mermaid">{`
-graph LR
-    subgraph "Frontend"
-        A[Next.js 15]
-        B[React 19]
-        C[TypeScript]
-        D[Tailwind CSS]
-    end
-    
-    subgraph "Real-time Communication"
-        E[LiveKit SDK]
-        F[WebRTC]
-    end
-    
-    subgraph "AI Services"
-        G[OpenAI API]
-        H[Deepgram STT]
-        I[Cartesia TTS]
-    end
-    
-    subgraph "Backend Services"
-        J[Python Agent]
-        K[UV Package Manager]
-        L[Silero VAD]
-    end
-    
-    A --> E
-    E --> J
-    J --> G
-    J --> H
-    J --> I
-`}</div>
-          </section>
+          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', maxWidth: '1200px', margin: '0 auto 2rem auto'}}>
+            <div style={{backgroundColor: '#dc2626', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
+              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fef3c7'}}>🤖 AI Agent Pipeline</h3>
+              <div style={{fontSize: '1.1rem', lineHeight: '1.6'}}>
+                <div style={{marginBottom: '0.5rem'}}>• Python LiveKit Agent</div>
+                <div style={{marginBottom: '0.5rem'}}>• Silero VAD (Voice Activity)</div>
+                <div style={{marginBottom: '0.5rem'}}>• Deepgram STT (Speech-to-Text)</div>
+                <div style={{marginBottom: '0.5rem'}}>• OpenAI GPT-4o-mini reasoning</div>
+                <div style={{marginBottom: '0.5rem'}}>• Cartesia TTS (Text-to-Speech)</div>
+                <div>• Context-aware responses</div>
+              </div>
+            </div>
+
+            <div style={{backgroundColor: '#0891b2', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
+              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fef3c7'}}>🧠 Intelligence Layer</h3>
+              <div style={{fontSize: '1.1rem', lineHeight: '1.6'}}>
+                <div style={{marginBottom: '0.5rem'}}>• Spanish-aware explanations</div>
+                <div style={{marginBottom: '0.5rem'}}>• Phrasal verb evaluation</div>
+                <div style={{marginBottom: '0.5rem'}}>• Preemptive response generation</div>
+                <div style={{marginBottom: '0.5rem'}}>• False interruption detection</div>
+                <div style={{marginBottom: '0.5rem'}}>• Adaptive difficulty adjustment</div>
+                <div>• Learning progress tracking</div>
+              </div>
+            </div>
+          </div>
+
+          <div style={{maxWidth: '600px', margin: '0 auto'}}>
+            <div style={{backgroundColor: '#16a34a', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
+              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fef3c7', textAlign: 'center'}}>🔄 Voice Processing Flow</h3>
+              <div style={{fontSize: '1.1rem', lineHeight: '1.6', textAlign: 'center'}}>
+                <div style={{marginBottom: '0.5rem'}}>Voice Input → VAD → STT → LLM → TTS → Voice Output</div>
+                <div style={{fontSize: '0.9rem', opacity: '0.8', marginTop: '1rem'}}>Ultra-low latency conversation experience</div>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* Conclusion */}
