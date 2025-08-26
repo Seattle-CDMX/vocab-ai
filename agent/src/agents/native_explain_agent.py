@@ -216,7 +216,8 @@ The {target_item.total_senses} senses are:
                 instructions += f"{sense.sense_number}. {sense.definition} (Example: {sense.examples[0]})\n"
 
             instructions += (
-                f"\nStart by asking them to explain what '{target_item.phrase}' means."
+                f"\nStart by asking '¿Qué significa esta palabra, o verbo frasal?' without mentioning '{target_item.phrase}'. "
+                f"Only reveal the target word when they ask what word you're referring to."
             )
 
             logger.info(f"🎯 [Agent] Starting conversation about: {target_item.phrase}")
