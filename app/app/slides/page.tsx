@@ -315,9 +315,14 @@ export default function SlidesPage() {
           </div>
         </section>
 
+        {/* Agent Architecture Diagram */}
+        <section>
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>Agent Architecture Diagram</h2>
+        </section>
+
         {/* Comprehensive Conclusion */}
         <section data-background-gradient="linear-gradient(135deg, hsl(145, 65%, 45%) 0%, hsl(200, 85%, 45%) 100%)">
-          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>VoiceCard: The Future of Language Learning</h2>
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>VoiceCard: The Future of L2 Spaced Repetition</h2>
           
           <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', maxWidth: '1100px', margin: '0 auto'}}>
             
