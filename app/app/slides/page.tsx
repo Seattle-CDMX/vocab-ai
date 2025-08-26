@@ -184,35 +184,6 @@ export default function SlidesPage() {
           <p style={{fontSize: '1.5rem', color: 'white', textShadow: '1px 1px 2px rgba(0,0,0,0.6)'}}>Technical Deep Dive into VoiceCard AI</p>
         </section>
 
-        {/* LiveKit Architecture */}
-        <section>
-          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>LiveKit Architecture</h2>
-          
-          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
-            <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
-              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fbbf24'}}>🎙️ Real-time Communication</h3>
-              <div style={{fontSize: '1.1rem', lineHeight: '1.6'}}>
-                <div style={{marginBottom: '0.5rem'}}>• WebRTC-based voice streaming</div>
-                <div style={{marginBottom: '0.5rem'}}>• Low-latency bidirectional audio</div>
-                <div style={{marginBottom: '0.5rem'}}>• Room-based session management</div>
-                <div style={{marginBottom: '0.5rem'}}>• Automatic connection recovery</div>
-                <div>• Cross-platform compatibility</div>
-              </div>
-            </div>
-
-            <div style={{backgroundColor: '#16a34a', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
-              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fef3c7'}}>🔧 LiveKit Components</h3>
-              <div style={{fontSize: '1.1rem', lineHeight: '1.6'}}>
-                <div style={{marginBottom: '0.5rem'}}>• LiveKit Server (SFU)</div>
-                <div style={{marginBottom: '0.5rem'}}>• React SDK integration</div>
-                <div style={{marginBottom: '0.5rem'}}>• Python Agent framework</div>
-                <div style={{marginBottom: '0.5rem'}}>• Token-based authentication</div>
-                <div>• Room metadata for context</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Application Architecture */}
         <section>
           <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>Application Architecture</h2>
@@ -244,89 +215,162 @@ export default function SlidesPage() {
           </div>
         </section>
 
-        {/* Agent Architecture */}
+        {/* Application Architecture Diagram */}
         <section>
-          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>Agent Architecture</h2>
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '2.5rem'}}>Application Architecture Diagram</h2>
           
-          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', maxWidth: '1200px', margin: '0 auto 2rem auto'}}>
-            <div style={{backgroundColor: '#dc2626', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
-              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fef3c7'}}>🤖 AI Agent Pipeline</h3>
-              <div style={{fontSize: '1.1rem', lineHeight: '1.6'}}>
-                <div style={{marginBottom: '0.5rem'}}>• Python LiveKit Agent</div>
-                <div style={{marginBottom: '0.5rem'}}>• Silero VAD (Voice Activity)</div>
-                <div style={{marginBottom: '0.5rem'}}>• Deepgram STT (Speech-to-Text)</div>
-                <div style={{marginBottom: '0.5rem'}}>• OpenAI GPT-4o-mini reasoning</div>
-                <div style={{marginBottom: '0.5rem'}}>• Cartesia TTS (Text-to-Speech)</div>
-                <div>• Context-aware responses</div>
-              </div>
-            </div>
-
-            <div style={{backgroundColor: '#0891b2', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
-              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fef3c7'}}>🧠 Intelligence Layer</h3>
-              <div style={{fontSize: '1.1rem', lineHeight: '1.6'}}>
-                <div style={{marginBottom: '0.5rem'}}>• Spanish-aware explanations</div>
-                <div style={{marginBottom: '0.5rem'}}>• Phrasal verb evaluation</div>
-                <div style={{marginBottom: '0.5rem'}}>• Preemptive response generation</div>
-                <div style={{marginBottom: '0.5rem'}}>• False interruption detection</div>
-                <div style={{marginBottom: '0.5rem'}}>• Adaptive difficulty adjustment</div>
-                <div>• Learning progress tracking</div>
-              </div>
-            </div>
+          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', maxWidth: '900px', margin: '0 auto', padding: '0 2rem'}}>
+            <Image
+              src="/app_diagram.png"
+              alt="VoiceCard Application Architecture Diagram"
+              width={800}
+              height={500}
+              style={{
+                maxWidth: '100%',
+                maxHeight: '60vh',
+                width: 'auto',
+                height: 'auto',
+                borderRadius: '12px',
+                boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+                objectFit: 'contain'
+              }}
+            />
           </div>
+        </section>
 
-          <div style={{maxWidth: '600px', margin: '0 auto'}}>
+        {/* LiveKit Architecture */}
+        <section>
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>LiveKit Architecture</h2>
+          
+          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
+            <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
+              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fbbf24'}}>🎙️ Real-time Communication</h3>
+              <div style={{fontSize: '1.1rem', lineHeight: '1.6'}}>
+                <div style={{marginBottom: '0.5rem'}}>• WebRTC-based voice streaming</div>
+                <div style={{marginBottom: '0.5rem'}}>• Low-latency bidirectional audio</div>
+                <div style={{marginBottom: '0.5rem'}}>• Room-based session management</div>
+                <div style={{marginBottom: '0.5rem'}}>• Automatic connection recovery</div>
+                <div>• Cross-platform compatibility</div>
+              </div>
+            </div>
+
             <div style={{backgroundColor: '#16a34a', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
-              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fef3c7', textAlign: 'center'}}>🔄 Voice Processing Flow</h3>
-              <div style={{fontSize: '1.1rem', lineHeight: '1.6', textAlign: 'center'}}>
-                <div style={{marginBottom: '0.5rem'}}>Voice Input → VAD → STT → LLM → TTS → Voice Output</div>
-                <div style={{fontSize: '0.9rem', opacity: '0.8', marginTop: '1rem'}}>Ultra-low latency conversation experience</div>
+              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fef3c7'}}>🔧 LiveKit Components</h3>
+              <div style={{fontSize: '1.1rem', lineHeight: '1.6'}}>
+                <div style={{marginBottom: '0.5rem'}}>• LiveKit Server (SFU)</div>
+                <div style={{marginBottom: '0.5rem'}}>• React SDK integration</div>
+                <div style={{marginBottom: '0.5rem'}}>• Python Agent framework</div>
+                <div style={{marginBottom: '0.5rem'}}>• Token-based authentication</div>
+                <div>• Room metadata for context</div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Conclusion */}
+        {/* LiveKit Flow Diagram */}
         <section>
-          <section data-background-gradient="linear-gradient(135deg, hsl(145, 65%, 45%) 0%, hsl(200, 85%, 45%) 100%)">
-            <h2 className="text-5xl font-bold text-white mb-8">Conclusion</h2>
-          </section>
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '2.5rem'}}>LiveKit Flow Diagram</h2>
           
-          <section>
-            <h3 className="text-4xl font-bold mb-8">The Impact</h3>
-            <div className="grid grid-cols-2 gap-8">
-              <div className="text-left">
-                <h4 className="text-2xl font-semibold mb-4 text-primary">For Learners</h4>
-                <ul className="text-lg space-y-2">
-                  <li>• 60% faster learning</li>
-                  <li>• 85% accuracy improvement</li>
-                  <li>• Natural conversation confidence</li>
-                  <li>• Personalized Spanish explanations</li>
-                </ul>
-              </div>
-              <div className="text-left">
-                <h4 className="text-2xl font-semibold mb-4 text-success">Market Opportunity</h4>
-                <ul className="text-lg space-y-2">
-                  <li>• 559M potential users</li>
-                  <li>• $60B market size</li>
-                  <li>• First mover advantage</li>
-                  <li>• Scalable AI technology</li>
-                </ul>
-              </div>
-            </div>
-          </section>
+          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', maxWidth: '900px', margin: '0 auto', padding: '0 2rem'}}>
+            <Image
+              src="/livekit_flow.png"
+              alt="LiveKit Flow Architecture Diagram"
+              width={800}
+              height={500}
+              style={{
+                maxWidth: '100%',
+                maxHeight: '60vh',
+                width: 'auto',
+                height: 'auto',
+                borderRadius: '12px',
+                boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+                objectFit: 'contain'
+              }}
+            />
+          </div>
+        </section>
+
+        {/* Agent Architecture */}
+        <section>
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>Agent Architecture</h2>
           
-          <section data-background-gradient="linear-gradient(135deg, hsl(200, 85%, 45%) 0%, hsl(145, 65%, 45%) 100%)">
-            <h2 className="text-4xl font-bold text-white mb-8">Next Steps</h2>
-            <div className="text-2xl text-white/90 space-y-6">
-              <p>🚀 Launch beta with 100 Spanish-speaking users</p>
-              <p>📊 Gather learning effectiveness data</p>
-              <p>💡 Expand to other language pairs</p>
-              <p>🤝 Partner with educational institutions</p>
+          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', maxWidth: '1100px', margin: '0 auto', height: 'calc(100vh - 200px)', alignItems: 'center'}}>
+            <div style={{backgroundColor: '#dc2626', color: 'white', padding: '2.5rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', height: '300px', display: 'flex', flexDirection: 'column'}}>
+              <h3 style={{fontSize: '1.8rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fef3c7'}}>🎯 Native Explain Agent</h3>
+              <div style={{fontSize: '1.1rem', lineHeight: '1.7', flex: '1'}}>
+                <div style={{marginBottom: '0.8rem'}}>• Asks user to explain target word</div>
+                <div style={{marginBottom: '0.8rem'}}>• Records user&apos;s explanation</div>
+                <div>• Runs RAG evaluation synchronously</div>
+              </div>
             </div>
-            <div className="mt-12 text-3xl text-white font-semibold">
-              Thank you!
+
+            <div style={{backgroundColor: '#0891b2', color: 'white', padding: '2.5rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', height: '300px', display: 'flex', flexDirection: 'column'}}>
+              <h3 style={{fontSize: '1.8rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fef3c7'}}>🔄 Context Agent</h3>
+              <div style={{fontSize: '1.1rem', lineHeight: '1.7', flex: '1'}}>
+                <div style={{marginBottom: '0.8rem'}}>• Prompts user for word usage</div>
+                <div style={{marginBottom: '0.8rem'}}>• Runs RAG evaluation asynchronously</div>
+                <div>• Continues conversation flow</div>
+              </div>
             </div>
-          </section>
+          </div>
+        </section>
+
+        {/* Comprehensive Conclusion */}
+        <section data-background-gradient="linear-gradient(135deg, hsl(145, 65%, 45%) 0%, hsl(200, 85%, 45%) 100%)">
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>VoiceCard: The Future of Language Learning</h2>
+          
+          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', maxWidth: '1100px', margin: '0 auto'}}>
+            
+            {/* Market Opportunity */}
+            <div style={{backgroundColor: 'rgba(30, 64, 175, 0.9)', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.4)'}}>
+              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fbbf24'}}>🌎 Market Opportunity</h3>
+              <div style={{fontSize: '1.1rem', lineHeight: '1.6'}}>
+                <div style={{marginBottom: '0.8rem', display: 'flex', alignItems: 'center'}}>
+                  <span style={{fontSize: '1.8rem', fontWeight: 'bold', color: '#34d399', marginRight: '0.5rem'}}>559M</span>
+                  Spanish speakers worldwide
+                </div>
+                <div style={{marginBottom: '0.8rem', display: 'flex', alignItems: 'center'}}>
+                  <span style={{fontSize: '1.8rem', fontWeight: 'bold', color: '#34d399', marginRight: '0.5rem'}}>$60B</span>
+                  language learning market
+                </div>
+                <div style={{marginBottom: '0.8rem'}}>• Nearshoring boom creating demand</div>
+                <div>• English fluency = career advancement</div>
+              </div>
+            </div>
+
+            {/* Unique Solution */}
+            <div style={{backgroundColor: 'rgba(124, 58, 237, 0.9)', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.4)'}}>
+              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fbbf24'}}>🎯 Unique Solution</h3>
+              <div style={{fontSize: '1.1rem', lineHeight: '1.6'}}>
+                <div style={{marginBottom: '0.8rem'}}>• First AI voice agent for Spanish speakers</div>
+                <div style={{marginBottom: '0.8rem'}}>• Phrasal verb mastery through conversation</div>
+                <div style={{marginBottom: '0.8rem'}}>• LiveKit + GPT-4o + SRS technology</div>
+                <div>• Spanish-aware explanations & feedback</div>
+              </div>
+            </div>
+
+            {/* Competitive Advantage */}
+            <div style={{backgroundColor: 'rgba(234, 88, 12, 0.9)', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.4)'}}>
+              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fef3c7'}}>⚡ Competitive Edge</h3>
+              <div style={{fontSize: '1.1rem', lineHeight: '1.6'}}>
+                <div style={{marginBottom: '0.8rem'}}>• Fills gap left by Duolingo & traditional ESL</div>
+                <div style={{marginBottom: '0.8rem'}}>• Voice-first learning approach</div>
+                <div style={{marginBottom: '0.8rem'}}>• Real-time conversation practice</div>
+                <div>• Underserved but critical market segment</div>
+              </div>
+            </div>
+
+            {/* Expected Impact */}
+            <div style={{backgroundColor: 'rgba(22, 163, 74, 0.9)', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.4)'}}>
+              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fef3c7'}}>🚀 Expected Impact</h3>
+              <div style={{fontSize: '1.1rem', lineHeight: '1.6'}}>
+                <div style={{marginBottom: '0.8rem'}}>• 60% faster learning through voice practice</div>
+                <div style={{marginBottom: '0.8rem'}}>• Natural conversation confidence</div>
+                <div style={{marginBottom: '0.8rem'}}>• Career advancement for nearshore workers</div>
+                <div>• Scalable platform for language expansion</div>
+              </div>
+            </div>
+          </div>
         </section>
       </div>
     </div>
