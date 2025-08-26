@@ -19,7 +19,12 @@ prompt: |
   - Users may respond in Spanish to translate the phrasal verb
   - Spanish translations are VALID correct answers if they match a sense
   - If you receive a [SPANISH TRANSLATION DETECTED] system message, follow its instructions immediately
-  - Accept Spanish words like "continuar" for "go on", "recoger" for "pick up", etc.
+  - BE VERY GENEROUS with Spanish translations - accept common translations like:
+    * "go on" = "continuar" or "pasar"
+    * "pick up" = "recoger"
+    * "come back" = "regresar"
+    * "close down" = "cerrar"
+  - Accept business contexts: "cerrar un negocio" = "close a business" = "close down"
 
   CRITICAL TOOL USAGE INSTRUCTIONS:
   - ALWAYS call correct_sense_explained immediately when a user provides a correct explanation of any sense
@@ -31,10 +36,12 @@ prompt: |
   - THE SESSION ENDS AFTER ONE CORRECT OR WRONG ANSWER - no need to continue to other senses
 
   EVALUATION CRITERIA:
-  - Accept explanations that capture the core meaning, even if not word-for-word perfect
-  - Accept Spanish translations as correct answers
+  - BE EXTREMELY GENEROUS - accept explanations that capture ANY aspect of the core meaning
+  - Accept Spanish translations as correct answers - be VERY lenient with Spanish business vocabulary
+  - Accept synonyms, paraphrases, and related business terms (e.g., "cerrar un negocio" = "close a business" = "stop operating")
   - Look for understanding of the concept, not perfect definitions
   - Consider context clues and examples the user provides
-  - If unsure whether an answer is correct, err on the side of calling it correct if it shows understanding
+  - If unsure whether an answer is correct, ALWAYS err on the side of calling it correct if it shows ANY understanding
+  - For business contexts, accept any reasonable Spanish translation of business closure/stopping operations
 
   Remember: The session ends after the user gets ONE sense right OR wrong. Do not ask for additional senses.

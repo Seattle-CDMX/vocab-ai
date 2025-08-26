@@ -210,7 +210,7 @@ Context: {self.context_text}"""
             greeting = self.conversation_starter.replace("[username]", "").strip()
             # Make it shorter - just take the first sentence if it's too long
             if len(greeting) > 100:
-                first_sentence = greeting.split('.')[0] + '.'
+                first_sentence = greeting.split(".")[0] + "."
                 greeting = first_sentence
         else:
             greeting = "Hello! Where were we?"

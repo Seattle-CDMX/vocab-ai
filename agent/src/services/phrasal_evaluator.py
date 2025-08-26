@@ -61,7 +61,8 @@ class PhrasalEvaluator:
         examples_text = ""
         if phrasal_verb_examples:
             examples_text = "\nExamples of correct usage:\n" + "\n".join(
-                f"- {example}" for example in phrasal_verb_examples[:3]  # Limit to 3 examples
+                f"- {example}"
+                for example in phrasal_verb_examples[:3]  # Limit to 3 examples
             )
 
         evaluation_prompt = f"""You are evaluating if a student correctly used the phrasal verb "{phrasal_verb}" in a conversation.
@@ -149,7 +150,6 @@ Return a JSON response:
                 "hint": f"Try using '{phrasal_verb}' naturally in conversation",
                 "explanation": f"Evaluation error: {e!s}",
             }
-
 
     def clear_cache(self):
         """Clear the evaluation cache."""

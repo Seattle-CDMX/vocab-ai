@@ -75,7 +75,9 @@ class TerminalStateManager:
                 payload=json.dumps(toast_payload),
                 response_timeout=1.0,
             )
-            logger.info(f"📤 [TerminalState] Sent immediate {state_type} toast to {participant_identity}")
+            logger.info(
+                f"📤 [TerminalState] Sent immediate {state_type} toast to {participant_identity}"
+            )
 
         except Exception as e:
             logger.error(f"❌ [TerminalState] Failed to send toast notification: {e}")
@@ -89,7 +91,9 @@ class TerminalStateManager:
         """Send delayed session closure instruction after agent finishes speaking."""
         try:
             # Wait for agent to finish speaking
-            logger.info(f"⏰ [TerminalState] Waiting {delay_seconds}s before closing session to allow agent to finish speaking")
+            logger.info(
+                f"⏰ [TerminalState] Waiting {delay_seconds}s before closing session to allow agent to finish speaking"
+            )
             await asyncio.sleep(delay_seconds)
 
             # Send session closure instruction
@@ -105,18 +109,27 @@ class TerminalStateManager:
                 payload=json.dumps(closure_payload),
                 response_timeout=1.0,
             )
-            logger.info(f"📤 [TerminalState] Sent delayed session closure instruction to {participant_identity} after {delay_seconds}s")
+            logger.info(
+                f"📤 [TerminalState] Sent delayed session closure instruction to {participant_identity} after {delay_seconds}s"
+            )
 
         except Exception as e:
-            logger.error(f"❌ [TerminalState] Failed to send delayed session closure: {e}")
+            logger.error(
+                f"❌ [TerminalState] Failed to send delayed session closure: {e}"
+            )
 
     @staticmethod
     async def handle_success(message: str, delay_seconds: float = 4.0) -> None:
         """Convenience method for handling success terminal states with graceful closure."""
-        await TerminalStateManager.handle_terminal_state("success", message, delay_seconds=delay_seconds)
+        await TerminalStateManager.handle_terminal_state(
+            "success", message, delay_seconds=delay_seconds
+        )
 
     @staticmethod
-    async def handle_failure(message: str, hint: str = "", delay_seconds: float = 3.0) -> None:
+    async def handle_failure(
+        message: str, hint: str = "", delay_seconds: float = 3.0
+    ) -> None:
         """Convenience method for handling failure terminal states with graceful closure."""
-        await TerminalStateManager.handle_terminal_state("failure", message, hint, delay_seconds)
-
+        await TerminalStateManager.handle_terminal_state(
+            "failure", message, hint, delay_seconds
+        )

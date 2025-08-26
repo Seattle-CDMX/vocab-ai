@@ -9,9 +9,12 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, List
 
-PHRASAL_VERBS_PATH = Path(__file__).parent.parent.parent / "app" / "public" / "phrasal_verbs.json"
+PHRASAL_VERBS_PATH = (
+    Path(__file__).parent.parent.parent / "app" / "public" / "phrasal_verbs.json"
+)
 OUTPUT_DIR = Path(__file__).parent.parent.parent / "app" / "generated_data"
 IMAGES_DIR = OUTPUT_DIR / "images"
+
 
 class MockDemoGenerator:
     def __init__(self):
@@ -48,7 +51,11 @@ class MockDemoGenerator:
                 "difficulty": "intermediate",
                 "business_context": "Team meeting",
                 "learning_tip": "Use 'go on' to encourage someone to continue speaking or to indicate continuation.",
-                "alternative_scenarios": ["Presentation Q&A", "One-on-one review", "Conference call"]
+                "alternative_scenarios": [
+                    "Presentation Q&A",
+                    "One-on-one review",
+                    "Conference call",
+                ],
             },
             "PICK UP": {
                 "scenario_title": "Task Assignment",
@@ -60,8 +67,12 @@ class MockDemoGenerator:
                 "difficulty": "beginner",
                 "business_context": "Task delegation",
                 "learning_tip": "'Pick up' means to collect or get something from somewhere.",
-                "alternative_scenarios": ["Office supplies run", "Client materials", "Lunch order"]
-            }
+                "alternative_scenarios": [
+                    "Office supplies run",
+                    "Client materials",
+                    "Lunch order",
+                ],
+            },
         }
 
         # Default scenario for verbs not in the mock data
@@ -75,10 +86,14 @@ class MockDemoGenerator:
             "difficulty": "intermediate",
             "business_context": "Business discussion",
             "learning_tip": f"Remember: {verb['senses'][0]['definition']}",
-            "alternative_scenarios": ["Team meeting", "Email discussion", "Project planning"]
+            "alternative_scenarios": [
+                "Team meeting",
+                "Email discussion",
+                "Project planning",
+            ],
         }
 
-        return scenarios.get(verb['verb'], default)
+        return scenarios.get(verb["verb"], default)
 
     def create_mock_image(self, verb: Dict) -> str:
         """Create a placeholder for image (in real version, this would generate an image)"""
@@ -92,40 +107,40 @@ class MockDemoGenerator:
         image_path = self.create_mock_image(verb)
 
         # Use the first sense as the primary definition
-        primary_sense = verb['senses'][0]
+        primary_sense = verb["senses"][0]
 
         voice_card = {
             "id": f"context-{verb['verb'].lower().replace(' ', '-')}-{self.timestamp}",
             "type": "context",
             "title": f"In-Context — {verb['verb']}",
-            "difficulty": scenario['difficulty'],
+            "difficulty": scenario["difficulty"],
             "contextText": f"You're speaking with {scenario['character_name']}, {scenario['character_role']}. {scenario['situation']}",
             "imageUrl": image_path,
             "ctaText": f"Talk to {scenario['character_name']}",
             "scenario": {
-                "character": scenario['character_name'],
-                "role": scenario['character_role'],
-                "situation": scenario['situation'],
-                "phrasalVerb": verb['verb'].lower(),
-                "contextText": scenario['situation'],
-                "conversationStarter": scenario['conversation_starter'],
-                "expectedUsage": scenario['expected_usage'],
-                "businessContext": scenario['business_context'],
-                "maxTurns": 5
+                "character": scenario["character_name"],
+                "role": scenario["character_role"],
+                "situation": scenario["situation"],
+                "phrasalVerb": verb["verb"].lower(),
+                "contextText": scenario["situation"],
+                "conversationStarter": scenario["conversation_starter"],
+                "expectedUsage": scenario["expected_usage"],
+                "businessContext": scenario["business_context"],
+                "maxTurns": 5,
             },
             "targetPhrasalVerb": {
-                "verb": verb['verb'],
-                "definition": primary_sense['definition'],
-                "confidence": primary_sense['confidencePercent'],
-                "examples": primary_sense['examples'] + [scenario['expected_usage']],
-                "learningTip": scenario['learning_tip'],
-                "alternativeScenarios": scenario['alternative_scenarios']
+                "verb": verb["verb"],
+                "definition": primary_sense["definition"],
+                "confidence": primary_sense["confidencePercent"],
+                "examples": primary_sense["examples"] + [scenario["expected_usage"]],
+                "learningTip": scenario["learning_tip"],
+                "alternativeScenarios": scenario["alternative_scenarios"],
             },
             "metadata": {
-                "originalId": verb['id'],
+                "originalId": verb["id"],
                 "generatedAt": self.timestamp,
-                "allSenses": verb['senses']
-            }
+                "allSenses": verb["senses"],
+            },
         }
 
         return voice_card
@@ -144,7 +159,7 @@ class MockDemoGenerator:
         # Generate voice cards
         voice_cards = []
         for i, verb in enumerate(selected_verbs):
-            print(f"Processing {i+1}/{len(selected_verbs)}: {verb['verb']}")
+            print(f"Processing {i + 1}/{len(selected_verbs)}: {verb['verb']}")
             card = self.create_voice_card(verb, i)
             voice_cards.append(card)
 
@@ -156,14 +171,14 @@ class MockDemoGenerator:
             "metadata": {
                 "generator": "demo_generator_test.py",
                 "version": "1.0.0-test",
-                "phrasalVerbsProcessed": [v['verb'] for v in selected_verbs],
-                "testMode": True
-            }
+                "phrasalVerbsProcessed": [v["verb"] for v in selected_verbs],
+                "testMode": True,
+            },
         }
 
         # Save to timestamped file
         output_file = OUTPUT_DIR / f"voice-cards-{self.timestamp}.json"
-        with open(output_file, 'w') as f:
+        with open(output_file, "w") as f:
             json.dump(output, f, indent=2)
 
         print("\nMock generation complete!")
@@ -178,10 +193,12 @@ class MockDemoGenerator:
 
         return output_file
 
+
 def main():
     """Main entry point"""
     generator = MockDemoGenerator()
     generator.generate_all_cards()
+
 
 if __name__ == "__main__":
     main()

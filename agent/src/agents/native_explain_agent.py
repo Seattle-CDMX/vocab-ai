@@ -36,7 +36,7 @@ class NativeExplainAgent(Agent):
             turn_detection=MultilingualModel(),
         )
         self.spanish_validation_result = None  # Store RAG validation results
-        
+
         logger.info(
             "🔧 [Agent] NativeExplainAgent initialized with Spanish translation support"
         )
@@ -83,7 +83,7 @@ class NativeExplainAgent(Agent):
             asyncio.create_task(  # noqa: RUF006
                 TerminalStateManager.handle_success(
                     f"Excellent! You correctly explained sense {sense_number} of this phrasal verb! 🎉",
-                    delay_seconds=5.0  # Delay to allow agent to finish speaking
+                    delay_seconds=5.0,  # Delay to allow agent to finish speaking
                 )
             )
 
@@ -117,7 +117,7 @@ class NativeExplainAgent(Agent):
             TerminalStateManager.handle_failure(
                 f"Not quite right. The correct meaning is: {correct_definition[:100]}...",
                 hint="Keep practicing! You'll master this phrasal verb.",
-                delay_seconds=5.0  # Delay to allow agent to finish speaking
+                delay_seconds=5.0,  # Delay to allow agent to finish speaking
             )
         )
 
@@ -139,7 +139,7 @@ class NativeExplainAgent(Agent):
             asyncio.create_task(  # noqa: RUF006
                 TerminalStateManager.handle_success(
                     f"Congratulations! You've successfully explained all {total_senses} senses of '{phrase}'. Great work! 🎉",
-                    delay_seconds=5.0  # Longer delay for final completion message
+                    delay_seconds=5.0,  # Longer delay for final completion message
                 )
             )
 
@@ -149,7 +149,7 @@ class NativeExplainAgent(Agent):
         asyncio.create_task(  # noqa: RUF006
             TerminalStateManager.handle_success(
                 "Congratulations! You've completed explaining all the senses of this phrasal verb! 🎉",
-                delay_seconds=5.0  # Longer delay for final completion message
+                delay_seconds=5.0,  # Longer delay for final completion message
             )
         )
 
@@ -173,7 +173,7 @@ class NativeExplainAgent(Agent):
     async def on_enter(self) -> None:
         """Agent initialization hook called when this agent becomes active."""
         logger.info("🎯 [Agent] NativeExplainAgent on_enter called")
-        
+
         # Get session info to check if we have target lexical item data
         session_info = self.session.userdata
 
@@ -211,52 +211,70 @@ The {target_item.total_senses} senses are:
     ) -> None:
         """RAG method to validate Spanish translations before LLM processing."""
         session_info = self.session.userdata
-        
-        if not isinstance(session_info, MySessionInfo) or not session_info.target_lexical_item:
+
+        if (
+            not isinstance(session_info, MySessionInfo)
+            or not session_info.target_lexical_item
+        ):
             return
-        
+
         target_item = session_info.target_lexical_item
         user_response = new_message.content
-        
+
         # Build sense definitions for RAG validation
         senses_info = ""
         for sense in target_item.senses:
             senses_info += f"Sense {sense.sense_number}: {sense.definition}\n"
-        
-        # Use LLM to check if response is a Spanish translation
+
+        # Use LLM to check if response is a Spanish translation - BE VERY GENEROUS
         validation_prompt = f"""Analyze this user response for the phrasal verb '{target_item.phrase}':
 
 User said: "{user_response}"
 
-Phrasa verb senses:
+Phrasal verb senses:
 {senses_info}
+
+BE EXTREMELY GENEROUS in evaluation. Accept Spanish translations that show ANY understanding.
+
+Common Spanish translations to accept:
+- "go on" = "continuar" or "pasar" 
+- "pick up" = "recoger"
+- "come back" = "regresar"
+- "close down" = "cerrar" or "cerrar un negocio" (close a business)
+
+For "close down" specifically: Accept ANY Spanish phrase about closing businesses, stopping operations, or shutting down.
 
 Determine:
 1. Is this response in Spanish? (yes/no)
 2. If Spanish, which sense number does it correctly translate to? (1, 2, etc. or 'none' if incorrect)
 3. Brief explanation of why
 
+BE LENIENT - if there's any reasonable connection, mark it as correct!
+
 Respond in JSON format:
 {{"is_spanish": boolean, "correct_sense": number or null, "explanation": "brief explanation"}}
 """
-        
+
         try:
             # Create a simple LLM instance for RAG validation
             llm = openai.LLM(model="gpt-4o-mini")
             validation_response = await llm.chat(
                 messages=[
-                    ChatMessage.system("You are a language validation assistant. Respond only in JSON format."),
-                    ChatMessage.user(validation_prompt)
+                    ChatMessage.system(
+                        "You are a language validation assistant. Respond only in JSON format."
+                    ),
+                    ChatMessage.user(validation_prompt),
                 ]
             )
-            
+
             # Parse the validation result
             import json
+
             result = json.loads(validation_response.content)
-            
+
             # Store result for function tools to use
             self.spanish_validation_result = result
-            
+
             # If Spanish translation is correct, add context to help the agent
             if result.get("is_spanish") and result.get("correct_sense"):
                 # Inject context into the chat to guide the agent
@@ -266,7 +284,9 @@ Respond in JSON format:
                         f"Call correct_sense_explained with sense_number={result['correct_sense']} immediately."
                     )
                 )
-                logger.info(f"✅ Spanish translation validated for sense {result['correct_sense']}: {user_response}")
+                logger.info(
+                    f"✅ Spanish translation validated for sense {result['correct_sense']}: {user_response}"
+                )
             elif result.get("is_spanish") and not result.get("correct_sense"):
                 # Spanish but incorrect
                 turn_ctx.messages.append(
@@ -275,8 +295,10 @@ Respond in JSON format:
                         f"Call wrong_answer and provide the correct definition."
                     )
                 )
-                logger.info(f"❌ Incorrect Spanish translation detected: {user_response}")
-                
+                logger.info(
+                    f"❌ Incorrect Spanish translation detected: {user_response}"
+                )
+
         except Exception as e:
             logger.error(f"Failed to validate Spanish translation: {e}")
             # Continue without validation on error
