@@ -50,6 +50,13 @@ const Hero = ({ isAuthenticated, onSignOut }: { isAuthenticated: boolean; onSign
                   Blog
                 </Button>
                 <Button 
+                  variant="ghost" 
+                  size="sm"
+                  onClick={() => router.push('/slides')}
+                >
+                  Slides
+                </Button>
+                <Button 
                   variant="outline" 
                   size="sm"
                   onClick={() => router.push('/dashboard')}
@@ -81,6 +88,13 @@ const Hero = ({ isAuthenticated, onSignOut }: { isAuthenticated: boolean; onSign
                   onClick={() => router.push('/blog')}
                 >
                   Blog
+                </Button>
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  onClick={() => router.push('/slides')}
+                >
+                  Slides
                 </Button>
                 <Button 
                   variant="ghost" 
