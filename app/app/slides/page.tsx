@@ -153,13 +153,35 @@ export default function SlidesPage() {
           </div>
         </section>
 
-        {/* Solution Demo Placeholder */}
+        {/* Solution Demo with Embedded Loom Video */}
         <section data-background-gradient="linear-gradient(135deg, hsl(200, 85%, 50%) 0%, hsl(200, 85%, 70%) 100%)">
-          <div style={{textAlign: 'center'}}>
+          <div style={{textAlign: 'center', maxWidth: '1000px', margin: '0 auto'}}>
             <h2 style={{fontSize: '4rem', fontWeight: 'bold', color: 'white', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', marginBottom: '2rem'}}>Solution Demo</h2>
-            <div style={{fontSize: '2.5rem', color: 'white', textShadow: '1px 1px 2px rgba(0,0,0,0.6)'}}>
-              🖥️ Live Screen Share Demo
+            
+            <div style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.1)', 
+              borderRadius: '12px', 
+              padding: '2rem', 
+              backdropFilter: 'blur(10px)',
+              boxShadow: '0 8px 32px rgba(0,0,0,0.3)'
+            }}>
+              <iframe 
+                src="https://www.loom.com/embed/82bd94f434364039b1a1d45f528c5bca?speed=1.25&t=0&autoplay=0"
+                frameBorder="0" 
+                allowFullScreen
+                style={{
+                  width: '100%', 
+                  height: '500px',
+                  borderRadius: '8px',
+                  boxShadow: '0 4px 16px rgba(0,0,0,0.2)'
+                }}
+                allow="autoplay; clipboard-read; clipboard-write; microphone; camera"
+              />
             </div>
+            
+            <p style={{fontSize: '1.2rem', color: 'white', textShadow: '1px 1px 2px rgba(0,0,0,0.6)', marginTop: '1rem', opacity: '0.9'}}>
+              Watch VoiceCard in action - AI-powered phrasal verb learning
+            </p>
           </div>
         </section>
 
