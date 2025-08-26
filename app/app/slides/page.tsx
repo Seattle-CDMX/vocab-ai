@@ -85,7 +85,7 @@ export default function SlidesPage() {
               <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#fbbf24'}}>⚡ Grammar Rules</h3>
               <div style={{fontSize: '1.1rem'}}>
                 <div style={{color: '#34d399', marginBottom: '0.5rem'}}>✅ &quot;to   turn on the TV&quot; → &quot;turn it on&quot;</div>
-                <div style={{color: '#f87171'}}>❌ &quot;to look after my car&quot; → &quot;look if after&quot;</div>
+                <div style={{color: '#f87171'}}>❌ &quot;to look after my car&quot; → &quot;look it* after&quot;</div>
               </div>
             </div>
 
