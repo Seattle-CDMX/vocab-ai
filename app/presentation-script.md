@@ -1,12 +1,11 @@
 # VoiceCard AI Presentation Script
 
 ## Timing Guide
-- **Total Time**: 10-14 minutes
-- **Problem**: 1-2 minutes
-- **Success**: 1 minute  
-- **Audience**: 1-2 minutes
+- **Total Time**: 12-16 minutes
+- **Problem**: 2-3 minutes (2 slides)
+- **Audience**: 1-2 minutes (1 slide)
 - **Demo**: 2-4 minutes (live screen share)
-- **Infrastructure**: 2-4 minutes
+- **Infrastructure**: 4-6 minutes (6 slides)
 - **Conclusion**: 1-2 minutes
 
 ---
@@ -14,78 +13,51 @@
 ## [SLIDE 1: Title] - VoiceCard AI (0:00)
 
 **Opening (30 seconds)**
-Don't say anything, just ride off the inroduction
+Don't say anything, just ride off the introduction
 
 **Brief Hook (30 seconds)**  
-For anyone learning English as a second or foreign language, mastering phrasal verbs is an enormous hurdle to achieving advanced fluency. These tricky multi-word verbs, like "pick up," "run into," or "put off"—aren’t just difficult; they’re absolutely essential for sounding natural and confident in conversation. Phrasal verbs are the secret sauce of spoken English, and cracking their code is the key to levlling speaking skills.
+For anyone learning English as a second or foreign language, mastering phrasal verbs is a big hurdle on the way to achieving advanced fluency. For students, grokking these tricky-to-learn, multi-word verbs, like "pick up," "run into," or "put off", "set about" or "pull forward"— is the secret sauce to levelling up their spoken English.
 
 **[NEXT SLIDE: 1:00]**
 
 ---
 
-## [SLIDE 2: Problem Section] - The Problem (1:00)
+## [SLIDE 2: The Complexity of Phrasal Verbs] - The Problem (1:00)
 
-**The Complexity of Phrasal Verbs (30 seconds)**
-Walk through point by point, and emphasize how these are 
-
-**[NEXT SLIDE: 1:30]**
-
-**[SLIDE 3: Why Difficult] - Comparison (1:30)**
-Let me show you why. In Spanish, "recoger" always means "to pick up." Simple, logical, predictable. But in English, "pick up" has twelve different meanings. You can pick up objects, pick up skills, pick up the phone, or pick up speed. For a Spanish speaker, this feels completely random.
+**The Complexity Breakdown (1 minute)**
+Let me walk you through why phrasal verbs are so challenging. First, they're multi-word with multiple meanings - "to go on" can mean "to happen" or "to continue." Second, the parts don't equal the whole - "break up" meaning "end a relationship" has nothing to do with physically breaking something upward. Third, they have complex grammar rules - you can say "turn on the TV" or "turn it on," but you can't say "look it after" for "look after it." Finally, they're the secret sauce of spoken English - the difference between formal "Please tolerate the noise" and casual "Just put up with it."
 
 **[NEXT SLIDE: 2:00]**
 
-**[SLIDE 4: Scale] - The Numbers (2:00)**
-The scale of this challenge is massive. There are over 2,000 common phrasal verbs in English. They appear in 80% of everyday conversation. And research shows they take 15 times longer to master than regular verbs.
+**[SLIDE 3: The Language Learning Market] - Why Current Products Fall Short (0:45)**
+Learning phrasal verbs is challenging, as is mastering vocabulary in any second language. Language schools typically focus on reading and grammar, providing insufficient instruction in vocabulary and speaking, let alone phrasal verbs.
 
-**[NEXT SLIDE: 2:30]**
+Students often turn to flash card based apps like Anki or WaniKani for Japanese Kanji. However, these apps are text-only and lack AI features by default. Of course, there's Duolingo, but these kinds of apps are focused on comprehensive language learning solutions and leave opportunities open for other more niche apps.
 
----
+I created VoiceCard to help language learners master phrasal verbs and English vocabulary by combining the proven method of spaced repetition with newer techniques in conversational AI.
 
-## [SLIDE 5: Success] - My Personal Success (2:30)
-
-**Personal Story (1 minute)**
-I built VoiceCard AI to solve my own problem. As a Spanish speaker, my phrasal verb accuracy was stuck at 40%. Traditional methods weren't working. After developing this AI-powered practice system, I increased my accuracy to 85%. Native speakers now tell me I sound "more natural," and I reduced my learning time by 60%.
-
-This personal transformation showed me the power of AI-guided conversation practice tailored specifically for Spanish speakers.
-
-**[NEXT SLIDE: 3:30]**
+**[NEXT SLIDE: 3:00]**
 
 ---
 
-## [SLIDE 6: Target Audience] - Spanish Speakers (3:30)
+## [SLIDE 4: Localizing ] - Target Audience (3:00)
 
 **Market Introduction (30 seconds)**
-So who exactly are we serving? Spanish speakers learning English represent a massive, underserved market.
+So who exactly are we serving? The nearshoring boom has created a massive opportunity.
 
-**[NEXT SLIDE: 4:00]**
-
-**[SLIDE 7: Market Size] - The Numbers (4:00)**
-The numbers are compelling. 559 million Spanish speakers worldwide, with 41 million in the US alone. The global language learning market is projected to reach $60 billion by 2027.
+**Market Numbers (1 minute)**
+The numbers are compelling: 559 million Spanish speakers worldwide across 21+ countries, with a $60 billion global language learning market. The nearshoring boom in Mexico, Colombia, and Costa Rica means millions are now working with US companies or doing business in English. For these professionals, English fluency equals career advancement, and phrasal verbs are the key to spoken English mastery. Yet no AI solution specifically targets Spanish speakers - it's an underserved but critical market segment.
 
 **[NEXT SLIDE: 4:30]**
 
-**[SLIDE 8: Why Spanish Speakers] - Specific Challenges (4:30)**
-But why focus specifically on Spanish speakers? Four key reasons:
-
-First, cognitive interference - Spanish sentence structure directly conflicts with phrasal verb patterns, creating unique learning challenges.
-
-Second, there's an educational gap. Most ESL materials treat all learners the same, ignoring Spanish-specific difficulties.
-
-Third, economic motivation is high. Research shows phrasal verb fluency correlates with 23% higher salaries for bilingual professionals.
-
-Fourth, it's an underserved market. No existing AI solution specifically targets this Spanish-English language pair.
-
-**[NEXT SLIDE: 5:30]**
-
 ---
 
-## [SLIDE 9: Solution Demo Placeholder] - Live Demo (5:30)
+## [SLIDE 5: Solution Demo] - Live Demo (4:30)
 
 **Demo Transition (30 seconds)**
 Now let me show you VoiceCard AI in action. I'm going to switch to a live screen share to demonstrate the actual product.
 
-**[SWITCH TO SCREEN SHARE - LIVE DEMO: 6:00-10:00]**
+**[SWITCH TO SCREEN SHARE - LIVE DEMO: 5:00-8:00]**
 
 *During live demo, showcase:*
 - Voice card selection and context
@@ -101,60 +73,90 @@ Now let me show you VoiceCard AI in action. I'm going to switch to a live screen
 - "Watch how it provides immediate, contextual correction"
 - "The spaced repetition ensures long-term retention"
 
-**[RETURN TO SLIDES: 10:00]**
+**[RETURN TO SLIDES: 8:00]**
 
 ---
 
-## [SLIDE 10: Infrastructure] - System Architecture (10:00)
+## [SLIDE 6: System Architecture] - Technical Overview (8:00)
 
 **Architecture Overview (30 seconds)**
-Now let's look under the hood. VoiceCard AI uses a sophisticated real-time architecture combining the best AI services.
+Now let's look under the hood. VoiceCard AI uses a sophisticated real-time architecture that's the future of L2 spaced repetition.
 
-**[NEXT SLIDE: 10:30]**
+**[NEXT SLIDE: 8:30]**
 
-**[SLIDE 11: Overall Architecture] - High Level (10:30)**
-At the highest level, our Next.js web application connects users to LiveKit rooms where our Python AI agent orchestrates the conversation. The agent coordinates three specialized AI services: OpenAI's GPT-4o-mini for language understanding, Deepgram Nova-3 for speech-to-text, and Cartesia for natural text-to-speech.
+---
+
+## [SLIDE 7: Application Architecture] - Frontend & API (8:30)
+
+**Application Layer Overview (1 minute)**
+Our application architecture has two main layers. The frontend uses Next.js with React 19 and TypeScript, featuring an App Router for navigation, our Spaced Repetition System, voice card data management, progress tracking and analytics, all with a responsive UI built in Tailwind. The API layer, also in Next.js, handles token generation for LiveKit, room management endpoints, authentication middleware, generated data serving, session state management, and comprehensive error handling and logging.
+
+**[NEXT SLIDE: 9:30]**
+
+---
+
+## [SLIDE 8: Application Architecture Diagram] - Visual Overview (9:30)
+
+**Diagram Walkthrough (30 seconds)**
+Here's our complete application architecture diagram showing how all the components work together - from the user interface through the API layer to our real-time communication system.
+
+**[NEXT SLIDE: 10:00]**
+
+---
+
+## [SLIDE 9: LiveKit Architecture] - Real-time Communication (10:00)
+
+**LiveKit Components (1 minute)**
+LiveKit powers our real-time communication with WebRTC-based voice streaming, providing low-latency bidirectional audio, room-based session management, automatic connection recovery, and cross-platform compatibility. The components include the LiveKit Server acting as an SFU, React SDK integration, Python Agent framework, token-based authentication, and room metadata for context.
 
 **[NEXT SLIDE: 11:00]**
 
-**[SLIDE 12: Voice Pipeline] - Real-time Flow (11:00)**  
-Here's the real-time voice processing flow. When a user explains a phrasal verb in Spanish, Deepgram converts speech to text, GPT-4o-mini analyzes the explanation's accuracy and provides Spanish-language feedback, then Cartesia converts that feedback to natural speech. This entire cycle happens in under 2 seconds.
+---
+
+## [SLIDE 10: LiveKit Flow Diagram] - Technical Flow (11:00)
+
+**Flow Explanation (30 seconds)**
+This diagram shows exactly how audio flows through our LiveKit architecture, from user input through our AI agents and back to natural speech output.
 
 **[NEXT SLIDE: 11:30]**
 
-**[SLIDE 13: Learning Algorithm] - SRS Flow (11:30)**
-The learning algorithm implements spaced repetition science. After each practice session, the system updates scheduling based on performance, ensuring struggling phrasal verbs appear more frequently while mastered ones fade into long-term review cycles.
+---
 
-**[NEXT SLIDE: 12:00]**
+## [SLIDE 11: Agent Architecture] - AI Agents (11:30)
 
-**[SLIDE 14: Tech Stack] - Technologies (12:00)**
-The technology stack combines proven, scalable solutions. Next.js 15 and React 19 for the frontend, LiveKit for real-time communication, and a Python backend using UV for fast dependency management. Everything is containerized and deployment-ready.
+**Agent Overview (1 minute)**
+We have two specialized AI agents. The Native Explain Agent asks users to explain the target word, records their explanation, and runs RAG evaluation synchronously for immediate feedback. The Context Agent prompts users for word usage in context, runs RAG evaluation asynchronously to maintain conversation flow, and continues the natural dialogue. This dual-agent approach ensures both accuracy and conversational fluency.
 
 **[NEXT SLIDE: 12:30]**
 
 ---
 
-## [SLIDE 15: Conclusion] - The Impact (12:30)
+## [SLIDE 12: Agent Architecture Diagram] - Agent Flow (12:30)
 
-**Impact Summary (30 seconds)**
-Let me summarize the impact we're creating.
+**Agent Diagram (30 seconds)**
+This technical diagram shows how our two agents coordinate to create seamless learning experiences.
 
 **[NEXT SLIDE: 13:00]**
 
-**[SLIDE 16: Impact Details] - Results (13:00)**
-For learners, we're delivering 60% faster learning, 85% accuracy improvement, and the confidence to speak naturally. For the market, we're addressing 559 million potential users in a $60 billion space with first-mover advantage using scalable AI technology.
+---
 
-**[NEXT SLIDE: 13:30]**
+## [SLIDE 13: VoiceCard: The Future of L2 Spaced Repetition] - Conclusion (13:00)
 
-**[SLIDE 17: Next Steps] - Future (13:30)**
-Our next steps are clear. We're launching a beta with 100 Spanish-speaking users to gather learning effectiveness data. Then we'll expand to other language pairs and partner with educational institutions.
+**Comprehensive Impact Summary (2 minutes)**
+Let me bring this all together. We have a massive market opportunity with 559 million Spanish speakers worldwide in a $60 billion language learning market. The nearshoring boom is creating unprecedented demand, and English fluency directly correlates with career advancement.
+
+Our unique solution is the first AI voice agent specifically designed for Spanish speakers, focusing on phrasal verb mastery through conversation. We're combining LiveKit real-time communication, GPT-4o intelligence, and spaced repetition science into a powerful learning platform.
+
+Our competitive advantage is clear - we're filling the gap left by Duolingo and traditional ESL with our voice-first learning approach and real-time conversation practice, targeting an underserved but critical market segment.
+
+The expected impact is transformative: 60% faster learning through voice practice, natural conversation confidence, career advancement for nearshore workers, and a scalable platform ready for language expansion.
 
 **Closing (30 seconds)**
-VoiceCard AI isn't just another language learning app. It's a specialized solution that understands the unique challenges Spanish speakers face with English phrasal verbs, powered by the latest AI technology to deliver personalized, effective practice.
+VoiceCard AI represents the future of language learning - where AI agents become conversation partners, where spaced repetition meets real-time voice interaction, and where Spanish speakers finally have a solution built specifically for their unique challenges.
 
 Thank you. I'm happy to take questions.
 
-**[END: 14:00]**
+**[END: 15:00]**
 
 ---
 

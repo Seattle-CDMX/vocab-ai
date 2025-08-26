@@ -101,7 +101,7 @@ export default function SlidesPage() {
 
         {/* Problem & Solution Gap Slide */}
         <section>
-          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>The Learning Gap</h2>
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>The Language Learning Market</h2>
           
           <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', maxWidth: '1200px', margin: '0 auto'}}>
             <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
@@ -116,12 +116,12 @@ export default function SlidesPage() {
             </div>
 
             <div style={{backgroundColor: '#1e40af', color: 'white', padding: '3rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
-              <h3 style={{fontSize: '2rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fbbf24'}}>🎯 Why Current Methods Fail</h3>
+              <h3 style={{fontSize: '2rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fbbf24'}}>🎯 Why Current Products Fall Short</h3>
               <div style={{fontSize: '1.3rem', lineHeight: '1.6'}}>
-              <div style={{marginBottom: '1rem', opacity: '0.9'}}>😴 Traditional ESL: Not enough focus on speaking and vocabularly</div>
-                <div style={{marginBottom: '1rem', opacity: '0.9'}}>📚 Spaced repetition: Text-only, no voice practice</div>
-                <div style={{marginBottom: '1rem', opacity: '0.9'}}>🦜 Duolingo: Over-promises, under-delivers on conversation</div>
-                <div style={{color: '#34d399', fontWeight: 'bold'}}>✅ Opportunity: Interactive voice + AI feedback</div>
+              <div style={{marginBottom: '1rem', opacity: '0.9'}}>😴 Language schools: Not enough focus on speaking and vocabularly</div>
+                                 <div style={{marginBottom: '1rem', opacity: '0.9'}}>📚 Spaced repetition systems like <a href="https://apps.ankiweb.net/" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa', textDecoration: 'underline'}}>Anki</a> and <a href="https://www.wanikani.com/" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa', textDecoration: 'underline'}}>WaniKani</a>: text-only by default, no AI features</div>
+                <div style={{marginBottom: '1rem', opacity: '0.9'}}>🦜 Duolingo: focused on comprehensive language learning, not vocabularly or phrasal verbs</div>
+                <div style={{color: '#34d399', fontWeight: 'bold'}}>✅ Voice Card: Spaced Repetition With AI</div>
               </div>
             </div>
           </div>
