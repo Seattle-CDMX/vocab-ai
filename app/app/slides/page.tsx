@@ -231,7 +231,7 @@ export default function SlidesPage() {
             </div>
 
             <div style={{backgroundColor: '#ea580c', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
-              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fef3c7'}}>⚡ API Layer</h3>
+              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fef3c7'}}>⚡ API Layer (NEXT JS)</h3>
               <div style={{fontSize: '1.1rem', lineHeight: '1.6'}}>
                 <div style={{marginBottom: '0.5rem'}}>• Token generation for LiveKit</div>
                 <div style={{marginBottom: '0.5rem'}}>• Room management endpoints</div>
