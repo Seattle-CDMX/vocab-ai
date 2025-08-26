@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Dict, List
 
 PHRASAL_VERBS_PATH = Path(__file__).parent.parent.parent / "app" / "public" / "phrasal_verbs.json"
-OUTPUT_DIR = Path(__file__).parent.parent / "generated_data"
+OUTPUT_DIR = Path(__file__).parent.parent.parent / "app" / "generated_data"
 IMAGES_DIR = OUTPUT_DIR / "images"
 
 class MockDemoGenerator:

@@ -4,8 +4,8 @@ import path from 'path';
 
 // Try multiple paths for different deployment environments
 const GENERATED_DATA_PATHS = [
-  path.join(process.cwd(), '..', 'agent', 'generated_data'), // Local development (monorepo)
-  path.join(process.cwd(), 'generated_data'), // Vercel deployment (copied to app dir)
+  path.join(process.cwd(), 'generated_data'), // Local development (app/generated_data)
+  path.join(process.cwd(), '..', 'agent', 'generated_data'), // Legacy path (fallback)
 ];
 
 const GENERATED_DATA_DIR = GENERATED_DATA_PATHS.find(dir => fs.existsSync(dir)) || GENERATED_DATA_PATHS[0];
@@ -84,8 +84,8 @@ export async function POST(request: NextRequest) {
     
     // Try multiple paths for image serving
     const imagePaths = [
-      path.join(process.cwd(), '..', 'agent', imagePath.substring(1)), // Local development
-      path.join(process.cwd(), imagePath.substring(1)), // Vercel deployment
+      path.join(process.cwd(), imagePath.substring(1)), // Local development (app/generated_data)
+      path.join(process.cwd(), '..', 'agent', imagePath.substring(1)), // Legacy path (fallback)
     ];
     
     const fullPath = imagePaths.find(imgPath => fs.existsSync(imgPath)) || imagePaths[0];

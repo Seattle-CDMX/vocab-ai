@@ -46,7 +46,7 @@ uv run pytest -v  # verbose output
 
 This is a voice AI agent built with the LiveKit Agents framework. The main components:
 
-- **Agent Pipeline**: Uses OpenAI GPT-4o-mini (LLM), Deepgram Nova-3 (STT), and Cartesia (TTS)
+- **Agent Pipeline**: Uses OpenAI GPT-4o-mini (LLM), Deepgram Nova-3 (STT), and Google (TTS)
 - **Voice Activity Detection**: Silero VAD with multilingual turn detection
 - **Function Tools**: Weather lookup example with `@function_tool` decorator
 - **Evaluation Framework**: Comprehensive test suite using LiveKit's agent testing framework

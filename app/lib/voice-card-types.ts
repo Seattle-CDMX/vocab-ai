@@ -30,14 +30,14 @@ export interface VoiceCardTypesData {
 // Cache for the voice card data
 let voiceCardData: VoiceCardTypesData | null = null;
 
-// Load voice card types from JSON file
+// Load voice card types from generated data API
 export async function loadVoiceCardTypes(): Promise<VoiceCardTypesData> {
   if (voiceCardData) {
     return voiceCardData;
   }
   
   try {
-    const response = await fetch('/voice-card-types.json');
+    const response = await fetch('/api/generated-data?latest=true');
     if (!response.ok) {
       throw new Error(`Failed to load voice card types: ${response.statusText}`);
     }

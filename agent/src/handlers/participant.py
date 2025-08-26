@@ -87,6 +87,10 @@ def process_participant_data(participant, session: AgentSession):
                 scenario_data["phrasalVerbDefinition"] = target_phrasal.get(
                     "definition", None
                 )
+                scenario_data["phrasalVerbExamples"] = target_phrasal.get(
+                    "examples", []
+                )
+                # conversationStarter should already be in scenario_data from frontend
 
                 logger.info("🎭 [Agent] ✅ SUCCESS: Creating ContextAgent for scenario")
                 logger.info(

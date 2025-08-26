@@ -104,8 +104,8 @@
         "situation": "Something serious has happened at the company and Mr. Williams needs to inform you about the situation. He appears concerned and wants to discuss this important matter with you.",
         "phrasalVerb": "go on",
         "contextText": "Something serious has happened at the company and Mr. Williams needs to inform you about the situation. He appears concerned and wants to discuss this important matter with you.",
-        "conversationStarter": "Mr. Williams approaches you with a concerned expression and says, 'Hello [username]. Something has happened. Would you like to hear about it?'",
-        "expectedUsage": "Learner might respond with, 'What is going on?' to find out about the serious situation.",
+        "conversationStarter": "Something bad has happened in the company.",
+        "expectedUsage": "Learner should respond with something like, 'What's going on?' or 'What happened?' to inquire about the serious situation.",
         "businessContext": "urgent company matter",
         "maxTurns": 5
       },
@@ -115,13 +115,14 @@
         "confidence": 64.5,
         "examples": [
           "There is a debate going on right now between the two parties.",
-          "Learner might respond with, 'I can share what\u2019s been going on with my project. We have made significant progress, but there are a few hurdles that we need to address.'"
+          "What's going on with the company situation?",
+          "Something serious is going on here."
         ],
         "learningTip": "Think of 'go on' as a way of asking for ongoing information; it helps to remember that it relates to current events or situations.",
         "alternativeScenarios": [
-          "During a project review, Mr. Williams asks, 'Can you tell me what\u2019s going on with the marketing campaign?'",
-          "In an email, Mr. Williams writes, 'I wanted to check in and see what challenges are going on with the development team.'",
-          "Mr. Williams gives a presentation and says, 'There are several initiatives going on that we need to discuss further.'"
+          "During an urgent meeting, someone asks, 'What's going on with the security breach?'",
+          "When hearing about company problems, you might ask, 'Can you tell me what's going on?'",
+          "In a crisis situation, employees wonder, 'What's going on with the layoffs?'"
         ]
       },
       "voicePersona": {
@@ -259,18 +260,18 @@
       "type": "context",
       "title": "In-Context \u2014 PICK UP",
       "difficulty": "beginner",
-      "contextText": "You're speaking with Mr. Johnson, Team Leader. Mr. Johnson is organizing a team lunch and has asked a colleague to help with the food order. He needs someone to pick up the food from a nearby restaurant before the meeting starts.",
+      "contextText": "You're speaking with Mr. Johnson, Team Leader. There's an important meeting starting soon with guests from China, but the food for the meeting has not arrived yet. The situation is becoming urgent and someone needs to get the food quickly.",
       "imageUrl": "/generated_data/images/pick-up.png",
       "ctaText": "Talk to Mr. Johnson",
       "scenario": {
         "character": "Mr. Johnson",
         "role": "Team Leader",
-        "situation": "Mr. Johnson is organizing a team lunch and has asked a colleague to help with the food order. He needs someone to pick up the food from a nearby restaurant before the meeting starts.",
+        "situation": "There's an important meeting starting soon with guests from China, but the food for the meeting has not arrived yet. The situation is becoming urgent and someone needs to get the food quickly.",
         "phrasalVerb": "pick up",
-        "contextText": "Mr. Johnson is organizing a team lunch and has asked a colleague to help with the food order. He needs someone to pick up the food from a nearby restaurant before the meeting starts.",
-        "conversationStarter": "Hey team, I hope you're all ready for our lunch meeting. Can someone help me out?",
-        "expectedUsage": "Sure, I can pick up the food on my way to the office.",
-        "businessContext": "Informal team meeting",
+        "contextText": "There's an important meeting starting soon with guests from China, but the food for the meeting has not arrived yet. The situation is becoming urgent and someone needs to get the food quickly.",
+        "conversationStarter": "The meeting with our Chinese guests starts in 30 minutes, but the food hasn't arrived yet!",
+        "expectedUsage": "I can pick up the food from the restaurant right now.",
+        "businessContext": "Important client meeting",
         "maxTurns": 5
       },
       "targetPhrasalVerb": {
@@ -279,13 +280,14 @@
         "confidence": 70.5,
         "examples": [
           "Can you pick up some food on the way home from work please?",
-          "Sure, I can pick up the food on my way to the office."
+          "I can pick up the food from the restaurant right now.",
+          "We need someone to pick up the catering for the meeting."
         ],
         "learningTip": "Think of 'pick up' as a way to remember that you're getting something from a specific location, just like you would pick up a parcel from the post office.",
         "alternativeScenarios": [
-          "A colleague asks you to pick up office supplies from the supply room.",
-          "During a project, a team member requests that you pick up a report from the printer.",
-          "In a virtual meeting, someone asks you to pick up a document from your desk to share it with the group."
+          "Before an important client presentation, someone volunteers to pick up the refreshments.",
+          "When catering is delayed for a board meeting, you offer to pick up lunch from nearby.",
+          "During event planning, team members discuss who will pick up the materials from the vendor."
         ]
       },
       "voicePersona": {

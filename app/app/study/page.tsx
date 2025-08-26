@@ -19,21 +19,19 @@ async function loadVoiceCardData() {
   if (cachedData) return cachedData;
   
   try {
-    // First try to load generated data
+    // Load generated data (now the only source)
     const generatedResponse = await fetch('/api/generated-data?latest=true');
     if (generatedResponse.ok) {
       cachedData = await generatedResponse.json();
       console.log('Using generated voice card data from:', cachedData?.generatedAt);
       return cachedData;
+    } else {
+      throw new Error('Generated data not found');
     }
-  } catch {
-    console.log('No generated data found, falling back to static file');
+  } catch (error) {
+    console.error('Failed to load voice card data:', error);
+    throw error;
   }
-  
-  // Fall back to static file
-  const response = await fetch('/voice-card-types.json');
-  cachedData = await response.json();
-  return cachedData;
 }
 
 // Function to get a card by index (sequential order)
