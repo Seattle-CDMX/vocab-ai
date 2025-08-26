@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Toast Stacking Test</title>
+    <script>
+        function testMultipleToasts() {
+            // Simulate multiple RPC calls that would trigger toasts
+            console.log('Testing multiple toast notifications...');
+            
+            // In the actual app, these would be RPC calls from the agent
+            // but for testing we'll simulate with JavaScript
+            
+            setTimeout(() => {
+                console.log('Toast 1: Success notification');
+                // This would be triggered by show_toast RPC
+            }, 100);
+            
+            setTimeout(() => {
+                console.log('Toast 2: Another success notification'); 
+                // This would be triggered by another show_toast RPC
+            }, 200);
+            
+            setTimeout(() => {
+                console.log('Toast 3: Error notification');
+                // This would be triggered by show_toast RPC with error type
+            }, 300);
+            
+            console.log('Test complete - check React app for actual toast stacking');
+        }
+    </script>
+</head>
+<body>
+    <h1>Toast Stacking Test</h1>
+    <p>This is a test file. Run the React app and trigger multiple RPC calls to see toast stacking.</p>
+    <button onclick="testMultipleToasts()">Simulate Multiple Toasts</button>
+    
+    <h2>Changes Made:</h2>
+    <ul>
+        <li>✅ Updated Toaster config in layout.tsx with expand=true, visibleToasts=5, closeButton=true</li>
+        <li>✅ Added marginBottom spacing to toastOptions</li>
+        <li>✅ Updated individual toast styling in VoiceCard.tsx with better spacing</li>
+        <li>✅ Added CSS for proper toast stacking and spacing</li>
+        <li>✅ Added z-index and box-shadow improvements</li>
+    </ul>
+    
+    <h2>Expected Behavior:</h2>
+    <p>Multiple toasts should now stack vertically with 8px spacing, be clearly visible, and up to 5 can be shown at once.</p>
+</body>
+</html>

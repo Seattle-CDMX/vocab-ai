@@ -129,7 +129,7 @@ export default function Dashboard() {
   const [processedVerbs, setProcessedVerbs] = useState<PhrasalVerb[]>([]);
 
   useEffect(() => {
-    fetch('/phrasal_verbs.json')
+    fetch('/phrasal_verbs_phave_list.json')
       .then(response => response.json())
       .then(data => {
         const converted = convertPhrasalVerbData(data as JsonPhrasalVerb[]);

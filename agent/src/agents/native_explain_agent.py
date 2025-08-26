@@ -95,10 +95,11 @@ class NativeExplainAgent(Agent):
     async def wrong_answer(
         self, context: RunContext, correct_definition: str, helpful_hint: str = ""
     ):
-        """REQUIRED: Call this immediately when the user provides an incorrect or incomplete explanation.
+        """ONLY call this for completely wrong explanations that show NO understanding of any sense.
 
-        Use this whenever the user's explanation doesn't capture the core meaning of the sense.
-        Always provide the correct definition to help them learn.
+        Use this ONLY when the user's explanation is totally unrelated or demonstrates no grasp of the phrasal verb.
+        Do NOT use this for explanations that are "not quite right" but show some understanding.
+        For partial understanding, use request_clarification instead.
 
         Args:
             correct_definition: The correct definition to share with the user (be specific and clear)

@@ -55,16 +55,21 @@ const ContextCard = ({ contextCard, onAnswer, onReset }: ContextCardProps) => {
             style: {
               background: '#10b981',
               color: 'white',
+              marginBottom: '8px',
             },
+            className: 'toast-success',
           });
-        } else if (payload.type === 'error') {
-          console.log('🎯 [ContextCard] Showing ERROR toast:', payload.message);
-          toast.error(payload.message, {
-            duration: 5000,
+        } else if (payload.type === 'error' || payload.type === 'failure') {
+          console.log('🎯 [ContextCard] Showing ERROR/FAILURE toast:', payload.message);
+          const displayMessage = payload.hint ? `${payload.message}\n💡 ${payload.hint}` : payload.message;
+          toast.error(displayMessage, {
+            duration: 6000,
             style: {
               background: '#ef4444',
               color: 'white',
+              marginBottom: '8px',
             },
+            className: 'toast-error',
           });
         }
         

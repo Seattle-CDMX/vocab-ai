@@ -119,3 +119,38 @@
     font-family: Arial, Helvetica, sans-serif;
   }
 }
+
+/* Toast stacking improvements */
+@layer components {
+  /* Ensure toasts are properly spaced and visible */
+  [data-sonner-toaster] {
+    z-index: 9999;
+  }
+  
+  [data-sonner-toast] {
+    margin-bottom: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 8px !important;
+  }
+  
+  /* Success toast styling */
+  .toast-success {
+    background: #10b981 !important;
+    color: white !important;
+    border: 1px solid #059669 !important;
+  }
+  
+  /* Error toast styling */
+  .toast-error {
+    background: #ef4444 !important;
+    color: white !important;
+    border: 1px solid #dc2626 !important;
+  }
+  
+  /* Ensure toast stacking works properly */
+  [data-sonner-toaster][data-theme="light"] {
+    --normal-bg: white;
+    --normal-border: hsl(var(--border));
+    --normal-text: hsl(var(--foreground));
+  }
+}
