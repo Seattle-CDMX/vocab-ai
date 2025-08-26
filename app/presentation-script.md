@@ -12,20 +12,15 @@
 
 ## [SLIDE 1: Title] - VoiceCard AI (0:00)
 
-**Opening (30 seconds)**
-Don't say anything, just ride off the introduction
 
-**Brief Hook (30 seconds)**  
+**Brief Hook (20 seconds)**  
 For anyone learning English as a second or foreign language, mastering phrasal verbs is a big hurdle on the way to achieving advanced fluency. For students, grokking these tricky-to-learn, multi-word verbs, like "pick up," "run into," or "put off", "set about" or "pull forward"— is the secret sauce to levelling up their spoken English.
 
-**[NEXT SLIDE: 1:00]**
-
----
 
 ## [SLIDE 2: The Complexity of Phrasal Verbs] - The Problem (1:00)
 
 **The Complexity Breakdown (1 minute)**
-Let me walk you through why phrasal verbs are so challenging. First, they're multi-word with multiple meanings - "to go on" can mean "to happen" or "to continue." Second, the parts don't equal the whole - "break up" meaning "end a relationship" has nothing to do with physically breaking something upward. Third, they have complex grammar rules - you can say "turn on the TV" or "turn it on," but you can't say "look it after" for "look after it." Finally, they're the secret sauce of spoken English - the difference between formal "Please tolerate the noise" and casual "Just put up with it."
+Phrasal verbs are complex. First, they're multi-word with multiple meanings - "to go on" can mean "to happen" or "to continue." Second, the parts don't equal the whole - "break up" meaning "end a relationship" has nothing to do with physically breaking something upward. Third, they have complex grammar rules - you can say "turn on the TV" or "turn it on," but you can't say "look it after" for "look after it." Finally, they're the secret sauce of spoken English - the difference between formal "Please tolerate the noise" and casual "Just put up with it."
 
 **[NEXT SLIDE: 2:00]**
 
@@ -40,13 +35,10 @@ I created VoiceCard to help language learners master phrasal verbs and English v
 
 ---
 
-## [SLIDE 4: Localizing ] - Target Audience (3:00)
+## [SLIDE 4: First Target: Spanish Speakers in Global Business] - Target Audience (00:30)
 
-**Market Introduction (30 seconds)**
-So who exactly are we serving? The nearshoring boom has created a massive opportunity.
 
-**Market Numbers (1 minute)**
-The numbers are compelling: 559 million Spanish speakers worldwide across 21+ countries, with a $60 billion global language learning market. The nearshoring boom in Mexico, Colombia, and Costa Rica means millions are now working with US companies or doing business in English. For these professionals, English fluency equals career advancement, and phrasal verbs are the key to spoken English mastery. Yet no AI solution specifically targets Spanish speakers - it's an underserved but critical market segment.
+ I decided to focus this app on native Spanish speakers learning English in the global business community. This market segment represents people who work with U.S. and Canadian companies as part of the current nearshoring boom, but also participate in the global business community using English with native speakers of other languages. For this market segment, there is a direct correlation between English fluency and career advancement.
 
 **[NEXT SLIDE: 4:30]**
 

@@ -129,40 +129,25 @@ export default function SlidesPage() {
 
         {/* Target Audience - Single Slide */}
         <section>
-          <h2 style={{fontSize: '2.5rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '2rem'}}>The Nearshoring Opportunity</h2>
+          <h2 style={{fontSize: '2.5rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '2rem'}}>First Audience: Spanish Speakers in Global Business</h2>
           
-          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1.5rem', maxWidth: '1000px', margin: '0 auto 1.5rem auto'}}>
-            <div style={{backgroundColor: '#1e40af', color: 'white', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', textAlign: 'center'}}>
-              <div style={{fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#fbbf24'}}>559M</div>
-              <p style={{fontSize: '1rem'}}>Spanish speakers worldwide</p>
+          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', maxWidth: '800px', margin: '0 auto 2rem auto'}}>
+            <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', textAlign: 'center'}}>
+              <div style={{fontSize: '3rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#fbbf24'}}>559M</div>
+              <p style={{fontSize: '1.2rem'}}>Spanish speakers worldwide</p>
             </div>
-            <div style={{backgroundColor: '#ea580c', color: 'white', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', textAlign: 'center'}}>
-              <div style={{fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#fef3c7'}}>21+</div>
-              <p style={{fontSize: '1rem'}}>Spanish speaking countries</p>
+            <div style={{backgroundColor: '#ea580c', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', textAlign: 'center'}}>
+              <div style={{fontSize: '3rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#fef3c7'}}>21+</div>
+              <p style={{fontSize: '1.2rem'}}>Spanish speaking countries</p>
             </div>
-            <div style={{backgroundColor: '#16a34a', color: 'white', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', textAlign: 'center'}}>
-              <div style={{fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#fef3c7'}}>$60B</div>
-              <p style={{fontSize: '1rem'}}>Global language learning market</p>
-            </div>
-            
           </div>
           
-          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', maxWidth: '1000px', margin: '0 auto'}}>
-            <div style={{backgroundColor: '#7c3aed', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
-              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#fbbf24'}}>🌎 Nearshoring Boom</h3>
-              <div style={{fontSize: '1.1rem', lineHeight: '1.4'}}>
-                <div style={{marginBottom: '0.5rem'}}>• Mexico, Colombia, Costa Rica</div>
-                <div style={{marginBottom: '0.5rem'}}>• Millions working with US companies or doing business in English with 3rd countries</div>
+          <div style={{display: 'flex', justifyContent: 'center', maxWidth: '600px', margin: '0 auto'}}>
+            <div style={{backgroundColor: '#7c3aed', color: 'white', padding: '2.5rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', width: '100%'}}>
+              <h3 style={{fontSize: '1.8rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fbbf24', textAlign: 'center'}}>🌎 Nearshoring Boom</h3>
+              <div style={{fontSize: '1.2rem', lineHeight: '1.6', textAlign: 'center'}}>
+                <div style={{marginBottom: '0.8rem'}}>• Millions doing business in English with 3rd countries</div>
                 <div>• English fluency = career advancement</div>
-              </div>
-            </div>
-
-            <div style={{backgroundColor: '#dc2626', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
-              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#fef3c7'}}>🎯 The Niche Opportunity</h3>
-              <div style={{fontSize: '1.1rem', lineHeight: '1.4'}}>
-                <div style={{marginBottom: '0.5rem'}}>• Phrasal verbs = spoken English mastery</div>
-                <div style={{marginBottom: '0.5rem'}}>• No AI solution targets Spanish speakers</div>
-                <div>• Underserved but critical market segment</div>
               </div>
             </div>
           </div>
