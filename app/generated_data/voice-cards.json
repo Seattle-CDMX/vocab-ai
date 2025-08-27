@@ -9,13 +9,12 @@
       "type": "native_explain",
       "title": "Explain: GO ON",
       "difficulty": "beginner/intermediate",
-      "targetPhrasalVerb": {
-        "verb": "GO ON",
+      "targetLexicalItem": {
+        "lexicalItem": "GO ON",
         "senses": [
           {
             "senseNumber": 1,
             "definition": "Happen, take place",
-            "confidencePercent": 64.5,
             "examples": [
               "There is a debate going on right now between the two parties."
             ]
@@ -23,77 +22,17 @@
           {
             "senseNumber": 2,
             "definition": "(+ To) Proceed to do or tackle STH after doing STH else",
-            "confidencePercent": 13,
             "examples": [
               "Does anyone have any questions before I go on to the next chapter?"
             ]
           }
         ]
-      },
-      "teachingScenario": {
-        "teacher": "Ms. Patel",
-        "approach": "step-by-step breakdown with real-world examples",
-        "mainDefinition": "The phrasal verb 'go on' means to happen or take place, or to proceed to do something after completing another task.",
-        "keyTeachingPoints": [
-          "1. 'Go on' can refer to events that are currently happening.",
-          "2. It can also indicate moving to the next step after finishing something else.",
-          "3. It's often used in both formal and informal contexts, making it versatile.",
-          "4. Pay attention to the context, as it can change the meaning slightly."
-        ],
-        "usageExamples": [
-          "1. There is a debate going on right now between the two parties.",
-          "2. After the break, we will go on to discuss the next topic.",
-          "3. She was nervous about the presentation, but she decided to go on and give it her best shot."
-        ],
-        "commonMistakes": [
-          "1. Confusing 'go on' with 'go on with' - remember that 'go on' can stand alone.",
-          "2. Using 'go on' incorrectly in the past tense; it should be 'went on' when referring to past events.",
-          "3. Forgetting to use 'to' when indicating the next step, as in 'go on to do something.'"
-        ],
-        "memoryTips": [
-          "1. Visualize a continuous action or event to connect with 'go on' as something happening.",
-          "2. Associate 'go on' with moving forward, like stepping to the next level in a game."
-        ],
-        "teachingPersonality": "As Ms. Patel, I am supportive and clear in my explanations, ensuring that learners feel comfortable and engaged. My thorough approach encourages interaction and questions, making the learning process enjoyable and effective."
-      },
-      "voicePersona": {
-        "voice": {
-          "name": "en-IN-Chirp3-HD-Zephyr",
-          "language_code": "en-IN",
-          "language_name": "English (India)",
-          "gender": "FEMALE",
-          "voice_type": "Chirp3-HD"
-        },
-        "persona": {
-          "name": "Ms. Patel",
-          "teaching_style": "engaging and interactive",
-          "expertise": "business communication",
-          "personality_traits": [
-            "supportive",
-            "clear",
-            "thorough"
-          ],
-          "preferred_contexts": [
-            "training sessions",
-            "client meetings",
-            "presentations"
-          ]
-        },
-        "cultural_info": {
-          "background": "Indian professional",
-          "language_region": "en-IN"
-        }
-      },
-      "metadata": {
-        "originalId": 1,
-        "generatedAt": "2025-08-24-160456",
-        "cardType": "native_explain"
       }
     },
     {
       "id": "context-go-on",
       "type": "context",
-      "title": "In-Context \u2014 GO ON",
+      "title": "In-Context: GO ON",
       "difficulty": "intermediate",
       "contextText": "You're speaking with Mr. Williams, Project Manager. Something serious has happened at the company and Mr. Williams needs to inform you about the situation. He appears concerned and wants to discuss this important matter with you.",
       "imageUrl": "/generated_data/images/go-on.png",
@@ -105,76 +44,28 @@
         "phrasalVerb": "go on",
         "contextText": "Something serious has happened at the company and Mr. Williams needs to inform you about the situation. He appears concerned and wants to discuss this important matter with you.",
         "conversationStarter": "Something bad has happened in the company.",
-        "expectedUsage": "Learner should respond with something like, 'What's going on?' or 'What happened?' to inquire about the serious situation.",
-        "businessContext": "urgent company matter",
         "maxTurns": 5
       },
-      "targetPhrasalVerb": {
-        "verb": "GO ON",
+      "targetLexicalItem": {
+        "lexicalItem": "GO ON",
         "definition": "Happen, take place",
-        "confidence": 64.5,
         "examples": [
           "There is a debate going on right now between the two parties.",
           "What's going on with the company situation?",
           "Something serious is going on here."
-        ],
-        "learningTip": "Think of 'go on' as a way of asking for ongoing information; it helps to remember that it relates to current events or situations.",
-        "alternativeScenarios": [
-          "During an urgent meeting, someone asks, 'What's going on with the security breach?'",
-          "When hearing about company problems, you might ask, 'Can you tell me what's going on?'",
-          "In a crisis situation, employees wonder, 'What's going on with the layoffs?'"
         ]
       },
       "voicePersona": {
         "voice": {
           "name": "sw-KE-Chirp3-HD-Puck",
           "language_code": "sw-KE",
-          "language_name": "sw-KE",
           "gender": "MALE",
           "voice_type": "Chirp3-HD"
         },
         "persona": {
           "name": "Mr. Williams",
-          "teaching_style": "clear and structured",
-          "expertise": "professional presentations",
-          "personality_traits": [
-            "patient",
-            "supportive",
-            "direct"
-          ],
-          "preferred_contexts": [
-            "client meetings",
-            "interviews",
-            "phone calls"
-          ]
-        },
-        "cultural_info": {
-          "background": "American professional",
-          "language_region": "en-US"
+          "teaching_style": "clear and structured"
         }
-      },
-      "metadata": {
-        "originalId": 1,
-        "generatedAt": "2025-08-24-160456",
-        "allSenses": [
-          {
-            "senseNumber": 1,
-            "definition": "Happen, take place",
-            "confidencePercent": 64.5,
-            "examples": [
-              "There is a debate going on right now between the two parties."
-            ]
-          },
-          {
-            "senseNumber": 2,
-            "definition": "(+ To) Proceed to do or tackle STH after doing STH else",
-            "confidencePercent": 13,
-            "examples": [
-              "Does anyone have any questions before I go on to the next chapter?"
-            ]
-          }
-        ],
-        "cardType": "context"
       }
     },
     {
@@ -182,83 +73,23 @@
       "type": "native_explain",
       "title": "Explain: PICK UP",
       "difficulty": "beginner",
-      "targetPhrasalVerb": {
-        "verb": "PICK UP",
+      "targetLexicalItem": {
+        "lexicalItem": "PICK UP",
         "senses": [
           {
             "senseNumber": 1,
             "definition": "Get or take SB/STH from a place",
-            "confidencePercent": 70.5,
             "examples": [
               "Can you pick up some food on the way home from work please?"
             ]
           }
         ]
-      },
-      "teachingScenario": {
-        "teacher": "Ms. Dubois",
-        "approach": "step-by-step breakdown",
-        "mainDefinition": "To 'pick up' means to get or take someone or something from a specific place.",
-        "keyTeachingPoints": [
-          "It's often used when talking about collecting items or people.",
-          "Can be used in both formal and informal contexts.",
-          "It can also imply a physical action (like lifting) or a metaphorical action (like learning or acquiring).",
-          "Remember that 'pick up' can have other meanings in different contexts, so pay attention to how it's used."
-        ],
-        "usageExamples": [
-          "After work, I need to pick up my dry cleaning.",
-          "Can you pick up the kids from school today?",
-          "Don't forget to pick up groceries on your way home!"
-        ],
-        "commonMistakes": [
-          "Using 'pick up' without a specific object (e.g., saying 'I will pick up' instead of 'I will pick up the package').",
-          "Confusing 'pick up' with 'pick out' (which means to choose something).",
-          "Forgetting to use the correct prepositions if needed (e.g., saying 'pick up at the store' instead of 'pick up from the store')."
-        ],
-        "memoryTips": [
-          "Visualize a scenario where you are collecting something, like groceries or a friend, to remember the action of 'picking up.'",
-          "Associate 'pick up' with the image of reaching down and lifting something off the ground."
-        ],
-        "teachingPersonality": "As Ms. Dubois, I am engaging and friendly, always encouraging my students to explore and learn at their own pace while creating a warm and supportive environment."
-      },
-      "voicePersona": {
-        "voice": {
-          "name": "fr-CA-Chirp3-HD-Pulcherrima",
-          "language_code": "fr-CA",
-          "language_name": "French (Canada)",
-          "gender": "FEMALE",
-          "voice_type": "Chirp3-HD"
-        },
-        "persona": {
-          "name": "Ms. Dubois",
-          "teaching_style": "patient and encouraging",
-          "expertise": "client relations",
-          "personality_traits": [
-            "engaging",
-            "friendly",
-            "warm"
-          ],
-          "preferred_contexts": [
-            "workshops",
-            "meetings",
-            "team discussions"
-          ]
-        },
-        "cultural_info": {
-          "background": "French professional",
-          "language_region": "fr-FR"
-        }
-      },
-      "metadata": {
-        "originalId": 2,
-        "generatedAt": "2025-08-24-160456",
-        "cardType": "native_explain"
       }
     },
     {
       "id": "context-pick-up",
       "type": "context",
-      "title": "In-Context \u2014 PICK UP",
+      "title": "In-Context: PICK UP",
       "difficulty": "beginner",
       "contextText": "You're speaking with Mr. Johnson, Team Leader. There's an important meeting starting soon with guests from China, but the food for the meeting has not arrived yet. The situation is becoming urgent and someone needs to get the food quickly.",
       "imageUrl": "/generated_data/images/pick-up.png",
@@ -270,68 +101,28 @@
         "phrasalVerb": "pick up",
         "contextText": "There's an important meeting starting soon with guests from China, but the food for the meeting has not arrived yet. The situation is becoming urgent and someone needs to get the food quickly.",
         "conversationStarter": "The meeting with our Chinese guests starts in 30 minutes, but the food hasn't arrived yet!",
-        "expectedUsage": "I can pick up the food from the restaurant right now.",
-        "businessContext": "Important client meeting",
         "maxTurns": 5
       },
-      "targetPhrasalVerb": {
-        "verb": "PICK UP",
+      "targetLexicalItem": {
+        "lexicalItem": "PICK UP",
         "definition": "Get or take SB/STH from a place",
-        "confidence": 70.5,
         "examples": [
           "Can you pick up some food on the way home from work please?",
           "I can pick up the food from the restaurant right now.",
           "We need someone to pick up the catering for the meeting."
-        ],
-        "learningTip": "Think of 'pick up' as a way to remember that you're getting something from a specific location, just like you would pick up a parcel from the post office.",
-        "alternativeScenarios": [
-          "Before an important client presentation, someone volunteers to pick up the refreshments.",
-          "When catering is delayed for a board meeting, you offer to pick up lunch from nearby.",
-          "During event planning, team members discuss who will pick up the materials from the vendor."
         ]
       },
       "voicePersona": {
         "voice": {
           "name": "gu-IN-Chirp3-HD-Sadachbia",
           "language_code": "gu-IN",
-          "language_name": "gu-IN",
           "gender": "MALE",
           "voice_type": "Chirp3-HD"
         },
         "persona": {
           "name": "Mr. Johnson",
-          "teaching_style": "enthusiastic and energetic",
-          "expertise": "cross-cultural communication",
-          "personality_traits": [
-            "patient",
-            "direct",
-            "clear"
-          ],
-          "preferred_contexts": [
-            "emails",
-            "phone calls",
-            "interviews"
-          ]
-        },
-        "cultural_info": {
-          "background": "American professional",
-          "language_region": "en-US"
+          "teaching_style": "enthusiastic and energetic"
         }
-      },
-      "metadata": {
-        "originalId": 2,
-        "generatedAt": "2025-08-24-160456",
-        "allSenses": [
-          {
-            "senseNumber": 1,
-            "definition": "Get or take SB/STH from a place",
-            "confidencePercent": 70.5,
-            "examples": [
-              "Can you pick up some food on the way home from work please?"
-            ]
-          }
-        ],
-        "cardType": "context"
       }
     },
     {
@@ -339,83 +130,23 @@
       "type": "native_explain",
       "title": "Explain: COME BACK",
       "difficulty": "beginner",
-      "targetPhrasalVerb": {
-        "verb": "COME BACK",
+      "targetLexicalItem": {
+        "lexicalItem": "COME BACK",
         "senses": [
           {
             "senseNumber": 1,
             "definition": "Return to a place or a conversation topic",
-            "confidencePercent": 96.5,
             "examples": [
               "She came back to the kitchen with a bottle of fancy wine."
             ]
           }
         ]
-      },
-      "teachingScenario": {
-        "teacher": "Mr. Menon",
-        "approach": "step-by-step breakdown",
-        "mainDefinition": "To return to a place or a conversation topic.",
-        "keyTeachingPoints": [
-          "It can refer to physically returning to a location.",
-          "It can also mean revisiting a topic in conversation.",
-          "The verb 'come' indicates movement towards the speaker's location.",
-          "It's commonly used in both formal and informal contexts."
-        ],
-        "usageExamples": [
-          "After a short break, he came back to the meeting with fresh ideas.",
-          "Let's come back to that topic later in our discussion.",
-          "She forgot her bag and had to come back to get it."
-        ],
-        "commonMistakes": [
-          "Using 'go back' instead of 'come back' when referring to returning to the speaker's location.",
-          "Confusing the meaning with 'come back to' as a prepositional phrase which is used for revisiting topics.",
-          "Not using the correct tense, for example, saying 'She come back' instead of 'She came back'."
-        ],
-        "memoryTips": [
-          "Visualize someone returning to a familiar place or a conversation, reinforcing the idea of 'coming back' as a return.",
-          "Create a sentence for yourself using 'come back' that relates to your daily life to make it more memorable."
-        ],
-        "teachingPersonality": "I am warm and supportive, always encouraging my students to ask questions and explore the language at their own pace."
-      },
-      "voicePersona": {
-        "voice": {
-          "name": "ml-IN-Chirp3-HD-Alnilam",
-          "language_code": "ml-IN",
-          "language_name": "ml-IN",
-          "gender": "MALE",
-          "voice_type": "Chirp3-HD"
-        },
-        "persona": {
-          "name": "Mr. Menon",
-          "teaching_style": "warm and supportive",
-          "expertise": "professional presentations",
-          "personality_traits": [
-            "supportive",
-            "encouraging",
-            "clear"
-          ],
-          "preferred_contexts": [
-            "team discussions",
-            "interviews",
-            "client meetings"
-          ]
-        },
-        "cultural_info": {
-          "background": "international professional",
-          "language_region": "ml-IN"
-        }
-      },
-      "metadata": {
-        "originalId": 3,
-        "generatedAt": "2025-08-24-160456",
-        "cardType": "native_explain"
       }
     },
     {
       "id": "context-come-back",
       "type": "context",
-      "title": "In-Context \u2014 COME BACK",
+      "title": "In-Context: COME BACK",
       "difficulty": "intermediate",
       "contextText": "You're speaking with Ms. Smith, Project Manager. Ms. Smith has just left the office to work from home for the rest of the day. However, something urgent has come up that requires her immediate attention in the office.",
       "imageUrl": "/generated_data/images/come-back.png",
@@ -427,68 +158,28 @@
         "phrasalVerb": "come back",
         "contextText": "Ms. Smith has just left the office to work from home for the rest of the day. However, something urgent has come up that requires her immediate attention in the office.",
         "conversationStarter": "I've just left the office to work from home for the day.",
-        "expectedUsage": "Could you come back to the office? Something urgent has come up that needs your attention.",
-        "businessContext": "urgent office matter",
         "maxTurns": 5
       },
-      "targetPhrasalVerb": {
-        "verb": "COME BACK",
+      "targetLexicalItem": {
+        "lexicalItem": "COME BACK",
         "definition": "Return to a place or a conversation topic",
-        "confidence": 96.5,
         "examples": [
           "She came back to the kitchen with a bottle of fancy wine.",
           "Could you come back to the office? Something urgent has come up.",
           "He needs to come back to the meeting room for the presentation."
-        ],
-        "learningTip": "To remember 'come back,' think of it as physically returning to a place you've left, like coming back to the office after working from home.",
-        "alternativeScenarios": [
-          "1. After lunch break, you ask a colleague to come back to the conference room for the afternoon session.",
-          "2. When someone steps out during a meeting, you might say 'Please come back when you're ready.'",
-          "3. If a team member goes home sick but recovers quickly, you could ask them to come back to finish the project."
         ]
       },
       "voicePersona": {
         "voice": {
           "name": "tr-TR-Chirp3-HD-Zephyr",
           "language_code": "tr-TR",
-          "language_name": "tr-TR",
           "gender": "FEMALE",
           "voice_type": "Chirp3-HD"
         },
         "persona": {
           "name": "Ms. Smith",
-          "teaching_style": "warm and supportive",
-          "expertise": "meeting facilitation",
-          "personality_traits": [
-            "warm",
-            "thorough",
-            "knowledgeable"
-          ],
-          "preferred_contexts": [
-            "emails",
-            "presentations",
-            "networking events"
-          ]
-        },
-        "cultural_info": {
-          "background": "American professional",
-          "language_region": "en-US"
+          "teaching_style": "warm and supportive"
         }
-      },
-      "metadata": {
-        "originalId": 3,
-        "generatedAt": "2025-08-24-160456",
-        "allSenses": [
-          {
-            "senseNumber": 1,
-            "definition": "Return to a place or a conversation topic",
-            "confidencePercent": 96.5,
-            "examples": [
-              "She came back to the kitchen with a bottle of fancy wine."
-            ]
-          }
-        ],
-        "cardType": "context"
       }
     },
     {
@@ -496,83 +187,23 @@
       "type": "native_explain",
       "title": "Explain: CLOSE DOWN",
       "difficulty": "beginner",
-      "targetPhrasalVerb": {
-        "verb": "CLOSE DOWN",
+      "targetLexicalItem": {
+        "lexicalItem": "CLOSE DOWN",
         "senses": [
           {
             "senseNumber": 1,
             "definition": "Stop operating or functioning",
-            "confidencePercent": 87,
             "examples": [
               "Non-profitable companies were closed down."
             ]
           }
         ]
-      },
-      "teachingScenario": {
-        "teacher": "Mr. Laurent",
-        "approach": "step-by-step breakdown",
-        "mainDefinition": "To stop operating or functioning, typically referring to businesses or organizations ceasing their activities.",
-        "keyTeachingPoints": [
-          "1. 'Close down' is often used in a business context when a company stops its operations.",
-          "2. It can refer to both temporary and permanent cessation of activities but is more commonly permanent.",
-          "3. The phrasal verb can also imply that the closing is due to financial issues or lack of success.",
-          "4. 'Close down' is different from 'close up,' which can mean to secure premises or to conclude an event."
-        ],
-        "usageExamples": [
-          "The bakery had to close down after struggling with debts for years.",
-          "Due to the pandemic, many restaurants were forced to close down temporarily.",
-          "After years of poor performance, the board decided to close down the division."
-        ],
-        "commonMistakes": [
-          "1. Confusing 'close down' with 'shut down'\u2014the latter often refers to stopping a machine or system temporarily.",
-          "2. Using 'close down' with incorrect subjects, e.g., saying 'He closed down the store' instead of 'The store was closed down.'",
-          "3. Misunderstanding the context\u2014'close down' is not typically used for personal or informal situations."
-        ],
-        "memoryTips": [
-          "1. Associate 'close down' with the image of a business shutting its doors permanently.",
-          "2. Remember that 'down' implies a finality, reinforcing that the operation is completely ceased."
-        ],
-        "teachingPersonality": "I am direct and thorough, ensuring that learners receive clear explanations and structured guidance to enhance their understanding."
-      },
-      "voicePersona": {
-        "voice": {
-          "name": "fr-CA-Chirp3-HD-Puck",
-          "language_code": "fr-CA",
-          "language_name": "French (Canada)",
-          "gender": "MALE",
-          "voice_type": "Chirp3-HD"
-        },
-        "persona": {
-          "name": "Mr. Laurent",
-          "teaching_style": "clear and structured",
-          "expertise": "business communication",
-          "personality_traits": [
-            "direct",
-            "thorough",
-            "professional"
-          ],
-          "preferred_contexts": [
-            "training sessions",
-            "client meetings",
-            "presentations"
-          ]
-        },
-        "cultural_info": {
-          "background": "French professional",
-          "language_region": "fr-FR"
-        }
-      },
-      "metadata": {
-        "originalId": 148,
-        "generatedAt": "2025-08-24-160456",
-        "cardType": "native_explain"
       }
     },
     {
       "id": "context-close-down",
       "type": "context",
-      "title": "In-Context \u2014 CLOSE DOWN",
+      "title": "In-Context: CLOSE DOWN",
       "difficulty": "intermediate",
       "contextText": "You are the CEO speaking with Mr. Smith, Regional Manager. Mr. Smith is reporting that one of the offices has been underperforming significantly. As the CEO, you need to consider the difficult decision of potentially closing down the office.",
       "imageUrl": "/generated_data/images/close-down.png",
@@ -584,68 +215,28 @@
         "phrasalVerb": "close down",
         "contextText": "Mr. Smith is reporting to the CEO that one of the offices has been underperforming significantly. As the CEO, you need to consider the difficult decision of potentially closing down the office.",
         "conversationStarter": "CEO, I need to update you on our regional office performance. One of our offices has been consistently underperforming.",
-        "expectedUsage": "If this continues, we might have to close down that office to prevent further losses.",
-        "businessContext": "executive decision",
         "maxTurns": 5
       },
-      "targetPhrasalVerb": {
-        "verb": "CLOSE DOWN",
+      "targetLexicalItem": {
+        "lexicalItem": "CLOSE DOWN",
         "definition": "Stop operating or functioning",
-        "confidence": 87,
         "examples": [
           "Non-profitable companies were closed down.",
           "If this continues, we might have to close down that office.",
           "The CEO decided to close down the underperforming division."
-        ],
-        "learningTip": "Remember that 'close down' implies a definitive action to stop operations completely, often used in the context of businesses or projects that are failing.",
-        "alternativeScenarios": [
-          "1. During a board meeting, the CEO suggests closing down unprofitable subsidiaries.",
-          "2. When reviewing quarterly reports, executives discuss which locations might need to be closed down.",
-          "3. In strategic planning, leadership considers closing down outdated manufacturing facilities."
         ]
       },
       "voicePersona": {
         "voice": {
           "name": "te-IN-Chirp3-HD-Algieba",
           "language_code": "te-IN",
-          "language_name": "te-IN",
           "gender": "MALE",
           "voice_type": "Chirp3-HD"
         },
         "persona": {
           "name": "Mr. Smith",
-          "teaching_style": "patient and encouraging",
-          "expertise": "cross-cultural communication",
-          "personality_traits": [
-            "friendly",
-            "knowledgeable",
-            "engaging"
-          ],
-          "preferred_contexts": [
-            "presentations",
-            "meetings",
-            "networking events"
-          ]
-        },
-        "cultural_info": {
-          "background": "American professional",
-          "language_region": "en-US"
+          "teaching_style": "patient and encouraging"
         }
-      },
-      "metadata": {
-        "originalId": 148,
-        "generatedAt": "2025-08-24-160456",
-        "allSenses": [
-          {
-            "senseNumber": 1,
-            "definition": "Stop operating or functioning",
-            "confidencePercent": 87,
-            "examples": [
-              "Non-profitable companies were closed down."
-            ]
-          }
-        ],
-        "cardType": "context"
       }
     }  
   ],

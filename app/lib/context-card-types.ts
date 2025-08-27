@@ -33,8 +33,8 @@ export interface ContextCard {
   imageUrl: string;
   ctaText: string;
   scenario: ContextScenario;
-  targetPhrasalVerb: {
-    verb: string;
+  targetLexicalItem: {
+    lexicalItem: string;
     definition: string;
     example: string;
   };
@@ -45,8 +45,8 @@ interface VoiceCardData {
   id: string;
   type: string;
   title: string;
-  targetPhrasalVerb: {
-    verb: string;
+  targetLexicalItem: {
+    lexicalItem: string;
     senses: Array<{
       senseNumber: number;
       definition: string;
@@ -58,8 +58,8 @@ interface VoiceCardData {
 export interface TokenMetadata {
   activityType: ActivityType;
   scenario?: ContextScenario;
-  targetPhrasalVerb?: {
-    verb: string;
+  targetLexicalItem?: {
+    lexicalItem: string;
     definition: string;
     example: string;
   };

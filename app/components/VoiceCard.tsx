@@ -143,7 +143,7 @@ const VoiceCard = ({ voiceCard, onAnswer, onReset }: VoiceCardProps) => {
         console.log('🎯 [VoiceCard] Microphone enabled (audio only)');
         
         setIsConnected(true);
-        console.log('🎯 [VoiceCard] ✅ COMPLETE: Connected to LiveKit with voice card data embedded in token for:', voiceCard.targetPhrasalVerb.verb);
+        console.log('🎯 [VoiceCard] ✅ COMPLETE: Connected to LiveKit with voice card data embedded in token for:', voiceCard.targetLexicalItem.lexicalItem);
       } else {
         console.error('Failed to get token:', data.error);
       }
@@ -165,7 +165,7 @@ const VoiceCard = ({ voiceCard, onAnswer, onReset }: VoiceCardProps) => {
   return (
     <Card className="max-w-2xl mx-auto">
       <CardHeader>
-        <CardTitle>Meaning (Español) — {voiceCard.targetPhrasalVerb.verb}</CardTitle>
+        <CardTitle>Meaning (Español) — {voiceCard.targetLexicalItem.lexicalItem}</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="text-sm text-muted-foreground space-y-2 mb-6">

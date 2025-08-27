@@ -16,26 +16,26 @@ interface PhrasalVerb {
   srsLevel: number;
 }
 
-interface JsonPhrasalVerb {
+interface JsonLexicalItem {
   id: number;
-  verb: string;
+  lexicalItem: string;
   senses: Array<{
     senseNumber: number;
     definition: string;
-    confidencePercent: number;
     examples: string[];
   }>;
 }
 
-const convertPhrasalVerbData = (jsonData: JsonPhrasalVerb[]): PhrasalVerb[] => {
+const convertPhrasalVerbData = (jsonData: JsonLexicalItem[]): PhrasalVerb[] => {
   return jsonData.slice(0, 50).map((verb) => {
     const primarySense = verb.senses[0];
-    const confidence = primarySense.confidencePercent;
     
+    // Assign random difficulty since we no longer have confidence percent
+    const random = Math.random();
     let difficulty: 'beginner' | 'intermediate' | 'advanced';
-    if (confidence >= 70) {
+    if (random < 0.4) {
       difficulty = 'beginner';
-    } else if (confidence >= 40) {
+    } else if (random < 0.8) {
       difficulty = 'intermediate';
     } else {
       difficulty = 'advanced';
@@ -55,9 +55,9 @@ const convertPhrasalVerbData = (jsonData: JsonPhrasalVerb[]): PhrasalVerb[] => {
     
     return {
       id: verb.id.toString(),
-      phrasal: verb.verb.toLowerCase(),
+      phrasal: verb.lexicalItem.toLowerCase(),
       definition: primarySense.definition,
-      example: primarySense.examples[0] || `Example with ${verb.verb.toLowerCase()}.`,
+      example: primarySense.examples[0] || `Example with ${verb.lexicalItem.toLowerCase()}.`,
       difficulty,
       srsLevel
     };
@@ -132,7 +132,7 @@ export default function Dashboard() {
     fetch('/phrasal_verbs_phave_list.json')
       .then(response => response.json())
       .then(data => {
-        const converted = convertPhrasalVerbData(data as JsonPhrasalVerb[]);
+        const converted = convertPhrasalVerbData(data as JsonLexicalItem[]);
         setProcessedVerbs(converted);
       })
       .catch(error => console.error('Error loading phrasal verbs:', error));

@@ -68,7 +68,7 @@ def process_participant_data(participant, session: AgentSession):
                 from agents.context_agent import ContextAgent
 
                 scenario_data = metadata.get("scenario", {})
-                target_phrasal = metadata.get("targetPhrasalVerb", {})
+                target_phrasal = metadata.get("targetLexicalItem", {})
                 voice_persona = metadata.get("voicePersona", {})
 
                 # Check if voice persona is present
@@ -82,8 +82,8 @@ def process_participant_data(participant, session: AgentSession):
                     f"🎭 [Agent] ✅ Voice persona: {voice_persona.get('persona', {}).get('name', 'Fallback') if voice_persona else 'Using fallback'}"
                 )
 
-                # Merge target phrasal verb info into scenario
-                scenario_data["phrasalVerb"] = target_phrasal.get("verb", "go on")
+                # Merge target lexical item info into scenario
+                scenario_data["phrasalVerb"] = target_phrasal.get("lexicalItem", "go on")
                 scenario_data["phrasalVerbDefinition"] = target_phrasal.get(
                     "definition", None
                 )
@@ -124,10 +124,10 @@ def process_participant_data(participant, session: AgentSession):
                     f"🎯 [Agent] Processing as voice card: {voice_card_data.get('title', 'Unknown')}"
                 )
 
-                # Extract phrasal verb data from voice card
-                phrasal_verb = voice_card_data["targetPhrasalVerb"]
-                verb = phrasal_verb["verb"]
-                senses = phrasal_verb["senses"]
+                # Extract lexical item data from voice card
+                lexical_item = voice_card_data["targetLexicalItem"]
+                verb = lexical_item["lexicalItem"]
+                senses = lexical_item["senses"]
 
                 logger.info(f"🎯 [Agent] Extracted verb: {verb}")
                 logger.info(f"🎯 [Agent] Extracted senses: {senses}")

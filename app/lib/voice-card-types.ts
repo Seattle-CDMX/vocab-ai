@@ -4,8 +4,8 @@ export interface VoiceCardSense {
   examples: string[];
 }
 
-export interface VoiceCardPhrasalVerb {
-  verb: string;
+export interface VoiceCardLexicalItem {
+  lexicalItem: string;
   senses: VoiceCardSense[];
 }
 
@@ -14,7 +14,7 @@ export interface VoiceCard {
   type: string;
   title: string;
   difficulty: "beginner" | "intermediate" | "advanced";
-  targetPhrasalVerb: VoiceCardPhrasalVerb;
+  targetLexicalItem: VoiceCardLexicalItem;
 }
 
 export interface VoiceCardTypesData {

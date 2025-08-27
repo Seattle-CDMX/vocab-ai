@@ -132,7 +132,7 @@ const ContextCard = ({ contextCard, onAnswer, onReset }: ContextCardProps) => {
       const metadata = {
         activityType: 'context',
         scenario: contextCard.scenario,
-        targetPhrasalVerb: contextCard.targetPhrasalVerb,
+        targetLexicalItem: contextCard.targetLexicalItem,
         voicePersona: contextCard.voicePersona
       };
       
@@ -177,7 +177,7 @@ const ContextCard = ({ contextCard, onAnswer, onReset }: ContextCardProps) => {
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <MessageCircle className="w-5 h-5 text-primary" />
-          In-Context — {contextCard.targetPhrasalVerb.verb}
+          In-Context — {contextCard.targetLexicalItem.lexicalItem}
           <span className="ml-auto text-sm font-normal text-muted-foreground">Scenario</span>
         </CardTitle>
       </CardHeader>
@@ -237,7 +237,7 @@ const ContextCard = ({ contextCard, onAnswer, onReset }: ContextCardProps) => {
               </div>
               <div className="text-xs text-muted-foreground mt-1">
                 {isConnected 
-                  ? `Use "${contextCard.targetPhrasalVerb.verb}" naturally in conversation` 
+                  ? `Use "${contextCard.targetLexicalItem.lexicalItem}" naturally in conversation` 
                   : "Click to start conversation"}
               </div>
             </div>
