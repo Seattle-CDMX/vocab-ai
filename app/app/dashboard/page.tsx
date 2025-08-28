@@ -41,13 +41,13 @@ const convertPhrasalVerbData = (jsonData: JsonLexicalItem[]): PhrasalVerb[] => {
       difficulty = 'advanced';
     }
     
-    const random = Math.random();
+    const srsRandom = Math.random();
     let srsLevel: number;
-    if (random < 0.7) {
+    if (srsRandom < 0.7) {
       srsLevel = 0;
-    } else if (random < 0.85) {
+    } else if (srsRandom < 0.85) {
       srsLevel = Math.floor(Math.random() * 3) + 1;
-    } else if (random < 0.95) {
+    } else if (srsRandom < 0.95) {
       srsLevel = Math.floor(Math.random() * 3) + 4;
     } else {
       srsLevel = Math.floor(Math.random() * 3) + 7;
