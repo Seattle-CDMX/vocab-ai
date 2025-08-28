@@ -235,9 +235,9 @@ export default function ScienceOfSpacedRepetitionPost() {
           </div>
         </div>
 
-        <h3 className="text-2xl font-semibold mb-4">The VoiceCard Approach</h3>
+        <h3 className="text-2xl font-semibold mb-4">The TryCatch Approach</h3>
         <p className="mb-4">
-          VoiceCard leverages spaced repetition principles specifically for phrasal verb learning. By combining AI-powered conversation practice with scientifically-optimized review schedules, learners can:
+          TryCatch leverages spaced repetition principles specifically for developer communication skills. By combining AI-powered conversation practice with scientifically-optimized review schedules, developers can:
         </p>
 
         <ul className="list-disc list-inside space-y-2 mb-6 text-gray-700">
@@ -380,7 +380,7 @@ export default function ScienceOfSpacedRepetitionPost() {
         </p>
         
         <p className="mb-4">
-          For language learners, particularly those tackling complex elements like phrasal verbs, spaced repetition offers a scientifically-validated path to mastery. Systems like VoiceCard that combine AI-powered practice with optimized review schedules represent the cutting edge of educational technology.
+          For developers improving their communication skills, particularly those mastering technical vocabulary and presentation skills, spaced repetition offers a scientifically-validated path to mastery. Systems like TryCatch that combine AI-powered practice with optimized review schedules represent the cutting edge of professional development technology.
         </p>
 
         <div className="bg-green-50 border border-green-200 p-6 rounded-lg my-8">

@@ -18,7 +18,7 @@ interface PhrasalVerb {
 
 interface JsonLexicalItem {
   id: number;
-  lexicalItem: string;
+  verb: string;
   senses: Array<{
     senseNumber: number;
     definition: string;
@@ -55,9 +55,9 @@ const convertPhrasalVerbData = (jsonData: JsonLexicalItem[]): PhrasalVerb[] => {
     
     return {
       id: verb.id.toString(),
-      phrasal: verb.lexicalItem.toLowerCase(),
+      phrasal: verb.verb.toLowerCase(),
       definition: primarySense.definition,
-      example: primarySense.examples[0] || `Example with ${verb.lexicalItem.toLowerCase()}.`,
+      example: primarySense.examples[0] || `Example with ${verb.verb.toLowerCase()}.`,
       difficulty,
       srsLevel
     };
@@ -165,9 +165,9 @@ export default function Dashboard() {
               className="flex items-center gap-2"
             >
               <Brain className="w-5 h-5" />
-              VoiceCard
+              TryCatch
             </Button>
-            <h1 className="text-3xl font-bold text-foreground">Phrasal Verb Dashboard</h1>
+            <h1 className="text-3xl font-bold text-foreground">Vocab Dashboard</h1>
           </div>
           
           <div className="flex gap-3">

@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from "@/components/ui/button";
-import { BookOpen, Brain, Trophy, Zap, LogOut } from "lucide-react";
+import { BookOpen, Brain, Zap, LogOut, Globe, TrendingUp } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const Hero = ({ isAuthenticated, onSignOut }: { isAuthenticated: boolean; onSignOut: () => void }) => {
@@ -33,7 +33,7 @@ const Hero = ({ isAuthenticated, onSignOut }: { isAuthenticated: boolean; onSign
             <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary-glow rounded-lg flex items-center justify-center">
               <Brain className="w-5 h-5 text-primary-foreground" />
             </div>
-            <h1 className="text-xl font-bold text-foreground">VoiceCard</h1>
+            <h1 className="text-xl font-bold text-foreground">TryCatch</h1>
           </div>
           <div className="flex flex-wrap gap-2 sm:gap-3">
             {isAuthenticated ? (
@@ -119,12 +119,12 @@ const Hero = ({ isAuthenticated, onSignOut }: { isAuthenticated: boolean; onSign
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
-              Master <span className="text-primary">Vocab</span>
-              <span className="block">For Speaking</span>
+              Master <span className="text-primary">Speaking</span>
+              <span className="block">For Devs</span>
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
-              Master vocabulary for <span className="text-primary font-semibold">speaking</span> - phrasal verbs will 
-              skyrocket your spoken English.
+              <span className="text-primary font-semibold">Level up your speaking.</span> Double your salary. 
+              Master technical communication and stand out from the crowd.
             </p>
           </div>
 
@@ -136,7 +136,7 @@ const Hero = ({ isAuthenticated, onSignOut }: { isAuthenticated: boolean; onSign
               onClick={() => router.push(isAuthenticated ? '/study' : '/login')}
             >
               <BookOpen className="w-5 h-5 mr-2" />
-              {isAuthenticated ? 'Start Learning' : 'Sign In to Start'}
+              {isAuthenticated ? 'Try Demo' : 'Sign In to Start'}
             </Button>
             <Button 
               variant="outline" 
@@ -155,29 +155,30 @@ const Hero = ({ isAuthenticated, onSignOut }: { isAuthenticated: boolean; onSign
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
                 <Brain className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Spaced Repetition</h3>
+              <h3 className="text-lg font-semibold mb-2">Developer Scenarios</h3>
               <p className="text-muted-foreground">
-                We use spaced repeition similar to Anki and other language learning apps.
+                Practice real situations: standups, code reviews, technical interviews.
               </p>
             </div>
 
             <div className="bg-card rounded-xl p-6 shadow-lg border border-border hover:shadow-xl transition-shadow duration-300">
               <div className="w-12 h-12 bg-success/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                <BookOpen className="w-6 h-6 text-success" />
+                <Globe className="w-6 h-6 text-success" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">AI Tutors & Pronunciation</h3>
+              <h3 className="text-lg font-semibold mb-2">Global Tech Community</h3>
               <p className="text-muted-foreground">
-                Practice using phrasal verbs in realistic interactions.
+                Practice with developers worldwide. Master accents and communication styles.
               </p>
             </div>
 
             <div className="bg-card rounded-xl p-6 shadow-lg border border-border hover:shadow-xl transition-shadow duration-300">
               <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                <Trophy className="w-6 h-6 text-accent" />
+                <TrendingUp className="w-6 h-6 text-accent" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Track Progress</h3>
+              <h3 className="text-lg font-semibold mb-2">Career Growth</h3>
               <p className="text-muted-foreground">
-                Visual progress tracking and achievement system keeps you motivated
+                Study smart with spaced repetition and 
+                watch your speaking level progress towards B2, C1 and beyond.
               </p>
             </div>
           </div>
@@ -186,16 +187,16 @@ const Hero = ({ isAuthenticated, onSignOut }: { isAuthenticated: boolean; onSign
           <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-border mx-4 sm:mx-0">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 text-center">
               <div>
-                <div className="text-3xl font-bold text-primary mb-1">500+</div>
-                <div className="text-sm text-muted-foreground">Phrasal Verbs</div>
+                <div className="text-3xl font-bold text-primary mb-1">2x</div>
+                <div className="text-sm text-muted-foreground">Avg. Salary Increase</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-success mb-1">10k+</div>
-                <div className="text-sm text-muted-foreground">Learners</div>
+                <div className="text-3xl font-bold text-success mb-1">5k+</div>
+                <div className="text-sm text-muted-foreground">Developers</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-accent mb-1">95%</div>
-                <div className="text-sm text-muted-foreground">Success Rate</div>
+                <div className="text-3xl font-bold text-accent mb-1">89%</div>
+                <div className="text-sm text-muted-foreground">Interview Success</div>
               </div>
             </div>
           </div>
