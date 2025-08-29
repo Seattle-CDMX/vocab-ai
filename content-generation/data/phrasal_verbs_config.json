@@ -1,0 +1,70 @@
+{
+  "active_set": "developer_english",
+  "phrasal_verb_sets": {
+    "developer_english": [
+      {
+        "lexicalItem": "PULL IN",
+        "difficulty": "B1",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "Include or incorporate something",
+            "examples": [
+              "We need to pull in the latest changes from the main branch.",
+              "Can you pull in that utility function from the shared library?"
+            ]
+          }
+        ]
+      },
+      {
+        "lexicalItem": "BREAK DOWN",
+        "difficulty": "A2",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "Divide something into smaller parts",
+            "examples": [
+              "Let's break down this user story into smaller tasks.",
+              "We should break down the problem into manageable pieces."
+            ]
+          },
+          {
+            "senseNumber": 2,
+            "definition": "Stop working properly (systems/code)",
+            "examples": [
+              "The build process breaks down when we have merge conflicts."
+            ]
+          }
+        ]
+      },
+      {
+        "lexicalItem": "ROLL OUT",
+        "difficulty": "B2",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "Deploy or release gradually",
+            "examples": [
+              "We'll roll out the new feature to 10% of users first.",
+              "The deployment team will roll out the updates tonight."
+            ]
+          }
+        ]
+      },
+      {
+        "lexicalItem": "FALL BACK",
+        "difficulty": "B1",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "Return to a previous state or plan when something fails",
+            "examples": [
+              "If the new API fails, we'll fall back to the legacy system.",
+              "We can always fall back to the previous version if needed."
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

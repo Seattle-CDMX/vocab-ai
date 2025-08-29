@@ -16,34 +16,61 @@ import httpx
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
 
-load_dotenv(".env.local")
+load_dotenv(Path(__file__).parent.parent / ".env.local")
 
-PHRASAL_VERBS_PATH = (
-    Path(__file__).parent.parent.parent / "app" / "public" / "phrasal_verbs.json"
-)
-VOICE_PERSONAS_PATH = Path(__file__).parent / "google_voice_personas.json"
-OUTPUT_DIR = Path(__file__).parent.parent.parent / "app" / "generated_data"
-IMAGES_DIR = OUTPUT_DIR / "images"
+VOICE_PERSONAS_PATH = Path(__file__).parent.parent / "data" / "google_voice_personas.json"
+PHRASAL_VERBS_CONFIG_PATH = Path(__file__).parent.parent / "data" / "phrasal_verbs_config.json"
 
 
 class DemoGenerator:
     def __init__(self):
         self.client = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
         self.timestamp = datetime.now().strftime("%Y-%m-%d-%H%M%S")
+        self.output_dir = Path(__file__).parent.parent / "output" / f"voice-cards-{self.timestamp}"
+        self.images_dir = self.output_dir / "images"
         self.voice_personas = self.load_voice_personas()
         self.used_personas = set()
         self.ensure_directories()
 
     def ensure_directories(self):
         """Create necessary directories if they don't exist"""
-        OUTPUT_DIR.mkdir(exist_ok=True)
-        IMAGES_DIR.mkdir(exist_ok=True)
+        self.output_dir.mkdir(parents=True, exist_ok=True)
+        self.images_dir.mkdir(exist_ok=True)
 
-    def load_phrasal_verbs(self) -> List[Dict]:
-        """Load phrasal verbs from JSON file"""
-        with open(PHRASAL_VERBS_PATH) as f:
-            data = json.load(f)
-        return data
+    def load_phrasal_verbs_from_config(self) -> List[Dict]:
+        """Load phrasal verbs from configuration file"""
+        try:
+            with open(PHRASAL_VERBS_CONFIG_PATH) as f:
+                config = json.load(f)
+            
+            active_set = config.get("active_set", "basic_workplace")
+            phrasal_verbs = config["phrasal_verb_sets"][active_set]
+            
+            print(f"📚 Loaded phrasal verb set: '{active_set}' ({len(phrasal_verbs)} verbs)")
+            return phrasal_verbs
+            
+        except Exception as e:
+            print(f"⚠️  Error loading phrasal verbs config: {e}")
+            print("🔄 Falling back to hardcoded verbs")
+            return self.get_fallback_phrasal_verbs()
+    
+    def get_fallback_phrasal_verbs(self) -> List[Dict]:
+        """Fallback phrasal verbs if config file fails"""
+        return [
+            {
+                "lexicalItem": "GO ON",
+                "difficulty": "intermediate",
+                "senses": [
+                    {
+                        "senseNumber": 1,
+                        "definition": "Happen, take place",
+                        "examples": [
+                            "There is a debate going on right now between the two parties."
+                        ]
+                    }
+                ]
+            }
+        ]
 
     def load_voice_personas(self) -> List[Dict]:
         """Load voice personas from JSON file"""
@@ -289,12 +316,59 @@ class DemoGenerator:
             selected_persona["voice"]["gender"],
         )
 
-        # Update persona with culturally appropriate name
+        # Update persona with culturally appropriate name and tech role
         selected_persona["persona"]["name"] = name_info["name"]
         selected_persona["cultural_info"] = {
             "background": name_info["cultural_background"],
             "language_region": name_info["language_region"],
         }
+        
+        # Override with tech-focused expertise and contexts
+        tech_roles = [
+            "Senior Software Engineer",
+            "Tech Lead", 
+            "Engineering Manager",
+            "CTO",
+            "Product Manager",
+            "DevOps Engineer",
+            "QA Lead",
+            "Scrum Master"
+        ]
+        
+        tech_teaching_styles = [
+            "direct and technical",
+            "collaborative and supportive", 
+            "methodical and thorough",
+            "practical and hands-on",
+            "clear and structured",
+            "patient and encouraging"
+        ]
+        
+        tech_contexts = [
+            "code reviews",
+            "sprint planning", 
+            "technical discussions",
+            "architecture meetings",
+            "deployment planning",
+            "incident response",
+            "team retrospectives"
+        ]
+        
+        tech_traits = [
+            "analytical",
+            "problem-solving",
+            "collaborative", 
+            "detail-oriented",
+            "supportive",
+            "technical",
+            "clear",
+            "patient"
+        ]
+        
+        selected_persona["persona"]["expertise"] = random.choice(tech_roles)
+        selected_persona["persona"]["teaching_style"] = random.choice(tech_teaching_styles)
+        selected_persona["persona"]["personality_traits"] = random.sample(tech_traits, 3)
+        selected_persona["persona"]["preferred_contexts"] = random.sample(tech_contexts, 3)
 
         return selected_persona
 
@@ -310,44 +384,53 @@ class DemoGenerator:
             },
             "persona": {
                 "name": "Mr. Johnson",
-                "teaching_style": "professional and clear",
-                "expertise": "business communication",
-                "personality_traits": ["professional", "clear", "supportive"],
-                "preferred_contexts": ["meetings", "presentations", "emails"],
+                "teaching_style": "clear and structured",
+                "expertise": "Senior Software Engineer",
+                "personality_traits": ["technical", "clear", "supportive"],
+                "preferred_contexts": ["code reviews", "technical discussions", "sprint planning"],
             },
         }
 
     def get_selected_verbs(self, verbs: List[Dict]) -> List[Dict]:
-        """Get first 3 and last 3 phrasal verbs for faster testing"""
+        """Get all hardcoded phrasal verbs or just one for testing"""
         # For testing: just use the first verb
         if os.getenv("DEMO_TEST_MODE") == "1":
             return verbs[:1]
 
-        # Use first 3 and last 3 for faster generation (6 total cards)
-        first_three = verbs[:3]
-        last_three = verbs[-3:]
-        return first_three + last_three
+        # Use all hardcoded verbs
+        return verbs
 
     async def generate_workplace_scenario(self, verb: Dict, persona: Dict) -> Dict:
-        """Generate a workplace-appropriate scenario using OpenAI"""
+        """Generate a developer-focused workplace scenario using OpenAI"""
+        cefr_level = verb["difficulty"]
         prompt = f"""
-        You are {persona["persona"]["name"]}, a {persona["persona"]["expertise"]} expert. Create a realistic workplace scenario for practicing the phrasal verb "{verb["verb"]}".
+        You are {persona["persona"]["name"]}, a {persona["persona"]["expertise"]} in a software development company. Create a realistic tech workplace scenario for practicing the phrasal verb "{verb["lexicalItem"]}".
         
         The phrasal verb means: {verb["senses"][0]["definition"]}
         Example usage: {verb["senses"][0]["examples"][0] if verb["senses"][0]["examples"] else "N/A"}
         
+        IMPORTANT: This is for developers learning English. The scenario should involve:
+        - Software development concepts (pull requests, deployments, code reviews, sprints, etc.)
+        - Tech team roles (developers, QA, DevOps, product managers, etc.)  
+        - Real situations developers face (debugging, releases, architecture decisions, etc.)
+        
+        Language difficulty should match CEFR level {cefr_level}:
+        - A2: Simple, direct sentences with basic tech vocabulary
+        - B1: Clear explanations with common development terminology  
+        - B2: More complex scenarios with advanced technical concepts
+        
         Generate a JSON response with:
         {{
-            "scenario_title": "Brief title for the scenario",
+            "scenario_title": "Brief title for the tech scenario",
             "character_name": "{persona["persona"]["name"]}",
-            "character_role": "Their role (e.g., Project Manager, Department Head)",
-            "situation": "Detailed workplace situation where this phrasal verb would naturally be used",
-            "conversation_starter": "How the character begins the conversation",
-            "expected_usage": "How the learner should use the phrasal verb in response",
-            "difficulty": "beginner/intermediate/advanced",
-            "business_context": "Specific business context (meeting, email discussion, presentation, etc.)",
-            "learning_tip": "A helpful tip for remembering this phrasal verb",
-            "alternative_scenarios": ["2-3 other workplace situations where this verb applies"]
+            "character_role": "Their tech role (e.g., Senior Developer, Tech Lead, CTO, Product Manager)",
+            "situation": "Detailed tech situation where this phrasal verb would naturally be used (mention specific dev concepts like pull requests, deployments, code reviews, etc.)",
+            "conversation_starter": "How the character begins the conversation (use tech context)",
+            "expected_usage": "How the developer should use the phrasal verb in response (with tech context)",
+            "difficulty": "{cefr_level}",
+            "business_context": "Specific tech context (code review, sprint planning, deployment, incident response, etc.)",
+            "learning_tip": "A helpful tip for remembering this phrasal verb in tech contexts",
+            "alternative_scenarios": ["2-3 other tech situations where this verb applies"]
         }}
         """
 
@@ -357,7 +440,7 @@ class DemoGenerator:
                 messages=[
                     {
                         "role": "system",
-                        "content": "You are a business English expert creating workplace learning scenarios.",
+                        "content": "You are an English teacher specializing in technical English for software developers. Create realistic scenarios that developers would encounter in their daily work.",
                     },
                     {"role": "user", "content": prompt},
                 ],
@@ -376,13 +459,13 @@ class DemoGenerator:
     def get_fallback_scenario(self, verb: Dict, persona: Dict) -> Dict:
         """Fallback scenario if API fails"""
         return {
-            "scenario_title": f"Practice {verb['verb']}",
+            "scenario_title": f"Practice {verb['lexicalItem']}",
             "character_name": persona["persona"]["name"],
             "character_role": "Team Lead",
-            "situation": f"A workplace situation to practice {verb['verb']}",
+            "situation": f"A workplace situation to practice {verb['lexicalItem']}",
             "conversation_starter": "Let's discuss this matter.",
-            "expected_usage": f"Use '{verb['verb']}' naturally in conversation",
-            "difficulty": "intermediate",
+            "expected_usage": f"Use '{verb['lexicalItem']}' naturally in conversation",
+            "difficulty": verb["difficulty"],
             "business_context": "Team meeting",
             "learning_tip": f"Remember: {verb['senses'][0]['definition']}",
             "alternative_scenarios": [
@@ -393,24 +476,46 @@ class DemoGenerator:
         }
 
     async def generate_image(self, verb: Dict, scenario: Dict, persona: Dict) -> str:
-        """Generate an image using DALL-E and save locally with cultural coherence"""
-        cultural_background = persona.get("cultural_info", {}).get(
-            "background", "international professional"
-        )
-        character_name = scenario["character_name"]
+        """Generate a cartoon-style tech-themed image using DALL-E"""
+        tech_role = scenario["character_role"]
+        business_context = scenario["business_context"]
+
+        # Create tech-specific visual elements based on the phrasal verb and context
+        tech_elements = {
+            "PULL IN": "code merge visualization, git branches coming together, pull request interface",
+            "BREAK DOWN": "user story cards, task breakdown diagrams, agile planning board",
+            "ROLL OUT": "deployment pipeline, progress bars, feature flags, server infrastructure", 
+            "FALL BACK": "system architecture diagram, backup servers, rollback buttons, monitoring dashboards"
+        }
+        
+        specific_tech_element = tech_elements.get(verb["lexicalItem"], "computer screens, code, tech workspace")
 
         image_prompt = f"""
-        Friendly, approachable office setting with a {scenario["business_context"]} scenario.
-        Feature a {cultural_background} as the main character ({character_name}) in the center of the image,
-        with warm smile and engaging expression in a bright, modern workplace.
-        The main character should clearly represent their cultural background in appearance.
-        Include other diverse business professionals collaborating in the background.
-        Style: Natural, bright, welcoming photography with soft lighting and warm colors.
-        Show people being collaborative, friendly, and approachable - not overly formal or stiff.
-        Capture a sense of positive energy and learning atmosphere.
+        Cartoon-style illustration of a friendly tech workspace scene.
+        
+        Main character: A cheerful, cartoon-style {tech_role} with a warm, approachable expression.
+        Setting: Modern, colorful tech office with a fun, startup-like vibe.
+        
+        Tech elements in the scene:
+        - {specific_tech_element}
+        - Multiple monitors showing code, dashboards, or development tools
+        - Modern tech gadgets, laptops, mechanical keyboards
+        - Whiteboards with diagrams, sticky notes, or planning boards
+        - Plants, coffee cups, and friendly office décor
+        
+        Visual style:
+        - Bright, cartoon/animated illustration style (like Pixar or modern tech company illustrations)
+        - Vibrant but professional colors (blues, greens, purples with orange/yellow accents)
+        - Clean, modern flat design with subtle gradients
+        - Friendly, non-intimidating atmosphere
+        - Tech-forward but approachable aesthetic
+        
+        Context: {business_context} scenario
+        Action: Visual representation of "{verb["lexicalItem"]}" in a tech context
+        
         No text or words in the image.
-        Convey the action of "{verb["verb"]}" through natural body language and friendly interaction.
-        Focus on the {cultural_background} as the primary subject.
+        No photorealistic people - keep it cartoon/illustration style.
+        Focus on creating a welcoming, modern tech environment that developers would recognize and enjoy.
         """
 
         try:
@@ -424,29 +529,27 @@ class DemoGenerator:
 
             image_url = response.data[0].url
 
-            # Download and save image locally (simple filename, overwrite existing)
-            image_filename = f"{verb['verb'].lower().replace(' ', '-')}.png"
-            image_path = IMAGES_DIR / image_filename
+            # Download and save image locally to timestamped folder
+            image_filename = f"{verb['lexicalItem'].lower().replace(' ', '-')}.png"
+            image_path = self.images_dir / image_filename
 
             async with httpx.AsyncClient() as client:
                 img_response = await client.get(image_url)
                 with open(image_path, "wb") as f:
                     f.write(img_response.content)
 
-            return f"/generated_data/images/{image_filename}"
+            return f"images/{image_filename}"
 
         except Exception as e:
-            print(f"Error generating image for {verb['verb']}: {e}")
+            print(f"Error generating image for {verb['lexicalItem']}: {e}")
             return "/placeholder.svg"
 
     async def generate_native_explain_scenario(self, verb: Dict, persona: Dict) -> Dict:
         """Generate a native explanation scenario using OpenAI"""
-        primary_sense = verb["senses"][0]
-
         prompt = f"""
         You are {persona["persona"]["name"]}, a {persona["persona"]["expertise"]} expert with a {persona["persona"]["teaching_style"]} teaching style.
         
-        Create an educational explanation for the phrasal verb "{verb["verb"]}" that focuses on helping learners understand its meaning and usage.
+        Create an educational explanation for the phrasal verb "{verb["lexicalItem"]}" that focuses on helping learners understand its meaning and usage.
         
         The phrasal verb has these senses:
         {json.dumps(verb["senses"], indent=2)}
@@ -480,7 +583,7 @@ class DemoGenerator:
 
             return json.loads(response.choices[0].message.content)
         except Exception as e:
-            print(f"Error generating native explain scenario for {verb['verb']}: {e}")
+            print(f"Error generating native explain scenario for {verb['lexicalItem']}: {e}")
             return self.get_fallback_native_explain(verb, persona)
 
     def get_fallback_native_explain(self, verb: Dict, persona: Dict) -> Dict:
@@ -490,56 +593,37 @@ class DemoGenerator:
             "explanation_approach": "step-by-step breakdown",
             "main_definition": primary_sense["definition"],
             "key_teaching_points": [
-                f"'{verb['verb']}' means {primary_sense['definition']}",
+                f"'{verb['lexicalItem']}' means {primary_sense['definition']}",
                 "Can be used in both formal and informal contexts",
                 "Pay attention to preposition usage",
             ],
             "usage_examples": primary_sense["examples"][:3]
             if len(primary_sense["examples"]) >= 3
             else primary_sense["examples"]
-            + [f"Let me {verb['verb'].lower()} this matter."],
+            + [f"Let me {verb['lexicalItem'].lower()} this matter."],
             "common_mistakes": [
                 "Using the wrong preposition",
                 "Confusing with similar phrasal verbs",
             ],
             "memory_tips": [
-                f"Think of {verb['verb'].lower()} as {primary_sense['definition'].lower()}",
+                f"Think of {verb['lexicalItem'].lower()} as {primary_sense['definition'].lower()}",
                 "Practice with real workplace situations",
             ],
-            "difficulty_level": "intermediate",
+            "difficulty_level": verb["difficulty"],
             "teaching_personality": persona["persona"]["teaching_style"],
         }
 
     async def create_native_explain_card(self, verb: Dict) -> Dict:
         """Create a native explain card with voice persona"""
-        persona = self.get_random_persona()
-        scenario = await self.generate_native_explain_scenario(verb, persona)
-
-        # Use the first sense as the primary definition
-        primary_sense = verb["senses"][0]
-
         native_explain_card = {
-            "id": f"native-explain-{verb['verb'].lower().replace(' ', '-')}",
+            "id": f"native-explain-{verb['lexicalItem'].lower().replace(' ', '-')}",
             "type": "native_explain",
-            "title": f"Explain: {verb['verb']}",
-            "difficulty": scenario["difficulty_level"],
-            "targetPhrasalVerb": {"verb": verb["verb"], "senses": verb["senses"]},
-            "teachingScenario": {
-                "teacher": persona["persona"]["name"],
-                "approach": scenario["explanation_approach"],
-                "mainDefinition": scenario["main_definition"],
-                "keyTeachingPoints": scenario["key_teaching_points"],
-                "usageExamples": scenario["usage_examples"],
-                "commonMistakes": scenario["common_mistakes"],
-                "memoryTips": scenario["memory_tips"],
-                "teachingPersonality": scenario["teaching_personality"],
-            },
-            "voicePersona": persona,
-            "metadata": {
-                "originalId": verb["id"],
-                "generatedAt": self.timestamp,
-                "cardType": "native_explain",
-            },
+            "title": f"Explain: {verb['lexicalItem']}",
+            "difficulty": verb["difficulty"],
+            "targetLexicalItem": {
+                "lexicalItem": verb["lexicalItem"],
+                "senses": verb["senses"]
+            }
         }
 
         return native_explain_card
@@ -554,10 +638,10 @@ class DemoGenerator:
         primary_sense = verb["senses"][0]
 
         situation_card = {
-            "id": f"context-{verb['verb'].lower().replace(' ', '-')}",
+            "id": f"context-{verb['lexicalItem'].lower().replace(' ', '-')}",
             "type": "context",
-            "title": f"In-Context — {verb['verb']}",
-            "difficulty": scenario["difficulty"],
+            "title": f"In-Context: {verb['lexicalItem']}",
+            "difficulty": verb["difficulty"],
             "contextText": f"You're speaking with {scenario['character_name']}, {scenario['character_role']}. {scenario['situation']}",
             "imageUrl": image_path,
             "ctaText": f"Talk to {scenario['character_name']}",
@@ -565,28 +649,26 @@ class DemoGenerator:
                 "character": scenario["character_name"],
                 "role": scenario["character_role"],
                 "situation": scenario["situation"],
-                "phrasalVerb": verb["verb"].lower(),
+                "phrasalVerb": verb["lexicalItem"].lower(),
                 "contextText": scenario["situation"],
                 "conversationStarter": scenario["conversation_starter"],
-                "expectedUsage": scenario["expected_usage"],
-                "businessContext": scenario["business_context"],
-                "maxTurns": 5,
+                "maxTurns": 5
             },
-            "targetPhrasalVerb": {
-                "verb": verb["verb"],
+            "targetLexicalItem": {
+                "lexicalItem": verb["lexicalItem"],
                 "definition": primary_sense["definition"],
-                "confidence": primary_sense["confidencePercent"],
-                "examples": primary_sense["examples"] + [scenario["expected_usage"]],
-                "learningTip": scenario["learning_tip"],
-                "alternativeScenarios": scenario["alternative_scenarios"],
+                "examples": primary_sense["examples"] + [scenario["expected_usage"]]
             },
-            "voicePersona": persona,
-            "metadata": {
-                "originalId": verb["id"],
-                "generatedAt": self.timestamp,
-                "allSenses": verb["senses"],
-                "cardType": "context",
-            },
+            "voicePersona": {
+                **persona,
+                "scenarioRole": {
+                    "character": scenario["character_name"],
+                    "role": scenario["character_role"],
+                    "teachingApproach": persona["persona"]["teaching_style"],
+                    "expertise": persona["persona"]["expertise"],
+                    "conversationStyle": f"As {scenario['character_name']}, they will use a {persona['persona']['teaching_style']} approach to help learners practice the phrasal verb '{verb['lexicalItem']}' in a {scenario['business_context']} context."
+                }
+            }
         }
 
         return situation_card
@@ -595,7 +677,7 @@ class DemoGenerator:
         self, verb: Dict, verb_index: int, total_verbs: int
     ) -> List[Dict]:
         """Generate both cards for a single verb in parallel"""
-        print(f"Processing {verb_index + 1}/{total_verbs}: {verb['verb']}")
+        print(f"Processing {verb_index + 1}/{total_verbs}: {verb['lexicalItem']}")
 
         # Create both cards concurrently
         native_task = asyncio.create_task(self.create_native_explain_card(verb))
@@ -604,15 +686,15 @@ class DemoGenerator:
         # Wait for both cards to complete
         native_card, situation_card = await asyncio.gather(native_task, situation_task)
 
-        print(f"  ✅ Completed both cards for {verb['verb']}")
+        print(f"  ✅ Completed both cards for {verb['lexicalItem']}")
         return [native_card, situation_card]
 
     async def generate_all_cards(self):
         """Main generation process with parallel processing"""
         print(f"Starting parallel demo generation at {self.timestamp}")
 
-        # Load and select verbs
-        all_verbs = self.load_phrasal_verbs()
+        # Load verbs from config
+        all_verbs = self.load_phrasal_verbs_from_config()
         selected_verbs = self.get_selected_verbs(all_verbs)
 
         print(f"Processing {len(selected_verbs)} phrasal verbs in parallel...")
@@ -658,15 +740,15 @@ class DemoGenerator:
             "metadata": {
                 "generator": "demo_generator.py",
                 "version": "2.1.0",
-                "phrasalVerbsProcessed": [v["verb"] for v in selected_verbs],
+                "phrasalVerbsProcessed": [v["lexicalItem"] for v in selected_verbs],
                 "voicePersonasUsed": len(self.used_personas),
                 "cardStructure": "1 native_explain + 1 context per phrasal verb",
                 "generationMode": "parallel",
             },
         }
 
-        # Save to simple filename (overwrite existing)
-        output_file = OUTPUT_DIR / "voice-cards.json"
+        # Save to timestamped folder
+        output_file = self.output_dir / "voice-cards.json"
         with open(output_file, "w") as f:
             json.dump(output, f, indent=2)
 
@@ -676,7 +758,7 @@ class DemoGenerator:
         print(f"  - Situation cards: {len(situations)}")
         print(f"Voice personas used: {len(self.used_personas)}")
         print(f"Output saved to: {output_file}")
-        print(f"Images saved to: {IMAGES_DIR}")
+        print(f"Images saved to: {self.images_dir}")
 
         return output_file
 
