@@ -99,11 +99,11 @@ Student said: "{user_text}"
 {examples_text}
 
 STEP 1: LEXICAL ITEM DETECTION
-First, check if the lexical item "{lexical_item}" appears in ANY FORM:
-- Exact match: "{lexical_item}"
-- Word order variations: For "break down" also accept "down break" (grammatically incorrect but present)
-- With particles: "breaking down", "broke down", etc.
-- Set used_verb = true if ANY form is detected, even if grammatically incorrect
+CRITICAL: Be very careful with detection. The lexical item "{lexical_item}" appears if:
+- Both words appear in the text (in any order): "pull in", "in pull", "pulling in", etc.
+- Even in different contexts: "pull in to parking space" still contains "pull in"
+- Even with scrambled order: "in pull we should" contains both "pull" and "in"
+- Set used_verb = TRUE if you can find both words present, regardless of context or grammar
 
 STEP 2: CORRECTNESS EVALUATION
 Only if used_verb = true, evaluate correctness:
@@ -131,25 +131,34 @@ SPECIFIC PHRASAL VERB GUIDANCE:
 
 FALL BACK:
 - Accept "fall back the X" as correct even without "to" or "on" if meaning is clear
-- Focus on semantic meaning (reverting/returning) over strict preposition requirements
-- "fall back the updates" = acceptable if context suggests reverting
+- Focus on semantic meaning (reverting/returning) over strict preposition requirements  
+- "fall back the updates" = CORRECT (clear intent to revert)
+- "fall back these changes" = CORRECT (clear intent to revert)
+- "fall back the components" = CORRECT (clear intent to revert)
+- Only mark incorrect if meaning is completely unclear
 
 ROLL OUT:
 - Accept variations that suggest gradual deployment
-- "roll out updates" = correct (deployment context)
-- "roll out dependencies" = correct if in deployment scenario
+- "roll out updates" = CORRECT (deployment context)
+- "roll out the latest updates" = CORRECT (deployment context, assume gradual)
+- "roll out this into workflow" = CORRECT (integration context with deployment intent)
+- "roll out dependencies" = CORRECT if in deployment scenario
+- Be generous - if deployment/release context is clear, mark as correct
 
 INCOMPLETE RESPONSES:
-- "Let's... [phrase]" → used_correctly=false (clearly incomplete with ellipsis)
-- Single words like "Roll Out" → used_correctly=false (no complete thought)
-- But complete sentences with minor awkwardness → used_correctly=true
+- "Let's... [phrase]" → used_correctly=FALSE (clearly incomplete with ellipsis)
+- Single words like "Roll Out" → used_correctly=FALSE (no complete thought)
+- "We fall back" → used_correctly=FALSE (incomplete, no object)
+- But complete sentences with minor awkwardness → used_correctly=TRUE
 
 EXAMPLES OF GENEROUS EVALUATION:
-- "Let's pull in this into our workflow" → used_correctly=true (clear intent despite minor awkwardness)
-- "break down the latest updates" → used_correctly=true (reasonable interpretation of dividing/analyzing)  
-- "fall back the components" → used_correctly=true (clear intent to revert/return)
-- "Let's... fall back" → used_correctly=false (incomplete with ellipsis)
-- "We should fall back to previous version if needed" → used_correctly=true (this IS the correct meaning!)
+- "The car needs to pull in to the parking space" → used_verb=TRUE (contains "pull in"), used_correctly=FALSE (wrong context)
+- "in pull we should this task" → used_verb=TRUE (contains "pull" and "in"), used_correctly=FALSE (grammar error)
+- "Let's pull in this into our workflow" → used_correctly=TRUE (clear intent despite minor awkwardness)
+- "break down the latest updates" → used_correctly=TRUE (reasonable interpretation of dividing/analyzing)  
+- "fall back the components" → used_correctly=TRUE (clear intent to revert/return)
+- "Let's... fall back" → used_correctly=FALSE (incomplete with ellipsis)
+- "We should fall back to previous version if needed" → used_correctly=TRUE (this IS the correct meaning!)
 
 Provide your evaluation as a structured response."""
 
