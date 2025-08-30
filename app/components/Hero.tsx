@@ -124,7 +124,7 @@ const Hero = ({ isAuthenticated, onSignOut }: { isAuthenticated: boolean; onSign
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
               <span className="text-primary font-semibold">Level up your speaking.</span> Double your salary. 
-              Master technical communication and stand out from the crowd.
+              Improve your technical communication and stand out from the crowd.
             </p>
           </div>
 

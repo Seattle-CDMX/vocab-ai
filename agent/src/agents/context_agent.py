@@ -11,7 +11,7 @@ from livekit.plugins import deepgram, google, openai, silero
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
 
 from config.credentials import parse_google_credentials
-from services.phrasal_evaluator import PhrasalEvaluator
+from services.context_evaluator import ContextEvaluator
 from services.terminal_state_manager import TerminalStateManager
 
 logger = logging.getLogger("agent.context")
@@ -26,7 +26,7 @@ class ContextAgent(Agent):
         self.max_turns = 5
         self.turn_count = 0
         self.success = False
-        self.evaluator = PhrasalEvaluator()
+        self.evaluator = ContextEvaluator()
         self.voice_persona = voice_persona or {}
 
         # Extract scenario data
@@ -141,10 +141,10 @@ Context: {self.context_text}"""
             # Evaluate phrasal verb usage
             evaluation = await self.evaluator.evaluate_usage(
                 user_text=user_text,
-                phrasal_verb=self.phrasal_verb,
-                phrasal_verb_definition=self.phrasal_verb_definition,
+                lexical_item=self.phrasal_verb,
+                lexical_item_definition=self.phrasal_verb_definition,
                 scenario=self.situation,
-                phrasal_verb_examples=self.phrasal_verb_examples,
+                lexical_item_examples=self.phrasal_verb_examples,
                 character=self.character,
             )
 
@@ -168,15 +168,15 @@ Context: {self.context_text}"""
 
             elif self.turn_count >= self.max_turns and not self.success:
                 # Failed - out of turns
-                hint = evaluation.get(
-                    "hint",
+                feedback = evaluation.get(
+                    "feedback",
                     f"You could have said something like: 'Could you {self.phrasal_verb} with your explanation?'",
                 )
                 # Schedule terminal failure state with delay to allow agent to finish speaking
                 asyncio.create_task(  # noqa: RUF006
                     TerminalStateManager.handle_failure(
                         "Out of turns. Time to move on!",
-                        hint,
+                        feedback,
                         delay_seconds=2.5,  # Shorter delay for failure messages
                     )
                 )
