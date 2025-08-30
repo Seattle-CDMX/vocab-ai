@@ -180,7 +180,7 @@ export default function SlidesPage() {
             </div>
             
             <p style={{fontSize: '1.2rem', color: 'white', textShadow: '1px 1px 2px rgba(0,0,0,0.6)', marginTop: '1rem', opacity: '0.9'}}>
-              Watch VoiceCard in action - AI-powered phrasal verb learning
+              Watch VoiceCard in action - AI-powered technical communication training
             </p>
           </div>
         </section>
@@ -295,7 +295,7 @@ export default function SlidesPage() {
 
         {/* Comprehensive Conclusion */}
         <section data-background-gradient="linear-gradient(135deg, hsl(145, 65%, 45%) 0%, hsl(200, 85%, 45%) 100%)">
-          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: 'white', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', marginBottom: '3rem'}}>VoiceCard: Making Flashcards Fun Again</h2>
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: 'white', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', marginBottom: '3rem'}}>VoiceCard: Level Up Your Dev Communication</h2>
           
           <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', maxWidth: '1000px', margin: '0 auto'}}>
             

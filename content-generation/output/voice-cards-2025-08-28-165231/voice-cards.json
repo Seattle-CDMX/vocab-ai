@@ -29,7 +29,7 @@
       "title": "In-Context: PULL IN",
       "difficulty": "B1",
       "contextText": "You're speaking with Mr. van den Berg, QA Lead. The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
-      "imageUrl": "/images/pull-in.png",
+      "imageUrl": "images/pull-in.png",
       "ctaText": "Talk to Mr. van den Berg",
       "scenario": {
         "character": "Mr. van den Berg",
@@ -117,7 +117,7 @@
       "title": "In-Context: BREAK DOWN",
       "difficulty": "A2",
       "contextText": "You're speaking with Mr. Fraser, Senior Software Engineer. Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
-      "imageUrl": "/images/break-down.png",
+      "imageUrl": "images/break-down.png",
       "ctaText": "Talk to Mr. Fraser",
       "scenario": {
         "character": "Mr. Fraser",
@@ -198,7 +198,7 @@
       "title": "In-Context: ROLL OUT",
       "difficulty": "B2",
       "contextText": "You're speaking with Mr. Davis, Tech Lead. The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
-      "imageUrl": "/images/roll-out.png",
+      "imageUrl": "images/roll-out.png",
       "ctaText": "Talk to Mr. Davis",
       "scenario": {
         "character": "Mr. Davis",
@@ -279,7 +279,7 @@
       "title": "In-Context: FALL BACK",
       "difficulty": "B1",
       "contextText": "You're speaking with Ms. Davis, Senior Software Engineer. The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn\u2019t work as expected.",
-      "imageUrl": "/images/fall-back.png",
+      "imageUrl": "images/fall-back.png",
       "ctaText": "Talk to Ms. Davis",
       "scenario": {
         "character": "Ms. Davis",

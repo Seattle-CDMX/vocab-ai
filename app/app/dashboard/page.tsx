@@ -18,7 +18,7 @@ interface PhrasalVerb {
 
 interface JsonLexicalItem {
   id: number;
-  lexicalItem: string;
+  verb: string;
   senses: Array<{
     senseNumber: number;
     definition: string;
@@ -41,13 +41,13 @@ const convertPhrasalVerbData = (jsonData: JsonLexicalItem[]): PhrasalVerb[] => {
       difficulty = 'advanced';
     }
     
-    const random = Math.random();
+    const srsRandom = Math.random();
     let srsLevel: number;
-    if (random < 0.7) {
+    if (srsRandom < 0.7) {
       srsLevel = 0;
-    } else if (random < 0.85) {
+    } else if (srsRandom < 0.85) {
       srsLevel = Math.floor(Math.random() * 3) + 1;
-    } else if (random < 0.95) {
+    } else if (srsRandom < 0.95) {
       srsLevel = Math.floor(Math.random() * 3) + 4;
     } else {
       srsLevel = Math.floor(Math.random() * 3) + 7;
@@ -55,9 +55,9 @@ const convertPhrasalVerbData = (jsonData: JsonLexicalItem[]): PhrasalVerb[] => {
     
     return {
       id: verb.id.toString(),
-      phrasal: verb.lexicalItem.toLowerCase(),
+      phrasal: verb.verb.toLowerCase(),
       definition: primarySense.definition,
-      example: primarySense.examples[0] || `Example with ${verb.lexicalItem.toLowerCase()}.`,
+      example: primarySense.examples[0] || `Example with ${verb.verb.toLowerCase()}.`,
       difficulty,
       srsLevel
     };
@@ -167,7 +167,7 @@ export default function Dashboard() {
               <Brain className="w-5 h-5" />
               VoiceCard
             </Button>
-            <h1 className="text-3xl font-bold text-foreground">Phrasal Verb Dashboard</h1>
+            <h1 className="text-3xl font-bold text-foreground">Vocab Dashboard</h1>
           </div>
           
           <div className="flex gap-3">

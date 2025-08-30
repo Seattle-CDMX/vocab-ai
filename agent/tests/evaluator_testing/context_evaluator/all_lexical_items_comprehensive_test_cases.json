@@ -1,0 +1,2741 @@
+{
+  "dataset_name": "all-lexical-items-comprehensive",
+  "description": "Comprehensive test dataset for all 4 lexical items with expected feedback",
+  "total_cases": 100,
+  "total_lexical_items": 4,
+  "category_breakdown": {
+    "correct": 20,
+    "wrong_sense": 28,
+    "incomplete": 16,
+    "no_usage": 16,
+    "spanish_response": 12,
+    "grammatical_error": 8
+  },
+  "difficulty_breakdown": {
+    "easy": 36,
+    "medium": 28,
+    "hard": 36
+  },
+  "lexical_items": {
+    "pull in": {
+      "scenario_info": {
+        "character": "Mr. van den Berg",
+        "role": "QA Lead",
+        "situation": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "definition": "Include or incorporate something",
+        "context": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "conversation_starter": "Hey team, before we start testing the new feature, I noticed that we might be missing some updates from the main branch.",
+        "examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "total_cases": 25,
+      "category_breakdown": {
+        "correct": 5,
+        "wrong_sense": 7,
+        "incomplete": 4,
+        "no_usage": 4,
+        "spanish_response": 3,
+        "grammatical_error": 2
+      },
+      "difficulty_breakdown": {
+        "easy": 9,
+        "medium": 7,
+        "hard": 9
+      }
+    },
+    "break down": {
+      "scenario_info": {
+        "character": "Mr. Fraser",
+        "role": "Senior Software Engineer",
+        "situation": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "definition": "Divide something into smaller parts",
+        "context": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "conversation_starter": "Mr. Fraser looks at the user story on the board and says, 'Before we start, let's break down this user story into smaller tasks so we can assign them correctly.'",
+        "examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "total_cases": 25,
+      "category_breakdown": {
+        "correct": 5,
+        "wrong_sense": 7,
+        "incomplete": 4,
+        "no_usage": 4,
+        "spanish_response": 3,
+        "grammatical_error": 2
+      },
+      "difficulty_breakdown": {
+        "easy": 9,
+        "medium": 7,
+        "hard": 9
+      }
+    },
+    "roll out": {
+      "scenario_info": {
+        "character": "Mr. Davis",
+        "role": "Tech Lead",
+        "situation": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "definition": "Deploy or release gradually",
+        "context": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "conversation_starter": "Alright team, we’ve completed the code review for the new authentication feature. I want to talk about how we’ll roll this out to our users without causing too many issues.",
+        "examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "total_cases": 25,
+      "category_breakdown": {
+        "correct": 5,
+        "wrong_sense": 7,
+        "incomplete": 4,
+        "no_usage": 4,
+        "spanish_response": 3,
+        "grammatical_error": 2
+      },
+      "difficulty_breakdown": {
+        "easy": 9,
+        "medium": 7,
+        "hard": 9
+      }
+    },
+    "fall back": {
+      "scenario_info": {
+        "character": "Ms. Davis",
+        "role": "Senior Software Engineer",
+        "situation": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "definition": "Return to a previous state or plan when something fails",
+        "context": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "conversation_starter": "Hey team, during the code review, we found a significant bug in the new API that we need to address before deployment.",
+        "examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "total_cases": 25,
+      "category_breakdown": {
+        "correct": 5,
+        "wrong_sense": 7,
+        "incomplete": 4,
+        "no_usage": 4,
+        "spanish_response": 3,
+        "grammatical_error": 2
+      },
+      "difficulty_breakdown": {
+        "easy": 9,
+        "medium": 7,
+        "hard": 9
+      }
+    }
+  },
+  "test_cases": [
+    {
+      "input": {
+        "user_text": "Let's pull in the latest updates from the main branch",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": true,
+        "used_verb": true,
+        "expected_feedback": ""
+      },
+      "metadata": {
+        "category": "correct",
+        "difficulty": "easy",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "Proper usage of lexical item with appropriate meaning and context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "We should pull in these changes before proceeding",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": true,
+        "used_verb": true,
+        "expected_feedback": ""
+      },
+      "metadata": {
+        "category": "correct",
+        "difficulty": "easy",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "Proper usage of lexical item with appropriate meaning and context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Can we pull in the necessary components for this feature?",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": true,
+        "used_verb": true,
+        "expected_feedback": ""
+      },
+      "metadata": {
+        "category": "correct",
+        "difficulty": "easy",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "Proper usage of lexical item with appropriate meaning and context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "I think we need to pull in this into our current workflow",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": true,
+        "used_verb": true,
+        "expected_feedback": ""
+      },
+      "metadata": {
+        "category": "correct",
+        "difficulty": "easy",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "Proper usage of lexical item with appropriate meaning and context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "How about we pull in the required dependencies?",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": true,
+        "used_verb": true,
+        "expected_feedback": ""
+      },
+      "metadata": {
+        "category": "correct",
+        "difficulty": "easy",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "Proper usage of lexical item with appropriate meaning and context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "The car needs to pull in to the parking space",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'PULL IN' rather than 'Include or incorporate something'. In The development team has been ..., try using it to mean 'Include or incorporate something'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's pull in to the gas station for fuel",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'PULL IN' rather than 'Include or incorporate something'. In The development team has been ..., try using it to mean 'Include or incorporate something'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "The train will pull in to the station soon",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'PULL IN' rather than 'Include or incorporate something'. In The development team has been ..., try using it to mean 'Include or incorporate something'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "We should pull in our marketing budget this quarter",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'PULL IN' rather than 'Include or incorporate something'. In The development team has been ..., try using it to mean 'Include or incorporate something'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "The police officer asked us to pull in to the curb",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'PULL IN' rather than 'Include or incorporate something'. In The development team has been ..., try using it to mean 'Include or incorporate something'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "The boat needs to pull in to the harbor",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'PULL IN' rather than 'Include or incorporate something'. In The development team has been ..., try using it to mean 'Include or incorporate something'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Can you pull in the fishing net from the water?",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'PULL IN' rather than 'Include or incorporate something'. In The development team has been ..., try using it to mean 'Include or incorporate something'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Pull In",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This response is incomplete or too informal for a professional QA Lead context. Try forming a complete sentence using 'PULL IN' to include or incorporate something."
+      },
+      "metadata": {
+        "category": "incomplete",
+        "difficulty": "hard",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "Uses lexical item but in incomplete or fragment sentences"
+      }
+    },
+    {
+      "input": {
+        "user_text": "We pull in",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This response is incomplete or too informal for a professional QA Lead context. Try forming a complete sentence using 'PULL IN' to include or incorporate something."
+      },
+      "metadata": {
+        "category": "incomplete",
+        "difficulty": "hard",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "Uses lexical item but in incomplete or fragment sentences"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's... pull in",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This response is incomplete or too informal for a professional QA Lead context. Try forming a complete sentence using 'PULL IN' to include or incorporate something."
+      },
+      "metadata": {
+        "category": "incomplete",
+        "difficulty": "hard",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "Uses lexical item but in incomplete or fragment sentences"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Pull In it, you know?",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This response is incomplete or too informal for a professional QA Lead context. Try forming a complete sentence using 'PULL IN' to include or incorporate something."
+      },
+      "metadata": {
+        "category": "incomplete",
+        "difficulty": "hard",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "Uses lexical item but in incomplete or fragment sentences"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's incorporate these requirements into smaller pieces",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Good concept! However, try using the specific phrase 'PULL IN' in your response. For example: 'Let's pull in these requirements.'"
+      },
+      "metadata": {
+        "category": "no_usage",
+        "difficulty": "easy",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "Correct concept but doesn't use the target lexical item"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's integrate these requirements into smaller pieces",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Good concept! However, try using the specific phrase 'PULL IN' in your response. For example: 'Let's pull in these requirements.'"
+      },
+      "metadata": {
+        "category": "no_usage",
+        "difficulty": "easy",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "Correct concept but doesn't use the target lexical item"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's add these requirements into smaller pieces",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Good concept! However, try using the specific phrase 'PULL IN' in your response. For example: 'Let's pull in these requirements.'"
+      },
+      "metadata": {
+        "category": "no_usage",
+        "difficulty": "easy",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "Correct concept but doesn't use the target lexical item"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's merge these requirements into smaller pieces",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Good concept! However, try using the specific phrase 'PULL IN' in your response. For example: 'Let's pull in these requirements.'"
+      },
+      "metadata": {
+        "category": "no_usage",
+        "difficulty": "easy",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "Correct concept but doesn't use the target lexical item"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Vamos a incluir eso en el proyecto",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Please respond in English during this English conversation practice. Try using 'PULL IN' to express your idea."
+      },
+      "metadata": {
+        "category": "spanish_response",
+        "difficulty": "hard",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "User responds in Spanish during English conversation - wrong context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Podemos incorporar estos cambios",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Please respond in English during this English conversation practice. Try using 'PULL IN' to express your idea."
+      },
+      "metadata": {
+        "category": "spanish_response",
+        "difficulty": "hard",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "User responds in Spanish during English conversation - wrong context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Deberíamos dividir esto en partes",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Please respond in English during this English conversation practice. Try using 'PULL IN' to express your idea."
+      },
+      "metadata": {
+        "category": "spanish_response",
+        "difficulty": "hard",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "User responds in Spanish during English conversation - wrong context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "in pull we should this task",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "You're using 'PULL IN' but there's a grammatical error. Try: 'Let's pull in this requirement' or similar correct form."
+      },
+      "metadata": {
+        "category": "grammatical_error",
+        "difficulty": "hard",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "Uses lexical item but with grammatical errors or awkward construction"
+      }
+    },
+    {
+      "input": {
+        "user_text": "We are pull in the story",
+        "phrasal_verb": "pull in",
+        "phrasal_verb_definition": "Include or incorporate something",
+        "scenario": "The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+        "character": "Mr. van den Berg",
+        "phrasal_verb_examples": [
+          "We need to pull in the latest changes from the main branch.",
+          "Can you pull in that utility function from the shared library?",
+          "We need to pull in the latest changes from the main branch to ensure our feature works correctly."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "You're using 'PULL IN' but there's a grammatical error. Try: 'Let's pull in this requirement' or similar correct form."
+      },
+      "metadata": {
+        "category": "grammatical_error",
+        "difficulty": "hard",
+        "lexical_item": "PULL IN",
+        "scenario_character": "Mr. van den Berg",
+        "notes": "Uses lexical item but with grammatical errors or awkward construction"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's break down the latest updates from the main branch",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": true,
+        "used_verb": true,
+        "expected_feedback": ""
+      },
+      "metadata": {
+        "category": "correct",
+        "difficulty": "easy",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "Proper usage of lexical item with appropriate meaning and context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "We should break down these changes before proceeding",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": true,
+        "used_verb": true,
+        "expected_feedback": ""
+      },
+      "metadata": {
+        "category": "correct",
+        "difficulty": "easy",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "Proper usage of lexical item with appropriate meaning and context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Can we break down the necessary components for this feature?",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": true,
+        "used_verb": true,
+        "expected_feedback": ""
+      },
+      "metadata": {
+        "category": "correct",
+        "difficulty": "easy",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "Proper usage of lexical item with appropriate meaning and context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "I think we need to break down this into our current workflow",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": true,
+        "used_verb": true,
+        "expected_feedback": ""
+      },
+      "metadata": {
+        "category": "correct",
+        "difficulty": "easy",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "Proper usage of lexical item with appropriate meaning and context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "How about we break down the required dependencies?",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": true,
+        "used_verb": true,
+        "expected_feedback": ""
+      },
+      "metadata": {
+        "category": "correct",
+        "difficulty": "easy",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "Proper usage of lexical item with appropriate meaning and context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "The server might break down under heavy load",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'BREAK DOWN' rather than 'Divide something into smaller parts'. In Mr. Fraser is in a sprint plan..., try using it to mean 'Divide something into smaller parts'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "My laptop tends to break down during updates",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'BREAK DOWN' rather than 'Divide something into smaller parts'. In Mr. Fraser is in a sprint plan..., try using it to mean 'Divide something into smaller parts'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "The build system breaks down every Friday",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'BREAK DOWN' rather than 'Divide something into smaller parts'. In Mr. Fraser is in a sprint plan..., try using it to mean 'Divide something into smaller parts'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "I'm breaking down under all this pressure",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'BREAK DOWN' rather than 'Divide something into smaller parts'. In Mr. Fraser is in a sprint plan..., try using it to mean 'Divide something into smaller parts'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "The deployment pipeline breaks down regularly",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'BREAK DOWN' rather than 'Divide something into smaller parts'. In Mr. Fraser is in a sprint plan..., try using it to mean 'Divide something into smaller parts'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Our monitoring system breaks down during peak hours",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'BREAK DOWN' rather than 'Divide something into smaller parts'. In Mr. Fraser is in a sprint plan..., try using it to mean 'Divide something into smaller parts'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "The database connection breaks down frequently",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'BREAK DOWN' rather than 'Divide something into smaller parts'. In Mr. Fraser is in a sprint plan..., try using it to mean 'Divide something into smaller parts'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Break Down",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This response is incomplete or too informal for a professional Senior Software Engineer context. Try forming a complete sentence using 'BREAK DOWN' to divide something into smaller parts."
+      },
+      "metadata": {
+        "category": "incomplete",
+        "difficulty": "hard",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "Uses lexical item but in incomplete or fragment sentences"
+      }
+    },
+    {
+      "input": {
+        "user_text": "We break down",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This response is incomplete or too informal for a professional Senior Software Engineer context. Try forming a complete sentence using 'BREAK DOWN' to divide something into smaller parts."
+      },
+      "metadata": {
+        "category": "incomplete",
+        "difficulty": "hard",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "Uses lexical item but in incomplete or fragment sentences"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's... break down",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This response is incomplete or too informal for a professional Senior Software Engineer context. Try forming a complete sentence using 'BREAK DOWN' to divide something into smaller parts."
+      },
+      "metadata": {
+        "category": "incomplete",
+        "difficulty": "hard",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "Uses lexical item but in incomplete or fragment sentences"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Break Down it, you know?",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This response is incomplete or too informal for a professional Senior Software Engineer context. Try forming a complete sentence using 'BREAK DOWN' to divide something into smaller parts."
+      },
+      "metadata": {
+        "category": "incomplete",
+        "difficulty": "hard",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "Uses lexical item but in incomplete or fragment sentences"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's split these requirements into smaller pieces",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Good concept! However, try using the specific phrase 'BREAK DOWN' in your response. For example: 'Let's break down these requirements.'"
+      },
+      "metadata": {
+        "category": "no_usage",
+        "difficulty": "easy",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "Correct concept but doesn't use the target lexical item"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's separate these requirements into smaller pieces",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Good concept! However, try using the specific phrase 'BREAK DOWN' in your response. For example: 'Let's break down these requirements.'"
+      },
+      "metadata": {
+        "category": "no_usage",
+        "difficulty": "easy",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "Correct concept but doesn't use the target lexical item"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's partition these requirements into smaller pieces",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Good concept! However, try using the specific phrase 'BREAK DOWN' in your response. For example: 'Let's break down these requirements.'"
+      },
+      "metadata": {
+        "category": "no_usage",
+        "difficulty": "easy",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "Correct concept but doesn't use the target lexical item"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's segment these requirements into smaller pieces",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Good concept! However, try using the specific phrase 'BREAK DOWN' in your response. For example: 'Let's break down these requirements.'"
+      },
+      "metadata": {
+        "category": "no_usage",
+        "difficulty": "easy",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "Correct concept but doesn't use the target lexical item"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Vamos a incluir eso en el proyecto",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Please respond in English during this English conversation practice. Try using 'BREAK DOWN' to express your idea."
+      },
+      "metadata": {
+        "category": "spanish_response",
+        "difficulty": "hard",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "User responds in Spanish during English conversation - wrong context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Podemos incorporar estos cambios",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Please respond in English during this English conversation practice. Try using 'BREAK DOWN' to express your idea."
+      },
+      "metadata": {
+        "category": "spanish_response",
+        "difficulty": "hard",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "User responds in Spanish during English conversation - wrong context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Deberíamos dividir esto en partes",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Please respond in English during this English conversation practice. Try using 'BREAK DOWN' to express your idea."
+      },
+      "metadata": {
+        "category": "spanish_response",
+        "difficulty": "hard",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "User responds in Spanish during English conversation - wrong context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "down break we should this task",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "You're using 'BREAK DOWN' but there's a grammatical error. Try: 'Let's break down this requirement' or similar correct form."
+      },
+      "metadata": {
+        "category": "grammatical_error",
+        "difficulty": "hard",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "Uses lexical item but with grammatical errors or awkward construction"
+      }
+    },
+    {
+      "input": {
+        "user_text": "We are break down the story",
+        "phrasal_verb": "break down",
+        "phrasal_verb_definition": "Divide something into smaller parts",
+        "scenario": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
+        "character": "Mr. Fraser",
+        "phrasal_verb_examples": [
+          "Let's break down this user story into smaller tasks.",
+          "We should break down the problem into manageable pieces.",
+          "One of the developers responds, 'I think we can break down the user story into tasks like setting up the API, creating the front-end components, and writing tests.'"
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "You're using 'BREAK DOWN' but there's a grammatical error. Try: 'Let's break down this requirement' or similar correct form."
+      },
+      "metadata": {
+        "category": "grammatical_error",
+        "difficulty": "hard",
+        "lexical_item": "BREAK DOWN",
+        "scenario_character": "Mr. Fraser",
+        "notes": "Uses lexical item but with grammatical errors or awkward construction"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's roll out the latest updates from the main branch",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": true,
+        "used_verb": true,
+        "expected_feedback": ""
+      },
+      "metadata": {
+        "category": "correct",
+        "difficulty": "easy",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "Proper usage of lexical item with appropriate meaning and context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "We should roll out these changes before proceeding",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": true,
+        "used_verb": true,
+        "expected_feedback": ""
+      },
+      "metadata": {
+        "category": "correct",
+        "difficulty": "easy",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "Proper usage of lexical item with appropriate meaning and context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Can we roll out the necessary components for this feature?",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": true,
+        "used_verb": true,
+        "expected_feedback": ""
+      },
+      "metadata": {
+        "category": "correct",
+        "difficulty": "easy",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "Proper usage of lexical item with appropriate meaning and context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "I think we need to roll out this into our current workflow",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": true,
+        "used_verb": true,
+        "expected_feedback": ""
+      },
+      "metadata": {
+        "category": "correct",
+        "difficulty": "easy",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "Proper usage of lexical item with appropriate meaning and context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "How about we roll out the required dependencies?",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": true,
+        "used_verb": true,
+        "expected_feedback": ""
+      },
+      "metadata": {
+        "category": "correct",
+        "difficulty": "easy",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "Proper usage of lexical item with appropriate meaning and context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's roll out the red carpet for the new CEO",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'ROLL OUT' rather than 'Deploy or release gradually'. In The development team has been ..., try using it to mean 'Deploy or release gradually'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "The baker needs to roll out the pizza dough",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'ROLL OUT' rather than 'Deploy or release gradually'. In The development team has been ..., try using it to mean 'Deploy or release gradually'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "We should roll out the yoga mats for the session",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'ROLL OUT' rather than 'Deploy or release gradually'. In The development team has been ..., try using it to mean 'Deploy or release gradually'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Can you roll out the sleeping bag for camping?",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'ROLL OUT' rather than 'Deploy or release gradually'. In The development team has been ..., try using it to mean 'Deploy or release gradually'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "The chef will roll out the pasta dough carefully",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'ROLL OUT' rather than 'Deploy or release gradually'. In The development team has been ..., try using it to mean 'Deploy or release gradually'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's roll out the banner for the company event",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'ROLL OUT' rather than 'Deploy or release gradually'. In The development team has been ..., try using it to mean 'Deploy or release gradually'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "We need to roll out the carpet for the presentation",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'ROLL OUT' rather than 'Deploy or release gradually'. In The development team has been ..., try using it to mean 'Deploy or release gradually'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Roll Out",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This response is incomplete or too informal for a professional Tech Lead context. Try forming a complete sentence using 'ROLL OUT' to deploy or release gradually."
+      },
+      "metadata": {
+        "category": "incomplete",
+        "difficulty": "hard",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "Uses lexical item but in incomplete or fragment sentences"
+      }
+    },
+    {
+      "input": {
+        "user_text": "We roll out",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This response is incomplete or too informal for a professional Tech Lead context. Try forming a complete sentence using 'ROLL OUT' to deploy or release gradually."
+      },
+      "metadata": {
+        "category": "incomplete",
+        "difficulty": "hard",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "Uses lexical item but in incomplete or fragment sentences"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's... roll out",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This response is incomplete or too informal for a professional Tech Lead context. Try forming a complete sentence using 'ROLL OUT' to deploy or release gradually."
+      },
+      "metadata": {
+        "category": "incomplete",
+        "difficulty": "hard",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "Uses lexical item but in incomplete or fragment sentences"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Roll Out it, you know?",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This response is incomplete or too informal for a professional Tech Lead context. Try forming a complete sentence using 'ROLL OUT' to deploy or release gradually."
+      },
+      "metadata": {
+        "category": "incomplete",
+        "difficulty": "hard",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "Uses lexical item but in incomplete or fragment sentences"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's release these requirements into smaller pieces",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Good concept! However, try using the specific phrase 'ROLL OUT' in your response. For example: 'Let's roll out these requirements.'"
+      },
+      "metadata": {
+        "category": "no_usage",
+        "difficulty": "easy",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "Correct concept but doesn't use the target lexical item"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's launch these requirements into smaller pieces",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Good concept! However, try using the specific phrase 'ROLL OUT' in your response. For example: 'Let's roll out these requirements.'"
+      },
+      "metadata": {
+        "category": "no_usage",
+        "difficulty": "easy",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "Correct concept but doesn't use the target lexical item"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's distribute these requirements into smaller pieces",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Good concept! However, try using the specific phrase 'ROLL OUT' in your response. For example: 'Let's roll out these requirements.'"
+      },
+      "metadata": {
+        "category": "no_usage",
+        "difficulty": "easy",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "Correct concept but doesn't use the target lexical item"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's publish these requirements into smaller pieces",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Good concept! However, try using the specific phrase 'ROLL OUT' in your response. For example: 'Let's roll out these requirements.'"
+      },
+      "metadata": {
+        "category": "no_usage",
+        "difficulty": "easy",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "Correct concept but doesn't use the target lexical item"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Vamos a incluir eso en el proyecto",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Please respond in English during this English conversation practice. Try using 'ROLL OUT' to express your idea."
+      },
+      "metadata": {
+        "category": "spanish_response",
+        "difficulty": "hard",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "User responds in Spanish during English conversation - wrong context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Podemos incorporar estos cambios",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Please respond in English during this English conversation practice. Try using 'ROLL OUT' to express your idea."
+      },
+      "metadata": {
+        "category": "spanish_response",
+        "difficulty": "hard",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "User responds in Spanish during English conversation - wrong context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Deberíamos dividir esto en partes",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Please respond in English during this English conversation practice. Try using 'ROLL OUT' to express your idea."
+      },
+      "metadata": {
+        "category": "spanish_response",
+        "difficulty": "hard",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "User responds in Spanish during English conversation - wrong context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "out roll we should this task",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "You're using 'ROLL OUT' but there's a grammatical error. Try: 'Let's roll out this requirement' or similar correct form."
+      },
+      "metadata": {
+        "category": "grammatical_error",
+        "difficulty": "hard",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "Uses lexical item but with grammatical errors or awkward construction"
+      }
+    },
+    {
+      "input": {
+        "user_text": "We are roll out the story",
+        "phrasal_verb": "roll out",
+        "phrasal_verb_definition": "Deploy or release gradually",
+        "scenario": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "character": "Mr. Davis",
+        "phrasal_verb_examples": [
+          "We'll roll out the new feature to 10% of users first.",
+          "The deployment team will roll out the updates tonight.",
+          "I suggest we roll out the new feature to just 10% of our users initially, so we can monitor for any bugs before a full deployment."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "You're using 'ROLL OUT' but there's a grammatical error. Try: 'Let's roll out this requirement' or similar correct form."
+      },
+      "metadata": {
+        "category": "grammatical_error",
+        "difficulty": "hard",
+        "lexical_item": "ROLL OUT",
+        "scenario_character": "Mr. Davis",
+        "notes": "Uses lexical item but with grammatical errors or awkward construction"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's fall back the latest updates from the main branch",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": true,
+        "used_verb": true,
+        "expected_feedback": ""
+      },
+      "metadata": {
+        "category": "correct",
+        "difficulty": "easy",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "Proper usage of lexical item with appropriate meaning and context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "We should fall back these changes before proceeding",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": true,
+        "used_verb": true,
+        "expected_feedback": ""
+      },
+      "metadata": {
+        "category": "correct",
+        "difficulty": "easy",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "Proper usage of lexical item with appropriate meaning and context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Can we fall back the necessary components for this feature?",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": true,
+        "used_verb": true,
+        "expected_feedback": ""
+      },
+      "metadata": {
+        "category": "correct",
+        "difficulty": "easy",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "Proper usage of lexical item with appropriate meaning and context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "I think we need to fall back this into our current workflow",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": true,
+        "used_verb": true,
+        "expected_feedback": ""
+      },
+      "metadata": {
+        "category": "correct",
+        "difficulty": "easy",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "Proper usage of lexical item with appropriate meaning and context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "How about we fall back the required dependencies?",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": true,
+        "used_verb": true,
+        "expected_feedback": ""
+      },
+      "metadata": {
+        "category": "correct",
+        "difficulty": "easy",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "Proper usage of lexical item with appropriate meaning and context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "I need to fall back on my chair to relax",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'FALL BACK' rather than 'Return to a previous state or plan when something fails'. In The development team is prepar..., try using it to mean 'Return to a previous state or plan when something fails'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "The soldier will fall back from the front line",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'FALL BACK' rather than 'Return to a previous state or plan when something fails'. In The development team is prepar..., try using it to mean 'Return to a previous state or plan when something fails'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's fall back to our original meeting location",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'FALL BACK' rather than 'Return to a previous state or plan when something fails'. In The development team is prepar..., try using it to mean 'Return to a previous state or plan when something fails'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "We should fall back to the previous version if needed",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'FALL BACK' rather than 'Return to a previous state or plan when something fails'. In The development team is prepar..., try using it to mean 'Return to a previous state or plan when something fails'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "The team decided to fall back on their experience",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'FALL BACK' rather than 'Return to a previous state or plan when something fails'. In The development team is prepar..., try using it to mean 'Return to a previous state or plan when something fails'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Can you fall back a few steps to make room?",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'FALL BACK' rather than 'Return to a previous state or plan when something fails'. In The development team is prepar..., try using it to mean 'Return to a previous state or plan when something fails'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "The runner will fall back to conserve energy",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This usage refers to a different meaning of 'FALL BACK' rather than 'Return to a previous state or plan when something fails'. In The development team is prepar..., try using it to mean 'Return to a previous state or plan when something fails'."
+      },
+      "metadata": {
+        "category": "wrong_sense",
+        "difficulty": "medium",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "Uses lexical item but with wrong meaning/sense for the context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Fall Back",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This response is incomplete or too informal for a professional Senior Software Engineer context. Try forming a complete sentence using 'FALL BACK' to return to a previous state or plan when something fails."
+      },
+      "metadata": {
+        "category": "incomplete",
+        "difficulty": "hard",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "Uses lexical item but in incomplete or fragment sentences"
+      }
+    },
+    {
+      "input": {
+        "user_text": "We fall back",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This response is incomplete or too informal for a professional Senior Software Engineer context. Try forming a complete sentence using 'FALL BACK' to return to a previous state or plan when something fails."
+      },
+      "metadata": {
+        "category": "incomplete",
+        "difficulty": "hard",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "Uses lexical item but in incomplete or fragment sentences"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's... fall back",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This response is incomplete or too informal for a professional Senior Software Engineer context. Try forming a complete sentence using 'FALL BACK' to return to a previous state or plan when something fails."
+      },
+      "metadata": {
+        "category": "incomplete",
+        "difficulty": "hard",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "Uses lexical item but in incomplete or fragment sentences"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Fall Back it, you know?",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "This response is incomplete or too informal for a professional Senior Software Engineer context. Try forming a complete sentence using 'FALL BACK' to return to a previous state or plan when something fails."
+      },
+      "metadata": {
+        "category": "incomplete",
+        "difficulty": "hard",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "Uses lexical item but in incomplete or fragment sentences"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's revert these requirements into smaller pieces",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Good concept! However, try using the specific phrase 'FALL BACK' in your response. For example: 'Let's fall back these requirements.'"
+      },
+      "metadata": {
+        "category": "no_usage",
+        "difficulty": "easy",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "Correct concept but doesn't use the target lexical item"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's go back these requirements into smaller pieces",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Good concept! However, try using the specific phrase 'FALL BACK' in your response. For example: 'Let's fall back these requirements.'"
+      },
+      "metadata": {
+        "category": "no_usage",
+        "difficulty": "easy",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "Correct concept but doesn't use the target lexical item"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's restore these requirements into smaller pieces",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Good concept! However, try using the specific phrase 'FALL BACK' in your response. For example: 'Let's fall back these requirements.'"
+      },
+      "metadata": {
+        "category": "no_usage",
+        "difficulty": "easy",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "Correct concept but doesn't use the target lexical item"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Let's reset these requirements into smaller pieces",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Good concept! However, try using the specific phrase 'FALL BACK' in your response. For example: 'Let's fall back these requirements.'"
+      },
+      "metadata": {
+        "category": "no_usage",
+        "difficulty": "easy",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "Correct concept but doesn't use the target lexical item"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Vamos a incluir eso en el proyecto",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Please respond in English during this English conversation practice. Try using 'FALL BACK' to express your idea."
+      },
+      "metadata": {
+        "category": "spanish_response",
+        "difficulty": "hard",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "User responds in Spanish during English conversation - wrong context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Podemos incorporar estos cambios",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Please respond in English during this English conversation practice. Try using 'FALL BACK' to express your idea."
+      },
+      "metadata": {
+        "category": "spanish_response",
+        "difficulty": "hard",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "User responds in Spanish during English conversation - wrong context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "Deberíamos dividir esto en partes",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": false,
+        "expected_feedback": "Please respond in English during this English conversation practice. Try using 'FALL BACK' to express your idea."
+      },
+      "metadata": {
+        "category": "spanish_response",
+        "difficulty": "hard",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "User responds in Spanish during English conversation - wrong context"
+      }
+    },
+    {
+      "input": {
+        "user_text": "back fall we should this task",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "You're using 'FALL BACK' but there's a grammatical error. Try: 'Let's fall back this requirement' or similar correct form."
+      },
+      "metadata": {
+        "category": "grammatical_error",
+        "difficulty": "hard",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "Uses lexical item but with grammatical errors or awkward construction"
+      }
+    },
+    {
+      "input": {
+        "user_text": "We are fall back the story",
+        "phrasal_verb": "fall back",
+        "phrasal_verb_definition": "Return to a previous state or plan when something fails",
+        "scenario": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn’t work as expected.",
+        "character": "Ms. Davis",
+        "phrasal_verb_examples": [
+          "If the new API fails, we'll fall back to the legacy system.",
+          "We can always fall back to the previous version if needed.",
+          "If we cannot fix this issue in time, we will need to fall back to the previous API version to ensure our users are not affected."
+        ]
+      },
+      "expected_output": {
+        "used_correctly": false,
+        "used_verb": true,
+        "expected_feedback": "You're using 'FALL BACK' but there's a grammatical error. Try: 'Let's fall back this requirement' or similar correct form."
+      },
+      "metadata": {
+        "category": "grammatical_error",
+        "difficulty": "hard",
+        "lexical_item": "FALL BACK",
+        "scenario_character": "Ms. Davis",
+        "notes": "Uses lexical item but with grammatical errors or awkward construction"
+      }
+    }
+  ],
+  "generated_at": "2025-08-29",
+  "generator": "Comprehensive dataset generator for ContextEvaluator with feedback"
+}

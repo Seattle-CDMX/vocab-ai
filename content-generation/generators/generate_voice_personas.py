@@ -14,11 +14,14 @@ from dotenv import load_dotenv
 from google.cloud import texttospeech
 from google.oauth2 import service_account
 
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent.parent / "agent" / "src"))
 from config.credentials import parse_google_credentials
 
-load_dotenv(".env.local")
+load_dotenv(Path(__file__).parent.parent.parent / "agent" / ".env.local")
 
-OUTPUT_FILE = Path(__file__).parent / "google_voice_personas.json"
+OUTPUT_FILE = Path(__file__).parent.parent / "data" / "google_voice_personas.json"
 
 
 class VoicePersonasGenerator:

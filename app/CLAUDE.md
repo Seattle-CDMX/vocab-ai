@@ -17,7 +17,7 @@ This is a Next.js 15 application implementing a LiveKit video conferencing room 
 
 - **App Router Structure**: Uses Next.js App Router with TypeScript
 - **Main Room Interface** (`app/page.tsx`): Primary video conferencing interface with room management
-- **Study Page** (`app/study/page.tsx`): Voice card practice interface with phrasal verb learning
+- **Study Page** (`app/study/page.tsx`): Voice-based practice interface for technical communication training
 - **Dashboard** (`app/dashboard/page.tsx`): User progress tracking and statistics
 - **Slides Presentation** (`app/slides/page.tsx`): Reveal.js presentation system with Mermaid diagrams
 - **API Routes** (`app/api/token/route.ts`): Handles LiveKit token generation, room listing, and deletion
@@ -38,7 +38,7 @@ The application uses LiveKit for real-time video conferencing:
 ### API Endpoints
 
 - `GET /api/token?room={name}&username={user}&voiceCardData={encoded_json}` - Generate access token for room
-  - `voiceCardData` (optional): URL-encoded JSON containing voice card data that will be embedded in the token metadata
+  - `voiceCardData` (optional): URL-encoded JSON containing practice card data that will be embedded in the token metadata
   - The metadata is accessible to LiveKit agents for context-aware voice interactions
 - `POST /api/token` - List all active rooms
 - `DELETE /api/token?room={name}` - Delete room and disconnect participants
@@ -77,10 +77,10 @@ The application implements comprehensive password protection using:
 - Participant management and room cleanup
 - Session management with localStorage integration
 - Room deletion with participant disconnection
-- **Voice Card Integration**: Passes voice card data via token metadata to LiveKit agents for context-aware voice practice
-- **Audio-Only Mode**: VoiceCard component requests only microphone permission for voice-based learning
+- **Voice Practice Integration**: Passes practice card data via token metadata to LiveKit agents for context-aware voice practice
+- **Audio-Only Mode**: Voice practice component requests only microphone permission for voice-based learning
 - **Presentation System**: Reveal.js slides with Mermaid diagram support for technical presentations
-- **Spaced Repetition Learning**: Built-in SRS system for phrasal verb practice with progress tracking
+- **Spaced Repetition Learning**: Built-in SRS system for technical vocabulary practice with progress tracking
 
 ### Development Notes
 
