@@ -1,6 +1,6 @@
-# VoiceCard Evaluator Testing Framework
+# voicecard Evaluator Testing Framework
 
-This directory contains testing frameworks for VoiceCard's AI-powered evaluation systems. VoiceCard is a developer-focused English learning platform that helps software engineers learn vocabulary through realistic workplace conversations.
+This directory contains testing frameworks for voicecard's AI-powered evaluation systems. voicecard is a developer-focused English learning platform that helps software engineers learn vocabulary through realistic workplace conversations.
 
 ## Testing Frameworks
 
@@ -29,7 +29,7 @@ See `context_evaluator/README.md` for detailed documentation.
 
 ## Architecture Overview
 
-VoiceCard's evaluation system uses structured AI evaluation to provide contextual feedback on English usage in developer scenarios:
+voicecard's evaluation system uses structured AI evaluation to provide contextual feedback on English usage in developer scenarios:
 
 - **Input**: User text, lexical item, definition, scenario context
 - **Output**: `EvaluationResult` with usage correctness and feedback

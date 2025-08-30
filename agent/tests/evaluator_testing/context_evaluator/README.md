@@ -1,10 +1,10 @@
 # ContextEvaluator Comprehensive Testing Framework
 
-This directory contains a comprehensive testing framework for the `ContextEvaluator` that evaluates lexical item usage across all 4 vocabulary items from VoiceCard's developer-focused English learning curriculum.
+This directory contains a comprehensive testing framework for the `ContextEvaluator` that evaluates lexical item usage across all 4 vocabulary items from voicecard's developer-focused English learning curriculum.
 
 ## Overview
 
-The testing framework evaluates how well the ContextEvaluator judges lexical item (phrasal verb) usage in software development conversational contexts. VoiceCard focuses on helping developers learn English vocabulary in realistic tech workplace scenarios. The framework tests all 4 lexical items with 25 test cases each (100 total), covering 6 response categories and 3 difficulty levels with structured feedback evaluation.
+The testing framework evaluates how well the ContextEvaluator judges lexical item (phrasal verb) usage in software development conversational contexts. voicecard focuses on helping developers learn English vocabulary in realistic tech workplace scenarios. The framework tests all 4 lexical items with 25 test cases each (100 total), covering 6 response categories and 3 difficulty levels with structured feedback evaluation.
 
 ## Architecture
 
