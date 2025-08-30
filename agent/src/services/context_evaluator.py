@@ -99,66 +99,42 @@ Student said: "{user_text}"
 {examples_text}
 
 STEP 1: LEXICAL ITEM DETECTION
-CRITICAL: Be very careful with detection. The lexical item "{lexical_item}" appears if:
-- Both words appear in the text (in any order): "pull in", "in pull", "pulling in", etc.
-- Even in different contexts: "pull in to parking space" still contains "pull in"
-- Even with scrambled order: "in pull we should" contains both "pull" and "in"
-- Set used_verb = TRUE if you can find both words present, regardless of context or grammar
+Carefully check if the lexical item "{lexical_item}" appears in the student's response:
+- Look for exact matches and variations (tense, form changes)
+- Check for both words present (even if separated or reordered)
+- Set used_verb = TRUE if the lexical item is present in any recognizable form
+- Set used_verb = FALSE if the lexical item is completely absent
 
 STEP 2: CORRECTNESS EVALUATION
 Only if used_verb = true, evaluate correctness:
 
 A) GRAMMATICAL STRUCTURE:
-- If words are scrambled (e.g., "down break we should" for "break down"), mark as INCORRECT but used_verb = true
-- If missing critical prepositions/particles, mark as INCORRECT
+- Check if the lexical item follows standard grammatical patterns
+- Minor grammatical issues may be acceptable if meaning is clear
+- Scrambled word order should be marked as incorrect
 
 B) SEMANTIC APPROPRIATENESS:
 - Does the usage match the intended meaning "{lexical_item_definition}"?
-- Be GENEROUS with professional contexts - if the general intent aligns with the meaning, accept it
-- For "correct" test cases, be more lenient with minor contextual variations
+- Be generous with professional contexts if the general intent aligns
+- Consider whether the usage fits the scenario context provided
 
 C) CONTEXTUAL APPROPRIATENESS:
-- Professional settings: Accept reasonable professional language even if not perfect
-- Only mark as incorrect if usage is clearly inappropriate or unclear
+- Professional settings: Accept reasonable professional language
+- Mark as incorrect only if usage is clearly inappropriate or unclear
+- Consider formality requirements for the given scenario
 
-IMPROVED EVALUATION CRITERIA:
-- For "CORRECT" test cases: Be generous - if the lexical item is used with approximately the right meaning in a reasonable professional context, mark as correct
-- For "WRONG_SENSE" cases: Only mark as correct if usage is CLEARLY wrong (different meaning entirely)
-- For "GRAMMATICAL_ERROR" cases: Focus on word order and grammatical structure, not just missing words
-- For "INCOMPLETE" cases: Mark as incorrect if response is clearly unfinished (has "..." or single words) even if lexical item is present
+EVALUATION GUIDELINES:
+- For "CORRECT" test cases: Be generous if the lexical item is used with approximately the right meaning in context
+- For "WRONG_SENSE" cases: Mark as incorrect if usage refers to a completely different meaning
+- For "GRAMMATICAL_ERROR" cases: Focus on word order and grammatical structure
+- For "INCOMPLETE" cases: Mark as incorrect if response is clearly unfinished (has "..." or is fragmentary)
 
-SPECIFIC PHRASAL VERB GUIDANCE:
-
-FALL BACK:
-- Accept "fall back the X" as correct even without "to" or "on" if meaning is clear
-- Focus on semantic meaning (reverting/returning) over strict preposition requirements  
-- "fall back the updates" = CORRECT (clear intent to revert)
-- "fall back these changes" = CORRECT (clear intent to revert)
-- "fall back the components" = CORRECT (clear intent to revert)
-- Only mark incorrect if meaning is completely unclear
-
-ROLL OUT:
-- Accept variations that suggest gradual deployment
-- "roll out updates" = CORRECT (deployment context)
-- "roll out the latest updates" = CORRECT (deployment context, assume gradual)
-- "roll out this into workflow" = CORRECT (integration context with deployment intent)
-- "roll out dependencies" = CORRECT if in deployment scenario
-- Be generous - if deployment/release context is clear, mark as correct
-
-INCOMPLETE RESPONSES:
-- "Let's... [phrase]" → used_correctly=FALSE (clearly incomplete with ellipsis)
-- Single words like "Roll Out" → used_correctly=FALSE (no complete thought)
-- "We fall back" → used_correctly=FALSE (incomplete, no object)
-- But complete sentences with minor awkwardness → used_correctly=TRUE
-
-EXAMPLES OF GENEROUS EVALUATION:
-- "The car needs to pull in to the parking space" → used_verb=TRUE (contains "pull in"), used_correctly=FALSE (wrong context)
-- "in pull we should this task" → used_verb=TRUE (contains "pull" and "in"), used_correctly=FALSE (grammar error)
-- "Let's pull in this into our workflow" → used_correctly=TRUE (clear intent despite minor awkwardness)
-- "break down the latest updates" → used_correctly=TRUE (reasonable interpretation of dividing/analyzing)  
-- "fall back the components" → used_correctly=TRUE (clear intent to revert/return)
-- "Let's... fall back" → used_correctly=FALSE (incomplete with ellipsis)
-- "We should fall back to previous version if needed" → used_correctly=TRUE (this IS the correct meaning!)
+GENERAL PRINCIPLES:
+- Accept minor grammatical variations if the intended meaning is clear
+- Be generous with professional contexts where intent aligns with the definition
+- Mark incomplete responses as incorrect (fragments, ellipses, single words)
+- Focus on semantic appropriateness over strict grammatical perfection
+- Consider the scenario context when evaluating appropriateness
 
 Provide your evaluation as a structured response."""
 
