@@ -180,7 +180,7 @@ export default function SlidesPage() {
             </div>
             
             <p style={{fontSize: '1.2rem', color: 'white', textShadow: '1px 1px 2px rgba(0,0,0,0.6)', marginTop: '1rem', opacity: '0.9'}}>
-              Watch TryCatch in action - AI-powered technical communication training
+              Watch VoiceCard in action - AI-powered technical communication training
             </p>
           </div>
         </section>
@@ -188,7 +188,7 @@ export default function SlidesPage() {
         {/* System Architecture - Title Slide */}
         <section data-background-gradient="linear-gradient(135deg, hsl(280, 65%, 45%) 0%, hsl(200, 85%, 45%) 100%)">
           <h2 style={{fontSize: '4rem', fontWeight: 'bold', color: 'white', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', marginBottom: '2rem'}}>System Architecture</h2>
-          <p style={{fontSize: '1.5rem', color: 'white', textShadow: '1px 1px 2px rgba(0,0,0,0.6)'}}>Technical Deep Dive into TryCatch</p>
+          <p style={{fontSize: '1.5rem', color: 'white', textShadow: '1px 1px 2px rgba(0,0,0,0.6)'}}>Technical Deep Dive into VoiceCard</p>
         </section>
 
         {/* Agent Architecture */}
@@ -254,7 +254,7 @@ export default function SlidesPage() {
           <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', maxWidth: '900px', margin: '0 auto', padding: '0 2rem'}}>
             <Image
               src="/app_diagram.png"
-              alt="TryCatch Application Architecture Diagram"
+              alt="VoiceCard Application Architecture Diagram"
               width={800}
               height={500}
               style={{
@@ -295,7 +295,7 @@ export default function SlidesPage() {
 
         {/* Comprehensive Conclusion */}
         <section data-background-gradient="linear-gradient(135deg, hsl(145, 65%, 45%) 0%, hsl(200, 85%, 45%) 100%)">
-          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: 'white', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', marginBottom: '3rem'}}>TryCatch: Level Up Your Dev Communication</h2>
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: 'white', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', marginBottom: '3rem'}}>VoiceCard: Level Up Your Dev Communication</h2>
           
           <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', maxWidth: '1000px', margin: '0 auto'}}>
             
@@ -311,7 +311,7 @@ export default function SlidesPage() {
 
             {/* VoiceCard Solution */}
             <div style={{backgroundColor: 'rgba(124, 58, 237, 0.9)', color: 'white', padding: '3rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.4)'}}>
-              <h3 style={{fontSize: '2rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fbbf24'}}>🎉 TryCatch Solution</h3>
+              <h3 style={{fontSize: '2rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fbbf24'}}>🎉 VoiceCard Solution</h3>
               <div style={{fontSize: '1.3rem', lineHeight: '1.7'}}>
                 <div style={{marginBottom: '1rem'}}>• <strong>Same SRS science,</strong> but with conversational AI</div>
                 <div style={{marginBottom: '1rem'}}>• AI voice agents make it engaging & fun</div>

@@ -32,7 +32,7 @@ const AboutUs = () => {
                 than their technically equivalent peers.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                TryCatch focuses on the specific vocabulary and communication patterns that developers need: 
+                VoiceCard focuses on the specific vocabulary and communication patterns that developers need: 
                 explaining technical concepts, pushing back on unrealistic deadlines, advocating for best practices, 
                 and presenting your ideas with confidence. We turn your technical knowledge into articulate communication.
               </p>
@@ -79,12 +79,12 @@ const AboutUs = () => {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Users className="w-5 h-5 text-primary" />
-                About TryCatch
+                About VoiceCard
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                TryCatch is built by developers, for developers. We understand that your time is valuable and your 
+                VoiceCard is built by developers, for developers. We understand that your time is valuable and your 
                 career goals are specific. That&apos;s why we focus exclusively on the communication skills that directly 
                 impact your professional growth: from acing technical interviews to leading architecture discussions.
               </p>

@@ -165,7 +165,7 @@ export default function Dashboard() {
               className="flex items-center gap-2"
             >
               <Brain className="w-5 h-5" />
-              TryCatch
+              VoiceCard
             </Button>
             <h1 className="text-3xl font-bold text-foreground">Vocab Dashboard</h1>
           </div>

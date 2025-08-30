@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TryCatch - Master Speaking for Devs",
+  title: "VoiceCard - Master Speaking for Devs",
   description: "Level up your speaking skills. Double your salary. Learn technical communication through AI-powered practice tailored for developers.",
   icons: {
     icon: [
