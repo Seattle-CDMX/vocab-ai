@@ -13,11 +13,11 @@ from pathlib import Path
 import time
 
 # Add src to path so we can import the evaluator
-sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
+sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent / "src"))
 
 # Load environment variables
 from dotenv import load_dotenv
-load_dotenv(Path(__file__).parent.parent.parent / ".env.local")
+load_dotenv(Path(__file__).parent.parent.parent.parent / ".env.local")
 
 from services.context_evaluator import ContextEvaluator
 
