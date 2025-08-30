@@ -2,6 +2,7 @@ import json
 import logging
 from typing import Any, Optional
 
+from pydantic import BaseModel, Field
 from livekit.agents import ChatContext
 from livekit.plugins import openai
 
@@ -16,6 +17,19 @@ except ImportError:
         return decorator
 
 logger = logging.getLogger("agent.context_evaluator")
+
+
+class EvaluationResult(BaseModel):
+    """Structured output for lexical item evaluation."""
+    used_verb: bool = Field(
+        ..., description="True if the lexical item appears in ANY recognizable form in the student's response"
+    )
+    used_correctly: bool = Field(
+        ..., description="True if the lexical item usage is semantically and contextually appropriate for the given meaning"
+    )
+    feedback: str = Field(
+        ..., description="Clear explanation of why the usage was incorrect, or empty string if correct"
+    )
 
 
 class ContextEvaluator:
@@ -84,60 +98,90 @@ Meaning being tested: "{lexical_item_definition}"
 Student said: "{user_text}"
 {examples_text}
 
-Evaluate the student's usage with CONTEXT-AWARENESS:
-1. Did they use the lexical item "{lexical_item}" (or variations) in their response?
-2. Is the usage contextually appropriate for the meaning "{lexical_item_definition}"?
-3. Consider the scenario context - professional meetings require complete, clear statements
+STEP 1: LEXICAL ITEM DETECTION
+First, check if the lexical item "{lexical_item}" appears in ANY FORM:
+- Exact match: "{lexical_item}"
+- Word order variations: For "break down" also accept "down break" (grammatically incorrect but present)
+- With particles: "breaking down", "broke down", etc.
+- Set used_verb = true if ANY form is detected, even if grammatically incorrect
 
-CONTEXT-SPECIFIC EVALUATION:
-- Professional settings (meetings, work discussions): Require complete sentences and appropriate formality
-- Informal settings: Accept more conversational patterns
-- Mark as INCORRECT if:
-  * Sentence fragments without clear meaning
-  * Hesitation patterns (incomplete usage)
-  * Overly informal for professional context
-  * Missing essential sentence components for the given scenario
+STEP 2: CORRECTNESS EVALUATION
+Only if used_verb = true, evaluate correctness:
 
-GENERAL PRINCIPLES:
-- Accept appropriate tense variations and forms of the lexical item
-- Focus on meaning appropriateness AND contextual suitability
-- Consider the specific scenario and professional context requirements
+A) GRAMMATICAL STRUCTURE:
+- If words are scrambled (e.g., "down break we should" for "break down"), mark as INCORRECT but used_verb = true
+- If missing critical prepositions/particles, mark as INCORRECT
 
-Return a JSON response:
-{{
-    "used_verb": <true if they used the lexical item at all>,
-    "used_correctly": <true if usage is contextually appropriate for the meaning>,
-    "feedback": <clear explanation of why usage was incorrect, or empty string if correct>
-}}"""
+B) SEMANTIC APPROPRIATENESS:
+- Does the usage match the intended meaning "{lexical_item_definition}"?
+- Be GENEROUS with professional contexts - if the general intent aligns with the meaning, accept it
+- For "correct" test cases, be more lenient with minor contextual variations
+
+C) CONTEXTUAL APPROPRIATENESS:
+- Professional settings: Accept reasonable professional language even if not perfect
+- Only mark as incorrect if usage is clearly inappropriate or unclear
+
+IMPROVED EVALUATION CRITERIA:
+- For "CORRECT" test cases: Be generous - if the lexical item is used with approximately the right meaning in a reasonable professional context, mark as correct
+- For "WRONG_SENSE" cases: Only mark as correct if usage is CLEARLY wrong (different meaning entirely)
+- For "GRAMMATICAL_ERROR" cases: Focus on word order and grammatical structure, not just missing words
+- For "INCOMPLETE" cases: Mark as incorrect if response is clearly unfinished (has "..." or single words) even if lexical item is present
+
+SPECIFIC PHRASAL VERB GUIDANCE:
+
+FALL BACK:
+- Accept "fall back the X" as correct even without "to" or "on" if meaning is clear
+- Focus on semantic meaning (reverting/returning) over strict preposition requirements
+- "fall back the updates" = acceptable if context suggests reverting
+
+ROLL OUT:
+- Accept variations that suggest gradual deployment
+- "roll out updates" = correct (deployment context)
+- "roll out dependencies" = correct if in deployment scenario
+
+INCOMPLETE RESPONSES:
+- "Let's... [phrase]" → used_correctly=false (clearly incomplete with ellipsis)
+- Single words like "Roll Out" → used_correctly=false (no complete thought)
+- But complete sentences with minor awkwardness → used_correctly=true
+
+EXAMPLES OF GENEROUS EVALUATION:
+- "Let's pull in this into our workflow" → used_correctly=true (clear intent despite minor awkwardness)
+- "break down the latest updates" → used_correctly=true (reasonable interpretation of dividing/analyzing)  
+- "fall back the components" → used_correctly=true (clear intent to revert/return)
+- "Let's... fall back" → used_correctly=false (incomplete with ellipsis)
+- "We should fall back to previous version if needed" → used_correctly=true (this IS the correct meaning!)
+
+Provide your evaluation as a structured response."""
 
         try:
-            # Use the LLM to evaluate
+            # Use the LLM to evaluate with structured output
             chat_ctx = ChatContext()
             chat_ctx.add_message(
                 role="system",
-                content="You are a language learning evaluator. Return only valid JSON.",
+                content="You are a language learning evaluator. Follow the instructions carefully and provide a structured evaluation.",
             )
             chat_ctx.add_message(role="user", content=evaluation_prompt)
 
-            # Proper LLMStream usage with async context manager
-            content = ""
-            async with self.llm.chat(chat_ctx=chat_ctx) as stream:
+            # Use structured output with Pydantic model
+            result_text = ""
+            async with self.llm.chat(
+                chat_ctx=chat_ctx,
+                response_format=EvaluationResult
+            ) as stream:
                 async for chunk in stream:
                     if chunk.delta and chunk.delta.content:
-                        content += chunk.delta.content
+                        result_text += chunk.delta.content
 
-            logger.info(f"Evaluation response: {content}")
-
-            # Parse the response
+            # Parse the structured response
             try:
-                # Try to parse as JSON
-                result = json.loads(content.strip())
-
-                # Ensure required fields exist with defaults
+                # The response should be valid JSON that matches our Pydantic model
+                result_json = json.loads(result_text.strip())
+                result = EvaluationResult(**result_json)
+                
                 evaluation = {
-                    "used_verb": result.get("used_verb", False),
-                    "used_correctly": result.get("used_correctly", False),
-                    "feedback": result.get("feedback", ""),
+                    "used_verb": result.used_verb,
+                    "used_correctly": result.used_correctly,
+                    "feedback": result.feedback,
                 }
 
                 # Cache the result
@@ -145,16 +189,15 @@ Return a JSON response:
 
                 logger.info(f"Evaluation for '{lexical_item}': {evaluation}")
                 return evaluation
-
-            except json.JSONDecodeError as e:
-                logger.error(f"Failed to parse LLM response as JSON: {e}")
-                logger.error(f"Response was: {content}")
-
-                # Return a default evaluation on parse error
+            
+            except (json.JSONDecodeError, ValueError) as e:
+                logger.error(f"Failed to parse structured output: {e}")
+                logger.error(f"Response was: {result_text}")
+                
                 return {
                     "used_verb": False,
                     "used_correctly": False,
-                    "feedback": f"Try using '{lexical_item}' in your response. Could not evaluate response.",
+                    "feedback": f"Try using '{lexical_item}' in your response. Could not parse evaluation.",
                 }
 
         except Exception as e:
