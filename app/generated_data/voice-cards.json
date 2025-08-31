@@ -5,25 +5,6 @@
   "situationCards": 4,
   "voiceCardTypes": [
     {
-      "id": "native-explain-pull-in",
-      "type": "native_explain",
-      "title": "Explain: PULL IN",
-      "difficulty": "B1",
-      "targetLexicalItem": {
-        "lexicalItem": "PULL IN",
-        "senses": [
-          {
-            "senseNumber": 1,
-            "definition": "Include or incorporate something",
-            "examples": [
-              "We need to pull in the latest changes from the main branch.",
-              "Can you pull in that utility function from the shared library?"
-            ]
-          }
-        ]
-      }
-    },
-    {
       "id": "context-pull-in",
       "type": "context",
       "title": "In-Context: PULL IN",
@@ -83,32 +64,6 @@
           "expertise": "QA Lead",
           "conversationStyle": "As Mr. van den Berg, they will use a clear and structured approach to help learners practice the phrasal verb 'PULL IN' in a Code Review context."
         }
-      }
-    },
-    {
-      "id": "native-explain-break-down",
-      "type": "native_explain",
-      "title": "Explain: BREAK DOWN",
-      "difficulty": "A2",
-      "targetLexicalItem": {
-        "lexicalItem": "BREAK DOWN",
-        "senses": [
-          {
-            "senseNumber": 1,
-            "definition": "Divide something into smaller parts",
-            "examples": [
-              "Let's break down this user story into smaller tasks.",
-              "We should break down the problem into manageable pieces."
-            ]
-          },
-          {
-            "senseNumber": 2,
-            "definition": "Stop working properly (systems/code)",
-            "examples": [
-              "The build process breaks down when we have merge conflicts."
-            ]
-          }
-        ]
       }
     },
     {
@@ -174,25 +129,6 @@
       }
     },
     {
-      "id": "native-explain-roll-out",
-      "type": "native_explain",
-      "title": "Explain: ROLL OUT",
-      "difficulty": "B2",
-      "targetLexicalItem": {
-        "lexicalItem": "ROLL OUT",
-        "senses": [
-          {
-            "senseNumber": 1,
-            "definition": "Deploy or release gradually",
-            "examples": [
-              "We'll roll out the new feature to 10% of users first.",
-              "The deployment team will roll out the updates tonight."
-            ]
-          }
-        ]
-      }
-    },
-    {
       "id": "context-roll-out",
       "type": "context",
       "title": "In-Context: ROLL OUT",
@@ -206,7 +142,7 @@
         "situation": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
         "phrasalVerb": "roll out",
         "contextText": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
-        "conversationStarter": "Alright team, we\u2019ve completed the code review for the new authentication feature. I want to talk about how we\u2019ll roll this out to our users without causing too many issues.",
+        "conversationStarter": "Alright team, we've completed the code review for the new authentication feature. I want to talk about how we'll roll this out to our users without causing too many issues.",
         "maxTurns": 5
       },
       "targetLexicalItem": {
@@ -255,38 +191,19 @@
       }
     },
     {
-      "id": "native-explain-fall-back",
-      "type": "native_explain",
-      "title": "Explain: FALL BACK",
-      "difficulty": "B1",
-      "targetLexicalItem": {
-        "lexicalItem": "FALL BACK",
-        "senses": [
-          {
-            "senseNumber": 1,
-            "definition": "Return to a previous state or plan when something fails",
-            "examples": [
-              "If the new API fails, we'll fall back to the legacy system.",
-              "We can always fall back to the previous version if needed."
-            ]
-          }
-        ]
-      }
-    },
-    {
       "id": "context-fall-back",
       "type": "context",
       "title": "In-Context: FALL BACK",
       "difficulty": "B1",
-      "contextText": "You're speaking with Ms. Davis, Senior Software Engineer. The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn\u2019t work as expected.",
+      "contextText": "You're speaking with Ms. Davis, Senior Software Engineer. The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn't work as expected.",
       "imageUrl": "/images/fall-back.png",
       "ctaText": "Talk to Ms. Davis",
       "scenario": {
         "character": "Ms. Davis",
         "role": "Senior Software Engineer",
-        "situation": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn\u2019t work as expected.",
+        "situation": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn't work as expected.",
         "phrasalVerb": "fall back",
-        "contextText": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn\u2019t work as expected.",
+        "contextText": "The development team is preparing to deploy a new version of their API. During the code review, a junior developer discovers a critical bug that could affect users' data. Ms. Davis needs to discuss what to do next and ensure the team has a plan in case the new API doesn't work as expected.",
         "conversationStarter": "Hey team, during the code review, we found a significant bug in the new API that we need to address before deployment.",
         "maxTurns": 5
       },
@@ -333,6 +250,89 @@
           "expertise": "Senior Software Engineer",
           "conversationStyle": "As Ms. Davis, they will use a collaborative and supportive approach to help learners practice the phrasal verb 'FALL BACK' in a code review and deployment planning context."
         }
+      }
+    },
+    {
+      "id": "native-explain-pull-in",
+      "type": "native_explain",
+      "title": "Explain: PULL IN",
+      "difficulty": "B1",
+      "targetLexicalItem": {
+        "lexicalItem": "PULL IN",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "Include or incorporate something",
+            "examples": [
+              "We need to pull in the latest changes from the main branch.",
+              "Can you pull in that utility function from the shared library?"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "native-explain-break-down",
+      "type": "native_explain",
+      "title": "Explain: BREAK DOWN",
+      "difficulty": "A2",
+      "targetLexicalItem": {
+        "lexicalItem": "BREAK DOWN",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "Divide something into smaller parts",
+            "examples": [
+              "Let's break down this user story into smaller tasks.",
+              "We should break down the problem into manageable pieces."
+            ]
+          },
+          {
+            "senseNumber": 2,
+            "definition": "Stop working properly (systems/code)",
+            "examples": [
+              "The build process breaks down when we have merge conflicts."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "native-explain-roll-out",
+      "type": "native_explain",
+      "title": "Explain: ROLL OUT",
+      "difficulty": "B2",
+      "targetLexicalItem": {
+        "lexicalItem": "ROLL OUT",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "Deploy or release gradually",
+            "examples": [
+              "We'll roll out the new feature to 10% of users first.",
+              "The deployment team will roll out the updates tonight."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "native-explain-fall-back",
+      "type": "native_explain",
+      "title": "Explain: FALL BACK",
+      "difficulty": "B1",
+      "targetLexicalItem": {
+        "lexicalItem": "FALL BACK",
+        "senses": [
+          {
+            "senseNumber": 1,
+            "definition": "Return to a previous state or plan when something fails",
+            "examples": [
+              "If the new API fails, we'll fall back to the legacy system.",
+              "We can always fall back to the previous version if needed."
+            ]
+          }
+        ]
       }
     }
   ],
