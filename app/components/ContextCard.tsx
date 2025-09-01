@@ -71,6 +71,17 @@ const ContextCard = ({ contextCard, onAnswer, onReset }: ContextCardProps) => {
             },
             className: 'toast-error',
           });
+        } else if (payload.type === 'warning') {
+          console.log('🎯 [ContextCard] Showing WARNING toast:', payload.message);
+          toast(payload.message, {
+            duration: 5000,
+            style: {
+              background: '#f59e0b',
+              color: 'white',
+              marginBottom: '8px',
+            },
+            className: 'toast-warning',
+          });
         }
         
         return JSON.stringify({ status: 'ok' });

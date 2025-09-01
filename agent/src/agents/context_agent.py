@@ -185,19 +185,52 @@ Context: {self.context_text}"""
                 )
 
             else:
-                # Still have turns remaining - just log for now
+                # Still have turns remaining
                 remaining = self.max_turns - self.turn_count
                 if evaluation.get("used_verb") and not evaluation.get("used_correctly"):
                     logger.info(
                         f"⚠️ [ContextAgent] Incorrect usage attempt detected. {remaining} turns remaining"
                     )
+                elif not evaluation.get("used_verb"):
+                    # Send warning toast when user doesn't use the verb at all
+                    await self._send_warning_toast()
+                    logger.info(
+                        f"⏳ [ContextAgent] No verb usage detected - sent warning toast. {remaining} turns remaining"
+                    )
                 else:
                     logger.info(
-                        f"⏳ [ContextAgent] No usage detected yet. {remaining} turns remaining"
+                        f"⏳ [ContextAgent] Evaluation completed. {remaining} turns remaining"
                     )
 
         except Exception as e:
             logger.error(f"❌ [ContextAgent] Background evaluation failed: {e}")
+
+    async def _send_warning_toast(self) -> None:
+        """Send a warning toast to remind the user to use the target phrasal verb."""
+        try:
+            import json
+
+            from livekit.agents import get_job_context
+
+            # Find the first remote participant (should be the student)
+            for participant in get_job_context().room.remote_participants.values():
+                await get_job_context().room.local_participant.perform_rpc(
+                    destination_identity=participant.identity,
+                    method="show_toast",
+                    payload=json.dumps(
+                        {
+                            "type": "warning",
+                            "message": f"Remember to try using '{self.phrasal_verb.upper()}' in your response!",
+                        }
+                    ),
+                    response_timeout=1.0,
+                )
+                logger.info(
+                    f"📤 [ContextAgent] Sent warning toast for '{self.phrasal_verb}' to {participant.identity}"
+                )
+                break
+        except Exception as e:
+            logger.error(f"❌ [ContextAgent] Failed to send warning toast: {e}")
 
     async def on_enter(self) -> None:
         """Called when the agent becomes active."""
@@ -210,12 +243,14 @@ Context: {self.context_text}"""
         if self.conversation_starter:
             # Remove [username] placeholder if present
             greeting = self.conversation_starter.replace("[username]", "").strip()
-            
+
             # Special case: For Mr. Williams "go on" scenario, be more vague initially
             # This specific greeting gives away too much detail upfront
             if "Mr. Williams" in self.character and "bad has happened" in greeting:
                 greeting = "I need to speak with you about something urgent."
-                instruction_prefix = "Start with this brief opener and wait for their response: "
+                instruction_prefix = (
+                    "Start with this brief opener and wait for their response: "
+                )
             else:
                 # For other scenarios (pick up, come back, close down), use the original starter
                 # These are appropriately contextual without giving away the solution
