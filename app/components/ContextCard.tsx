@@ -147,9 +147,14 @@ const ContextCard = ({ contextCard, onAnswer, onReset }: ContextCardProps) => {
         voicePersona: contextCard.voicePersona
       };
       
-      // Encode metadata for URL transmission
-      const encodedMetadata = encodeURIComponent(JSON.stringify(metadata));
-      const resp = await fetch(`/api/token?room=${roomName}&username=${userName}&metadata=${encodedMetadata}`);
+      // Send metadata via POST body instead of URL to avoid URL length issues
+      const resp = await fetch(`/api/token?room=${roomName}&username=${userName}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ metadata })
+      });
       const data = await resp.json();
       
       if (data.token) {

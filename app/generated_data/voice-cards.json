@@ -7,9 +7,9 @@
     {
       "id": "context-pull-in",
       "type": "context",
-      "title": "In-Context: PULL IN",
+      "title": "In-Context: PULL INZZ",
       "difficulty": "B1",
-      "contextText": "You're speaking with Mr. van den Berg, QA Lead. The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
+      "contextText": "You're speaking with Mr. van den Berg, QA Leader. The development team has been working on a new feature for the application. They have made several changes in their local branches. Mr. van den Berg notices that some critical updates from the main branch have not been included in the new feature branch. He needs to ensure that these updates are pulled in before the code is reviewed and tested.",
       "imageUrl": "/images/pull-in.png",
       "ctaText": "Talk to Mr. van den Berg",
       "scenario": {
@@ -80,7 +80,7 @@
         "situation": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
         "phrasalVerb": "break down",
         "contextText": "Mr. Fraser is in a sprint planning meeting with the development team. They received a new user story from the product manager. The team needs to understand the user story better and divide the work into smaller tasks for the upcoming sprint.",
-        "conversationStarter": "Mr. Fraser looks at the user story on the board and says, 'Before we start, let's break down this user story into smaller tasks so we can assign them correctly.'",
+        "conversationStarter": "Before we start, we need to analyze this user story and split it into smaller tasks so we can assign them correctly.",
         "maxTurns": 5
       },
       "targetLexicalItem": {
@@ -133,16 +133,16 @@
       "type": "context",
       "title": "In-Context: ROLL OUT",
       "difficulty": "B2",
-      "contextText": "You're speaking with Mr. Davis, Tech Lead. The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+      "contextText": "You're speaking with Mr. Davis, Tech Lead. The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is deployed gradually to minimize potential disruptions. He decides to discuss the deployment strategy with the team, which includes developers, QA testers, and the product manager.",
       "imageUrl": "/images/roll-out.png",
       "ctaText": "Talk to Mr. Davis",
       "scenario": {
         "character": "Mr. Davis",
         "role": "Tech Lead",
-        "situation": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
+        "situation": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is deployed gradually to minimize potential disruptions. He decides to discuss the deployment strategy with the team, which includes developers, QA testers, and the product manager.",
         "phrasalVerb": "roll out",
-        "contextText": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is rolled out gradually to minimize potential disruptions. He decides to discuss the rollout strategy with the team, which includes developers, QA testers, and the product manager.",
-        "conversationStarter": "Alright team, we've completed the code review for the new authentication feature. I want to talk about how we'll roll this out to our users without causing too many issues.",
+        "contextText": "The development team has been working on a new user authentication feature that includes multi-factor authentication (MFA). After several sprints, the code has been reviewed and is ready for deployment. Mr. Davis wants to ensure that the feature is deployed gradually to minimize potential disruptions. He decides to discuss the deployment strategy with the team, which includes developers, QA testers, and the product manager.",
+        "conversationStarter": "Alright team, we have completed the code review for the new authentication feature. I want to talk about our deployment strategy to avoid any issues with users.",
         "maxTurns": 5
       },
       "targetLexicalItem": {

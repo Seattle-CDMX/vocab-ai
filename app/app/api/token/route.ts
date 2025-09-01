@@ -29,9 +29,31 @@ const getRoomServiceClient = () => {
   return new RoomServiceClient(httpUrl, apiKey, apiSecret);
 };
 
+// Generate token - handles both GET (legacy) and POST (with metadata in body)
 export async function GET(req: NextRequest) {
+  return handleTokenGeneration(req, 'GET');
+}
+
+// POST handler - handles both token generation with metadata and room listing
+export async function POST(req: NextRequest) {
+  // Check if this is a token generation request (has room and username params)
   const room = req.nextUrl.searchParams.get('room');
   const username = req.nextUrl.searchParams.get('username');
+  
+  if (room && username) {
+    // This is a token generation request
+    return handleTokenGeneration(req, 'POST');
+  } else {
+    // This is a room listing request (legacy behavior)
+    return handleRoomListing();
+  }
+}
+
+async function handleTokenGeneration(req: NextRequest, method: string) {
+  const room = req.nextUrl.searchParams.get('room');
+  const username = req.nextUrl.searchParams.get('username');
+  
+  // For GET requests, get metadata from URL params (legacy)
   const voiceCardData = req.nextUrl.searchParams.get('voiceCardData');
   const metadata = req.nextUrl.searchParams.get('metadata');
   
@@ -50,29 +72,45 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    // Parse metadata if provided (new unified approach)
     let parsedMetadata = null;
-    if (metadata) {
+
+    // For POST requests, get metadata from body
+    if (method === 'POST') {
       try {
-        parsedMetadata = JSON.parse(decodeURIComponent(metadata));
-        console.log(`Metadata received for token:`, parsedMetadata);
+        const body = await req.json();
+        if (body.metadata) {
+          parsedMetadata = body.metadata;
+          console.log(`Metadata received from POST body:`, parsedMetadata);
+        }
       } catch (e) {
-        console.error('Failed to parse metadata:', e);
-        return NextResponse.json({ error: 'Invalid metadata format' }, { status: 400 });
+        console.error('Failed to parse POST body:', e);
+        return NextResponse.json({ error: 'Invalid request body' }, { status: 400 });
       }
-    }
-    // Legacy support for voiceCardData
-    else if (voiceCardData) {
-      try {
-        const parsedVoiceCardData = JSON.parse(decodeURIComponent(voiceCardData));
-        parsedMetadata = {
-          activityType: 'voice',
-          voiceCardData: parsedVoiceCardData
-        };
-        console.log(`Voice card data received for token (legacy): ${parsedVoiceCardData.title}`);
-      } catch (e) {
-        console.error('Failed to parse voice card data:', e);
-        return NextResponse.json({ error: 'Invalid voice card data format' }, { status: 400 });
+    } 
+    // For GET requests, parse metadata from URL params (legacy)
+    else {
+      if (metadata) {
+        try {
+          parsedMetadata = JSON.parse(decodeURIComponent(metadata));
+          console.log(`Metadata received from URL params:`, parsedMetadata);
+        } catch (e) {
+          console.error('Failed to parse metadata from URL:', e);
+          return NextResponse.json({ error: 'Invalid metadata format' }, { status: 400 });
+        }
+      }
+      // Legacy support for voiceCardData
+      else if (voiceCardData) {
+        try {
+          const parsedVoiceCardData = JSON.parse(decodeURIComponent(voiceCardData));
+          parsedMetadata = {
+            activityType: 'voice',
+            voiceCardData: parsedVoiceCardData
+          };
+          console.log(`Voice card data received for token (legacy): ${parsedVoiceCardData.title}`);
+        } catch (e) {
+          console.error('Failed to parse voice card data:', e);
+          return NextResponse.json({ error: 'Invalid voice card data format' }, { status: 400 });
+        }
       }
     }
 
@@ -110,7 +148,7 @@ export async function GET(req: NextRequest) {
 }
 
 // List all rooms
-export async function POST() {
+async function handleRoomListing() {
   try {
     console.log('Attempting to list rooms...');
     
