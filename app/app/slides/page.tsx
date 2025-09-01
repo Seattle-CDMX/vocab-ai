@@ -60,59 +60,38 @@ export default function SlidesPage() {
             </div>
             <h1 className="text-6xl font-bold text-white">Voice Card</h1>
           </div>
-          <h2 className="text-4xl font-bold text-white mb-8">Master Vocab For Speaking</h2>
-          <p className="text-2xl text-white/90">Spaced Repitition enhanced by LLM powered voice agents</p>
+          <h2 className="text-4xl font-bold text-white mb-8">Master Speaking For Devs</h2>
+          <p className="text-2xl text-white/90">Level up your speaking. Double your salary. Improve your technical communication and stand out from the crowd.</p>
         </section>
 
-        {/* The Complexity Examples Slide - Now slide #1 */}
+        {/* User Story Placeholder Slide */}
         <section>
-          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>The Complexity of Phrasal Verbs</h2>
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>User Story</h2>
           
-          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
-            <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
-              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#fbbf24'}}>🧩 Multi-word and Multi Meaning</h3>
-              <p style={{fontSize: '1.2rem', marginBottom: '0.5rem'}}>&quot;to go on&quot; = can mean &quot;to happen&quot; or &quot;to continue&quot;</p>
-              
-            </div>
-
-            <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
-              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#fbbf24'}}>🔀 Parts ≠ Whole</h3>
-              <p style={{fontSize: '1.2rem', marginBottom: '0.5rem'}}>&quot;break up&quot; (end relationship)</p>
-              <p style={{fontSize: '1rem', opacity: '0.8'}}>≠ &quot;break&quot; + &quot;up&quot; (physically breaking upward)</p>
-            </div>
-
-            <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
-              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#fbbf24'}}>⚡ Grammar Rules</h3>
-              <div style={{fontSize: '1.1rem'}}>
-                <div style={{color: '#34d399', marginBottom: '0.5rem'}}>✅ &quot;to   turn on the TV&quot; → &quot;turn it on&quot;</div>
-                <div style={{color: '#f87171'}}>❌ &quot;to look after my car&quot; → &quot;look it* after&quot;</div>
-              </div>
-            </div>
-
-            <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
-              <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#fbbf24'}}>🗣️ The Secret Sauce of Spoken Engish</h3>
-              <div style={{fontSize: '1.1rem'}}>
-                <div style={{marginBottom: '0.5rem', opacity: '0.9'}}>Formal: &quot;Please tolerate the noise&quot;</div>
-                <div style={{color: '#60a5fa'}}>Casual: &quot;Just put up with it&quot;</div>
-              </div>
+          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', maxWidth: '800px', margin: '0 auto'}}>
+            <div style={{backgroundColor: '#7c3aed', color: 'white', padding: '3rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', textAlign: 'center'}}>
+              <div style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fbbf24'}}>🎯 Placeholder for User Story</div>
+              <p style={{fontSize: '1.2rem', lineHeight: '1.6', opacity: '0.9'}}>
+                This slide will contain a compelling user story about a developer who improved their career through better technical communication.
+              </p>
             </div>
           </div>
         </section>
 
+
         {/* Problem & Solution Gap Slide */}
         <section>
-          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>The Language Learning Market</h2>
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>Where Current Products Fall Short</h2>
           
           <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', maxWidth: '1200px', margin: '0 auto'}}>
-            <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-              <Image 
-                src="/phrasal-verbs-meme.png" 
-                alt="Comic showing the struggle of learning phrasal verbs"
-                width={280}
-                height={250}
-                style={{borderRadius: '8px', marginBottom: '1rem'}}
-              />
-              <p style={{fontSize: '1.1rem', fontWeight: 'bold', color: '#fbbf24', textAlign: 'center'}}>The eternal struggle!</p>
+            <div style={{backgroundColor: '#1e40af', color: 'white', padding: '3rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
+              <h3 style={{fontSize: '2rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fbbf24'}}>🧠 What is Spaced Repetition?</h3>
+              <div style={{fontSize: '1.3rem', lineHeight: '1.6'}}>
+                <div style={{marginBottom: '1rem', opacity: '0.9'}}>📚 Scientific method that optimizes learning by reviewing information at increasing intervals</div>
+                <div style={{marginBottom: '1rem', opacity: '0.9'}}>⏰ Items you struggle with appear more frequently</div>
+                <div style={{marginBottom: '1rem', opacity: '0.9'}}>🎯 Items you know well appear less often</div>
+                <div style={{color: '#34d399', fontWeight: 'bold'}}>✅ Proven to improve long-term retention by 200-300%</div>
+              </div>
             </div>
 
             <div style={{backgroundColor: '#1e40af', color: 'white', padding: '3rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
@@ -290,6 +269,34 @@ export default function SlidesPage() {
                 objectFit: 'contain'
               }}
             />
+          </div>
+        </section>
+
+        {/* Placeholder Slide 1 */}
+        <section>
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>Placeholder Slide 1</h2>
+          
+          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', maxWidth: '800px', margin: '0 auto'}}>
+            <div style={{backgroundColor: '#ea580c', color: 'white', padding: '3rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', textAlign: 'center'}}>
+              <div style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fef3c7'}}>📝 Content Placeholder</div>
+              <p style={{fontSize: '1.2rem', lineHeight: '1.6', opacity: '0.9'}}>
+                This slide is available for additional content as needed for your presentation.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Placeholder Slide 2 */}
+        <section>
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>Placeholder Slide 2</h2>
+          
+          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', maxWidth: '800px', margin: '0 auto'}}>
+            <div style={{backgroundColor: '#0891b2', color: 'white', padding: '3rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', textAlign: 'center'}}>
+              <div style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fef3c7'}}>🎯 Additional Content</div>
+              <p style={{fontSize: '1.2rem', lineHeight: '1.6', opacity: '0.9'}}>
+                This slide is available for additional content as needed for your presentation.
+              </p>
+            </div>
           </div>
         </section>
 
