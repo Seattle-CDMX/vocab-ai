@@ -51,7 +51,7 @@ function markdownToHtml(markdown: string): string {
     })
     
     // Wrap tables
-    .replace(/<tr>.*<\/tr>/s, (match) => {
+    .replace(/<tr>[\s\S]*<\/tr>/, (match) => {
       return `<div class="overflow-x-auto mb-6"><table class="min-w-full border-collapse border border-gray-300">${match}</table></div>`;
     })
     
@@ -76,13 +76,13 @@ function markdownToHtml(markdown: string): string {
 }
 
 interface PageProps {
-  params: {
+  params: Promise<{
     chapter: string;
-  };
+  }>;
 }
 
-export default function ChapterPage({ params }: PageProps) {
-  const { chapter } = params;
+export default async function ChapterPage({ params }: PageProps) {
+  const { chapter } = await params;
   
   // Find the chapter info
   const currentChapter = chapters.find(ch => ch.id === chapter);

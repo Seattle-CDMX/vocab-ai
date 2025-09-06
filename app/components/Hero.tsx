@@ -58,6 +58,14 @@ const Hero = ({ isAuthenticated, onSignOut }: { isAuthenticated: boolean; onSign
                   Slides
                 </Button>
                 <Button 
+                  variant="ghost" 
+                  size="sm"
+                  onClick={() => router.push('/sound-brain-map')}
+                >
+                  <Brain className="w-4 h-4 mr-1" />
+                  Sound Brain Map
+                </Button>
+                <Button 
                   variant="outline" 
                   size="sm"
                   onClick={() => router.push('/dashboard')}
@@ -97,6 +105,14 @@ const Hero = ({ isAuthenticated, onSignOut }: { isAuthenticated: boolean; onSign
                   onClick={() => router.push('/slides')}
                 >
                   Slides
+                </Button>
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  onClick={() => router.push('/sound-brain-map')}
+                >
+                  <Brain className="w-4 h-4 mr-1" />
+                  Sound Brain Map
                 </Button>
                 <Button 
                   variant="ghost" 
