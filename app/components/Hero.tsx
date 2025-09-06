@@ -45,9 +45,10 @@ const Hero = ({ isAuthenticated, onSignOut }: { isAuthenticated: boolean; onSign
                 <Button 
                   variant="ghost" 
                   size="sm"
-                  onClick={() => router.push('/blog')}
+                  onClick={() => router.push('/book')}
                 >
-                  Blog
+                  <BookOpen className="w-4 h-4 mr-1" />
+                  Book
                 </Button>
                 <Button 
                   variant="ghost" 
@@ -85,9 +86,10 @@ const Hero = ({ isAuthenticated, onSignOut }: { isAuthenticated: boolean; onSign
                 <Button 
                   variant="ghost" 
                   size="sm"
-                  onClick={() => router.push('/blog')}
+                  onClick={() => router.push('/book')}
                 >
-                  Blog
+                  <BookOpen className="w-4 h-4 mr-1" />
+                  Book
                 </Button>
                 <Button 
                   variant="ghost" 
