@@ -64,16 +64,64 @@ export default function SlidesPage() {
           <p className="text-2xl text-white/90">Level up your speaking. Double your salary. Improve your technical communication and stand out from the crowd.</p>
         </section>
 
-        {/* User Story Placeholder Slide */}
+        {/* User Story - Roberto Lopez */}
         <section>
-          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>User Story</h2>
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>Meet Roberto López</h2>
           
-          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', maxWidth: '800px', margin: '0 auto'}}>
-            <div style={{backgroundColor: '#7c3aed', color: 'white', padding: '3rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', textAlign: 'center'}}>
-              <div style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fbbf24'}}>🎯 Placeholder for User Story</div>
-              <p style={{fontSize: '1.2rem', lineHeight: '1.6', opacity: '0.9'}}>
-                This slide will contain a compelling user story about a developer who improved their career through better technical communication.
-              </p>
+          <div style={{display: 'flex', alignItems: 'center', gap: '4rem', maxWidth: '1000px', margin: '0 auto'}}>
+            {/* Photo Section */}
+            <div style={{flex: '0 0 300px'}}>
+              <div style={{
+                width: '280px',
+                height: '280px',
+                borderRadius: '20px',
+                overflow: 'hidden',
+                boxShadow: '0 12px 40px rgba(0,0,0,0.3)',
+                border: '4px solid #1e40af'
+              }}>
+                <Image
+                  src="/roberto-lopez.jpg"
+                  alt="Roberto López - React Native Developer"
+                  width={280}
+                  height={280}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Story Section */}
+            <div style={{flex: '1'}}>
+              <div style={{backgroundColor: '#0891b2', color: 'white', padding: '3rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
+                <h3 style={{fontSize: '2.2rem', fontWeight: 'bold', marginBottom: '1rem', color: '#fef3c7'}}>Roberto López</h3>
+                <p style={{fontSize: '1.4rem', marginBottom: '2rem', color: '#e0f2fe', fontWeight: '500'}}>
+                  React Native Developer at a bank in Mexico City
+                </p>
+                
+                <div style={{fontSize: '1.3rem', lineHeight: '1.7', marginBottom: '2rem'}}>
+                  <div style={{marginBottom: '1rem', display: 'flex', alignItems: 'flex-start'}}>
+                    <span style={{color: '#fbbf24', marginRight: '0.5rem', fontSize: '1.5rem'}}>💼</span>
+                    <span>Looking for a new job but keeps getting rejected</span>
+                  </div>
+                  <div style={{marginBottom: '1rem', display: 'flex', alignItems: 'flex-start'}}>
+                    <span style={{color: '#fbbf24', marginRight: '0.5rem', fontSize: '1.5rem'}}>📚</span>
+                    <span>His reading, listening, and writing are strong</span>
+                  </div>
+                  <div style={{display: 'flex', alignItems: 'flex-start'}}>
+                    <span style={{color: '#ef4444', marginRight: '0.5rem', fontSize: '1.5rem'}}>🗣️</span>
+                    <span><strong>The problem? Speaking skills.</strong></span>
+                  </div>
+                </div>
+
+                <div style={{backgroundColor: 'rgba(255,255,255,0.1)', padding: '1.5rem', borderRadius: '8px', borderLeft: '4px solid #fbbf24'}}>
+                  <p style={{fontSize: '1.1rem', fontStyle: 'italic', margin: '0'}}>
+                    &quot;I can understand everything in technical interviews, but when I try to explain my solutions, I struggle to find the right words quickly.&quot;
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -81,19 +129,9 @@ export default function SlidesPage() {
 
         {/* Problem & Solution Gap Slide */}
         <section>
-          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>Where Current Products Fall Short</h2>
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>Where Current Products Fail Roberto</h2>
           
           <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', maxWidth: '1200px', margin: '0 auto'}}>
-            <div style={{backgroundColor: '#1e40af', color: 'white', padding: '3rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
-              <h3 style={{fontSize: '2rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fbbf24'}}>🧠 What is Spaced Repetition?</h3>
-              <div style={{fontSize: '1.3rem', lineHeight: '1.6'}}>
-                <div style={{marginBottom: '1rem', opacity: '0.9'}}>📚 Scientific method that optimizes learning by reviewing information at increasing intervals</div>
-                <div style={{marginBottom: '1rem', opacity: '0.9'}}>⏰ Items you struggle with appear more frequently</div>
-                <div style={{marginBottom: '1rem', opacity: '0.9'}}>🎯 Items you know well appear less often</div>
-                <div style={{color: '#34d399', fontWeight: 'bold'}}>✅ Proven to improve long-term retention by 200-300%</div>
-              </div>
-            </div>
-
             <div style={{backgroundColor: '#1e40af', color: 'white', padding: '3rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
               <h3 style={{fontSize: '2rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fbbf24'}}>🎯 Why Current Products Fall Short</h3>
               <div style={{fontSize: '1.3rem', lineHeight: '1.6'}}>
@@ -103,32 +141,59 @@ export default function SlidesPage() {
                 <div style={{color: '#34d399', fontWeight: 'bold'}}>✅ Voice Card: Spaced Repetition With AI</div>
               </div>
             </div>
+
+            <div style={{backgroundColor: '#1e40af', color: 'white', padding: '3rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
+              <h3 style={{fontSize: '2rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fbbf24'}}>🧠 What is Spaced Repetition?</h3>
+              <div style={{fontSize: '1.3rem', lineHeight: '1.6'}}>
+                <div style={{marginBottom: '1rem', opacity: '0.9'}}>📚 Scientific method that optimizes learning by reviewing information at increasing intervals</div>
+                <div style={{marginBottom: '1rem', opacity: '0.9'}}>⏰ Items you struggle with appear more frequently</div>
+                <div style={{marginBottom: '1rem', opacity: '0.9'}}>🎯 Items you know well appear less often</div>
+                <div style={{color: '#34d399', fontWeight: 'bold'}}>✅ Proven to improve long-term retention by 200-300%</div>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* Target Audience - Single Slide */}
         <section>
-          <h2 style={{fontSize: '2.5rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '2rem'}}>First Audience: Spanish Speakers in Global Business</h2>
+          <h2 style={{fontSize: '2rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '1.2rem'}}>Spanish-Speaking Developers in Latin America</h2>
           
-          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', maxWidth: '800px', margin: '0 auto 2rem auto'}}>
-            <div style={{backgroundColor: '#1e40af', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', textAlign: 'center'}}>
-              <div style={{fontSize: '3rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#fbbf24'}}>559M</div>
-              <p style={{fontSize: '1.2rem'}}>Spanish speakers worldwide</p>
+          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', maxWidth: '850px', margin: '0 auto 1.2rem auto'}}>
+            <div style={{backgroundColor: '#1e40af', color: 'white', padding: '1.5rem', borderRadius: '10px', boxShadow: '0 6px 24px rgba(0,0,0,0.3)', textAlign: 'center'}}>
+              <div style={{fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '0.3rem', color: '#fbbf24'}}>1.5M+</div>
+              <p style={{fontSize: '1rem', marginBottom: '0.3rem'}}>Spanish-speaking developers</p>
+              <p style={{fontSize: '0.85rem', opacity: '0.8'}}>Mexico: 800K, Colombia: 165K, Argentina: 167K</p>
             </div>
-            <div style={{backgroundColor: '#ea580c', color: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', textAlign: 'center'}}>
-              <div style={{fontSize: '3rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#fef3c7'}}>21+</div>
-              <p style={{fontSize: '1.2rem'}}>Spanish speaking countries</p>
+            <div style={{backgroundColor: '#ea580c', color: 'white', padding: '1.5rem', borderRadius: '10px', boxShadow: '0 6px 24px rgba(0,0,0,0.3)', textAlign: 'center'}}>
+              <div style={{fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '0.3rem', color: '#fef3c7'}}>285%</div>
+              <p style={{fontSize: '1rem', marginBottom: '0.3rem'}}>Remote applicant growth</p>
+              <p style={{fontSize: '0.85rem', opacity: '0.8'}}>from LatAm in last 5 years</p>
             </div>
           </div>
           
-          <div style={{display: 'flex', justifyContent: 'center', maxWidth: '600px', margin: '0 auto'}}>
-            <div style={{backgroundColor: '#7c3aed', color: 'white', padding: '2.5rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', width: '100%'}}>
-              <h3 style={{fontSize: '1.8rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fbbf24', textAlign: 'center'}}>🌎 Nearshoring Boom</h3>
-              <div style={{fontSize: '1.2rem', lineHeight: '1.6', textAlign: 'center'}}>
-                <div style={{marginBottom: '0.8rem'}}>• Millions doing business in English with 3rd countries</div>
-                <div>• English fluency = career advancement</div>
+          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', maxWidth: '850px', margin: '0 auto 0.8rem auto'}}>
+            <div style={{backgroundColor: '#7c3aed', color: 'white', padding: '1.5rem', borderRadius: '10px', boxShadow: '0 6px 24px rgba(0,0,0,0.3)'}}>
+              <h3 style={{fontSize: '1.3rem', fontWeight: 'bold', marginBottom: '0.8rem', color: '#fbbf24', textAlign: 'center'}}>🌎 Nearshoring Boom</h3>
+              <div style={{fontSize: '0.9rem', lineHeight: '1.4', textAlign: 'center'}}>
+                <div style={{marginBottom: '0.5rem'}}>• $20B market growing at 9% CAGR</div>
+                <div style={{marginBottom: '0.5rem'}}>• 50% increase in US hiring LatAm</div>
+                <div>• 50-60% salary savings vs. US</div>
               </div>
             </div>
+            <div style={{backgroundColor: '#dc2626', color: 'white', padding: '1.5rem', borderRadius: '10px', boxShadow: '0 6px 24px rgba(0,0,0,0.3)'}}>
+              <h3 style={{fontSize: '1.3rem', fontWeight: 'bold', marginBottom: '0.8rem', color: '#fbbf24', textAlign: 'center'}}>🗣️ The English Barrier</h3>
+              <div style={{fontSize: '0.9rem', lineHeight: '1.4', textAlign: 'center'}}>
+                <div style={{marginBottom: '0.5rem'}}>• 45% prioritize language learning</div>
+                <div style={{marginBottom: '0.5rem'}}>• Speaking = career advancement</div>
+                <div>• <strong>Our target market</strong></div>
+              </div>
+            </div>
+          </div>
+          
+          <div style={{backgroundColor: 'rgba(30, 58, 138, 0.05)', padding: '0.4rem', borderRadius: '6px', maxWidth: '850px', margin: '0 auto', border: '1px solid rgba(30, 58, 138, 0.15)'}}>
+            <p style={{fontSize: '0.6rem', color: '#1e3a8a', textAlign: 'center', margin: '0', lineHeight: '1.2'}}>
+              <strong>Sources:</strong> <a href="https://www.terminal.io/blog/2024-developer-hiring-trends-in-latin-america-what-you-need-to-know" target="_blank" rel="noopener noreferrer" style={{color: '#1e40af', textDecoration: 'underline'}}>Terminal.io</a> • <a href="https://press.bairesdev.com/latam-remote-tech-talent-surge-285-in-2024/" target="_blank" rel="noopener noreferrer" style={{color: '#1e40af', textDecoration: 'underline'}}>BairesDev</a> • <a href="https://hatchworks.com/blog/nearshore-development/nearshore-software-development-statistics/" target="_blank" rel="noopener noreferrer" style={{color: '#1e40af', textDecoration: 'underline'}}>HatchWorks</a>
+            </p>
           </div>
         </section>
 

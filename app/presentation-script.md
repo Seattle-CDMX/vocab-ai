@@ -1,20 +1,12 @@
-# VoiceCard Presentation Script
-
-## Timing Guide
-- **Total Time**: 12-16 minutes
-- **Problem**: 2-3 minutes (2 slides)
-- **Audience**: 1-2 minutes (1 slide)
-- **Demo**: 2-4 minutes (live screen share)
-- **Infrastructure**: 4-6 minutes (6 slides)
-- **Conclusion**: 1-2 minutes
-
----
-
-## [SLIDE 1: Title] - VoiceCard AI (0:00)
-
-
 **Brief Hook (20 seconds)**  
-For anyone learning English as a second or foreign language, mastering phrasal verbs is a big hurdle on the way to achieving advanced fluency. For students, grokking these tricky-to-learn, multi-word verbs, like "pick up," "run into," or "put off", "set about" or "pull forward"— is the secret sauce to levelling up their spoken English.
+Any developer, who doesn't speak English as their native language, can write a perfect email or slack message using LLLMs. Reading and listening? No problem. They've already spent hours pouring over documentation and watching technical tutorials in English.
+
+For developers competing for jobs in Mexico and other countries where English is not the primary language, what really sets people apart—or holds them back—is speaking. If you want to double your salary, you need to master spoken English. That’s why I built VoiceCard: to help developers break through the speaking barrier and unlock the next level in their careers.
+
+**User Persona**
+**User Persona (30 seconds)**  
+Meet Roberto, a 29-year-old React Native engineer from Oaxaca, Mexico. He’s talented, ambitious, and dreams of working for a top U.S. tech company. Roberto reads and writes English every day—he’s great at understanding documentation and can chat on Slack without a problem. But when it comes to speaking, he freezes. He worries about his accent, gets stuck searching for the right words, and dreads video calls with international clients. Roberto knows that if he could speak English more confidently, he could land better jobs, lead projects, and double his salary. He just needs a way to practice real conversations, and efficiently level up his speaking and pronunciation
+
 
 
 ## [SLIDE 2: The Complexity of Phrasal Verbs] - The Problem (1:00)
@@ -35,10 +27,15 @@ I created VoiceCard to help language learners master phrasal verbs and English v
 
 ---
 
-## [SLIDE 4: First Target: Spanish Speakers in Global Business] - Target Audience (00:30)
+## [SLIDE 4: First Target: Spanish-Speaking Developers in Latin America] - Target Audience (00:30)
 
+I decided to focus this app on Spanish-speaking software developers in Latin America. This is a massive and rapidly growing market. According to 2024 industry data, there are over 1.5 million Spanish-speaking developers in Latin America, with Mexico leading at 800,000, followed by Argentina at 167,000, and Colombia at 165,000 developers.
 
- I decided to focus this app on native Spanish speakers learning English in the global business community. This market segment represents people who work with U.S. and Canadian companies as part of the current nearshoring boom, but also participate in the global business community using English with native speakers of other languages. For this market segment, there is a direct correlation between English fluency and career advancement.
+The nearshoring boom is driving unprecedented demand. Remote applications from LatAm developers have increased by 285% in the last five years, and U.S. companies increased their year-over-year hiring in Latin America by 50% in 2023. This $20 billion market is growing at 9% annually, offering 50-60% salary savings compared to U.S. tech hubs.
+
+However, a critical barrier remains: 45% of Latin American engineers prioritize language learning opportunities. While their technical skills are exceptional, speaking proficiency in English directly correlates with career advancement and access to higher-paying international opportunities. This is our target market.
+
+*Sources: Terminal.io (2024 Developer Hiring Trends), BairesDev Remote Applicant Report, Statista Developer Census, HatchWorks Nearshore Statistics*
 
 **[NEXT SLIDE: 4:30]**
 
