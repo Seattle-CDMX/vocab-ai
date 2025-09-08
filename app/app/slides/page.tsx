@@ -104,7 +104,7 @@ export default function SlidesPage() {
                 <div style={{fontSize: '1.3rem', lineHeight: '1.7', marginBottom: '2rem'}}>
                   <div style={{marginBottom: '1rem', display: 'flex', alignItems: 'flex-start'}}>
                     <span style={{color: '#fbbf24', marginRight: '0.5rem', fontSize: '1.5rem'}}>💼</span>
-                    <span>Looking for a new job but keeps getting rejected</span>
+                    <span>Limited to certain jobs that are mostly in Spanish</span>
                   </div>
                   <div style={{marginBottom: '1rem', display: 'flex', alignItems: 'flex-start'}}>
                     <span style={{color: '#fbbf24', marginRight: '0.5rem', fontSize: '1.5rem'}}>📚</span>
@@ -375,7 +375,7 @@ export default function SlidesPage() {
               <h3 style={{fontSize: '2rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fef3c7'}}>🌎 The Gap for Spanish Developers</h3>
               <div style={{fontSize: '1.3rem', lineHeight: '1.7'}}>
                 <div style={{marginBottom: '1rem'}}>• No apps tailored to their unique linguistic profile</div>
-                <div style={{marginBottom: '1rem'}}>• Traditional SRS systems are boring text-only homework</div>
+                <div style={{marginBottom: '1rem'}}>• Traditional SRS systems tend to be text-only homework</div>
                 <div>• Missing conversational practice for technical communication</div>
               </div>
             </div>
