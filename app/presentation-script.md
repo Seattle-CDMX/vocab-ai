@@ -1,7 +1,5 @@
 **Brief Hook** 
-Any developer, who doesn't speak English as their native language, can write a perfect email or slack message using an LLLM. Reading and listening? No problem. They've already spent hours pouring over documentation and watching technical tutorials in English.
-
-For developers competing for jobs in Mexico and other countries where English is not the primary language, what really sets people apart—or holds them back—is speaking. If you want to double your salary, you need to master spoken English. That’s why I built VoiceCard: to help developers break through the speaking barrier and unlock the next level in their careers.
+Any developer, who doesn't speak English as their native language, can write a perfect email or slack message using an LLLM. Reading and listening? No problem. They've already spent hours pouring over documentation and watching technical tutorials in English. For developers competing for jobs in Mexico and other countries where English is not the primary language, what really sets people apart—or holds them back—is speaking. If you want to double your salary, you need to master spoken English. That’s why I built VoiceCard: to help developers break through the speaking barrier and unlock the next level in their careers.
 
 
 **User Persona (30 seconds)**  
@@ -9,11 +7,7 @@ Meet Roberto, a 29-year-old React Native engineer from Oaxaca, Mexico. He’s ta
 
 
 **Why Current Products Fall Short**
-Speaking skills are hard. And a lot of developers have a solid vocabulalry, but need to focus on pronunciation and phrases, like phrasal verbs, that are more common in spoken English.
-
-Language schools typically focus on generic reading and grammar, providing insufficient instruction in vocabulary and speaking, and definitely not tailored to developers.
-
-Students could turn to flash card based apps like Anki, Duolingo, but these tools aren't tailored to the unique linguistic profile of developers.
+Speaking skills are hard. And a lot of developers have a solid vocabulalry, but need to focus on pronunciation and phrases, like phrasal verbs, that are more common in spoken English. Language schools typically focus on generic reading and grammar, providing insufficient instruction in vocabulary and speaking, and definitely not tailored to developers. Students could turn to flash card based apps like Anki, Duolingo, but these tools aren't tailored to the unique linguistic profile of developers.
 
 **Spanish-Speaking Developers in Latin America**
 I decided to focus this app on Spanish-speaking software developers in Latin America. This is a massive and rapidly growing market. According to 2024 industry data, there are over 1.5 million Spanish-speaking developers in Latin America, with Mexico leading at 800,000, followed by Argentina at 167,000, and Colombia at 165,000 developers.

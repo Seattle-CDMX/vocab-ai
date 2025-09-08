@@ -57,13 +57,6 @@ const Hero = ({ isAuthenticated, onSignOut }: { isAuthenticated: boolean; onSign
                 <Button 
                   variant="ghost" 
                   size="sm"
-                  onClick={() => router.push('/slides')}
-                >
-                  Slides
-                </Button>
-                <Button 
-                  variant="ghost" 
-                  size="sm"
                   onClick={() => router.push('/sound-brain-map')}
                 >
                   <Brain className="w-4 h-4 mr-1" />

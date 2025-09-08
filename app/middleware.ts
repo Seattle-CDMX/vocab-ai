@@ -7,7 +7,6 @@ export function middleware(request: NextRequest) {
   // Skip middleware only for static files, auth API routes, and the login page itself
   if (
     pathname.startsWith('/_next') ||
-    pathname.startsWith('/favicon') ||
     pathname.startsWith('/api/auth') ||
     pathname.startsWith('/api/auth-status') ||
     pathname === '/login' ||
@@ -29,5 +28,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
+  matcher: ['/((?!_next/static|_next/image).*)'],
 };

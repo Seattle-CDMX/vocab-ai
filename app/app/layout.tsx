@@ -16,25 +16,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "VoiceCard - Master Speaking for Devs",
   description: "Level up your speaking skills. Double your salary. Learn technical communication through AI-powered practice tailored for developers.",
-  icons: {
-    icon: [
-      {
-        url: '/favicon.svg',
-        type: 'image/svg+xml',
-      },
-      {
-        url: '/favicon.ico',
-        type: 'image/x-icon',
-      }
-    ],
-    apple: [
-      {
-        url: '/apple-touch-icon.png',
-        sizes: '180x180',
-        type: 'image/png',
-      },
-    ],
-  },
 };
 
 export default function RootLayout({
