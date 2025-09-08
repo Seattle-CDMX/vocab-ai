@@ -337,57 +337,57 @@ export default function SlidesPage() {
           </div>
         </section>
 
-        {/* Placeholder Slide 1 */}
+        {/* Silver Dataset & Agent Evaluation */}
         <section>
-          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>Placeholder Slide 1</h2>
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>Silver Dataset & Agent Evaluation</h2>
           
-          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', maxWidth: '800px', margin: '0 auto'}}>
-            <div style={{backgroundColor: '#ea580c', color: 'white', padding: '3rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', textAlign: 'center'}}>
-              <div style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fef3c7'}}>📝 Content Placeholder</div>
-              <p style={{fontSize: '1.2rem', lineHeight: '1.6', opacity: '0.9'}}>
-                This slide is available for additional content as needed for your presentation.
-              </p>
+          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', maxWidth: '1200px', margin: '0 auto'}}>
+            <div style={{backgroundColor: '#7c3aed', color: 'white', padding: '2.5rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
+              <h3 style={{fontSize: '1.8rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fbbf24'}}>📊 Silver Dataset Creation</h3>
+              <div style={{fontSize: '1.2rem', lineHeight: '1.7'}}>
+                <div style={{marginBottom: '1rem'}}>• Generated 100 test cases across 4 lexical items</div>
+                <div style={{marginBottom: '1rem'}}>• 6 response categories: correct, wrong sense, incomplete, no usage, Spanish, grammatical errors</div>
+                <div style={{marginBottom: '1rem'}}>• Expected feedback for each incorrect response type</div>
+                <div style={{color: '#34d399', fontWeight: 'bold'}}>✅ Comprehensive evaluation ground truth</div>
+              </div>
             </div>
-          </div>
-        </section>
 
-        {/* Placeholder Slide 2 */}
-        <section>
-          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>Placeholder Slide 2</h2>
-          
-          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', maxWidth: '800px', margin: '0 auto'}}>
-            <div style={{backgroundColor: '#0891b2', color: 'white', padding: '3rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)', textAlign: 'center'}}>
-              <div style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fef3c7'}}>🎯 Additional Content</div>
-              <p style={{fontSize: '1.2rem', lineHeight: '1.6', opacity: '0.9'}}>
-                This slide is available for additional content as needed for your presentation.
-              </p>
+            <div style={{backgroundColor: '#dc2626', color: 'white', padding: '2.5rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
+              <h3 style={{fontSize: '1.8rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fef3c7'}}>🎯 Context Agent Baseline</h3>
+              <div style={{fontSize: '1.2rem', lineHeight: '1.7'}}>
+                <div style={{marginBottom: '1rem'}}>• Used Deep Eval framework for structured RAG testing</div>
+                <div style={{marginBottom: '1rem'}}>• Baseline performance measurement for contextual feedback</div>
+                <div style={{marginBottom: '1rem'}}>• Validates agent&apos;s ability to provide appropriate corrections</div>
+                <div style={{color: '#34d399', fontWeight: 'bold'}}>✅ Data-driven agent performance validation</div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Comprehensive Conclusion */}
         <section data-background-gradient="linear-gradient(135deg, hsl(145, 65%, 45%) 0%, hsl(200, 85%, 45%) 100%)">
-          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: 'white', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', marginBottom: '3rem'}}>VoiceCard: Level Up Your Dev Communication</h2>
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '3rem'}}>VoiceCard: Level Up Your Dev Communication</h2>
           
           <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', maxWidth: '1000px', margin: '0 auto'}}>
             
-            {/* The SRS Problem */}
+            {/* The Gap for Spanish Developers */}
             <div style={{backgroundColor: 'rgba(220, 38, 38, 0.9)', color: 'white', padding: '3rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.4)'}}>
-              <h3 style={{fontSize: '2rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fef3c7'}}>😴 The SRS Problem</h3>
+              <h3 style={{fontSize: '2rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fef3c7'}}>🌎 The Gap for Spanish Developers</h3>
               <div style={{fontSize: '1.3rem', lineHeight: '1.7'}}>
-                <div style={{marginBottom: '1rem'}}>• <strong>Anki, Quizlet, WaniKani:</strong> Effective systems</div>
-                <div style={{marginBottom: '1rem'}}>• Text-only flashcards feel like homework</div>
-                <div>• No speaking practice or conversation</div>
+                <div style={{marginBottom: '1rem'}}>• No apps tailored to their unique linguistic profile</div>
+                <div style={{marginBottom: '1rem'}}>• Traditional SRS systems are boring text-only homework</div>
+                <div>• Missing conversational practice for technical communication</div>
               </div>
             </div>
 
-            {/* VoiceCard Solution */}
+            {/* VoiceCard for LatAm Devs */}
             <div style={{backgroundColor: 'rgba(124, 58, 237, 0.9)', color: 'white', padding: '3rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.4)'}}>
-              <h3 style={{fontSize: '2rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fbbf24'}}>🎉 VoiceCard Solution</h3>
+              <h3 style={{fontSize: '2rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fbbf24'}}>🚀 VoiceCard for LatAm Devs</h3>
               <div style={{fontSize: '1.3rem', lineHeight: '1.7'}}>
-                <div style={{marginBottom: '1rem'}}>• <strong>Same SRS science,</strong> but with conversational AI</div>
-                <div style={{marginBottom: '1rem'}}>• AI voice agents make it engaging & fun</div>
-                <div>• Tailored to different learner profiles & preferences</div>
+                <div style={{marginBottom: '1rem'}}>• Designed specifically for Spanish-speaking developers</div>
+                <div style={{marginBottom: '1rem'}}>• Technical vocabulary in professional contexts</div>
+                <div style={{marginBottom: '1rem'}}>• AI conversations make boring flashcards engaging & fun</div>
+                <div>• Built for the <strong>$20B nearshoring market</strong> opportunity</div>
               </div>
             </div>
           </div>
