@@ -135,9 +135,8 @@ export default function SlidesPage() {
             <div style={{backgroundColor: '#1e40af', color: 'white', padding: '3rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
               <h3 style={{fontSize: '2rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fbbf24'}}>🎯 Why Current Products Fall Short</h3>
               <div style={{fontSize: '1.3rem', lineHeight: '1.6'}}>
-              <div style={{marginBottom: '1rem', opacity: '0.9'}}>😴 Language schools: Not enough focus on speaking and vocabularly</div>
-                                 <div style={{marginBottom: '1rem', opacity: '0.9'}}>📚 Spaced repetition systems like <a href="https://apps.ankiweb.net/" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa', textDecoration: 'underline'}}>Anki</a> and <a href="https://www.wanikani.com/" target="_blank" rel="noopener noreferrer" style={{color: '#60a5fa', textDecoration: 'underline'}}>WaniKani</a>: text-only by default, no AI features</div>
-                <div style={{marginBottom: '1rem', opacity: '0.9'}}>🦜 Duolingo: focused on comprehensive language learning, not vocabularly or phrasal verbs</div>
+              <div style={{marginBottom: '1rem', opacity: '0.9'}}>👨‍💻 Unique linguistic profile: high vocab and reading but low pronunciation and speaking</div>
+                <div style={{marginBottom: '1rem', opacity: '0.9'}}>🦜 Duolingo: focused on comprehensive language learning, not tailored to software engineers</div>
                 <div style={{color: '#34d399', fontWeight: 'bold'}}>✅ Voice Card: Spaced Repetition With AI</div>
               </div>
             </div>
@@ -345,22 +344,42 @@ export default function SlidesPage() {
             <div style={{backgroundColor: '#7c3aed', color: 'white', padding: '2.5rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
               <h3 style={{fontSize: '1.8rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fbbf24'}}>📊 Silver Dataset Creation</h3>
               <div style={{fontSize: '1.2rem', lineHeight: '1.7'}}>
-                <div style={{marginBottom: '1rem'}}>• Generated 100 test cases across 4 lexical items</div>
+                <div style={{marginBottom: '1rem'}}>• Used DeepEval to generate 100 test cases across 4 lexical items</div>
                 <div style={{marginBottom: '1rem'}}>• 6 response categories: correct, wrong sense, incomplete, no usage, Spanish, grammatical errors</div>
-                <div style={{marginBottom: '1rem'}}>• Expected feedback for each incorrect response type</div>
-                <div style={{color: '#34d399', fontWeight: 'bold'}}>✅ Comprehensive evaluation ground truth</div>
+                <div style={{marginBottom: '1rem'}}>• Validates agent&apos;s ability to provide appropriate corrections</div>
+                <div style={{color: '#34d399', fontWeight: 'bold'}}>✅ Good first step at evaluation</div>
               </div>
             </div>
 
             <div style={{backgroundColor: '#dc2626', color: 'white', padding: '2.5rem', borderRadius: '12px', boxShadow: '0 8px 32px rgba(0,0,0,0.3)'}}>
-              <h3 style={{fontSize: '1.8rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fef3c7'}}>🎯 Context Agent Baseline</h3>
+              <h3 style={{fontSize: '1.8rem', fontWeight: 'bold', marginBottom: '2rem', color: '#fef3c7'}}>🎯 Production Tracing</h3>
               <div style={{fontSize: '1.2rem', lineHeight: '1.7'}}>
-                <div style={{marginBottom: '1rem'}}>• Used Deep Eval framework for structured RAG testing</div>
-                <div style={{marginBottom: '1rem'}}>• Baseline performance measurement for contextual feedback</div>
-                <div style={{marginBottom: '1rem'}}>• Validates agent&apos;s ability to provide appropriate corrections</div>
-                <div style={{color: '#34d399', fontWeight: 'bold'}}>✅ Data-driven agent performance validation</div>
+                <div style={{marginBottom: '1rem'}}>• Used LangFuse to set up production tracing of entire end-to-end conversation flow</div>
+                <div style={{marginBottom: '1rem'}}>• Monitor performance and latency across all conversation components</div>
+                <div style={{color: '#34d399', fontWeight: 'bold'}}>✅ Can incorporate production traces into tests in future</div>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* LangFuse Tracing Slide */}
+        <section>
+          <h2 style={{fontSize: '3rem', fontWeight: 'bold', color: '#1e3a8a', textShadow: 'none', marginBottom: '2rem'}}>🔍 LangFuse for Production Tracing</h2>
+          
+          <div style={{maxWidth: '900px', margin: '0 auto'}}>
+            <Image 
+              src="/langfuse-tracing.png" 
+              alt="LangFuse production tracing dashboard showing detailed conversation flow monitoring"
+              width={900}
+              height={600}
+              style={{
+                width: '100%',
+                height: 'auto',
+                borderRadius: '12px',
+                boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+                border: '2px solid #e5e7eb'
+              }}
+            />
           </div>
         </section>
 

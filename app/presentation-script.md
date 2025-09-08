@@ -1,20 +1,24 @@
 **Brief Hook** 
-Any developer, who doesn't speak English as their native language, can write a perfect email or slack message using an LLLM. Reading and listening? No problem. They've already spent hours pouring over documentation and watching technical tutorials in English. For developers competing for jobs in Mexico and other countries where English is not the primary language, what really sets people apart—or holds them back—is speaking. If you want to double your salary, you need to master spoken English. That’s why I am building VoiceCard: to help developers break through the speaking barrier and unlock the next level in their careers.
+Anybody software developer in Mexico can write a perfect email or slack message in English using an LLLM. Reading and listening? No problem. They've already spent hours pouring over documentation and watching technical tutorials in English. What really sets people apart—or holds them back—is speaking. I'm building Voice Card to help developers in Mexico double their salary.
 
 
-**User Persona (30 seconds)**  
-Meet Roberto, a 29-year-old React Native engineer from Oaxaca, Mexico. He’s talented, ambitious, and dreams of working for a top U.S. tech company. Roberto reads and writes English every day—he’s great at understanding documentation and can chat on Slack without a problem. But when it comes to speaking, he freezes. He worries about his accent, gets stuck searching for the right words, and dreads video calls with international clients. Roberto knows that if he could speak English more confidently, he could land better jobs, lead projects, and double his salary. He just needs a way to practice real conversations, and efficiently level up his speaking and pronunciation.
+**User Persona (40 seconds)**  
+Meet Roberto, a 29-year-old React Native engineer from Oaxaca, Mexico. He's been programming every day since he was 13-years-old. Roberto reads and writes English every day—he’s great at understanding documentation and can chat on Slack without a problem. But when it comes to speaking, he freezes. He worries about his accent, gets stuck searching for the right words, and dreads video calls with international clients. Roberto knows that if he could speak English more confidently, he could land better jobs, lead projects, and double his salary. He just needs a way to practice real conversations applicable to his job, and efficiently level up his speaking and pronunciation.
 
 
 **Why Current Products Fall Short**
-Speaking skills are hard. And a lot of developers have a solid vocabulalry, but need to focus on pronunciation and phrases, like phrasal verbs, that are more common in spoken English. Language schools typically focus on generic reading and grammar, providing insufficient instruction in vocabulary and speaking, and definitely not tailored to developers. Students could turn to flash card based apps like Anki, Duolingo, but these tools aren't tailored to the unique linguistic profile of developers.
+Speaking and pronunciation is hard.
+
+A lot of developers have a unique linguistic profile: high reading and listening skills, but low speaking skills. My hypothesis is they need vocabulalry and pronunciation instruction specifically tailored to the field of software engineering. Apps like Duolingo focus on generic language learning solutions so they teach beginners how to say "the cat is on the table" rather rather than "the pull request is closed". In short existing products in the market don't focus on the unique linguistic needs of software developers. I am building Voice Card to fill this gap by combining scientically proven spaced repitition methods with conversational AI.
+
+For those that don't know, spaced reptition is a flashcard based system where the items you get wrong are the ones you review more often.
 
 **Spanish-Speaking Developers in Latin America**
 I decided to focus this app on Spanish-speaking software developers in Latin America. This is a massive and rapidly growing market. According to 2024 industry data, there are over 1.5 million Spanish-speaking developers in Latin America, with Mexico leading at 800,000, followed by Argentina at 167,000, and Colombia at 165,000 developers.
 
-The nearshoring boom is driving unprecedented demand. Remote applications from LatAm developers have increased by 285% in the last five years, and U.S. companies increased their year-over-year hiring in Latin America by 50% in 2023. This $20 billion market is growing at 9% annually, offering 50-60% salary savings compared to U.S. tech hubs.
+The so-called "nearshoring boom" is driving unprecedented demand. Remote applications from LatAm developers have increased by 285% in the last five years, and U.S. companies increased their year-over-year hiring in Latin America by 50% in 2023. This $20 billion market is growing at 9% annually, offering 50-60% salary savings compared to U.S. tech hubs.
 
-However, a critical barrier remains: 45% of Latin American engineers prioritize language learning opportunities. While their technical skills are exceptional, speaking proficiency in English directly correlates with career advancement and access to higher-paying international opportunities. This is our target market.
+It is also true that this global economic phenomenon also offers significant opportunties for Latam Engineers, but many times, only for those can communicate effectively in English. In fact, nearly half of Latin American engineers prioritize language learning opportunities over technical learnings. Everyone knows, speaking proficiency in English directly correlates with career advancement and access to higher-paying international opportunities.
 
 *Sources: Terminal.io (2024 Developer Hiring Trends), BairesDev Remote Applicant Report, Statista Developer Census, HatchWorks Nearshore Statistics*
 
