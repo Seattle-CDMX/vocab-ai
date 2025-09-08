@@ -1,5 +1,5 @@
 **Brief Hook** 
-Any developer, who doesn't speak English as their native language, can write a perfect email or slack message using an LLLM. Reading and listening? No problem. They've already spent hours pouring over documentation and watching technical tutorials in English. For developers competing for jobs in Mexico and other countries where English is not the primary language, what really sets people apart—or holds them back—is speaking. If you want to double your salary, you need to master spoken English. That’s why I built VoiceCard: to help developers break through the speaking barrier and unlock the next level in their careers.
+Any developer, who doesn't speak English as their native language, can write a perfect email or slack message using an LLLM. Reading and listening? No problem. They've already spent hours pouring over documentation and watching technical tutorials in English. For developers competing for jobs in Mexico and other countries where English is not the primary language, what really sets people apart—or holds them back—is speaking. If you want to double your salary, you need to master spoken English. That’s why I am building VoiceCard: to help developers break through the speaking barrier and unlock the next level in their careers.
 
 
 **User Persona (30 seconds)**  

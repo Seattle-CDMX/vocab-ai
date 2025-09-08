@@ -99,13 +99,6 @@ const Hero = ({ isAuthenticated, onSignOut }: { isAuthenticated: boolean; onSign
                 <Button 
                   variant="ghost" 
                   size="sm"
-                  onClick={() => router.push('/slides')}
-                >
-                  Slides
-                </Button>
-                <Button 
-                  variant="ghost" 
-                  size="sm"
                   onClick={() => router.push('/sound-brain-map')}
                 >
                   <Brain className="w-4 h-4 mr-1" />
@@ -160,15 +153,6 @@ const Hero = ({ isAuthenticated, onSignOut }: { isAuthenticated: boolean; onSign
                     Book
                   </button>
                   <button 
-                    className="w-full text-left px-4 py-2 hover:bg-muted"
-                    onClick={() => {
-                      router.push('/slides');
-                      setIsMobileMenuOpen(false);
-                    }}
-                  >
-                    Slides
-                  </button>
-                  <button 
                     className="w-full text-left px-4 py-2 hover:bg-muted flex items-center gap-2"
                     onClick={() => {
                       router.push('/sound-brain-map');
@@ -219,15 +203,6 @@ const Hero = ({ isAuthenticated, onSignOut }: { isAuthenticated: boolean; onSign
                   >
                     <BookOpen className="w-4 h-4" />
                     Book
-                  </button>
-                  <button 
-                    className="w-full text-left px-4 py-2 hover:bg-muted"
-                    onClick={() => {
-                      router.push('/slides');
-                      setIsMobileMenuOpen(false);
-                    }}
-                  >
-                    Slides
                   </button>
                   <button 
                     className="w-full text-left px-4 py-2 hover:bg-muted flex items-center gap-2"
